@@ -1,0 +1,29 @@
+Laravel v8.33.1 (PHP v7.4.5)
+Timezone -> Asia/Dushanbe
+
+---Installed packages & plugins---
+Bootstrap v5.0
+Google Roboto Font
+JQuery v3.6
+Font Awesome 5
+
+---Authentication---
+For authentication used Laravel Breeze and all routes have been disabled except Login & Logout (/routes/auth.php)
+
+---Localiztion---
+English translations are written on \resources\lang\en.json file
+
+1)Created Middleware 'Language', that will change appLocale into sessionLocale
+$this->app->setLocale(session('my_locale', config('app.locale')));
+
+2)Language Middleware added into App/Http/KerneL
+$middleware = [
+\App\Http\Middleware\Language::class,
+protected $middlewareGroups = [
+\App\Http\Middleware\Language::class,   *after StartSession Middleware
+
+3)On language change we store 'my_locale' variable in session
+session(['my_locale' => 'ru']);
+
+4)Locale & fallback_locale (default languages) setted as 'ru' (config/app.php)
+

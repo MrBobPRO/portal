@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+//Language change routes
+Route::post('/setLangRu', 'LanguageController@setLangRu');
+Route::post('/setLangEn', 'LanguageController@setLangEn');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', 'HomeController@index');
 
 require __DIR__.'/auth.php';
