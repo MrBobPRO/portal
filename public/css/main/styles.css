@@ -1,0 +1,101 @@
+
+body {
+   font-family: 'Roboto', sans-serif;
+   font-size: 16px;
+}
+*:focus {
+   outline: none;
+}
+button:focus {
+   outline: none;
+}
+::-moz-selection { /* Code for Firefox */
+   color: white;
+   background: #7151ed;
+ }
+ ::selection {
+   color: white;
+   background: #7151ed;
+ }
+ body::-webkit-scrollbar {
+   width: 8px;
+ }
+ body::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+ }
+ body::-webkit-scrollbar-thumb {
+ background-color: #7151ed;
+ outline: 1px solid #7151ed;
+ }
+ #scrollTop {
+   color: white;
+   font-size: 35px;
+   position: fixed;
+   bottom: 60px;
+   right: 40px;
+   background-color: #7151ed;
+   width: 60px;
+   height: 60px;
+   border-radius: 100%;
+   z-index: 99;
+   border: 2px solid #7151ed;
+   transition: 0.3s linear;
+}
+#scrollTop:hover {
+   background-color: white;
+   color: #7151ed;
+}
+#scrollTop:hover i {
+   -webkit-animation: bounce 0.5s infinite;
+   animation: bounce 0.5s infinite;
+}
+@keyframes bounce {
+   50% {
+     -webkit-transform: translateY(-5px);
+     -moz-transform: translateY(-5px);
+     -ms-transform: translateY(-5px);
+     -o-transform: translateY(-5px);
+     transform: translateY(-5px); 
+   } 
+}
+.primary-btn {
+   transition: all 0.5s ease 0s;
+   background: linear-gradient(rgb(95, 69, 235), rgb(126, 91, 239)) rgb(95, 69, 235);
+   color: rgb(249, 250, 252);
+   border: 1px solid rgb(126, 91, 239);
+   border-radius: 6px;
+   padding: 8px 35px;
+   line-height: 1;
+   font-weight: 400;
+   margin: 0;
+}
+.primary-btn:hover {
+   background:  rgb(249, 250, 252);
+   border: 1px solid rgb(126, 91, 239);
+   color: rgb(126, 91, 239);
+}
+.primary-btn-shadow {
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* PAGINATION */
+.pagination {
+   margin: 40px 0 0;
+   justify-content: center;
+}
+.page-link {
+   color: black;
+}
+.page-item.active .page-link {
+   background-color: #7151ed;
+   border-color: #7151ed;
+}
+.page-link:focus {
+   box-shadow: none;
+   color: black;
+}
+.page-link:hover {
+   color: black;
+}
+/* PAGINATION END */
