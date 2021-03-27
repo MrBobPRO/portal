@@ -1,4 +1,11 @@
 {
-   "Войти" : "Login",
-   "Добро пожаловать" : "Welcome"
+   "Добро пожаловать на сайт": "Welcome to the website for the",
+   "сотрудникам": "employees",
+   "компании ТГЭМ": "of the company ТГЭМ",
+   "Вход на сайт" : "Sign in",
+   "Имя пользователя": "Username",
+   "Пароль": "Password",
+   "Войти": "Login",
+   "Забыли пароль?": "Forgot your password?",
+   "Все права защищены": "All rights reserved"
 }

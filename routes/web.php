@@ -19,4 +19,6 @@ Route::post('/setLangEn', 'LanguageController@setLangEn');
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/videos', 'HomeController@videos');
+
 require __DIR__.'/auth.php';

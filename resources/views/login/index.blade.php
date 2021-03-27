@@ -63,9 +63,9 @@
                <div class="login-title">Вход на сайт</div>
                <form id="login-form" method="POST">
                   @csrf
-                  <input type="text" placeholder="{{ __('Имя пользователя') }}">
+                  <input type="email" name="email" :value="old('email')" required autofocus type="text" placeholder="{{ __('Имя пользователя') }}">
                   <div class="password-item">
-                     <input id="password" type="password" placeholder="{{ __('Пароль') }}">
+                     <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="{{ __('Пароль') }}">
                      <button id="password-btn" type="button">
                         <i id="icon" class="fa fa-eye"></i>
                      </button>
