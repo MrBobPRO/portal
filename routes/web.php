@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/setLangRu', 'LanguageController@setLangRu');
 Route::post('/setLangEn', 'LanguageController@setLangEn');
 
+Route::post('/login', 'HomeController@login');
+
 Route::get('/', 'HomeController@index');
 
 Route::get('/videos', 'HomeController@videos');

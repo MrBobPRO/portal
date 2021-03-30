@@ -151,7 +151,6 @@ button:focus {
 .dashboard a:hover {
    color: #206aa0;
    background: white;
-   font-weight: 500;
 }
 .dashboard a i {
    margin-right: 12px;
