@@ -111,21 +111,16 @@ button:focus {
 /* Dashboard start */
 .dashboard {
    position: fixed;
-   min-height: 100vh;
+   height: 100%;
    background: #004578;
-   padding: 40px 0px;
    box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22)!important;
    display: flex;
    flex-direction: column;
-   overflow: hidden;
    transition-duration: 0.3s;
    transition-timing-function: cubic-bezier(1,0,0,1);
 }
-.dashboard:hover {
-   max-width: 100%;
-}
-.dashboard:hover a div {
-   visibility: visible;
+.dashboard:hover a span {
+   display: inline;
 }
 .dashboard .ava-container {
    width: 100%;
@@ -137,43 +132,66 @@ button:focus {
    height: 60px;
    object-fit: cover;
    border-radius: 50%;
-   margin-bottom: 30px;
+   margin: 20px;
 }
 .dashboard a {
    color: white;
-   margin-bottom: 8px;
-   display: flex;
-   align-items: center;
+   margin: 10px 0px;
+   padding: 12px;
+   display: grid;
+   grid-template-columns: 30px 1fr;
    text-decoration: none;
-   padding: 0 30px;
-   min-height: 34px;
 }
 .dashboard a:hover {
    color: #206aa0;
    background: white;
 }
 .dashboard a i {
-   margin-right: 12px;
-   padding-bottom: 4px;
+   font-size: 20px;
+   display: block;
+   margin: 0 auto;
 }
-.dashboard a div {
+.dashboard a span {
    transition: visibility 0.2s linear;
+   margin: 0 10px;
 }
 /* Dashboard end */
 
 /* Navbar start */
 .main-navbar {
+   margin: 0;
+   padding: 0;
    background: white;
-   padding: 10px 0px;
    display: flex;
    justify-content: space-around;
+   border-bottom: 3px solid #274776;
 }
-.main-navbar a {
+.navbar-items {
+   display: block;
+   padding: 8px 4px;
+   position: relative;
+}
+.navbar-items:hover {
+   cursor: pointer;
+   background-color: rgba(0, 0, 0, 0.05);
+}
+.navbar-items div {
+   position: absolute;
+   bottom: -1px;
+   left: 0;
+   width: 100%;
+   border-bottom: 3px solid #274776;
+   visibility: hidden;
+}
+.navbar-items div.active {
+   visibility: visible;
+}
+.navbar-items a {
    font-weight: 500;
    color: #030F4F;
    text-decoration: none;
 }
-.main-navbar a i {
+.navbar-items a i {
    color: #0080E6;
    margin-right: 3px;
 }

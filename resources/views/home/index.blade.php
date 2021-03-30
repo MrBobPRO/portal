@@ -2,7 +2,7 @@
 @extends('templates.master')
 @section('content')
    <div class="content">
-      @include('templates.navbar')
+      <h1>home page</h1>
    </div>
-
+   
 @endsection

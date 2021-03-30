@@ -60,7 +60,7 @@
          </div>
          <div class="col-12 col-lg-4">
             <div class="form-box">
-               <div class="login-title">Вход на сайт</div>
+               <div class="login-title">{{ __('Вход на сайт') }}</div>
                <form id="login-form" method="POST">
                   @csrf
                   <input type="email" name="email" :value="old('email')" required autofocus type="text" placeholder="{{ __('Имя пользователя') }}">
