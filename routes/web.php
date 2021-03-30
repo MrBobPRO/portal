@@ -19,7 +19,18 @@ Route::post('/setLangEn', 'LanguageController@setLangEn');
 
 Route::post('/login', 'HomeController@login');
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+//ABOUT COMPANY
+Route::get('/about', 'AboutController@index')->name('about');
+//NEWS PAGE
+Route::get('/news', 'NewsController@index')->name('news');
+//ENTERTAINMENT PAGE
+Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment');
+//PROJECTS AND INITIATIVE
+Route::get('/projects', 'ProjectsController@index')->name('projects');
+//KNOWLEDGE CENTER
+Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge');
+
 
 Route::get('/videos', 'HomeController@videos');
 

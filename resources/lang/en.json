@@ -7,5 +7,15 @@
    "Пароль": "Password",
    "Войти": "Login",
    "Забыли пароль?": "Forgot your password?",
-   "Все права защищены": "All rights reserved"
+   "Главная": "Home",
+   "О компании": "About",
+   "Новости": "News",
+   "Развлечения": "Entertainment",
+   "Проекты и инициативы": "Projects and Initiatives",
+   "Центр знаний": "Knowledge center",
+   "Настройки": "Settings",
+   "Загрузки": "Downloads",
+   "Профиль": "Profile",
+   "Награды": "Awards",
+   "Выйти": "Logout"
 }
