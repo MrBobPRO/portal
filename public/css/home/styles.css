@@ -47,6 +47,11 @@
 .news-items div p {
    width: 530px;
    align-self: center;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 6;
+   -webkit-box-orient: vertical;
 }
 .date {
    color: #004578;
@@ -121,4 +126,9 @@
    margin: 0;
    color: #004578;
    font-weight: 400;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
 }
