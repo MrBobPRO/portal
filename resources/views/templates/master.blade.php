@@ -23,7 +23,7 @@
 <body>
 
    @include('templates.dashboard')
-   
+   @include('templates.toolbar')
    <div class="main-container">
       @include('templates.navbar')
       @yield('content')

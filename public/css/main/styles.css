@@ -81,8 +81,8 @@ button:focus {
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 .main-container {
-    width: 1300px;
-    padding-top: 40px;
+    width: 1600px;
+    padding-top: 70px;
     padding-left: 170px;
     margin: auto;
 }
@@ -110,6 +110,7 @@ button:focus {
 
 /* Dashboard start */
 .dashboard {
+   padding-top: 40px;
    position: fixed;
    height: 100%;
    background: #004578;
@@ -132,11 +133,12 @@ button:focus {
    height: 60px;
    object-fit: cover;
    border-radius: 50%;
-   margin: 20px;
+   margin: 40px 20px;
+   margin-bottom: 20px;
 }
 .dashboard a {
    color: white;
-   margin: 10px 0px;
+   margin: 2px 0px;
    padding: 12px;
    display: grid;
    grid-template-columns: 30px 1fr;
@@ -232,3 +234,53 @@ nav {
    inset: 0px auto auto -55px !important;
 }
 /* Navbar end */
+/* TOOLBAR START */
+.toolbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   background-color: white;
+   height: 40px;
+   width: 100%;
+}
+.toolbar-right {
+   margin: 0;
+   padding: 0;
+   margin-left: 200px;
+   display: grid;
+   grid-template-columns: 40px 40px 40px;
+   align-items: center;
+   justify-items: center;
+}
+.toolbar-items {
+   display: block;
+   cursor: pointer;
+}
+.toolbar-items i {
+   color: grey;
+}
+.search-form {
+   position: relative;
+}
+.search-form input {
+   border: 3px solid #E0E6EB;
+   border-radius: 20px;
+   padding: 0 15px;
+   background-color: #F7F7F7;
+   width: 600px;
+}
+.search-form button {
+   border: none;
+   background: none;
+   color: #b9b9b9;
+   position: absolute;
+   left: 560px;
+   top: 4px;
+}
+.search-form button i {
+   font-size: 18px;
+}
+/* TOOLBAR END */
