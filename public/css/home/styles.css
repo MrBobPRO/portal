@@ -1,1 +1,124 @@
-
+.content {
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 16px;
+}
+.clearfix {
+   display: table;
+   content: "";
+   clear: both;
+}
+.news-list {
+   padding: 0;
+   margin: 0;
+}
+.info {
+   display: block;
+   color: #004578;
+   padding: 40px 140px;
+   font-size: 20px;
+   font-style: italic;
+}
+.news-items {
+   display: block;
+   background-color: #fff;
+   border: 2px solid #004578;
+   padding: 12px;
+   border-radius: 8px;
+   margin: 16px 0;
+}
+.news-items img {
+   float: left;
+   display: block;
+   background-color: #d8d8d8;
+   width: 300px;
+   height: 250px;
+   border-radius: 4px;
+}
+.news-items div {
+   float: left;
+   padding: 10px 40px;
+   display: grid;
+   grid-template-rows: 40px 160px 1fr;
+}
+.news-items h3 {
+   color: #004578;
+}
+.news-items div p {
+   width: 530px;
+   align-self: center;
+}
+.date {
+   color: #004578;
+   font-weight: bold;
+   margin: 0px;
+   text-align: right;
+   padding-top: 5px;
+   border-top: 1px solid #004578;
+}
+.BD-card {
+   margin-top: 20px;
+}
+.BD-list::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -10px;
+   border-left: 3px solid #004578;
+   border-right: 3px solid #299DFE;
+   background-color: #fff;
+   height: 100%;
+   width: 9px;
+}
+.BD-list {
+   position: relative;
+   margin: 16px;
+   padding-left: 20px;
+}
+.BD-items::before {
+   position: absolute;
+   top: 50%;
+   left: -42px;
+   margin-top: -13px;
+   border-radius: 50%;
+   content: "";
+   width: 28px;
+   height: 28px;
+   border: 4px solid #004578;
+   background-color: #fff;
+}
+.BD-items {
+   position: relative;
+   display: block;
+   border: 2px solid #299DFE;
+   margin: 10px 0px;
+   border-radius: 4px;
+   background-color: #F7F7F7;
+   padding: 24px;
+}
+.BD-items img {
+   display: block;
+   width: 150px;
+   height: 150px;
+   background-color: #d8d8d8;
+   border-radius: 50%;
+   margin: 0 auto;
+}
+.BD-items dl {
+   margin: 0;
+   margin-top: 10px;
+   text-align: center;
+}
+.BD-items dt {
+   color: #004578;
+}
+.BD-items dd {
+   margin: 0;
+   color: #299DFE;
+   font-size: 14px;
+}
+.BD-items p {
+   margin: 0;
+   color: #004578;
+   font-weight: 400;
+}

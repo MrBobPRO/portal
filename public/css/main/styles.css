@@ -245,6 +245,7 @@ nav {
    background-color: white;
    height: 40px;
    width: 100%;
+   z-index: 9;
 }
 .toolbar-right {
    margin: 0;
