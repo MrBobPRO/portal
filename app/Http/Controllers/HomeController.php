@@ -16,10 +16,14 @@ class HomeController extends Controller
     public function index()
     {   
         $todayBDs = User::whereMonth('birth_date', date('m'))->whereDay('birth_date', date('d'))->get();
-        
+
+        // $tomorrow = date("m-d", strtotime("+ 1 day"));
+        // $afterTomorrow = date("m-d", strtotime("+ 1 day"));
+        $tomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 1 day')))->whereDay('birth_date', date('d', strtotime('+ 1 day')))->get();
+        $afterTomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 2 day')))->whereDay('birth_date', date('d', strtotime('+ 2 day')))->get();
         $news = News::latest()->take(3)->get();
 
-        return view('home.index', compact('news', 'todayBDs'));
+        return view('home.index', compact('news', 'todayBDs', 'tomorrowBDs', 'afterTomorrowBDs'));
     }
 
     public function videos()

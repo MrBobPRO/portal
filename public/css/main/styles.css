@@ -81,7 +81,7 @@ button:focus {
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 .main-container {
-    width: 1600px;
+    width: 1500px;
     padding-top: 70px;
     padding-left: 170px;
     margin: auto;

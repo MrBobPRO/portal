@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         $surnames = ['Vespuchi', 'Banner', 'Bahramov', 'Odinaeva', 'Fleck'];
         $emails = ['ikrom@mail.ru', 'bruce@mail.ru', 'murod@mail.ru', 'raketa@mail.ru', 'arthur@mail.ru'];
         $birthdays = [
-            date_create_from_format('Y-m-d', '1997-03-31'),
+            date_create_from_format('Y-m-d', '1997-04-01'),
             date_create_from_format('Y-m-d', '1987-03-31'),
-            date_create_from_format('Y-m-d', '1956-08-11'),
-            date_create_from_format('Y-m-d', '1800-03-11'),
+            date_create_from_format('Y-m-d', '1956-04-05'),
+            date_create_from_format('Y-m-d', '1800-04-04'),
             date_create_from_format('Y-m-d', '2001-03-11')
         ];
         for ($i=0; $i < count($names); $i++) 
