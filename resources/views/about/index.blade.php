@@ -1,6 +1,10 @@
 @extends('templates.master')
 @section('content')
 
-   <h1>About page</h1>
+   <section class="about">
+
+      <h1>About page</h1>
+      
+   </section>
 
 @endsection

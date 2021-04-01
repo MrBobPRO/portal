@@ -65,56 +65,5 @@
    padding-top: 5px;
    border-top: 1px solid #004578;
 }
-.BD-card {
-   margin-top: 20px;
-   z-index: -1;
-}
-.sidebar {
-   background-color: #fff;
-   padding: 20px;
-   border-radius: 8px;
-}
-.BD-list {
-   position: relative;
-   margin: 16px;
-   padding: 0px;
-}
-.BD-items {
-   position: relative;
-   display: block;
-   margin: 10px 0px;
-   border-radius: 4px;
-   padding: 24px;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-}
-.BD-items img {
-   display: block;
-   width: 150px;
-   height: 150px;
-   background-color: #d8d8d8;
-   border-radius: 50%;
-   margin: 0 auto;
-}
-.BD-items dl {
-   margin: 0;
-   margin-top: 10px;
-   text-align: center;
-}
-.BD-items dt {
-   color: #004578;
-}
-.BD-items dd {
-   margin: 0;
-   color: #299DFE;
-   font-size: 14px;
-}
-.BD-items p {
-   margin: 0;
-   color: #004578;
-   font-weight: 400;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 4;
-   -webkit-box-orient: vertical;
-}
+
+

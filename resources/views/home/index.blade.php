@@ -1,6 +1,6 @@
 @extends('templates.master')
 @section('content')
-   <div class="home-page">
+   <section class="home-page">
       
       <ul class="news-list">
          @foreach ($news as $new)
@@ -17,10 +17,6 @@
          @endforeach
       </ul>
 
-      <div class="BD-card">
-         @include('home.sidebar')
-      </div>
-
-   </div>
+   </section>
    
 @endsection
