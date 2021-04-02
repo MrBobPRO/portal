@@ -1,69 +1,72 @@
 .home-page {
-   display: grid;
-   grid-template-columns: 2fr 1fr;
-   gap: 16px;
-   width: 1280px;
-   margin: 0 auto;
+   width: 100%;
 }
-.clearfix {
-   display: table;
-   content: "";
-   clear: both;
+.owl-carousel {
+   position: relative;
 }
-.news-list {
-   padding: 0;
-   margin: 0;
-}
-.info {
-   display: block;
-   color: #004578;
-   padding: 40px 140px;
-   font-size: 20px;
-   font-style: italic;
-}
-.news-items {
-   display: block;
-   background-color: #fff;
-   border: 2px solid #004578;
-   padding: 12px;
-   border-radius: 8px;
-   margin: 16px 0;
-}
-.news-items img {
-   float: left;
-   display: block;
-   background-color: #d8d8d8;
-   width: 300px;
-   height: 250px;
-   border-radius: 4px;
+.owl-carousel .item img {
+   width: 100%;
    object-fit: cover;
-   object-position: center;
+   height: 500px;
+   padding: 35px;
 }
-.news-items div {
-   float: left;
-   padding: 10px 40px;
-   display: grid;
-   grid-template-rows: 40px 160px 1fr;
-}
-.news-items h3 {
-   color: #004578;
-}
-.news-items div p {
-   width: 430px;
-   align-self: center;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 6;
-   -webkit-box-orient: vertical;
-}
-.date {
-   color: #004578;
+.owl-carousel .owl-nav button.owl-next {
+   font-size: 40px;
+   position: absolute;
+   right: 10px;
+   top: 225px;
+   color: #fff;
+   background-color: rgb(255, 255, 255);
+   width: 40px;
+   line-height: 40px;
+   border-radius: 50%;
    font-weight: bold;
-   margin: 0px;
-   text-align: right;
-   padding-top: 5px;
-   border-top: 1px solid #004578;
 }
-
-
+.owl-carousel .owl-nav button.owl-next:hover {
+   color: rgb(204, 204, 204);
+   background-color: rgb(204, 204, 204);
+}
+.owl-carousel .owl-nav button.owl-next::after {
+   color: grey;
+   font-family: "Font Awesome 5 Free";
+   font-weight: bold;
+   content: "\f105";
+   position: relative;
+   top: 0px;
+   left: -3px;
+   font-size: 32px;
+   line-height: 40px;
+}
+.owl-carousel .owl-nav button.owl-prev {
+   font-size: 40px;
+   position: absolute;
+   left: 10px;
+   top: 225px;
+   color: #fff;
+   background-color: rgb(255, 255, 255);
+   width: 40px;
+   line-height: 40px;
+   border-radius: 50%;
+   font-weight: bold;
+}
+.owl-carousel .owl-nav button.owl-prev:hover {
+   color: rgb(204, 204, 204);
+   background-color: rgb(204, 204, 204);
+}
+.owl-carousel .owl-nav button.owl-prev::after {
+   color: grey;
+   font-family: "Font Awesome 5 Free";
+   font-weight: bold;
+   content: "\f104";
+   position: relative;
+   top: 0px;
+   left: -8px;
+   font-size: 32px;
+   line-height: 40px;
+}
+.owl-theme .owl-dots {
+   position: absolute;
+   bottom: 36px;
+   left: 50%;
+   margin-left: -36px;
+}

@@ -27,8 +27,12 @@
    @include('templates.toolbar')
    
    <main>
-      @yield('content')
-      @include('templates.sidebar')
+      <div class="content">
+         @yield('content')
+      </div>
+      <div id="sidebar">
+         @include('templates.sidebar')
+      </div>
    </main>
 
    @include('templates.dashboard')
