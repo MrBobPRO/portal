@@ -22,6 +22,9 @@ Route::post('/login', 'HomeController@login');
 Route::get('/', 'HomeController@index')->name('home');
 //ABOUT COMPANY
 Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/about/aboutus', 'AboutController@aboutus')->name('about.aboutus');
+Route::get('/about/structure', 'AboutController@structure')->name('about.structure');
+Route::get('/about/leadership', 'AboutController@leadership')->name('about.leadership');
 //NEWS PAGE
 Route::get('/news', 'NewsController@index')->name('news');
 //ENTERTAINMENT PAGE

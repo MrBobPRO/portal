@@ -1,9 +1,9 @@
-<nav>
+<nav class="main-nav">
    <ul class="navbar">
       <li class="navbar-items {{ $route == 'home' ? 'active' : ''}}">
          <a href="/">{{ __('Главная') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'about' ? 'active' : ''}}">
+      <li class="navbar-items {{ $route == 'about' || $route == 'about.aboutus' || $route == 'about.structure' || $route == 'about.leadership' ? 'active' : ''}}">
          <a href="/about">{{ __('О компании') }}</a>
       </li>
       <li class="navbar-items {{ $route == 'news' ? 'active' : ''}}">

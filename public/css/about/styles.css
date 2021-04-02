@@ -1,0 +1,131 @@
+/* About Page start */
+.about-page {
+   padding-right: 30px;
+}
+.about__nav {
+   background: #fff;
+   padding: 18px;
+   border-radius: 14px;
+}
+.about__nav-list {
+   margin: 0;
+   padding: 0 0 0 0;
+   display: flex;
+   justify-content: space-between;
+}
+.about__nav-items {
+   display: block;
+   background-color: #fff;
+   border-radius: 8px;
+}
+.about__nav-items:hover {
+   box-shadow: 0 0 30px rgba(0, 159, 217, 1);
+}
+.about__nav-items a {
+   display: block;
+   text-decoration: none;
+   text-align: center;
+   font-size: 25px;
+   font-weight: bold;
+   color: #004578;
+   padding-bottom: 10px;
+}
+.about__nav-items img {
+   display: block;
+   width: 300px;
+   height: 250px;
+   background-color: #dfdfdf;
+   border-radius: 8px 8px 0 0;
+   object-fit: cover;
+   margin-bottom: 8px;
+}
+.about-company {
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 30px rgba(90, 178, 255, 0.2);
+   padding: 20px;
+   margin-top: 50px;
+}
+.title {
+   font-size: 25px;
+   color: #004578;
+   font-weight: bold;
+}
+.about-company-text li{
+   padding: 10px 0px;
+}
+/* About Page end */
+
+/* About__About Us page start */
+.aboutus-page {
+   margin-right: 20px;
+}
+.aboutus-header {
+   padding: 40px 20px 10px 20px;
+}
+.aboutus-page .title {
+   text-transform: uppercase;
+   font-size: 30px;
+}
+.crumbs {
+   margin: 10px 0 25px 0;
+   padding: 0 0 0 0;
+   display: flex;
+}
+.crumbs-items {
+   display: block;
+   position: relative;
+   margin-right: 30px;
+}
+.crumbs-items:last-child {
+   color: grey;
+   cursor: context-menu;
+}
+.crumbs-items a {
+   text-transform: uppercase;
+   text-decoration: none;
+   color: #004578;
+   font-weight: bold;
+}
+.crumbs-items i {
+   transform: rotate(45deg);
+   font-size: 6px;
+   position: absolute;
+   top: 8.5px;
+   right: -20px;
+}
+.whoarewe-text {
+   background-color: white;
+   border-radius: 8px;
+   padding: 25px;
+   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+   margin-top: 20px;
+}
+.extra-info {
+   background-color: #fff;
+   margin-top: 24px;
+   border-radius: 8px;
+   padding: 30px;
+   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+   text-align: center;
+}
+.extra-info b {
+   font-size: 18px;
+   margin-bottom: 30px;
+   display: block;
+}
+.info-img-list {
+   padding: 0;
+   margin: 0;
+   display: flex;
+   align-items: center;
+}
+.info-items {
+   display: block;
+   padding: 10px;
+}
+.info-items img {
+   width: 100%;
+   box-shadow: 0 0 20px #ddd;
+}
+/* About__About Us page end */
