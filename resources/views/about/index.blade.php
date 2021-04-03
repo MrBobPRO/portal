@@ -13,7 +13,7 @@
             </li>
             <li class="about__nav-items">
                <a href="/about/structure">
-                  <img src="{{ asset('img/about/structure.gif') }}" alt="image">
+                  <img src="{{ asset('img/about/structure.jpg') }}" alt="image">
                   {{ __('Структура') }}
                </a>
             </li>

@@ -5,13 +5,22 @@
       
       <div class="owl-carousel owl-theme">
          <div class="item">
-            <img src="{{ asset('img/home/k1.jpg') }}" alt="img">
+            <img src="{{ asset('img/home/slider1.jpg') }}" alt="img">
          </div>
          <div class="item">
-            <img src="{{ asset('img/home/k2.jpg') }}" alt="img">
+            <img src="{{ asset('img/home/slider2.jpg') }}" alt="img">
          </div>
          <div class="item">
-            <img src="{{ asset('img/home/k3.jpg') }}" alt="img">
+            <img src="{{ asset('img/home/slider3.jpg') }}" alt="img">
+         </div>
+         <div class="item">
+            <img src="{{ asset('img/home/slider4.jpg') }}" alt="img">
+         </div>
+         <div class="item">
+            <img src="{{ asset('img/home/slider5.jpg') }}" alt="img">
+         </div>
+         <div class="item">
+            <img src="{{ asset('img/home/slider6.jpg') }}" alt="img">
          </div>
      </div>
 

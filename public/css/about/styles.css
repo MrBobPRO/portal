@@ -98,12 +98,18 @@
    top: 8.5px;
    right: -20px;
 }
-.whoarewe-text {
+.whoarewe {
    background-color: white;
    border-radius: 8px;
-   padding: 25px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
    margin-top: 20px;
+}
+.whoarewe img {
+   width: 100%;
+   border-radius: 8px 8px 0 0;
+}
+.whoarewe-text {
+   padding: 25px;
 }
 .extra-info {
    background-color: #fff;

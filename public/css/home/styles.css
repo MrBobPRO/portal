@@ -8,19 +8,19 @@
 .owl-carousel .item img {
    width: 100%;
    object-fit: cover;
-   height: 450px;
 }
 .owl-carousel .owl-nav button.owl-next {
    font-size: 40px;
    position: absolute;
    right: -25px;
-   top: 210px;
+   top: 50%;
    color: #fff;
    background-color: rgb(255, 255, 255);
    width: 40px;
    line-height: 40px;
    border-radius: 50%;
    font-weight: bold;
+   margin-top: -20px;
 }
 .owl-carousel .owl-nav button.owl-next:hover {
    color: rgb(204, 204, 204);
@@ -41,13 +41,14 @@
    font-size: 40px;
    position: absolute;
    left: -25px;
-   top: 210px;
+   top: 50%;
    color: #fff;
    background-color: rgb(255, 255, 255);
    width: 40px;
    line-height: 40px;
    border-radius: 50%;
    font-weight: bold;
+   margin-top: -20px;
 }
 .owl-carousel .owl-nav button.owl-prev:hover {
    color: rgb(204, 204, 204);
@@ -67,8 +68,7 @@
 .owl-theme .owl-dots {
    position: absolute;
    bottom: 10px;
-   left: 50%;
-   margin-left: -36px;
+   width: 100%;
 }
 .about-company {
    background-color: #fff;
