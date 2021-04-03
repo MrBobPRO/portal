@@ -60,10 +60,14 @@
 .aboutus-page {
    margin-right: 20px;
 }
-.aboutus-header {
-   padding: 40px 20px 10px 20px;
+.aboutus-header, 
+.structure-header,
+.leadership-header {
+   padding: 0px 20px 10px 20px;
 }
-.aboutus-page .title {
+.aboutus-page .title, 
+.structure-page .title,
+.leadership-page .title {
    text-transform: uppercase;
    font-size: 30px;
 }
@@ -129,3 +133,40 @@
    box-shadow: 0 0 20px #ddd;
 }
 /* About__About Us page end */
+
+/* About__Structure page start  */
+.structure-page {
+   padding-right: 30px;
+}
+.structure-content {
+   border-radius: 8px;
+   background-color: white;
+   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+   margin: 30px 0;
+}
+.structure-content img {
+   width: 100%;
+   border-radius: 8px 8px 0 0;
+}
+.structure-content-content {
+   padding: 30px;
+}
+/* About__Structure page end  */
+
+/* About__Structure page start  */
+.leadership-page {
+   padding-right: 30px;
+}
+.leadership-content {
+   background-color: #fff;
+   border-radius: 8px;
+   padding-bottom: 1px;
+}
+.leadership-content img {
+   width: 100%;
+   border-radius: 8px 8px 0 0;
+}
+.leadership-content p {
+   margin: 20px;
+}
+/* About__Structure page end  */

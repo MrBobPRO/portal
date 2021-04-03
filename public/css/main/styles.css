@@ -285,7 +285,7 @@ main {
    font-size: 13px;
    font-weight: bold;
    display: flex;
-   justify-content: center;
+   justify-content: start;
 }
 .dropdown button i {
    margin-left: 2px;
@@ -342,6 +342,7 @@ main {
    background-color: #d8d8d8;
    border-radius: 50%;
    margin: 0 auto;
+   object-fit: cover;
 }
 .BD-items dl {
    margin: 0;
