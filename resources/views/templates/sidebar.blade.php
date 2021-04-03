@@ -7,7 +7,7 @@
          @foreach ($todayBDs as $todayBD)
    
                <li class="BD-items">
-                  <img src="{{ asset('img/home/' . $todayBD->avaUrl) }}" alt="Avatar...">
+                  <img src="{{ asset('img/main/' . $todayBD->avaUrl) }}" alt="Avatar...">
                   <dl>
                      <dt>{{ $todayBD->name}} {{ $todayBD->surname }}</dt>
                      <dd>{{ $todayBD->birth_date }}</dd>
@@ -38,7 +38,7 @@
          @foreach ($tomorrowBDs as $tomorrowBD)
    
                <li class="BD-items">
-                  <img src="{{ asset('img/home/' . $tomorrowBD->avaUrl) }}" alt="Avatar...">
+                  <img src="{{ asset('img/main/' . $tomorrowBD->avaUrl) }}" alt="Avatar...">
                   <dl>
                      <dt>{{ $tomorrowBD->name}} {{ $tomorrowBD->surname }}</dt>
                      <dd>{{ $tomorrowBD->birth_date }}</dd>
@@ -55,7 +55,7 @@
          @foreach ($afterTomorrowBDs as $afterTomorrowBD)
    
                <li class="BD-items">
-                  <img src="{{ asset('img/home/' . $afterTomorrowBD->avaUrl) }}" alt="Avatar...">
+                  <img src="{{ asset('img/main/' . $afterTomorrowBD->avaUrl) }}" alt="Avatar...">
                   <dl>
                      <dt>{{ $afterTomorrowBD->name}} {{ $afterTomorrowBD->surname }}</dt>
                      <dd>{{ $afterTomorrowBD->birth_date }}</dd>

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+    public function companyNews($query)
+    {
+        $query->where('type', true);
+    }
+    public function worldNews($query)
+    {
+        $query->where('type', false);
+    }
 }
