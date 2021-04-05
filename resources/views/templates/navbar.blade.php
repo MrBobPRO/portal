@@ -6,7 +6,7 @@
       <li class="navbar-items {{ $route == 'about' || $route == 'about.aboutus' || $route == 'about.structure' || $route == 'about.leadership' ? 'active' : ''}}">
          <a href="/about">{{ __('О компании') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'news' ? 'active' : ''}} || {{ $route == 'news.companynews' ? 'active' : ''}} || {{ $route == 'news.worldnews' ? 'active' : ''}}">
+      <li class="navbar-items {{ $route == 'news' ? 'active' : ''}} || {{ $route == 'news.companynews' ? 'active' : ''}} || {{ $route == 'news.worldnews' ? 'active' : ''}} || {{ $route == 'news.show' ? 'active' : ''}}">
          <a href="/news">{{ __('Новости') }}</a>
       </li>
       <li class="navbar-items {{ $route == 'entertainment' ? 'active' : ''}}">
