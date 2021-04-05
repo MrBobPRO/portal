@@ -9,4 +9,14 @@ class NewsController extends Controller
     { 
         return view('news.index');
     }
+
+    public function companynews()
+    { 
+        return view('news.companynews');
+    }
+    public function worldnews()
+    { 
+        return view('news.worldnews');
+    }
+
 }

@@ -12,11 +12,6 @@
                      <dt>{{ $todayBD->name}} {{ $todayBD->surname }}</dt>
                      <dd>{{ $todayBD->birth_date }}</dd>
                   </dl>
-                  <p>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-                     atque facilis sequi cupiditate ab magnam nemo natus, 
-                     perspiciatis saepe odio vitae.
-                  </p>
                </li>
    
          @endforeach
@@ -43,11 +38,6 @@
                      <dt>{{ $tomorrowBD->name}} {{ $tomorrowBD->surname }}</dt>
                      <dd>{{ $tomorrowBD->birth_date }}</dd>
                   </dl>
-                  <p>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-                     atque facilis sequi cupiditate ab magnam nemo natus, 
-                     perspiciatis saepe odio vitae.
-                  </p>
                </li>
                
          @endforeach
@@ -60,9 +50,6 @@
                      <dt>{{ $afterTomorrowBD->name}} {{ $afterTomorrowBD->surname }}</dt>
                      <dd>{{ $afterTomorrowBD->birth_date }}</dd>
                   </dl>
-                  <p>
-                     Lorem ipsum dolor sit amet rg g consetur adipisicing elit.  
-                  </p>
                </li>
                
          @endforeach

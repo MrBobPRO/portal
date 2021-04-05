@@ -27,6 +27,8 @@ Route::get('/about/structure', 'AboutController@structure')->name('about.structu
 Route::get('/about/leadership', 'AboutController@leadership')->name('about.leadership');
 //NEWS PAGE
 Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/news/companynews', 'NewsController@companynews')->name('news.companynews');
+Route::get('/news/worldnews', 'NewsController@worldnews')->name('news.worldnews');
 //ENTERTAINMENT PAGE
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment');
 //PROJECTS AND INITIATIVE
