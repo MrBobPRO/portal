@@ -15,4 +15,8 @@
         <link href="{{ asset('css/news/styles.css') }}" rel="stylesheet">
     @break
 
+    @case('entertainment')
+        <link href="{{ asset('css/entertainment/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

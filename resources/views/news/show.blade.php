@@ -16,6 +16,19 @@
                <a href="/news">{{ __('Новости') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
+
+            @if ( $news->type == true)
+               <li class="crumbs-items">
+                  <a href="/news/companynews">{{ __('Новости компании') }}</a>
+                  <i class="fa fa-square-full"></i>
+               </li>
+            @else
+               <li class="crumbs-items">
+                  <a href="/news/worldnews">{{ __('Интересные мировые новости') }}</a>
+                  <i class="fa fa-square-full"></i>
+               </li> 
+            @endif
+
             <li class="crumbs-items">
                <a>{{ $news->title }}</a>
             </li>
