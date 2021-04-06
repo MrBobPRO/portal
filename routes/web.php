@@ -34,6 +34,7 @@ Route::get('/news/{news}', 'NewsController@show')->name('news.show');
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment');
 //PROJECTS AND INITIATIVE
 Route::get('/projects', 'ProjectsController@index')->name('projects');
+Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
 //KNOWLEDGE CENTER
 Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge');
 

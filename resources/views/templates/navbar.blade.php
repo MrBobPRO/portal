@@ -12,7 +12,7 @@
       <li class="navbar-items {{ $route == 'entertainment' ? 'active' : ''}}">
          <a href="/entertainment">{{ __('Развлечения') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'projects' ? 'active' : ''}}">
+      <li class="navbar-items {{ $route == 'projects' ? 'active' : ''}} || {{ $route == 'projects.show' ? 'active' : ''}}">
          <a href="/projects">{{ __('Проекты и инициативы') }}</a>
       </li>
       <li class="navbar-items {{ $route == 'knowledge' ? 'active' : ''}}">

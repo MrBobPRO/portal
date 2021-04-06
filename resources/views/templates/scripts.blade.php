@@ -14,4 +14,8 @@
         <script src="{{ asset('js/entertainment.js') }}"></script>
     @break
 
+    @case('projects') @case('projects.show') 
+        <script src="{{ asset('js/projects.js') }}"></script>
+    @break
+
 @endswitch

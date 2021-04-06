@@ -19,4 +19,8 @@
         <link href="{{ asset('css/entertainment/styles.css') }}" rel="stylesheet">
     @break
 
+    @case('projects') @case('projects.show')
+        <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

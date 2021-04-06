@@ -8,7 +8,7 @@ class EntertainmentController extends Controller
 {
     public function index()
     {   
-        $videos = Video::paginate(20);
+        $videos = Video::paginate(16);
 
         return view('entertainment.index', compact('videos'));
     }
