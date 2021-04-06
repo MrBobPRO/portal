@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\News;
 use App\Models\User;
+use App\Models\Video;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -87,5 +88,16 @@ class DatabaseSeeder extends Seeder
             $news->text = $texts[$i];
             $news->save();
         } 
+
+        $videoSrcs = ['first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4'];
+        $imageSrcs = ['lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg'];
+
+        for ($i=0; $i < count($videoSrcs); $i++) 
+        {
+            $videos = new Video;
+            $videos->videoSrc = $videoSrcs[$i];
+            $videos->imageSrc = $imageSrcs[$i];
+            $videos->save(); 
+        }
     }
 }
