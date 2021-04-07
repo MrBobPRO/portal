@@ -27,6 +27,12 @@
    border-radius: 8px;
    cursor: pointer;
 }
+.projects-items:hover {
+   box-shadow: 0 0 20px rgba(0,159,217, 0.7);
+}
+.projects-items a {
+   text-decoration: none;
+}
 .projects-items img {
    display: block;
    width: 100%;
@@ -36,9 +42,10 @@
 .projects-items h3 {
    text-align: center;
    text-transform: uppercase;
-   font-weight: bold;
    color: #004578;
    margin: 16px;
+   font-size: 20px;
+
 }
 
 /* Projects Show page */

@@ -23,4 +23,13 @@
         <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
     @break
 
+    @case('knowledge') @case('knowledge.book')
+        <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
+    @break
+
+    @case('english') @case('english.beginner') @case('english.intermediate')  @case('english.upperintermediate')
+    @case('english.expert')  @case('english.mastery')
+        <link href="{{ asset('css/knowledge/english/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

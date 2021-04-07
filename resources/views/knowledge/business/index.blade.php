@@ -1,9 +1,9 @@
 @extends('templates.master')
 @section('content')
    
-   <section class="knowledge-page">
+   <section class="business-page">
       
-      <h1>Knowledge page</h1>
+      <h1>Business page</h1>
 
    </section>
    

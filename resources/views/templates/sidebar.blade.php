@@ -1,7 +1,7 @@
 <div class="sidebar">
    <div class="div">
-      <h3 class="title title_top">День рождении</h3>
-      <p class="text-center">Сегодня</p>
+      <h3 class="title title_top"> {{ __('День рождении') }} </h3>
+      <p class="text-center"> {{ __('Сегодня') }} </p>
       <ul class="BD-list">
    
          @foreach ($todayBDs as $todayBD)
@@ -27,7 +27,7 @@
          @endif
    
       </ul>
-      <p class="text-center">Скоро</p>
+      <p class="text-center"> {{ __('Скоро') }} </p>
       <ul class="BD-list">
    
          @foreach ($tomorrowBDs as $tomorrowBD)
@@ -68,7 +68,7 @@
 
    {{-- News --}}
 
-   <h3 class="title ">Последние новости</h3>
+   <h3 class="title "> {{ __('Последние новости') }} </h3>
 
       <ul class="news-list">
 
