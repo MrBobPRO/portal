@@ -9,11 +9,11 @@
 
          <ul class="crumbs">
             <li class="crumbs-items">
-               <a href="/">{{ __('Главная') }}</a>
+               <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a href="/news">{{ __('Новости') }}</a>
+               <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
@@ -35,11 +35,11 @@
                   </div>
                </div>
                <div class="right">
-                  <a href="{{ $new->id }}" alt="img"> {{ $new->title }} </a>
+                  <a href=" {{ route('news.shownews', $new->id) }} " alt="img"> {{ $new->title }} </a>
                   <?php $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
                   $formatted = $date->isoFormat('DD MMMM YYYY') ?>
                   <span> {{ $formatted }} </span>
-                  <a href="{{ $new->id }}" class="text"> {{ $new->text }} </a>
+                  <a href=" {{ route('news.shownews', $new->id) }} " class="text"> {{ $new->text }} </a>
                </div>
             </li>
 

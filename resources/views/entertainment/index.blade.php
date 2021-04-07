@@ -9,7 +9,7 @@
 
          <ul class="crumbs">
             <li class="crumbs-items">
-               <a href="/">{{ __('Главная') }}</a>
+               <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">

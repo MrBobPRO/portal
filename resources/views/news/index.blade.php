@@ -2,17 +2,33 @@
 @section('content')
    
    <section class="news-page">
+
+      <div class="companynews-header">
+
+         <h3 class="title">{{ __('Новости') }}</h3>
+
+         <ul class="crumbs">
+            <li class="crumbs-items">
+               <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
+               <i class="fa fa-square-full"></i>
+            </li>
+            <li class="crumbs-items">
+               <a>{{ __('Новости ') }}</a>
+            </li>
+         </ul>  
+
+      </div>
          
       <nav class="news__nav">
          <ul class="news__nav-list">
             <li class="news__nav-items">
-               <a href="/news/companynews">
+               <a href=" {{ route('news.companynews') }} ">
                   <img src="{{ asset('img/news/companynews.jpg') }}" alt="image">
                   {{ __('Новости компании') }}
                </a>
             </li>
             <li class="news__nav-items">
-               <a href="/news/worldnews">
+               <a href=" {{ route('news.worldnews') }} ">
                   <img src="{{ asset('img/news/worldnews.jpg') }}" alt="image">
                   {{ __('Интересные мировые новости') }}
                </a>
@@ -33,12 +49,12 @@
                   <span>{{ $formatted }}</span>
                   
                   @if ($new->type)
-                     <a href="news/{{ $new->id }}">
+                     <a href=" {{ route('news.shownews', $new->id) }} ">
                         {{ $new->text }}
                      </a> 
 
                   @else
-                     <a href="news/{{ $new->id }}">
+                     <a href=" {{ route('news.shownews', $new->id) }} ">
                         {{ $new->text }}
                      </a>
                   @endif

@@ -5,7 +5,7 @@
       
    <div class="knowledge-header">
 
-      <h3 class="title"> {{ __('IT-Программы') }} </h3>
+      <h3 class="title"> {{ __('Энергетика') }} </h3>
 
       <ul class="crumbs">
          <li class="crumbs-items">
@@ -17,7 +17,7 @@
             <i class="fa fa-square-full"></i>
          </li>
          <li class="crumbs-items">
-            <a>{{ __('IT-Программы') }}</a>
+            <a>{{ __('Энергетика') }}</a>
          </li>
       </ul>  
 

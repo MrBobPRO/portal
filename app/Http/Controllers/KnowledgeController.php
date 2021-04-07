@@ -13,6 +13,6 @@ class KnowledgeController extends Controller
 
     public function books(Book $book)
     { 
-        return view('knowledge.showbook');
+        return view('knowledge.showbook', compact('book'));
     }
 }

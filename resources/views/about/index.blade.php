@@ -3,22 +3,38 @@
 
    <section class="about-page">
 
+      <div class="aboutus-header">
+
+         <h3 class="title">{{ __('О компании') }} </h3>
+
+         <ul class="crumbs">
+            <li class="crumbs-items">
+               <a href=" {{ route('home.index') }} "> {{ __('Главная') }} </a>
+               <i class="fa fa-square-full"></i>
+            </li>
+            <li class="crumbs-items">
+               <a "> {{ __('О компании') }} </a>
+            </li>
+         </ul>  
+
+      </div>
+
       <nav class="about__nav">
          <ul class="about__nav-list">
             <li class="about__nav-items">
-               <a href="/about/aboutus">
+               <a href=" {{ route('about.aboutus') }} ">
                   <img src="{{ asset('img/about/aboutus.jpg') }}" alt="image">
                   {{ __('Кто мы') }}?
                </a>
             </li>
             <li class="about__nav-items">
-               <a href="/about/structure">
+               <a href=" {{ route('about.structure') }} ">
                   <img src="{{ asset('img/about/structure.jpg') }}" alt="image">
                   {{ __('Структура') }}
                </a>
             </li>
             <li class="about__nav-items">
-               <a href="/about/leadership">
+               <a href=" {{ route('about.leadership') }} ">
                   <img src="{{ asset('img/about/leadership.jpg') }}" alt="image">
                   {{ __('Руководство') }}
                </a>
@@ -27,7 +43,6 @@
       </nav>
       
       <div class="about-company">
-         <h2 class="title text-center text-uppercase">О компании</h2>
          <ul class="about-company-text">
             <li>Нынешний успех ОАО “ТГЭМ” это результат более чем полувекового опыта накопленного инженерами и простыми рабочими приехавшие со всех уголков СССР и передовавшие этот опыт из поколения в поколение.</li>
             <li>В истории развития энергетики молодого Таджикистана ОАО “ТГЭМ” занимает почетное место, так как такие мега проекты как Нурекская ГЭС, Алюминиевый Завод, Сангтудинская ГЭС-1, Сангтудинская ГЭС-2 были воздвинуты с помощью инженеров и рабочих тогдашнего Таджикского монтажного управления Гидроэлектромонтаж.</li>

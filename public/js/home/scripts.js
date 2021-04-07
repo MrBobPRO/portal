@@ -1,3 +1,4 @@
+//Carousel start
 var owl = $('.owl-carousel');
 
 $('.owl-carousel').owlCarousel({
@@ -9,10 +10,4 @@ $('.owl-carousel').owlCarousel({
    autoplayTimeout:4000,
    autoplayHoverPause:true,
 })
-
-// $('.play').on('click',function(){
-//     owl.trigger('play.owl.autoplay',[5000])
-// })
-// $('.stop').on('click',function(){
-//     owl.trigger('stop.owl.autoplay')
-// })
+//Carousel end

@@ -17,9 +17,4 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    public function videos()
-    {
-        return view('videos.index');
-    }
-
 }

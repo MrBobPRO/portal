@@ -1,9 +1,27 @@
 @extends('templates.master')
 @section('content')
    
-   <section class="business-page">
+   <section class="knowledge-page">
       
-      <h1>Business page</h1>
+      <div class="knowledge-header">
+
+         <h3 class="title"> {{ __('Бизнес') }} </h3>
+
+         <ul class="crumbs">
+            <li class="crumbs-items">
+               <a href="/"> {{ __('Главная') }} </a>
+               <i class="fa fa-square-full"></i>
+            </li>
+            <li class="crumbs-items">
+               <a href="/knowledge"> {{ __('Центр знаний') }} </a>
+               <i class="fa fa-square-full"></i>
+            </li>
+            <li class="crumbs-items">
+               <a>{{ __('Бизнес') }}</a>
+            </li>
+         </ul>  
+
+      </div>
 
    </section>
    

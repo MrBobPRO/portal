@@ -9,22 +9,22 @@
 
          <ul class="crumbs">
             <li class="crumbs-items">
-               <a href="/">{{ __('Главная') }}</a>
+               <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a href="/news">{{ __('Новости') }}</a>
+               <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
                <i class="fa fa-square-full"></i>
             </li>
 
             @if ( $news->type == true)
                <li class="crumbs-items">
-                  <a href="/news/companynews">{{ __('Новости компании') }}</a>
+                  <a href=" {{ route('news.companynews') }} ">{{ __('Новости компании') }}</a>
                   <i class="fa fa-square-full"></i>
                </li>
             @else
                <li class="crumbs-items">
-                  <a href="/news/worldnews">{{ __('Интересные мировые новости') }}</a>
+                  <a href=" {{ route('news.worldnews') }} ">{{ __('Интересные мировые новости') }}</a>
                   <i class="fa fa-square-full"></i>
                </li> 
             @endif

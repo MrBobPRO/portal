@@ -9,15 +9,15 @@
 
          <ul class="crumbs">
             <li class="crumbs-items">
-               <a href="/">{{ __('Главная') }}</a>
+               <a href=" {{ route('home.index') }} "> {{ __('Главная') }} </a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a href="/about">{{ __('О компании') }}</a>
+               <a href=" {{ route('about.index') }} "> {{ __('О компании') }} </a>
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a>{{ __('Кто мы') }}  ?</a>
+               <a> {{ __('Кто мы') }}  ?</a>
             </li>
          </ul>  
 

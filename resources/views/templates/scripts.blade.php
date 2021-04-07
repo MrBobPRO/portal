@@ -1,30 +1,29 @@
 
 @switch($route)
 
-    @case('home')
-        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('js/home.js') }}"></script>
+    @case('home.index')
+        <script src="{{ asset('js/home/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/home/scripts.js') }}"></script>
     @break
 
-    @case('news') @case('news.companynews') @case('news.worldnews') @case('news.show')
-        <script src="{{ asset('js/news.js') }}"></script>
+    @case('about.index')
+        <script src="{{ asset('js/about/scripts.js') }}"></script>
     @break
 
-    @case('entertainment') 
-        <script src="{{ asset('js/entertainment.js') }}"></script>
+    @case('news.index') @case('news.companynews') @case('news.worldnews') @case('news.shownews')
+        <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break
 
-    @case('projects') @case('projects.show') 
-        <script src="{{ asset('js/projects.js') }}"></script>
+    @case('entertainment.index') 
+        <script src="{{ asset('js/entertainment/scripts.js') }}"></script>
     @break
 
-    @case('knowledge') @case('knowledge.book')
-        <script src="{{ asset('js/knowledge.js') }}"></script>
+    @case('projects.index') @case('projects.showproject') 
+        <script src="{{ asset('js/projects/scripts.js') }}"></script>
     @break
 
-    @case('english') @case('english.beginner') @case('english.intermediate')  @case('english.upperintermediate')
-    @case('english.expert')  @case('english.mastery')
-        <script src="{{ asset('js/english.js') }}"></script>
-    @break    
+    @case('knowledge.index') @case('knowledge.showbook')
+        <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
+    @break 
 
 @endswitch

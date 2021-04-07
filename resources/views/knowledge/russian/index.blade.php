@@ -1,10 +1,28 @@
 @extends('templates.master')
 @section('content')
    
-   <section class="russian-page">
+<section class="knowledge-page">
       
-      <h1>Russian page</h1>
+   <div class="knowledge-header">
 
-   </section>
+      <h3 class="title"> {{ __('Русский') }} </h3>
+
+      <ul class="crumbs">
+         <li class="crumbs-items">
+            <a href="/"> {{ __('Главная') }} </a>
+            <i class="fa fa-square-full"></i>
+         </li>
+         <li class="crumbs-items">
+            <a href="/knowledge"> {{ __('Центр знаний') }} </a>
+            <i class="fa fa-square-full"></i>
+         </li>
+         <li class="crumbs-items">
+            <a>{{ __('Русский') }}</a>
+         </li>
+      </ul>  
+
+   </div>
+
+</section>
    
 @endsection

@@ -1,10 +1,32 @@
 @extends('templates.master')
 @section('content')
    
-   <section class="english-page">
+<section class="knowledge-page">
       
-      <h1>Mastery page</h1>
+   <div class="knowledge-header">
 
-   </section>
+      <h3 class="title"> {{ __('Мастер') }} </h3>
+
+      <ul class="crumbs">
+         <li class="crumbs-items">
+            <a href=" {{ route('home.index') }} "> {{ __('Главная') }} </a>
+            <i class="fa fa-square-full"></i>
+         </li>
+         <li class="crumbs-items">
+            <a href=" {{ route('knowledge.index') }} "> {{ __('Центр знаний') }} </a>
+            <i class="fa fa-square-full"></i>
+         </li>
+         <li class="crumbs-items">
+            <a href=" {{ route('english.index') }} "> {{ __('Английский') }} </a>
+            <i class="fa fa-square-full"></i>
+         </li>
+         <li class="crumbs-items">
+            <a>{{ __('Мастер') }}</a>
+         </li>
+      </ul>  
+
+   </div>
+
+</section>
    
 @endsection
