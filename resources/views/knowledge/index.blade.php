@@ -20,43 +20,43 @@
       </div>
 
       <nav>
-         <ul class="knowledge-nav">
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('english.index') }} "> 
-                  <img src="#" alt="img">
-                  <span> {{ __('Английский') }} </span>   
-               </a>
-            </li>
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('russian.index') }} "> 
-                  <img src="#" alt="img">
-                  <span> {{ __('Русский') }} </span> 
-               </a>
-            </li>
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('business.index') }} ">
-                  <img src="#" alt="img">
-                  <span> {{ __('Бизнес') }} </span> 
-               </a>
-            </li>
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('energy.index') }} ">
-                  <img src="#" alt="img">
-                  <span> {{ __('Энергетика') }} </span>
-               </a>
-            </li>
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('pgs.index') }} ">
-                  <img src="#" alt="img">
-                  <span> {{ __('ПГС') }} </span>
-               </a>
-            </li>
-            <li class="knowledge-nav-items">
-               <a href=" {{ route('itprog.index') }} ">
-                  <img src="#" alt="img">
-                  <span> {{ __('IT-Программы') }} </span>
-               </a>
-            </li>
+         <ul class="subject-list">
+
+            @foreach ($subjects as $subject)
+
+               <li class="subject-items">
+                  <h3> {{ $subject->name }} </h3>
+                  <ul class="subjectcat-list">
+
+                     @foreach ($subjectcats as $subjectcat)
+                        @if ($subjectcat->subject_id == $subject->id)
+
+                           <li class="subjectcat-items">
+                              <h4> {{ $subjectcat->name }} </h4>
+                              <ul class="material-list">
+
+                                 @foreach ($materials as $material)
+                                    @if ($material->subjectcat_id == $subjectcat->id)
+             
+                                       <li class="material-items">
+                                          <a href="#"> {{ $material->name }} </a>
+                                       </li>
+
+                                    @endif                                       
+                                 @endforeach
+
+                              </ul>
+                              
+                           </li>
+
+                        @endif
+                     @endforeach
+
+                  </ul>
+               </li>
+
+            @endforeach
+            
          </ul>
       </nav>
 

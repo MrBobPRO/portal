@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book;
+use App\Models\Subject;
+use App\Models\Subjectcat;
+use App\Models\Material;
 class KnowledgeController extends Controller
 {
     public function index()
     { 
-        return view('knowledge.index');
-    }
-
-    public function books(Book $book)
-    { 
-        return view('knowledge.showbook', compact('book'));
+        $subjects = Subject::get();
+        $subjectcats = Subjectcat::get();
+        $materials = Material::get();
+        return view('knowledge.index', compact('subjects', 'subjectcats', 'materials'));
     }
 }

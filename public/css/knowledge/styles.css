@@ -1,6 +1,6 @@
 /* KNOWLEDGE PAGE */
 .knowledge-page {
-   padding-right: 30px;
+   padding-right: 20px;
 }
 .knowledge-header {
    margin: 0px 20px 40px 20px;
@@ -39,18 +39,111 @@
    top: 8.5px;
    right: -20px;
 }
-.knowledge-nav {
-
+ul, h3, h4 {
+   margin: 0px;
+   padding: 0px;
 }
-.knowledge-nav-items {
-
+li {
+   display: block;
 }
-.knowledge-nav-items a {
-
+.subject-list {
+   display: flex;
+   flex-wrap: wrap;
+   background-image: url("/img/knowledge/knowledgebg.jpg");
+   background-size: cover;
+   justify-content: center;
 }
-.knowledge-nav-items img {
-
+.subject-items {
+   width: 50%;
+   position: relative;
+   border: 5px solid #fff;
 }
-.knowledge-nav-items span {
-   
+.subject-items:hover {
+   border-color: transparent;
+}
+.subject-items h3 {
+   position: absolute;
+   top: 50%;
+   left: 0;
+   width: 100%;
+   text-align: center;
+   line-height: 0px;
+   text-transform: uppercase;
+   font-weight: bold;
+   color: yellow;
+   font-size: 45px;
+   text-shadow: 0 0 20px black;
+}
+.subject-items:hover h3 {
+   cursor: pointer;
+   opacity: 0;
+   transition: 0.5s;
+}
+.subjectcat-list {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   opacity: 0;
+   height: 100%;
+}
+.subject-items:hover .subjectcat-list {
+   cursor: pointer;
+   transition: 0.5s;
+   opacity: 1;
+}
+.subjectcat-items {
+   width: 50%;
+   position: relative;
+   border: 2px solid #fff;
+}
+.subjectcat-items:hover {
+   background-color: rgba(0,0,0,0.2);
+   cursor: context-menu;
+   border-color: transparent;
+}
+.subjectcat-items h4 {
+   cursor: pointer;
+   position: absolute;
+   width: 100%;
+   line-height: 0;
+   top: 50%;
+   left: 0;
+   text-align: center;
+   color: yellow;
+   font-weight: bold;
+   text-shadow: 0 0 20px black;
+   font-size: 20px;
+   text-transform: uppercase;
+}
+
+.material-list {
+   display: flex;
+   align-items: center;
+   height: 100%;
+   flex-wrap: wrap;
+   align-content: center;
+   opacity: 0;
+}
+.hide {
+   opacity: 0;
+}
+.show {
+   opacity: 1;
+}
+.material-items {
+   text-align: center;
+   width: 100%;
+}
+.material-items a {
+   text-decoration: none;
+   color: yellow;
+   text-transform: uppercase;
+   font-size: 20px;
+   font-weight: bold;
+   display: block;
+   padding: 5px 0;
+}
+.material-items a:hover {
+   display: block;
+   text-decoration: underline;
 }
