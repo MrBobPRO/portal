@@ -147,3 +147,63 @@ li {
    display: block;
    text-decoration: underline;
 }
+/* Accordion */
+.subject.accordion-button {
+   border-radius: 0 !important;
+   border: none;
+   background-color: #0078a5;
+   color: #fff;
+   font-size: 20px;
+   margin-bottom: 3px;
+}
+.subject.accordion-button:focus {
+   box-shadow: none;
+}
+.subject.accordion-button::after {
+   display: none;
+}
+.subject.accordion-collapse {
+   border: none;
+}
+.subject.accordion-body {
+   padding: 4px 0 4px 50px;
+}
+/*  */
+.subjectcat.accordion-button {
+   border-radius: 0 !important;
+   border: none;
+   background-color: #0078a5;
+   color: #fff;
+   font-size: 15px;
+   margin-bottom: 3px;
+   padding: 12px 20px;
+}
+.subjectcat.accordion-button.collapsed {
+   border-radius: 0 !important;
+   border: none;
+   background-color: #fff;
+   color: #000;
+   font-size: 15px;
+   margin-bottom: 2px;
+   padding: 12px 20px;
+}
+.subjectcat.accordion-button:focus {
+   box-shadow: none;
+}
+.subjectcat.accordion-button::after {
+   display: none;
+}
+.subjectcat.accordion-collapse {
+   border: none;
+}
+.subjectcat.accordion-body {
+   padding: 4px 0 4px 50px;
+}
+.mat-items a {
+   display: block;
+   color: black;
+   text-decoration: none;
+   background-color: #fff;
+   padding: 10px 0 10px 30px;
+   margin-bottom: 2px;
+}

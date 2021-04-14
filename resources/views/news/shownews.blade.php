@@ -37,7 +37,7 @@
       </div>
 
       <div class="news">
-         <img src="{{ asset('img/news/' . $news->imageUrl) }}" alt="img" onclick="showModal('{{ asset('img/news/'. $news->imageUrl) }}')">
+         <img src="{{ asset('img/news/' . $news->image) }}" alt="img" onclick="showModal('{{ asset('img/news/'. $news->image) }}')">
          <p> {{ $news->text }} </p>
          <?php $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
          $formatted = $date->isoFormat('DD MMMM YYYY') ?>

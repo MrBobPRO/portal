@@ -26,7 +26,7 @@
       <h2></h2>
       
       <div class="show-project">
-         <img onclick="showModal('{{ asset('img/projects/'. $project->imageUrl) }}')" src=" {{ asset('img/projects/' . $project->imageUrl) }} " alt="image">
+         <img onclick="showModal('{{ asset('img/projects/'. $project->image) }}')" src=" {{ asset('img/projects/' . $project->image) }} " alt="image">
          <p> {{ $project->text }} </p>
       </div>
 

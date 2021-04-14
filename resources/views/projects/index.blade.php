@@ -27,7 +27,7 @@
                
                <li class="projects-items">
                   <a href="{{ route('projects.showproject', $project->id) }}">
-                     <img src=" {{ asset('img/projects/' . $project->imageUrl) }} " alt="Projects-images">
+                     <img src=" {{ asset('img/projects/' . $project->image) }} " alt="Projects-images">
                      <h3> {{ $project->title }} </h3>
                   </a>
                </li>

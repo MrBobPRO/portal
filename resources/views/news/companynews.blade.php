@@ -28,8 +28,8 @@
          @foreach ($companyNews as $new)
 
             <li class="companynews-items">
-               <div class="image" onclick="showModal('{{ asset('img/news/' . $new->imageUrl) }}')">
-                  <img src="{{ asset('img/news/' . $new->imageUrl) }}" alt="img">
+               <div class="image" onclick="showModal('{{ asset('img/news/' . $new->image) }}')">
+                  <img src="{{ asset('img/news/' . $new->image) }}" alt="img">
                   <div class="image-hover">
                      Смотреть...
                   </div>

@@ -16,8 +16,9 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->integer('subjectcat_id');
-            $table->string('type');
             $table->string('name');
+            $table->string('type');
+            $table->string('category')->default('null');
             $table->timestamps();
         });
     }

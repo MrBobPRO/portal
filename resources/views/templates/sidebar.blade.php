@@ -75,14 +75,16 @@
          @foreach ($news as $new)
 
             <li class="news-items">
-               <img src="{{ asset('img/news/' . $new->imageUrl) }}" alt="Loading...">
-               <div>
-                  <h4 class="news-title">{{ $new->title }}</h4>
-                  <p  class="text">{{ $new->text }}</p> 
-                  <p class="date">
-                     {{ $new->created_at }}
-                  </p>
-               </div>
+               <a href=" {{ route('news.shownews', $new->id) }} ">
+                  <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
+                  <div>
+                     <h4 class="news-title">{{ $new->title }}</h4>
+                     <p  class="text">{{ $new->text }}</p> 
+                     <p class="date">
+                        {{ $new->created_at }}
+                     </p>
+                  </div>
+               </a>
             </li>
 
          @endforeach
