@@ -1,15 +1,12 @@
 $(document).ready(function () {
-   $(".subjectcat-items").click(function () {
-      $(this).children("h4")
-      .addClass("hide").parent()
+   $(".video-items").click(function () {
+      let video_id = $(this).children("img").attr("data-id");
+      $(this).children(".play-icon")
+      .addClass("active").parent()
       .siblings()
-      .children("h4")
-      .removeClass("hide")
-
-      $(this).children("ul")
-      .addClass("show").parent()
-      .siblings()
-      .children("ul")
-      .removeClass("show")
+      .children(".play-icon")
+      .removeClass("active")
+      let newUrl = `${video_id}`;
+      $("#video_id").attr("src", newUrl);
    })
 });

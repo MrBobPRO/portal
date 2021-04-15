@@ -22,7 +22,7 @@
         <script src="{{ asset('js/projects/scripts.js') }}"></script>
     @break
 
-    @case('knowledge.index') @case('knowledge.showbook')
+    @case('knowledge.index') @case('knowledge.books.index') @case('knowledge.books.showbook') @case('knowledge.videos.index') @case('knowledge.videos.showvideo')
         <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
     @break 
 

@@ -20,20 +20,18 @@ class KnowledgeController extends Controller
     public function books(Material $material) {
         $books = Book::where('material_id', $material->id)
                         ->where('category', $material->category)
-                        ->get();
-        return view('knowledge.books.index', compact('books'));
+                        ->paginate(12);
+        return view('knowledge.books.index', compact('books', 'material'));
     }
     public function showbook(Book $book) {
-        return view('knowledge.books.index', compact('book'));
+        $material = Material::where('id', $book->material_id)->first();
+        return view('knowledge.books.showbook', compact('book', 'material'));
     }
     public function videos(Material $material) {
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)
-                        ->get();
-        return view('knowledge.videos.showbook', compact('videos'));
-    }
-    public function showvideo(Video $video) {
-        return view('knowledge.videos.showvideo', compact('video'));
+                        ->paginate(12);
+        return view('knowledge.videos.index', compact('videos', 'material'));
     }
 
 }

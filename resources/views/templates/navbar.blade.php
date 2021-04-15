@@ -25,8 +25,7 @@
       <li class="navbar-items {{ $route == 'knowledge.index' 
                               || $route == 'knowledge.books.index'
                               || $route == 'knowledge.books.showbook'
-                              || $route == 'knowledge.videos.index'
-                              || $route == 'knowledge.videos.showvideo' ? 'active' : ''}}">
+                              || $route == 'knowledge.videos.index' ? 'active' : ''}}">
          <a href=" {{ route('knowledge.index') }} ">{{ __('Центр знаний') }}</a>
       </li>
    </ul>

@@ -26,7 +26,7 @@
             <div class="subject accordion-item">
                <h2 class="subject accordion-header" id="heading{{ $subject->name }}">
                   <button class="subject accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $subject->name }}" aria-expanded="true" aria-controls="collapse{{ $subject->name }}">
-                     {{ $subject->name }}
+                     {{ __($subject->name) }}
                   </button>
                </h2>
                <div id="collapse{{ $subject->name }}" class="subject accordion-collapse collapse" aria-labelledby="heading{{ $subject->name }}" data-bs-parent="#accordionSubject">
@@ -40,7 +40,7 @@
                               <div class="accordion-item">
                                  <h2 class="accordion-header" id="heading{{ $subjectcat->id }}">
                                     <button class="subjectcat accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $subjectcat->id }}" aria-expanded="true" aria-controls="collapse{{ $subjectcat->id }}">
-                                       {{ $subjectcat->name }}
+                                       {{ __($subjectcat->name) }}
                                     </button>
                                  </h2>
                                  <div id="collapse{{ $subjectcat->id }}" class="subjectcat accordion-collapse collapse" aria-labelledby="heading{{ $subjectcat->id }}" data-bs-parent="#accordion{{ $subject->name }}">
@@ -53,9 +53,9 @@
                   
                                                 <li class="mat-items">
                                                    @if ($material->type == 'book')
-                                                      <a href=" {{ route('knowledge.books.index', $material->id) }} "> {{ $material->name }} </a>   
+                                                      <a href=" {{ route('knowledge.books.index', $material->id) }} "> {{ __($material->name) }} </a>   
                                                    @elseif ($material->type == 'video')
-                                                      <a href=" {{ route('knowledge.videos.index', $material->id) }} "> {{ $material->name }} </a>
+                                                      <a href=" {{ route('knowledge.videos.index', $material->id) }} "> {{ __($material->name) }} </a>
                                                    @endif
                                                 </li> 
                   

@@ -13,7 +13,7 @@
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a>{{ __('Новости ') }}</a>
+               <a>{{ __('Новости') }}</a>
             </li>
          </ul>  
 
