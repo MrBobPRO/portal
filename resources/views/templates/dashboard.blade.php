@@ -2,7 +2,7 @@
    <span class="material-icons-outlined m-lang">menu</span>
    <div id="dashboard" class="dashboard" style="background-image: url({{asset('img/main/dashboard-bg.jpg')}})">
       <div class="profile-ava">
-         <a href="#"><img src="{{ asset('img/main/' . \Auth::user()->avaUrl) }}">{{\Auth::user()->name}} {{\Auth::user()->surname}}</a>
+         <a href="#"><img src="{{ asset('img/main/' . \Auth::user()->avatar) }}">{{\Auth::user()->name}} {{\Auth::user()->surname}}</a>
       </div>
 
       <div class="dash-links">
