@@ -13,7 +13,7 @@
                <i class="fa fa-square-full"></i>
             </li>
             <li class="crumbs-items">
-               <a>{{ __('Новости ') }}</a>
+               <a>{{ __('Новости') }}</a>
             </li>
          </ul>  
 
@@ -41,7 +41,7 @@
          @foreach ($allNews as $new)
 
             <li class="all-news-items">
-               <img src="{{ asset('img/news/'. $new->imageUrl) }}" alt="news" onclick="showModal('{{ asset('img/news/'. $new->imageUrl) }}')">
+               <img src="{{ asset('img/news/'. $new->image) }}" alt="news" onclick="showModal('{{ asset('img/news/'. $new->image) }}')">
                <div class="right">
                   <h4>{{ $new->title }}</h4>
                   <?php $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');

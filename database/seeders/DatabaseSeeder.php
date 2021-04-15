@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\Subject;
 use App\Models\Subjectcat;
 use App\Models\Material;
+use App\Models\Book;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,206 +20,273 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $avaUrls = ['ava1.jpg', 'ava2.jpg', 'ava3.jpg', 'ava4.jpg', 'ava5.jpg'];
-        $names = ['Raketa', 'Bruce', 'Murod', 'Jumagul', 'Arthur'];
-        $surnames = ['Vespuchi', 'Banner', 'Bahramov', 'Odinaeva', 'Fleck'];
-        $emails = ['ikrom@mail.ru', 'bruce@mail.ru', 'murod@mail.ru', 'raketa@mail.ru', 'arthur@mail.ru'];
-        $birthdays = [
+        //Create Users
+        $avatars = ['ava1.jpg', 'ava2.jpg', 'ava3.jpg', 'ava4.jpg', 'ava5.jpg'];
+        $names = ['Икром', 'Олег', 'Михаил', 'Дмитрий', 'Азамат'];
+        $surnames = ['Дилшодович', 'Викторович', 'Олегович', 'Камаров', 'Зияев'];
+        $emails = ['ikrom@mail.ru', 'oleg@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru'];
+        $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
             date_create_from_format('Y-m-d', '1987-04-03'),
             date_create_from_format('Y-m-d', '1956-04-03'),
             date_create_from_format('Y-m-d', '1800-04-06'),
             date_create_from_format('Y-m-d', '2001-04-07')
         ];
-        for ($i=0; $i < count($names); $i++) 
-        {
+        for ($i=0; $i < count($names); $i++) {
             $user = new User;
-            $user->avaUrl = $avaUrls[$i];
             $user->name = $names[$i];
             $user->surname = $surnames[$i];
             $user->email = $emails[$i];
             $user->password = bcrypt('12345');
-            $user->birth_date = $birthdays[$i];
+            $user->avatar = $avatars[$i];
+            $user->birth_date = $birthdates[$i];
             $user->save();
         }
 
-        $type = [false, true, true, true, false, false, false];
-        $imageUrls = ['news0.jpg', 'news1.jpg', 'news2.jpg', 'news3.jpg', 'news4.jpg', 'news5.jpg', 'news6.jpg'];
-        $titles = ['Негативное воздействие трудовой миграции','Is Pizza better than Qurutob?', 'We need seniors', 'Who stole my mood?', 'Зависимость от денежных переводов', 'Россия оказывает давление на Таджикистан', '«Нам нужно быть предельно осторожными»'];
-        $texts = [
-            'Всемирный банк в своем отчете, опубликованном в январе, проанализировал негативные экономические последствия денежных переводов для стран Восточной Европы, Южного Кавказа и Центральной Азии.
-            В своем исследовании эксперты делятся заключением о том, что денежные переводы в такие страны, как Таджикистан, Кыргызстан и Узбекистан, поступающие в основном из России, оказывают негативное воздействие на экономику этих государств.
-            Переводы снижают конкурентоспособность их экономик, усиливают инфляционное давление, отталкивают инвесторов, препятствуют расширению производств и появлению новых рабочих мест, показало исследование.
-            В Таджикистане доля семей, живущих на денежные переводы, составляет до 40%.
-            Приток иностранной валюты в страны региона также повышает курс местных валют, который не обеспечивается экспортом и достижениями реальной экономики.
-            Такая тенденция снижает конкурентоспособность товаров местных производителей не только на внутреннем, но и на внешних рынках. Местные компании также испытывают трудности из-за повышения стоимости рабочей силы, отмечено в исследовании.
-            Казахстан представляет собой наиболее развитую экономику в регионе благодаря своим богатым природным ресурсам, поэтому Казахстан сам привлекает трудовую миграцию, а не служит ее источником и не зависит от денежных переводов.',
-
-            'Мы подберем оптимальное решение под ваши задачи, выполним тонкую настройку нашей платформы с учетом всех особенностей вашей компании и поможем вовлечь сотрудников и изменить их поведение с привычного на желаемое.
-            Мы подберем оптимальное решение под ваши задачи, выполним тонкую настройку нашей платформы с учетом всех особенностей вашей компании и поможем вовлечь сотрудников и изменить их поведение с привычного на желаемое.
-            Мы подберем оптимальное решение под ваши задачи, выполним тонкую настройку нашей платформы с учетом всех особенностей вашей компании и поможем вовлечь сотрудников и изменить их поведение с привычного на желаемое.',
-
-            'Более 100 успешных проектов в компаниях со штатом от 50 до 18 000 человек.
-            Мы подберем оптимальное решение под ваши задачи, выполним тонкую настройку нашей платформы с учетом всех особенностей вашей компании и поможем вовлечь сотрудников и изменить их поведение с привычного на желаемое.
-            Мы подберем оптимальное решение под ваши задачи, выполним тонкую настройку нашей платформы с учетом всех особенностей вашей компании и поможем вовлечь сотрудников и изменить их поведение с привычного на желаемое.',
-
-            ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, ipsum rem? Dolorum tempora vero est iure magni nobis nihil molestiae cum aspernatur. Illum molestiae minima numquam laboriosam nihil. Quam possimus quis ipsa, debitis nisi cumque, 
-            ut cum ratione delectus velit dolore ducimus veritatis, officia laudantium est id deserunt maiores esse. Accusamus vel voluptatum dolore provident a 
-            nesciunt. Porro, expedita neque tempora itaque amet doloribus aspernatur voluptas?
-            Подписание инвестиционного соглашения о строительстве и эксплуатации предприятия по производству электрического оборудования в городе Душанбе',
-
-            'Трудовая миграция и денежные переводы из-за рубежа — одни из «системообразующих» факторов поддержания таджикской экономики на плаву.
-            По данным Всемирного банка на октябрь 2020 года, денежные переводы составляли значительные доли валового внутреннего продукта (ВВП) в центральноазиатских странах: в Кыргызстане — 25%, в Таджикистане — 26%, в Узбекистане — почти 6%.
-            В 2019 году объемы денежных переводов были еще больше.
-            По данным Центрального банка России, за первые три квартала 2020 года из России в Таджикистан были сделаны переводы на сумму 1,2 млрд долларов, что на 37% меньше, чем за тот же период предыдущего года.
-            Во время пандемии Россия закрыла транспортное сообщение, в том числе с центральноазиатскими государствами, но к настоящему времени авиарейсы с Казахстаном, Кыргызстаном и Беларусью восстановлены. Но не с Таджикистаном.
-            Периодически Москва инициировала введение визового режима с теми странами Центральной Азии, которые не входят в Евразийский экономический союз (ЕАЭС), в частности Узбекистаном и Таджикистаном, напомнил директор ташкентского исследовательского института «Караван знаний» Фархад Толипов.
-            «Таким образом, Россия фактически разделяет центральноазиатские страны на “своих” и “чужих”», — отметил он, имея в виду разделение по принципу присоединения тех или иных стран к ЕАЭС.',
-
-            'Обозреватели предполагают, что РФ, ограничивая трудовую миграцию, оказывает давление на Таджикистан, чтобы он присоединился к ЕАЭС, при этом российские государственные СМИ посылают в сторону Душанбе прямые, откровенные сигналы.
-            Российский пропагандистский новостной сайт «Sputnik Таджикистан» 11 февраля опубликовал интервью с генеральным директором Международного агентства продвижения экспорта (IEXPA), главой Ассоциации малых и средних экспортеров Юрием Шурыгиным.',
-                
-            'Обозреватели предполагают, что РФ, ограничивая трудовую миграцию, оказывает давление на Таджикистан, чтобы он присоединился к ЕАЭС, при этом российские государственные СМИ посылают в сторону Душанбе прямые, откровенные сигналы.
-            Российский пропагандистский новостной сайт «Sputnik Таджикистан» 11 февраля опубликовал интервью с генеральным директором Международного агентства продвижения экспорта (IEXPA), главой Ассоциации малых и средних экспортеров Юрием Шурыгиным.',
-        
-        ];
-        for ($i = 0; $i < count($titles); $i++) 
-        {
+        //Create News
+        $types = [false, true, true, true, false, false, false];
+        for ($i = 0; $i < count($types); $i++) {
             $news = new News;
-            $news->type = $type[$i];
-            $news->imageUrl = $imageUrls[$i];
-            $news->title = $titles[$i];
-            $news->text = $texts[$i];
+            $news->type = $types[$i];
+            $news->image = 'news' . ($i) . '.jpg';
+            $news->title = 'Заголовок новостей' ;
+            $news->text = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil eos ipsum repudiandae ab. Accusantium nesciunt harum ipsum quaerat aliquam, numquam enim expedita excepturi distinctio omnis esse necessitatibus id dolor perferendis tempore iure ratione saepe vel impedit blanditiis officia assumenda commodi illo. Consequatur esse ullam, voluptate labore odio ab debitis dolor iusto delectus obcaecati amet. Dolor unde harum quo necessitatibus nisi neque quae debitis recusandae eos sunt iste tempora, voluptate non sequi sint blanditiis quos laborum libero rerum repudiandae porro. Ullam dolor nihil in! Maxime assumenda hic porro qui corrupti, amet, eligendi at eum laboriosam repellendus voluptatum commodi corporis dolore recusandae neque adipisci nobis maiores, nostrum velit laborum eos! Consequatur ipsa pariatur accusamus id sit doloremque provident nisi nemo a voluptate excepturi, qui, corporis placeat dolorem nobis voluptates nostrum ipsam officiis porro. Ullam eius, porro adipisci obcaecati corporis alias ipsam in nisi, amet dicta atque aliquid ratione delectus possimus molestiae non deleniti. Ea explicabo placeat fuga laudantium quos, fugit labore odio nesciunt iure, nostrum ad velit dolores cupiditate. Repellat, reiciendis officia quisquam obcaecati repellendus eius quae. Dolor nisi laborum neque ad saepe quasi voluptatem quia quo harum debitis cum voluptates tempora, rerum fugiat, voluptatibus alias nam vero, excepturi nostrum nulla incidunt.' ;
             $news->save();
         } 
-
-        $videoSrcs = [
-                        'first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4',
-                        'first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4',
-                        'first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4',
-                        'first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4',
-                        'first.mp4', 'second.mp4', 'third.mp4', 'fourth.mp4'
-                    ];
-        $imageSrcs = [
-                        'lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg',
-                        'lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg',
-                        'lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg',
-                        'lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg',
-                        'lazy_load.jpg', 'mobile_app.jpg', 'profile_card.jpg', 'timeline.jpg',
-                    ];
-
-        for ($i=0; $i < count($videoSrcs); $i++) 
-        {
-            $videos = new Video;
-            $videos->videoSrc = $videoSrcs[$i];
-            $videos->imageSrc = $imageSrcs[$i];
-            $videos->save(); 
+        
+        //Create Videos
+        $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
+        $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
+        for ($i=0; $i < count($materialIDs); $i++){
+            for ($j=0; $j < 13; $j++) {
+                for ($k=0; $k < count($videoCategory); $k++) {
+                    $videos = new Video;
+                    $videos->material_id = $materialIDs[$i];
+                    $videos->category = $videoCategory[$k];
+                    $videos->videoSrc = 'video.mp4';
+                    $videos->image = 'video.jpg';
+                    $videos->save();
+                }
+            } 
         }
 
-        $prImage = ['project1.jpg', 'project2.jpg', 'project3.jpg', 'project4.jpg', 'project5.jpg', 
-                    'project6.jpg', 'project7.jpg', 'project8.jpg', 'project9.jpg', 'project10.jpg', 'project11.jpg',
-                ];
-        $prTitle = [
-                    'Нурекская ГЭС', 'Сангтудинская ГЭС 1', 'HYATT REGENCY HOTEL и БЦ “СОЗИДАНИЕ”',
-                    'ЭЛЕКТРОСНАБЖЕНИЕ РУДНИКА “ЗАРНИСОР”', 'Международный аэропорт Душанбе', 'ПС «ВАХДАТ 110/10кВ»',
-                    'БУРЕНИЕ ТОННЕЛЕЙ', 'ПЛОТИНА РОГУНСКОЙ ГЭС', 'В Худжанде дали старт строительству крупной электроподстанции',
-                    'Официальный запуск проекта “Энергоснабжение сельского джамоата Ромит”', 'СТРОИТЕЛЬСТВО ЛЭП ИР АФГАНИСТАН'
-                ];
-        $prText = 'В разные годы на Нурекской ГЭС, специалистами нашей компании, были произведены строительные и электромонтажные работы различных объёмов, в том числе: монтаж трансформаторов, строительство ОРУ 500/220 кВ, прокладка силовых, контрольных и оптоволоконных кабелей.
-                    Регулярность привлечения именно нашей компании для проведения работ, подтверждает высокий профессионализм наших специалистов.';
-        for ($i=0; $i < count($prImage); $i++)
-        {
+        //Create Books
+        $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
+        $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
+        for ($i=0; $i < count($matIDs); $i++){
+            for ($j=0; $j < 13; $j++) {
+                for ($k=0; $k < count($bookCategory); $k++) {
+                    $books = new Book;
+                    $books->name = 'Название книги';
+                    $books->material_id = $matIDs[$i];
+                    $books->category = $bookCategory[$k];
+                    $books->image = 'image.jpg';
+                    $books->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias modi nostrum repellendus!';
+                    $books->save();
+                }
+            } 
+        }
+
+        //Create Projects
+        for ($i=0; $i < 11; $i++) {
             $projects = new Project;
-            $projects->imageUrl = $prImage[$i];
-            $projects->title = $prTitle[$i];
-            $projects->text = $prText;
+            $projects->image = 'project' . ($i) . '.jpg';
+            $projects->title = 'Заголовок проекта' ;
+            $projects->text = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio tenetur eaque qui natus, illo dicta odit similique rem labore provident dignissimos dolorum, excepturi quidem, quis iure ipsam reiciendis a dolore enim? Suscipit sit dolor optio qui fugiat unde, rerum perspiciatis quia? Veritatis totam molestias exercitationem nemo non commodi tempore assumenda sit tenetur hic dicta sequi repellat mollitia reiciendis quas, doloremque ducimus voluptate repudiandae velit facilis, qui porro ad. Cum voluptatibus veniam quia accusamus delectus voluptatem, magnam, voluptas beatae earum aperiam, ratione dolore pariatur quam corporis reiciendis quibusdam repudiandae sit harum provident architecto! Porro quibusdam earum illo, a rerum quod at.' ;
             $projects->save();
         }
 
-        //subjects, subject categories, and materials table
+        //Create Subjects && Subjectcats && Materials
         $subjects = [
             [   'name' => 'Английский',
                 'categories' => [[  'name'=> 'Начинающий',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'Средний',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'Выше среднего',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'Эксперт',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'Мастер',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]]]
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]]]
             ],
             [   'name' => 'Русский',
                 'categories' => [[  'name'=> 'ТРКИ-1',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'ТРКИ-2',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'ТРКИ-3',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]],
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
                                  [  'name'=> 'ТРКИ-4',
                                     'materials'=> [['name' => 'Классная книга',
-                                                    'type' => 'coursebook'],
+                                                    'type' => 'book',
+                                                    'category' => 'coursebook'],
                                                    ['name' => 'Рабочая книга',
-                                                    'type' => 'workbook'],
+                                                    'type' => 'book',
+                                                    'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
-                                                    'type' => 'lessons']]]]
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]]]
             ],
             [   'name' => 'Бизнес',
                 'categories' => [[  'name'=> 'Книги',
                                     'materials'=> [['name' => 'Отборные произведение',
-                                                    'type' => 'selected']]],
+                                                    'type' => 'book',
+                                                    'category' => 'selectedComposition']]],
                                  [  'name'=> 'Видео',
                                     'materials'=> [['name' => 'Выступление',
-                                                    'type' => 'performance'],
+                                                    'type' => 'video',
+                                                    'category' => 'performance'],
                                                    ['name' => 'Интервью',
-                                                    'type' => 'interview'],
+                                                    'type' => 'video',
+                                                    'category' => 'interview'],
                                                    ['name' => 'Мотивированный монолог',
-                                                    'type' => 'monolog']]]]
+                                                    'type' => 'video',
+                                                    'category' => 'monolog']]]]
+            ],
+            [   'name' => 'Энергетика',
+                'categories' => [[  'name'=> 'Книги',
+                                    'materials'=> [['name' => 'Отборная литература',
+                                                    'type' => 'book',
+                                                    'category' => 'selectedLiterature']]],
+                                 [  'name'=> 'Видео',
+                                    'materials'=> [['name' => 'Надземная работа',
+                                                    'type' => 'video',
+                                                    'category' => 'overheadWork'],
+                                                   ['name' => 'Подземная работа',
+                                                    'type' => 'video',
+                                                    'category' => 'undergroundWork'],
+                                                   ['name' => 'Верхолазная работа',
+                                                    'type' => 'video',
+                                                    'category' => 'climbingWork']]],
+                                 [  'name'=> 'Для разряда',
+                                    'materials'=> [['name' => 'Вопросник для разрядов (2,6).',
+                                                    'type' => 'book',
+                                                    'category' => 'questionnaire']]]]
+            ],
+            [   'name' => 'ПГС',
+                'categories' => [[  'name'=> 'Книги',
+                                    'materials'=> [['name' => 'Отборная литература ПГС',
+                                                    'type' => 'book',
+                                                    'category' => 'selectedLiterature']]],
+                                 [  'name'=> 'Видео',
+                                    'materials'=> [['name' => 'Общестроительная работа',
+                                                    'type' => 'video',
+                                                    'category' => 'generalWork']]],
+                                 [  'name'=> 'Для повышение квалификации',
+                                    'materials'=> [['name' => 'Тесты',
+                                                    'type' => 'book',
+                                                    'category' => 'englishLessons']]]]
+            ],
+            [   'name' => 'IT-Программы',
+                'categories' => [[  'name'=> 'Excel',
+                                    'materials'=> [['name' => 'Литература Excel',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
+                                 [  'name'=> 'Word',
+                                    'materials'=> [['name' => 'Литература Word',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
+                                 [  'name'=> 'AutoCAD',
+                                    'materials'=> [['name' => 'Литература AutoCAD',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
+                                 [  'name'=> 'Civil',
+                                    'materials'=> [['name' => 'Литература Civil',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
+                                 [  'name'=> 'ArchiCAD',
+                                    'materials'=> [['name' => 'Литература ArchiCAD',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]],
+                                 [  'name'=> 'Primavera project',
+                                    'materials'=> [['name' => 'Литература Primavera project',
+                                                    'type' => 'book',
+                                                    'category' => 'literature'],
+                                                   ['name' => 'Видео',
+                                                    'type' => 'video',
+                                                    'category' => 'lessons']]]]
             ]
         ]; 
-
         foreach ($subjects as $subject) {
             $subj = new Subject;
             $subj->name = $subject['name'];
@@ -235,10 +303,13 @@ class DatabaseSeeder extends Seeder
                             $mat->subjectcat_id = $subjcat->id;
                             $mat->name = $material['name'];
                             $mat->type = $material['type'];
+                            $mat->category = $material['category'];
                             $mat->save();
                         }
                 }
         }
+
+        
 
 
     }

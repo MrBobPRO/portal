@@ -19,46 +19,66 @@
 
       </div>
 
-      <nav>
-         <ul class="subject-list">
+      <div class="subject accordion" id="accordionSubject">
 
-            @foreach ($subjects as $subject)
-
-               <li class="subject-items">
-                  <h3> {{ $subject->name }} </h3>
-                  <ul class="subjectcat-list">
-
-                     @foreach ($subjectcats as $subjectcat)
-                        @if ($subjectcat->subject_id == $subject->id)
-
-                           <li class="subjectcat-items">
-                              <h4> {{ $subjectcat->name }} </h4>
-                              <ul class="material-list">
-
-                                 @foreach ($materials as $material)
-                                    @if ($material->subjectcat_id == $subjectcat->id)
+         @foreach ($subjects as $subject)
              
-                                       <li class="material-items">
-                                          <a href="#"> {{ $material->name }} </a>
-                                       </li>
+            <div class="subject accordion-item">
+               <h2 class="subject accordion-header" id="heading{{ $subject->name }}">
+                  <button class="subject accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $subject->name }}" aria-expanded="true" aria-controls="collapse{{ $subject->name }}">
+                     {{ __($subject->name) }}
+                  </button>
+               </h2>
+               <div id="collapse{{ $subject->name }}" class="subject accordion-collapse collapse" aria-labelledby="heading{{ $subject->name }}" data-bs-parent="#accordionSubject">
+                  <div class="subject accordion-body">
 
-                                    @endif                                       
-                                 @endforeach
+                     <div class="accordion" id="accordion{{ $subject->name }}">
 
-                              </ul>
-                              
-                           </li>
+                        @foreach ($subjectcats as $subjectcat)
+                           @if ($subjectcat->subject_id == $subject->id)
 
-                        @endif
-                     @endforeach
+                              <div class="accordion-item">
+                                 <h2 class="accordion-header" id="heading{{ $subjectcat->id }}">
+                                    <button class="subjectcat accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $subjectcat->id }}" aria-expanded="true" aria-controls="collapse{{ $subjectcat->id }}">
+                                       {{ __($subjectcat->name) }}
+                                    </button>
+                                 </h2>
+                                 <div id="collapse{{ $subjectcat->id }}" class="subjectcat accordion-collapse collapse" aria-labelledby="heading{{ $subjectcat->id }}" data-bs-parent="#accordion{{ $subject->name }}">
+                                    <div class="subjectcat accordion-body">
+                                       
+                                       <ul class="mat-list">
 
-                  </ul>
-               </li>
+                                          @foreach ($materials as $material)
+                                             @if ($material->subjectcat_id == $subjectcat->id)
+                  
+                                                <li class="mat-items">
+                                                   @if ($material->type == 'book')
+                                                      <a href=" {{ route('knowledge.books.index', $material->id) }} "> {{ __($material->name) }} </a>   
+                                                   @elseif ($material->type == 'video')
+                                                      <a href=" {{ route('knowledge.videos.index', $material->id) }} "> {{ __($material->name) }} </a>
+                                                   @endif
+                                                </li> 
+                  
+                                             @endif
+                                          @endforeach
+                                          
+                                       </ul>
 
-            @endforeach
-            
-         </ul>
-      </nav>
+                                    </div>
+                                 </div>
+                              </div> 
+
+                           @endif
+                        @endforeach
+                        
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+
+         @endforeach
+
 
    </section>
    

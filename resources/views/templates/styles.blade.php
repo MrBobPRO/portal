@@ -28,7 +28,7 @@
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break
 
-    @case('knowledge.index') 
+    @case('knowledge.index') @case('knowledge.books.index') @case('knowledge.books.showbook') @case('knowledge.videos.index') @case('knowledge.videos.showvideo')
         <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break

@@ -23,18 +23,9 @@
          <a href=" {{ route('projects.index') }} ">{{ __('Проекты и инициативы') }}</a>
       </li>
       <li class="navbar-items {{ $route == 'knowledge.index' 
-                              || $route == 'knowledge.showbook' 
-                              || $route == 'english.index' 
-                              || $route == 'english.beginner' 
-                              || $route == 'english.intermediate' 
-                              || $route == 'english.upperintermediate' 
-                              || $route == 'english.expert' 
-                              || $route == 'english.mastery' 
-                              || $route == 'russian.index' 
-                              || $route == 'business.index' 
-                              || $route == 'energy.index' 
-                              || $route == 'pgs.index' 
-                              || $route == 'itprog.index' ? 'active' : ''}}">
+                              || $route == 'knowledge.books.index'
+                              || $route == 'knowledge.books.showbook'
+                              || $route == 'knowledge.videos.index' ? 'active' : ''}}">
          <a href=" {{ route('knowledge.index') }} ">{{ __('Центр знаний') }}</a>
       </li>
    </ul>
