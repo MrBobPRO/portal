@@ -15,6 +15,9 @@
    {{-- Font Awesome 5 --}}
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
+   {{-- Material Icons --}}
+   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+
    <link href="{{ asset('css/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/main/media.css') }}" rel="stylesheet">
    @include('templates.styles')
@@ -22,12 +25,11 @@
 </head>
 <body>
 
-   @include('templates.navbar')
-
    @include('templates.toolbar')
    
    <main>
       <div class="content">
+         @include('templates.navbar')
          @yield('content')
       </div>
       <div id="sidebar">

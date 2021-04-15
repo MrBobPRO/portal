@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Route;
    Route::post('/setLangRu', 'LanguageController@setLangRu');
    Route::post('/setLangEn', 'LanguageController@setLangEn');
 
-//Login-page's route
-   Route::post('/login', 'HomeController@login');
-
 //Home-page's route
    Route::get('/', 'HomeController@index')->name('home.index');
 

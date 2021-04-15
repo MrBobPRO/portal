@@ -1,13 +1,17 @@
 <div class="dashboard-btn">
-   <i class="fa fa-bars"></i>
-   <div id="dashboard" class="dashboard">
-      <div class="ava-container">
-         <img class="profile-ava" src="{{ asset('img/main/ava1.jpg') }}">
+   <span class="material-icons-outlined m-lang">menu</span>
+   <div id="dashboard" class="dashboard" style="background-image: url({{asset('img/main/dashboard-bg.jpg')}})">
+      <div class="profile-ava">
+         <a href="#"><img src="{{ asset('img/main/' . \Auth::user()->avaUrl) }}">{{\Auth::user()->name}} {{\Auth::user()->surname}}</a>
       </div>
-      <a href="#"><i class="fas fa-cog"></i><span>{{ __('Настройки') }}</span></a>
-      <a href="#"><i class="fas fa-download"></i><span>{{ __('Загрузки') }}</span></a>
-      <a href="#"><i class="fas fa-user-edit"></i><span>{{ __('Профиль') }}</span></a>
-      <a href="#"><i class="fas fa-award"></i><span>{{ __('Награды') }}</span></a>
-      <a href="#"><i class="fas fa-sign-out-alt"></i><span>{{ __('Выйти') }}</span></a>
+
+      <div class="dash-links">
+         <a href="#"><span class="material-icons-outlined">manage_accounts</span>{{ __('Профиль') }}</a>
+         <a href="#"><span class="material-icons-outlined">emoji_events</span>{{ __('Награды') }}</a>
+         <a href="#"><span class="material-icons-outlined">star_outline</span>{{ __('Бонусы') }}</a>
+         <a href="#"><span class="material-icons-outlined">drive_file_rename_outline</span>{{ __('Настройки') }}</a>
+         <a href="#"><span class="material-icons-outlined">logout</span>{{ __('Выйти') }}</a>
+      </div>
+      
    </div>
 </div>
