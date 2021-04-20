@@ -2,6 +2,12 @@
 @section('content')
 
    <section class="home-page">
+
+      {{-- <form action="/send_credentials" method="POST">
+         @csrf
+         <button type="submit">Отправить</button>
+      </form> --}}
+
       
       <div class="owl-carousel owl-theme">
          <div class="item">

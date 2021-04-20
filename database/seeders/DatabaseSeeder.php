@@ -20,9 +20,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         //Create Users
         $avatars = ['ava1.jpg', 'ava2.jpg', 'ava3.jpg', 'ava4.jpg', 'ava5.jpg'];
         $names = ['Икром', 'Олег', 'Михаил', 'Дмитрий', 'Азамат'];
+        $nicknames = ['Икром', 'Олег', 'Михаил', 'Дмитрий', 'Азамат'];
         $surnames = ['Дилшодович', 'Викторович', 'Олегович', 'Камаров', 'Зияев'];
         $emails = ['ikrom@mail.ru', 'oleg@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru'];
         $birthdates = [
@@ -39,6 +41,8 @@ class DatabaseSeeder extends Seeder
             $user->email = $emails[$i];
             $user->password = bcrypt('12345');
             $user->avatar = $avatars[$i];
+            $user->nickname = $nicknames[$i];
+            $user->position = 'Должность';
             $user->birth_date = $birthdates[$i];
             $user->save();
         }
