@@ -16,7 +16,7 @@
                <a>{{ __('Центр знаний') }}</a>
             </li>
          </ul>  
-
+            
       </div>
 
       <div class="subject accordion" id="accordionSubject">
@@ -37,7 +37,7 @@
                         @foreach ($subjectcats as $subjectcat)
                            @if ($subjectcat->subject_id == $subject->id)
 
-                              <div class="accordion-item">
+                              <div class="accordion-item">  
                                  <h2 class="accordion-header" id="heading{{ $subjectcat->id }}">
                                     <button class="subjectcat accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $subjectcat->id }}" aria-expanded="true" aria-controls="collapse{{ $subjectcat->id }}">
                                        {{ __($subjectcat->name) }}
@@ -56,11 +56,11 @@
                                                       <a href=" {{ route('knowledge.books.index', $material->id) }} "> {{ __($material->name) }} </a>   
                                                    @elseif ($material->type == 'video')
                                                       <a href=" {{ route('knowledge.videos.index', $material->id) }} "> {{ __($material->name) }} </a>
-                                                   @endif
+                                                   @endif   
                                                 </li> 
                   
                                              @endif
-                                          @endforeach
+                                          @endforeach 
                                           
                                        </ul>
 

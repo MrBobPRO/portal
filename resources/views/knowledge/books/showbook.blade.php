@@ -29,8 +29,11 @@
 
       <ul>
 
-            <li> {{ $book->name }} </li>
-            <li> {{ $book->category }} </li>
+         <li>
+            {{ $book->image }} <br>
+            {{ $book->name }} <br>
+            {{ $book->description }}
+         </li>
          
       </ul>
    </section>

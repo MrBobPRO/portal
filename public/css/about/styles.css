@@ -5,7 +5,6 @@
 .about__nav {
    background: #fff;
    padding: 18px;
-   border-radius: 14px;
 }
 .about__nav-list {
    margin: 0;
@@ -16,7 +15,6 @@
 .about__nav-items {
    display: block;
    background-color: #fff;
-   border-radius: 8px;
 }
 .about__nav-items:hover {
    box-shadow: 0 0 30px rgba(0, 159, 217, 1);
@@ -35,13 +33,11 @@
    width: 300px;
    height: 250px;
    background-color: #dfdfdf;
-   border-radius: 8px 8px 0 0;
    object-fit: cover;
    margin-bottom: 8px;
 }
 .about-company {
    background-color: #fff;
-   border-radius: 8px;
    box-shadow: 0 0 30px rgba(90, 178, 255, 0.2);
    padding: 20px;
    margin-top: 50px;

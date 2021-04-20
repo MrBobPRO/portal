@@ -304,8 +304,7 @@ main {
 /* SIDEBAR START */
 .sidebar .div {
    background-color: #fff;
-   padding: 20px;
-   border-radius: 8px;
+   padding: 10px;
    width: 100%;
    margin: 0px 0px 20px 0px;
 }
@@ -315,12 +314,11 @@ main {
    font-size: 23px;
    color: #fff;
    background-color: rgb(0, 159, 217);
-   border-radius: 3px;
    padding: 5px 10px;
-   margin: 25px 0 10px -35px;
+   margin: 25px 0 10px -25px;
 }
 .sidebar .title_top {
-   margin: -35px 0 0 -35px !important;
+   margin: -35px 0 0 -25px !important;
 }
 .BD-list {
    position: relative;
@@ -331,7 +329,6 @@ main {
    position: relative;
    display: block;
    margin: 10px 0px;
-   border-radius: 4px;
    padding: 24px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
 }
@@ -377,12 +374,10 @@ main {
 .news-items {
    display: block;
    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-   border-radius: 4px;
-   margin: 0 0 20px 0;
+   margin: 20px 0 0 0;
 }
 .news-items img {
    width: 100%;
-   border-radius: 4px 4px 0 0;
 }
 .news-items div {
    padding: 10px 14px 10px 14px;

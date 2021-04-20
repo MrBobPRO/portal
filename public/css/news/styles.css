@@ -6,7 +6,6 @@
 .news__nav {
    background: #fff;
    padding: 18px;
-   border-radius: 14px;
 }
 .news__nav-list {
    margin: 0;
@@ -17,7 +16,6 @@
 .news__nav-items  {
    display: block;
    background-color: #fff;
-   border-radius: 8px;
 }
 .news__nav-items:hover {
    box-shadow: 0 0 30px rgba(0, 159, 217, 1);
@@ -36,21 +34,18 @@
    width: 455px;
    height: 250px;
    background-color: #dfdfdf;
-   border-radius: 8px 8px 0 0;
    object-fit: cover;
    margin-bottom: 8px;
 }
 .all-news-list {
    margin: 30px 0;
-   padding: 24px;
+   padding: 10px;
    background-color: #fff;
-   border-radius: 14px;
 }
 .all-news-items {
    display: flex;
-   border-radius: 8px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-   padding: 14px;
+   padding: 10px;
    margin-bottom: 20px;
 }
 .all-news-items img {
@@ -129,15 +124,13 @@
 }
 .companynews-list {
    margin: 0;
-   padding: 24px;
+   padding: 10px;
    background-color: #fff;
-   border-radius: 12px;
 }
 .companynews-items {
    display: flex;
    padding: 20px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-   border-radius: 8px;
    margin: 60px 0 20px 110px;
 }
 .companynews-items:nth-child(1) {
@@ -156,7 +149,6 @@
    width: 300px;
    height: 180px;
    object-fit: cover;
-   border-radius: 4px;
 }
 .companynews-items .image-hover {
    position: absolute;
@@ -164,7 +156,6 @@
    left: 0;
    width: 100%;
    line-height: 180px;
-   border-radius: 4px;
    color: #fff;
    text-align: center;
    text-decoration: underline;
