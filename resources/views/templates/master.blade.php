@@ -29,12 +29,10 @@
    
    <main>
       <div class="content">
-            @include('templates.navbar')
-            @yield('content')
+         @include('templates.navbar')
+         @yield('content')
       </div>
-      <div id="sidebar">
-         @include('templates.sidebar')
-      </div>
+      @include('templates.sidebar')
    </main>
 
    @include('templates.dashboard')

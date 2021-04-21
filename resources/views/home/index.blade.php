@@ -8,27 +8,21 @@
          <button type="submit">Отправить</button>
       </form> --}}
 
-      
-      <div class="owl-carousel owl-theme">
-         <div class="item">
-            <img src="{{ asset('img/home/slider1.jpg') }}" alt="img">
-         </div>
-         <div class="item">
-            <img src="{{ asset('img/home/slider2.jpg') }}" alt="img">
-         </div>
-         <div class="item">
-            <img src="{{ asset('img/home/slider3.jpg') }}" alt="img">
-         </div>
-         <div class="item">
-            <img src="{{ asset('img/home/slider4.jpg') }}" alt="img">
-         </div>
-         <div class="item">
-            <img src="{{ asset('img/home/slider5.jpg') }}" alt="img">
-         </div>
-         <div class="item">
-            <img src="{{ asset('img/home/slider6.jpg') }}" alt="img">
-         </div>
-     </div>
+      <div class="owl-carousel-container">
+         <div class="owl-carousel owl-theme">
+            <div class="item">
+               <img src="{{ asset('img/home/slider1.jpg') }}" alt="img">
+            </div>
+            <div class="item">
+               <img src="{{ asset('img/home/slider2.jpg') }}" alt="img">
+            </div>
+        </div>
+
+        {{-- Carousel navs --}}
+         <span class="material-icons-outlined owl-navs owl-nav-prev" onclick="prevSlide()">arrow_back_ios</span>
+         <span class="material-icons-outlined owl-navs owl-nav-next" onclick="nextSlide()">arrow_forward_ios</span>
+      </div>
+
 
      <div class="about-company">
          <ul class="about-company-text">

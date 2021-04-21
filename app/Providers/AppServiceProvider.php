@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         });
         
         view()->composer('templates.master', function ($view) {
-            $news = News::latest()->take(3)->get();
+            $news = News::latest()->take(2)->get();
             $view->with('news', $news);
         });
 

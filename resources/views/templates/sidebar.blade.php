@@ -1,95 +1,41 @@
-<div class="sidebar">
-   <div class="div">
-      <h3 class="title title_top"> {{ __('День рождении') }} </h3>
-      <p class="text-center"> {{ __('Сегодня') }} </p>
-      <ul class="BD-list">
-   
-         @foreach ($todayBDs as $todayBD)
-   
-               <li class="BD-items">
-                  <img src="{{ asset('img/main/' . $todayBD->avaUrl) }}" alt="Avatar...">
-                  <dl>
-                     <dt>{{ $todayBD->name}} {{ $todayBD->surname }}</dt>
-                     <dd>{{ $todayBD->birth_date }}</dd>
-                  </dl>
-               </li>
-   
-         @endforeach
-   
-         @if (count($todayBDs) == 0)
-   
-            <li class="BD-items">
-               <p>
-                  На сегодня день рождений нет...
-               </p>
-            </li>
-   
-         @endif
-   
-      </ul>
-      <p class="text-center"> {{ __('Скоро') }} </p>
-      <ul class="BD-list">
-   
-         @foreach ($tomorrowBDs as $tomorrowBD)
-   
-               <li class="BD-items">
-                  <img src="{{ asset('img/main/' . $tomorrowBD->avaUrl) }}" alt="Avatar...">
-                  <dl>
-                     <dt>{{ $tomorrowBD->name}} {{ $tomorrowBD->surname }}</dt>
-                     <dd>{{ $tomorrowBD->birth_date }}</dd>
-                  </dl>
-               </li>
-               
-         @endforeach
-   
-         @foreach ($afterTomorrowBDs as $afterTomorrowBD)
-   
-               <li class="BD-items">
-                  <img src="{{ asset('img/main/' . $afterTomorrowBD->avaUrl) }}" alt="Avatar...">
-                  <dl>
-                     <dt>{{ $afterTomorrowBD->name}} {{ $afterTomorrowBD->surname }}</dt>
-                     <dd>{{ $afterTomorrowBD->birth_date }}</dd>
-                  </dl>
-               </li>
-               
-         @endforeach
-   
-         @if (count($tomorrowBDs) == 0 && count($afterTomorrowBDs) == 0)
-   
-            <li class="BD-items">
-               <p>
-                  В ближайшее время нет день рождений...
-               </p>
-            </li>
-   
-         @endif         
-   
-      </ul>
 
-   {{-- News --}}
+<div id="sidebar" class="sidebar">
+   <div class="birthdays">
+      <h1>День рождении
+         <span class="material-icons-outlined">star</span>
+      </h1>
+      <div class="single-birthday">
+         <img src="{{asset('img/users/b1.jpg')}}">
+         <span>Сегодня</span>
+         <p>Нурова Шакира</p>
+      </div>
 
-   <h3 class="title "> {{ __('Последние новости') }} </h3>
+      <div class="single-birthday">
+         <img src="{{asset('img/users/b2.jpg')}}">
+         <span>Завтра</span>
+         <p>Расул Икромов</p>
+      </div>
+   </div>
 
-      <ul class="news-list">
-
-         @foreach ($news as $new)
-
-            <li class="news-items">
-               <a href=" {{ route('news.shownews', $new->id) }} ">
-                  <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
-                  <div>
-                     <h4 class="news-title">{{ $new->title }}</h4>
-                     <p  class="text">{{ $new->text }}</p> 
-                     <p class="date">
-                        {{ $new->created_at }}
-                     </p>
-                  </div>
-               </a>
-            </li>
-
-         @endforeach
-
-      </ul>
-
+   <div class="news">
+      <h1>Последние новости
+         <span class="material-icons-outlined">article</span>
+      </h1>
+      @foreach($news as $new)
+         <div class="single-news">
+            <a href=" {{ route('news.shownews', $new->id) }} ">
+               <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
+               <h4>{{ $new->title }}</h4>
+               <p>{{ $new->text }}</p> 
+               <span>
+                  <?php 
+                     $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
+                     $formatted = $date->isoFormat('DD MMMM YYYY');
+                  ?>
+                  {{$formatted}}
+               </span>
+            </a>
+         </div>
+      @endforeach
    </div>
 </div>

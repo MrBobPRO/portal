@@ -1,86 +1,49 @@
 .home-page {
    width: 100%;
-   padding-right: 40px;
-   padding-top: 30px;
 }
-.owl-carousel {
+/* Owl carousel start */
+.owl-carousel-container {
    position: relative;
 }
 .owl-carousel .item img {
    width: 100%;
    object-fit: cover;
 }
-.owl-carousel .owl-nav button.owl-next {
-   font-size: 40px;
-   position: absolute;
-   right: -25px;
-   top: 50%;
-   color: #fff;
-   background-color: rgb(255, 255, 255);
-   width: 40px;
-   line-height: 40px;
-   border-radius: 50%;
-   font-weight: bold;
-   margin-top: -20px;
-}
-.owl-carousel .owl-nav button.owl-next:hover {
-   color: rgb(204, 204, 204);
-   background-color: rgb(204, 204, 204);
-}
-.owl-carousel .owl-nav button.owl-next::after {
-   color: grey;
-   font-family: "Font Awesome 5 Free";
-   font-weight: bold;
-   content: "\f105";
-   position: relative;
-   top: 0px;
-   left: -3px;
-   font-size: 32px;
-   line-height: 40px;
-}
-.owl-carousel .owl-nav button.owl-prev {
-   font-size: 40px;
-   position: absolute;
-   left: -25px;
-   top: 50%;
-   color: #fff;
-   background-color: rgb(255, 255, 255);
-   width: 40px;
-   line-height: 40px;
-   border-radius: 50%;
-   font-weight: bold;
-   margin-top: -20px;
-}
-.owl-carousel .owl-nav button.owl-prev:hover {
-   color: rgb(204, 204, 204);
-   background-color: rgb(204, 204, 204);
-}
-.owl-carousel .owl-nav button.owl-prev::after {
-   color: grey;
-   font-family: "Font Awesome 5 Free";
-   font-weight: bold;
-   content: "\f104";
-   position: relative;
-   top: 0px;
-   left: -8px;
-   font-size: 32px;
-   line-height: 40px;
-}
 .owl-theme .owl-dots {
    position: absolute;
    bottom: 10px;
    width: 100%;
 }
+.owl-navs {
+   position: absolute;
+   top: 45%;
+   z-index: 2;
+   color: white;
+   cursor: pointer;
+   -webkit-touch-callout: none; /* iOS Safari */
+   -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+       -ms-user-select: none; /* Internet Explorer/Edge */
+           user-select: none; /* Non-prefixed version, currently
+                                 supported by Chrome, Edge, Opera and Firefox */
+}
+.owl-nav-prev {
+   left: 10px;
+}
+.owl-nav-next {
+   right: 10px;
+}
+/* Owl carousel end */
 .about-company {
    background-color: #fff;
-   box-shadow: 0 0 30px rgba(90, 178, 255, 0.2);
    padding: 20px;
-   margin-top: 50px;
+   margin-top: 20px;
 }
-.title {
-   font-size: 25px;
-   color: #004578;
-   font-weight: bold;
+.about-company-text {
+   margin-bottom: 0;
+   line-height: 1.7;
+   font-weight: 300;
 }
 .about-company-text li{
    padding: 10px 0px;

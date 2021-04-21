@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentials;
 use App\Models\User;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -16,9 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {   
-        // return view('home.index');
-        return view('login.forgot_password');
-        
+        return view('home.index');
     }
 
     public function send_credentials()

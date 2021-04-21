@@ -81,16 +81,15 @@ button:focus {
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 main {
-   width: 1310px;
-   margin: 50px auto 0;
+   max-width: 1310px;
+   margin: 0 auto;
+   padding: 50px 0;
    display: flex;
    justify-content: space-between;
 }
 .content {
    width: 1000px;
-}
-#sidebar {
-   width: 310px;
+   padding-right: 40px;
 }
 
 /* Pagination start */
@@ -130,7 +129,7 @@ main {
    z-index: 10;
    display: flex;
    align-items: center;
-   height: 56px;
+   height: 58px;
 }
 .dashboard-btn .m-lang {
    cursor: pointer;
@@ -144,7 +143,7 @@ main {
 }
 .dashboard {
    position: fixed;
-   top: 56px;
+   top: 58px;
    bottom: 0;
    left: 0;
    width: 220px;
@@ -201,13 +200,14 @@ main {
    font-weight: 300;
    font-size: 15px;
    display: flex;
-   padding: 10px;
+   padding: 10px 14px;
+   border-radius: 3px;
    margin-bottom: 5px;
    align-items: center;
    transition: 0.3s;
 }
 .dashboard .dash-links a.active {
-   background-color: #e91e63 !important;
+   background-color: #00bcd4 !important;
    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(233 30 99 / 40%);
 }
 .dashboard .dash-links a:hover {
@@ -221,11 +221,7 @@ main {
 /* Dashboard end */
 
 /* Navbar start */
-.main-nav {
-   padding-right: 40px;
-}
 .navbar {
-   margin: 0 auto 20px auto;
    background-color: #F7F7F7;
    display: flex;
    justify-content: space-between;
@@ -237,13 +233,8 @@ main {
 .navbar-items a {
    color: black;
    font-weight: 500;
-   font-size: 15px;
-   text-transform: uppercase;
+   font-size: 16px;
    text-decoration: none;
-}
-.navbar-items.active a {
-   text-decoration: underline;
-   font-weight: bold;
 }
 /* Navbar end */
 
@@ -253,17 +244,23 @@ main {
    top: 0;
    left: 0;
    background-color: white;
-   padding: 8px 0;
+   padding: 12px 0 8px;
    width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-around;
    z-index: 9;
+}
+.toolbar-inner {
+   display: flex;
+   justify-content: space-between;
+   max-width: 1310px;
+   margin: 0 auto;
 }
 .toolbar-right {
    margin: 0;
    padding: 0;
    display: flex;
+}
+.toolbar-right .toolbar-items:first-child {
+   margin-left: 0;
 }
 .toolbar-items {
    display: block;
@@ -282,7 +279,7 @@ main {
    border-radius: 20px;
    padding: 4px 15px;
    background-color: #F7F7F7;
-   width: 600px;
+   width: 580px;
 }
 .search-form input::placeholder {
    opacity: 0.5;
@@ -292,7 +289,7 @@ main {
    background: none;
    color: #b9b9b9;
    position: absolute;
-   left: 560px;
+   right: 4px;
    top: 4px;
 }
 .search-form button i {
@@ -301,6 +298,9 @@ main {
 .btn-check:focus+.btn, .btn:focus {
    box-shadow: none;
 }
+.lang-dropdown button {
+   padding-right: 0;
+}
 .lang-dropdown img {
    width: 22px;
    margin-right: 5px;
@@ -308,102 +308,91 @@ main {
 /* TOOLBAR END */
 
 /* SIDEBAR START */
-.sidebar .div {
-   background-color: #fff;
-   padding: 10px;
-   width: 100%;
-   margin: 0px 0px 20px 0px;
+#sidebar {
+   width: 310px;
 }
-.sidebar .title {
-   width: -moz-fit-content;
-   width: fit-content;
-   font-size: 23px;
-   color: #fff;
-   background-color: rgb(0, 159, 217);
-   padding: 5px 10px;
-   margin: 25px 0 10px -25px;
+.sidebar h1 {
+   font-size: 16px;
+   padding: 0 20px;
+   min-height: 48px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-top: 4px;
 }
-.sidebar .title_top {
-   margin: -35px 0 0 -25px !important;
+.sidebar h1 span {
+   color: #00bcd4;
 }
-.BD-list {
+.sidebar .birthdays {
+   background: white;
+}
+.sidebar .single-birthday {
    position: relative;
-   margin: 0px;
-   padding: 0px;
 }
-.BD-items {
-   position: relative;
-   display: block;
-   margin: 10px 0px;
-   padding: 24px;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+.sidebar .single-birthday img {
+   max-width: 100%;
 }
-.BD-items img {
-   display: block;
-   width: 150px;
-   height: 150px;
-   background-color: #d8d8d8;
-   border-radius: 50%;
-   margin: 0 auto;
-   object-fit: cover;
-}
-.BD-items dl {
-   margin: 0;
-   margin-top: 10px;
-   text-align: center;
-}
-.BD-items dt {
-   color: #004578;
-   font-size: 20px;
-}
-.BD-items dd {
-   margin: 0;
-   color: #299DFE;
+.sidebar .single-birthday span {
+   background: #00bcd4;
+   font-weight: bold;
    font-size: 14px;
+   color: white;
+   padding: 2px 8px 5px;
+   position: absolute;
+   right: 0;
+   top: 0;
 }
-.BD-items p {
+.sidebar .single-birthday p {
    margin: 0;
-   color: #004578;
-   font-weight: 400;
-   overflow: hidden;
-   text-overflow: ellipsis;
+   padding: 10px 15px;
+   position: absolute;
+   bottom: 0;
+   background: white;
 }
-/* Sidebar news */
-.news-list {
-   margin: 0 0 0 0;
-   padding: 0 0 0 0;
+.sidebar .single-birthday {
+   border-top: 5px solid #00bcd4;
 }
-.news-items a {
-   color: inherit;
+.sidebar .news {
+   background: white;
+   margin-top: 40px;
+}
+.sidebar .single-news {
+   position: relative;
+   padding-bottom: 15px;
+   border-top: 5px solid #00bcd4;
+}
+.sidebar .single-news img {
+   max-width: 100%;
+}
+.sidebar .single-news a {
    text-decoration: none;
 }
-.news-items {
-   display: block;
-   box-shadow: 0 0 30px rgba(0,0,0,0.2);
-   margin: 20px 0 0 0;
+.sidebar .single-news h4 {
+   color: black;
+   font-size: 16px;
+   padding: 0 20px;
+   margin: 15px 0 10px;
 }
-.news-items img {
-   width: 100%;
-}
-.news-items div {
-   padding: 10px 14px 10px 14px;
-}
-.news-title {
-   font-size: 20px;
-   margin: 0 0 8px 0;
-}
-.news-items .text {
-   margin: 0 0 0 0;
-   font-size: 15px;
-   display: -webkit-box;
-   -webkit-line-clamp: 3;
-   -webkit-box-orient: vertical;
+.sidebar .single-news p {
    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   color: black;
+   font-weight: 300;
+   padding: 0 20px;
+   margin: 0;
+   line-height: 1.7;
 }
-.news-items .date {
-   text-align: end;
+.sidebar .single-news span {
+   background: #00bcd4;
    font-weight: bold;
-   font-size: 13px;
-   margin: 8px 10px 0px 0;
+   font-size: 14px;
+   color: white;
+   padding: 2px 8px 5px;
+   position: absolute;
+   right: 0;
+   top: 0;
 }
 /* SIDEBAR END */
