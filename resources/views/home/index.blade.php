@@ -3,10 +3,10 @@
 
    <section class="home-page">
 
-      {{-- <form action="/send_credentials" method="POST">
+      <form action="/send_credentials" method="POST">
          @csrf
          <button type="submit">Отправить</button>
-      </form> --}}
+      </form>
 
       <div class="owl-carousel-container">
          <div class="owl-carousel owl-theme">

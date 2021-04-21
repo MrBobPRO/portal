@@ -131,9 +131,10 @@
 
 /* Reset-password-request */
 .reset-password-request {
+   position: relative;
    background-color: #fff;
    margin: 20px auto;
-   padding: 90px 40px;
+   padding: 80px 40px;
    width: 400px;
    text-align: center;
 }
@@ -143,23 +144,194 @@
 }
 .reset-password-request .title {
    display: block;
-   margin: 30px 0;
+   margin: 20px 0;
    font-size: 24px;
    text-transform: capitalize;
    font-weight: 400;
 }
 .reset-password-request .text {
-
+   display: block;
+   margin-bottom: 30px;
 }
 .reset-password-request form {
-
+   position: relative;
+}
+.reset-password-request label {
+   position: absolute;
+   top: -10px;
+   left: 8px;
+   display: block;
+   color: #0C81B1;
+   font-size: 13px;
+   background: #fff;
+   padding: 0 5px;
 }
 .reset-password-request input {
-
+   display: block;
+   height: 50px;
+   border: 2px solid #007BAD;
+   border-radius: 3px;
+   width: 100%;
+   padding: 12px;
+   font-size: 18px;
 }
 .reset-password-request button {
-
+   border: none;
+   color: #fff;
+   background-color: #0059D6;
+   height: 50px;
+   width: 100%;
+   border-radius: 3px;
+   margin: 20px 0;
+}
+.reset-password-request button:active {
+   background-color: rgba(0,89,214,0.5);
+}
+.reset-password-request button:hover {
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .reset-password-request a {
+   text-decoration: none;
+   color: #208BB7;
+}
+.reset-password-email {
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #fff;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 40px;
+   z-index: -1;
+}
+.reset-password-email .icon {
+   display: flex;
+   justify-content: center;
+}
+.reset-password-email span {
+   color: green;
+   font-size: 50px;
+   border: 4px solid green;
+   border-radius: 50%;
+   width: 75px;
+   height: 75px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.reset-password-email button {
+   background-color: transparent;
+   color: #000;
+   border: 2px solid #C9CFD6;
+   height: auto;
+   padding: 14px;
+}
+.reset-password-email button:active {
+   background-color: rgba(0,0,0,0.05);
+}
 
+/* Reset Password */
+.reset-password {
+   position: relative;
+   background-color: #fff;
+   margin: 20px auto;
+   padding: 80px 40px;
+   width: 400px;
+   text-align: center;
+}
+.reset-password .title {
+   display: block;
+   margin: 20px 0;
+   font-size: 24px;
+   text-transform: capitalize;
+   font-weight: 400;
+}
+.reset-password .text {
+   display: block;
+   margin-bottom: 30px;
+}
+.reset-password form {
+   width: 100%;
+}
+.reset-password label {
+   position: relative;
+   width: 100%;
+}
+.reset-password .new-password {
+   margin-bottom: 10px;
+}
+.reset-password input {
+   display: block;
+   height: 50px;
+   border: 2px solid #C9CFD6;
+   border-radius: 3px;
+   width: 100%;
+   padding: 12px;
+   font-size: 18px;
+}
+.reset-password span {
+   position: absolute;
+   top: 0px;
+   right: 10px;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   color: #8B8B8B;
+   cursor: pointer;
+}
+.reset-password button {
+   border: none;
+   color: #fff;
+   background-color: #0059D6;
+   height: 50px;
+   width: 100%;
+   border-radius: 3px;
+   margin: 20px 0;
+}
+.reset-password button:hover {
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.reset-password button:active {
+   background-color: rgba(0,89,214,0.5);
+}
+.reset-password-success {
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #fff;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 40px;
+   z-index: -1;
+}
+.reset-password-success .icon {
+   display: flex;
+   justify-content: center;
+}
+.reset-password-success span {
+   position: relative;
+   font-size: 70px;
+   color: green;
+}
+.reset-password-success a {
+   display: flex;
+   color: #fff;
+   background-color: #0059D6;
+   height: 50px;
+   width: 100%;
+   border-radius: 3px;
+   margin: 20px 0;
+   text-decoration: none;
+   justify-content: center;
+   align-items: center;
+}
+.reset-password-success a:hover {
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.reset-password-success a:active {
+   background-color: rgba(0,89,214,0.5);
 }

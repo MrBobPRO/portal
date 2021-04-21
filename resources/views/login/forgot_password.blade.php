@@ -8,37 +8,26 @@
          Enter your email address and we will send 
          you instructions to reset your password.
       </p>
-      <form action="#">
+      <form method="POST" onsubmit="ajax_forgot_password()">
          @csrf
-         <input type="text">
+         <label for="email">Email address</label>
+         <input name="email" type="text" id="email">
          <button type="submit">Continue</button>
       </form>
-      <a href="#">Back to app</a>
-   </div>
+      <a href="{{route('login')}}">Back to My App</a>
 
-   <div class="reset-password-email">
-      <span class="material-icons-outlined">mail</span>
-      <b>Check your email</b>
-      <p>
-         Please check the email address for 
-         instructions to reset your password.
-      </p>
-      <form action="#">
-         @csrf
-         <button class="visually-hidden" type="submit">Resend email</button>
-      </form>
-   </div>
+      <div class="reset-password-email">
+         <div class="icon">
+            <span class="material-icons-outlined">mail</span>
+         </div>
+         <b class="title">Check your email</b>
+         <p class="text">
+            Please check the email address for 
+            instructions to reset your password.
+         </p>
+         <button type="button">Resend email</button>
+      </div>
 
-    <div class="reset-password">
-      <b>Change your password</b>
-      <p>
-         Enter a new password below to change your password.
-      </p>
-      <form action="#">
-         @csrf
-         <input type="password">
-         <input type="password">
-      </form>
-    </div>
+   </div>
 
 @endsection
