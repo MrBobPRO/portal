@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
    Route::post('/send_credentials', 'HomeController@send_credentials');
 
+
 //Home-page's route
    Route::get('/', 'HomeController@index')->name('home.index');
 

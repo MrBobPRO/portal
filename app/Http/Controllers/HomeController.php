@@ -16,7 +16,9 @@ class HomeController extends Controller
 
     public function index()
     {   
-        return view('home.index');
+        // return view('home.index');
+        return view('login.forgot_password');
+        
     }
 
     public function send_credentials()

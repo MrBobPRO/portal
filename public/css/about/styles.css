@@ -96,21 +96,18 @@
 }
 .whoarewe {
    background-color: white;
-   border-radius: 8px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
    margin-top: 20px;
 }
 .whoarewe img {
    width: 100%;
-   border-radius: 8px 8px 0 0;
 }
 .whoarewe-text {
    padding: 25px;
 }
 .extra-info {
    background-color: #fff;
-   margin-top: 24px;
-   border-radius: 8px;
+   margin: 24px 0;
    padding: 30px;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
    text-align: center;
@@ -141,14 +138,12 @@
    padding-right: 30px;
 }
 .structure-content {
-   border-radius: 8px;
    background-color: white;
    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
    margin: 30px 0;
 }
 .structure-content img {
    width: 100%;
-   border-radius: 8px 8px 0 0;
 }
 .structure-content-content {
    padding: 30px;
@@ -161,12 +156,10 @@
 }
 .leadership-content {
    background-color: #fff;
-   border-radius: 8px;
    padding-bottom: 1px;
 }
 .leadership-content img {
    width: 100%;
-   border-radius: 8px 8px 0 0;
 }
 .leadership-content p {
    margin: 20px;

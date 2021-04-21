@@ -225,7 +225,7 @@ main {
    padding-right: 40px;
 }
 .navbar {
-   margin: 0 auto;
+   margin: 0 auto 20px auto;
    background-color: #F7F7F7;
    display: flex;
    justify-content: space-between;
@@ -238,6 +238,12 @@ main {
    color: black;
    font-weight: 500;
    font-size: 15px;
+   text-transform: uppercase;
+   text-decoration: none;
+}
+.navbar-items.active a {
+   text-decoration: underline;
+   font-weight: bold;
 }
 /* Navbar end */
 
