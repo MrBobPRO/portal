@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
 
         //Create Users
         $avatars = ['ava1.jpg', 'ava2.jpg', 'ava3.jpg', 'ava4.jpg', 'ava5.jpg'];
-        $names = ['Икром', 'Олег', 'Михаил', 'Дмитрий', 'Азамат'];
-        $nicknames = ['Икром', 'Олег', 'Михаил', 'Дмитрий', 'Азамат'];
-        $surnames = ['Дилшодович', 'Викторович', 'Олегович', 'Камаров', 'Зияев'];
-        $emails = ['ikrom@mail.ru', 'oleg@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru'];
+        $names = ['Икром', 'BoburJon', 'Михаил', 'Дмитрий', 'Азамат'];
+        $nicknames = ['Икром', 'bob', 'Михаил', 'Дмитрий', 'Азамат'];
+        $surnames = ['Дилшодович', 'Nuridinov', 'Олегович', 'Камаров', 'Зияев'];
+        $emails = ['ikrom@mail.ru', 'boburjon_n@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru'];
         $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
             date_create_from_format('Y-m-d', '1987-04-03'),

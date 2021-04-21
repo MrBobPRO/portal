@@ -7,21 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendCredentials extends Mailable
+class ForgotPassword extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $nickname, $password;
+    public $nickname, $link;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($nickname, $password)
+    public function __construct($nickname, $link)
     {
         $this->nickname = $nickname;
-        $this->password = $password;
+        $this->link = $link;
     }
 
     /**
@@ -31,6 +30,6 @@ class SendCredentials extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.credentials');
+        return $this->view('mail.reset_password_link');
     }
 }

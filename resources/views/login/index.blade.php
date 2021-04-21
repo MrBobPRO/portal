@@ -82,7 +82,7 @@
                   </div>
                   <div class="submit-container">
                      <button class="submit-btn" type="submit">{{ __('Войти') }}</button>
-                     <a href="#">{{ __('Забыли пароль ?') }}</a>
+                     <a href="{{route('login.forgot_password')}}">{{ __('Забыли пароль ?') }}</a>
                   </div>
                </form>
             </div>
