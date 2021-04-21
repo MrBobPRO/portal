@@ -1,4 +1,4 @@
-
+// Login form
 document.getElementById("password-btn").addEventListener('click', showHide);
 const password = document.getElementById('password');
 const toggle = document.getElementById('icon');

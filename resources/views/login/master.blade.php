@@ -15,8 +15,8 @@
    {{-- Bootstrap 5.0 --}}
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-   {{-- Font Awesome 5 --}}
-   <script src="https://kit.fontawesome.com/83b2a810bf.js" crossorigin="anonymous"></script>
+  {{-- Material Icons --}}
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
 
    <link href="{{ asset('css/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/auth/styles.css') }}" rel="stylesheet">
