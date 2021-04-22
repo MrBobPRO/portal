@@ -34,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('templates.master', function ($view) {
             $view->with('route', \Route::currentRouteName());
         });
+
+        view()->composer('templates.breadcrumbs', function ($view) {
+            $view->with('route', \Route::currentRouteName());
+        });
         
         view()->composer('templates.master', function ($view) {
             $news = News::latest()->take(2)->get();

@@ -5,6 +5,10 @@ body {
    background: #EAEFF3;
    min-height: 100vh;
 }
+p {
+   line-height: 1.7;
+   font-size: 16px;
+}
 *:focus {
    outline: none;
 }
@@ -13,11 +17,11 @@ button:focus {
 }
 ::-moz-selection { /* Code for Firefox */
    color: white;
-   background: #1A078F;
+   background: #00bcd4;
  }
  ::selection {
    color: white;
-   background: #1A078F;
+   background: #00bcd4;
  }
  body::-webkit-scrollbar {
    width: 8px;
@@ -91,7 +95,14 @@ main {
    width: 1000px;
    padding-right: 40px;
 }
-
+.no-selection {
+   -webkit-touch-callout: none; /* iOS Safari */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Old versions of Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+   user-select: none; /* Non-prefixed version, currently */
+}
 /* Pagination start */
 .pagination {
    margin: 20px 0;
@@ -153,12 +164,15 @@ main {
    transition-duration: .2s,.2s,.35s;
    transition-timing-function: linear,linear,ease;
    -webkit-overflow-scrolling: touch;
-   overflow: hidden!important;
+   overflow: hidden !important;
    overflow-anchor: none;
    -ms-overflow-style: none;
    touch-action: auto;
    -ms-touch-action: auto;
    background-size: cover;
+}
+.dashboard.hidden {
+   width: 0;
 }
 .dashboard .profile-ava {
    padding: 0 20px 26px;
@@ -218,11 +232,32 @@ main {
    font-size: 22px;
    opacity: 0.9;
 }
+.dashboard .dash-links button {
+   color: white;
+   text-decoration: none;
+   font-weight: 300;
+   font-size: 15px;
+   display: flex;
+   padding: 10px 14px;
+   border-radius: 3px;
+   margin-bottom: 5px;
+   align-items: center;
+   transition: 0.3s;
+   background: transparent;
+   border: none;
+   width: 100%;
+}
+.dashboard .dash-links button span {
+   margin-right: 18px;
+}
+.dashboard .dash-links button:hover {
+   background: #ffffff2e;
+}
 /* Dashboard end */
 
 /* Navbar start */
 .navbar {
-   background-color: #F7F7F7;
+   background-color: white;
    display: flex;
    justify-content: space-between;
    padding: 15px 50px;
@@ -396,3 +431,69 @@ main {
    top: 0;
 }
 /* SIDEBAR END */
+
+/* Breadcrumbs start */
+.breadcrumbs {
+   display: flex; 
+   width: -moz-fit-content;
+   width: fit-content;
+   line-height: 1;
+   margin-top: 25px;
+}
+.breadcrumbs a {
+   background: #F3F5FA;
+   border: 1px solid #dce0e0;
+   border-right: 0;
+   position: relative;
+   text-decoration: none;
+}
+.breadcrumbs a:last-child {
+   background: #00bcd4;
+}
+.breadcrumbs a span {
+   padding: 8px 20px 8px 35px;
+   display: flex;
+   align-items: center;
+   color: #97a6b7;
+}
+.breadcrumbs a:last-child span {
+   color: white;
+}
+.breadcrumbs a span::after {
+   width: 29px;
+   height: 29px;
+   position: absolute;
+   content: '';
+   top: 5px;
+   border: 1px solid #dce0e0;
+   background: #F3F5FA;
+   transform: rotate(45deg);
+   right: -15px;
+   border-left: 0;
+   border-bottom: 0;
+   z-index: 2;
+}
+.breadcrumbs a:last-child span::after {
+   background: #00bcd4;
+}
+.breadcrumbs a span i {
+   font-style: normal;
+   font-family: 'Roboto', sans-serif;
+   font-size: 16px;
+   margin-left: 12px;
+   padding-top: 2px;
+   color: #56616d;
+}
+.breadcrumbs a span i:last-child {
+   color: white;
+}
+.breadcrumbs .brd-home span {
+   background: white;
+   color: #00bcd4;
+   padding: 8px 20px 8px 20px;
+}
+.breadcrumbs .brd-home span::after {
+   background: white;
+}
+
+/* Breadcrumbs end */

@@ -19,8 +19,8 @@
         </div>
 
         {{-- Carousel navs --}}
-         <span class="material-icons-outlined owl-navs owl-nav-prev" onclick="prevSlide()">arrow_back_ios</span>
-         <span class="material-icons-outlined owl-navs owl-nav-next" onclick="nextSlide()">arrow_forward_ios</span>
+         <span class="material-icons-outlined owl-navs no-selection owl-nav-prev" onclick="prevSlide()">arrow_back_ios</span>
+         <span class="material-icons-outlined owl-navs no-selection owl-nav-next" onclick="nextSlide()">arrow_forward_ios</span>
       </div>
 
 

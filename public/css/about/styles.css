@@ -1,98 +1,40 @@
 /* About Page start */
 .about-page {
-   padding-right: 30px;
+   padding-top: 25px;
 }
-.about__nav {
-   background: #fff;
-   padding: 18px;
+.about-page .wrapper {
+   position: relative;
 }
-.about__nav-list {
-   margin: 0;
-   padding: 0 0 0 0;
-   display: flex;
-   justify-content: space-between;
+.about-page .wrapper img {
+   width: 100%;
 }
-.about__nav-items {
-   display: block;
-   background-color: #fff;
-}
-.about__nav-items:hover {
-   box-shadow: 0 0 30px rgba(0, 159, 217, 1);
-}
-.about__nav-items a {
-   display: block;
+.about-page .wrapper a {
+   position: absolute;
+   top: 30%;
+   background: white;
+   width: 50%;
+   padding: 25px;
+   right: 10px;
    text-decoration: none;
-   text-align: center;
-   font-size: 25px;
+   color: black;
+}
+.about-page .wrapper:nth-child(2) a {
+   left: 10px;
+}
+.about-page .wrapper h2 {
+   font-size: 22px;
    font-weight: bold;
-   color: #004578;
-   padding-bottom: 10px;
+   margin-bottom: 12px;
 }
-.about__nav-items img {
-   display: block;
-   width: 300px;
-   height: 250px;
-   background-color: #dfdfdf;
-   object-fit: cover;
-   margin-bottom: 8px;
-}
-.about-company {
-   background-color: #fff;
-   box-shadow: 0 0 30px rgba(90, 178, 255, 0.2);
-   padding: 20px;
-   margin-top: 50px;
-}
-.title {
-   font-size: 25px;
-   color: #004578;
-   font-weight: bold;
-}
-.about-company-text li{
-   padding: 10px 0px;
+.about-page .wrapper p {
+   font-weight: 300;
+   margin: 0;
 }
 /* About Page end */
 
 /* About__About Us page start */
 .aboutus-page {
    margin-right: 20px;
-}
-.aboutus-header, 
-.structure-header,
-.leadership-header {
-   padding: 0px 20px 10px 20px;
-}
-.aboutus-header .title, 
-.structure-page .title,
-.leadership-page .title {
-   text-transform: uppercase;
-   font-size: 30px;
-}
-.crumbs {
-   margin: 10px 0 25px 0;
-   padding: 0 0 0 0;
-   display: flex;
-}
-.crumbs-items {
-   display: block;
-   position: relative;
-   margin-right: 30px;
-}
-.crumbs-items:last-child {
-   color: grey;
-   cursor: context-menu;
-}
-.crumbs-items a {
-   text-transform: uppercase;
-   text-decoration: none;
-   color: #004578;
-   font-weight: bold;
-}
-.crumbs-items i {
-   transform: rotate(45deg);
-   font-size: 6px;
-   position: absolute;
-   top: 8.5px;
-   right: -20px;
 }
 .whoarewe {
    background-color: white;
@@ -150,7 +92,7 @@
 }
 /* About__Structure page end  */
 
-/* About__Structure page start  */
+/* About__Leadership page start  */
 .leadership-page {
    padding-right: 30px;
 }
@@ -164,4 +106,4 @@
 .leadership-content p {
    margin: 20px;
 }
-/* About__Structure page end  */
+/* About__Leadership page end  */
