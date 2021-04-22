@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/forgot_password', 'AuthController@forgotPassword')->name('login.forgot_password');
 Route::post('/forgot_password', 'AuthController@checkEmail');
- 
+
 Route::get('/reset_password', 'AuthController@resetPassword')->name('login.reset_password');
 Route::post('/reset_password', 'AuthController@resetPasswordPost');
 
