@@ -129,11 +129,16 @@
    width: 100%;
 }
 
-/* Reset-password-request */
+/* Forgot Password page */
+.forgot-password-page {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 85vh;
+}
 .reset-password-request {
    position: relative;
    background-color: #fff;
-   margin: 20px auto;
    padding: 80px 40px;
    width: 400px;
    text-align: center;
@@ -169,30 +174,46 @@
 .reset-password-request input {
    display: block;
    height: 50px;
-   border: 2px solid #007BAD;
+   border: 2px solid #00BCD4;
    border-radius: 3px;
    width: 100%;
    padding: 12px;
    font-size: 18px;
 }
 .reset-password-request button {
+   position: relative;
    border: none;
    color: #fff;
-   background-color: #0059D6;
+   background-color: #00BCD4;
    height: 50px;
    width: 100%;
    border-radius: 3px;
    margin: 20px 0;
 }
 .reset-password-request button:active {
-   background-color: rgba(0,89,214,0.5);
+   background-color: rgba(0,188,212,0.5);
 }
 .reset-password-request button:hover {
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .reset-password-request a {
    text-decoration: none;
-   color: #208BB7;
+   color: #00BCD4;
+}
+.reset-password-request .spinner {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #00BCD4;
+   display: none;
+}
+.reset-password-request .spinner-border {
+   margin: 5px;
 }
 .reset-password-email {
    position: absolute;

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Password;
 class AuthController extends Controller
 {
     public function forgotPassword()
@@ -15,19 +15,23 @@ class AuthController extends Controller
         return view('login.forgot_password');
     }
 
-    public function check(Request $request)
+    public function checkEmail(Request $request)
     {
+        //Defining user by email
         $user = User::where('email', $request->email)->first();
+        //If user exists
         if($user) {
+            //Generate token and save it with mail
             $token = Str::random(15);
             DB::table('password_resets')->insert([
                 'email' => $user->email,
                 'token' => $token
             ]);
-
-            \Mail::to($user->email)->send(new ForgotPassword($user->nickname, route('login.reset_password') . '?token=' . $token));
+            //Sending password reset link to user's mail
+            \Mail::to($user->email)->send(new ForgotPassword($user->nickname, route('login.reset_password') . '?token =' . $token));
             return 'success';
         }
+        //If user doesn't exist
         else return 'error';
     }
 
