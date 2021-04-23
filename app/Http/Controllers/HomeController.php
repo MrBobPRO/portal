@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ForgotPassword;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentials;
 use App\Models\User;
@@ -23,7 +24,7 @@ class HomeController extends Controller
     public function send_credentials()
     {
         $users = User::all();
-        \Mail::to('boburjon_n@mail.ru')->send(new SendCredentials('Botir', '12345'));
+        \Mail::to('boburjon_n@mail.ru')->send(new ForgotPassword('Botir', '12345'));
 
         return redirect()->back();
     }

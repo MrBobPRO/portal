@@ -8,8 +8,8 @@ Route::post('/send_credentials', 'HomeController@send_credentials');
 
 //--------------forgot password routes-------------------
 Route::get('/forgot_password', 'AuthController@forgotPassword')->name('login.forgot_password');
-Route::post('/forgot_password', 'AuthController@check');
-
+Route::post('/forgot_password', 'AuthController@checkEmail');
+ 
 Route::get('/reset_password', 'AuthController@resetPassword')->name('login.reset_password');
 Route::post('/reset_password', 'AuthController@resetPasswordPost');
 //--------------forgot password routes---------------
