@@ -89,10 +89,10 @@ function ajax_reset_password() {
       spinner.style.display = 'flex';
       sendBtn.setAttribute('disabled', 'disabled');
 
-   if ( password.length < 6) {
+   if ( password.length < 5) {
       document.getElementById('password').style.borderColor = 'red';
       document.getElementById('confirm-password').style.borderColor = 'red';
-      error.innerHTML = 'Пароль должен содержать минимум 6 символов';
+      error.innerHTML = 'Пароль должен содержать минимум 5 символов';
       error.style.display = 'block';
       spinner.style.display = 'none';
       sendBtn.removeAttribute('disabled');
