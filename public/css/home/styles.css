@@ -4,6 +4,7 @@
 /* Owl carousel start */
 .owl-carousel-container {
    position: relative;
+   margin-top: 25px;
 }
 .owl-carousel .item img {
    width: 100%;

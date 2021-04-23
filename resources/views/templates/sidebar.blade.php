@@ -4,6 +4,7 @@
       <h1>День рождении
          <span class="material-icons-outlined">star</span>
       </h1>
+      
       <div class="single-birthday">
          <img src="{{asset('img/users/b1.jpg')}}">
          <span>Сегодня</span>
@@ -17,13 +18,14 @@
       </div>
    </div>
 
-   <div class="news">
+   <div class="sidebar-news">
       <h1>Последние новости
          <span class="material-icons-outlined">article</span>
       </h1>
-      @foreach($news as $new)
-         <div class="single-news">
-            <a href=" {{ route('news.shownews', $new->id) }} ">
+
+      @foreach($latest_news as $new)
+         <div class="sidebar-single-news">
+            <a href=" {{ route('news.single', $new->id) }} ">
                <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
                <h4>{{ $new->title }}</h4>
                <p>{{ $new->text }}</p> 
@@ -37,5 +39,6 @@
             </a>
          </div>
       @endforeach
+
    </div>
 </div>

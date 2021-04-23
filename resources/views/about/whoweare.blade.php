@@ -3,7 +3,7 @@
 
 @include('templates.breadcrumbs')
 
-   <section class="structure-page">
+   <section class="whoweare-page">
       <div class="banner-block">
          <img src="{{ asset('img/home/slider1.jpg') }}">
 

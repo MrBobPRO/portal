@@ -8,21 +8,26 @@ class NewsController extends Controller
 {
     public function index()
     { 
-        $allNews = News::paginate(6);
+        $news = News::paginate(6);
 
-        return view('news.index', compact('allNews'));
+        return view('news.index', compact('news'));
     }
-    public function companynews()
+
+    public function inner()
     { 
-        $companyNews = News::where('type', true)->paginate(6);
+        $news = News::where('type', true)->paginate(6);
+
         return view('news.companynews', compact('companyNews'));
     }
-    public function worldnews()
+
+    public function global()
     { 
         $worldNews = News::where('type', false)->paginate(6);
+
         return view('news.worldnews', compact('worldNews'));
     }
-    public function shownews(News $news)
+
+    public function single(News $news)
     { 
         return view('news.shownews', compact('news'));
     }

@@ -1,6 +1,90 @@
 /* News main page */
+section {
+   margin-top: 25px;
+}
+img {
+   max-width: 100%;
+}
+.wrapper {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 25px;
+}
+.wrapper a {
+   width: calc(50% - 20px);
+   overflow: hidden;
+   text-decoration: none;
+}
+.wrapper a img {
+   transition: 0.3s;
+}
+.wrapper a:hover img {
+   transform: scale(1.2);
+}
+.wrapper a p {
+   width: 100%;
+   background: white;
+   display: flex;
+   padding: 15px 20px;
+   text-decoration: none;
+   color: #00bcd4;
+   font-weight: bold;
+   z-index: 2;
+   position: relative;
+   margin: 0;
+}
 
-.news-page {
+/* Latest news start */
+.latest-news {
+   padding: 40px;
+   background: white;
+}
+.single-news {
+   display: flex;
+   margin-bottom: 40px;
+}
+.latest-news .single-news:last-child {
+   margin-bottom: 0;
+}
+.single-news img {
+   width: 45%;
+   object-fit: cover;
+   border-radius: 4px;
+}
+.single-news div {
+   box-shadow: 0px 5px 5px rgb(0 0 0 / 6%);
+   background: white;
+   margin: 25px 0 25px -100px;
+   padding: 25px;
+   border-radius: 4px;
+}
+.single-news h3 {
+   font-size: 20px;
+   line-height: 1;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   margin-bottom: 12px;
+}
+.single-news p {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   margin-bottom: 12px;
+}
+.single-news .news-date {
+   font-weight: bold;
+   color: #00bcd4;
+   font-size: 14px;
+}
+/* Latest news end */
+
+
+/* .news-page {
    padding-right: 30px;
 }
 .news__nav {
@@ -76,12 +160,12 @@
    display: -webkit-box;
    -webkit-line-clamp: 5;
    -webkit-box-orient: vertical;
-}
+} */
 
 /* News__Company News page */
 /* and */
 /* News__Interesting World News page */
-.companynews-page, .worldnews-page {
+/* .companynews-page, .worldnews-page {
    padding-right: 30px;
 }
 .companynews-header {
@@ -225,9 +309,9 @@
 }
 .companynews-items .text:hover {
    text-decoration: underline;
-}
+} */
 /* News Show */
-.news {
+/* .news {
    background-color: #fff;
    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
    margin-bottom: 40px;
@@ -251,4 +335,4 @@
    font-size: 20px;
    font-weight: bold;
    color: #004578;
-}
+} */

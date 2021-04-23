@@ -48,10 +48,10 @@ class DatabaseSeeder extends Seeder
         }
 
         //Create News
-        $types = [false, true, true, true, false, false, false];
-        for ($i = 0; $i < count($types); $i++) {
+        $global = [false, true, true, true, false, false, false];
+        for ($i = 0; $i < count($global); $i++) {
             $news = new News;
-            $news->type = $types[$i];
+            $news->global = $global[$i];
             $news->image = 'news' . ($i) . '.jpg';
             $news->title = 'Заголовок новостей' ;
             $news->text = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil eos ipsum repudiandae ab. Accusantium nesciunt harum ipsum quaerat aliquam, numquam enim expedita excepturi distinctio omnis esse necessitatibus id dolor perferendis tempore iure ratione saepe vel impedit blanditiis officia assumenda commodi illo. Consequatur esse ullam, voluptate labore odio ab debitis dolor iusto delectus obcaecati amet. Dolor unde harum quo necessitatibus nisi neque quae debitis recusandae eos sunt iste tempora, voluptate non sequi sint blanditiis quos laborum libero rerum repudiandae porro. Ullam dolor nihil in! Maxime assumenda hic porro qui corrupti, amet, eligendi at eum laboriosam repellendus voluptatum commodi corporis dolore recusandae neque adipisci nobis maiores, nostrum velit laborum eos! Consequatur ipsa pariatur accusamus id sit doloremque provident nisi nemo a voluptate excepturi, qui, corporis placeat dolorem nobis voluptates nostrum ipsam officiis porro. Ullam eius, porro adipisci obcaecati corporis alias ipsam in nisi, amet dicta atque aliquid ratione delectus possimus molestiae non deleniti. Ea explicabo placeat fuga laudantium quos, fugit labore odio nesciunt iure, nostrum ad velit dolores cupiditate. Repellat, reiciendis officia quisquam obcaecati repellendus eius quae. Dolor nisi laborum neque ad saepe quasi voluptatem quia quo harum debitis cum voluptates tempora, rerum fugiat, voluptatibus alias nam vero, excepturi nostrum nulla incidunt.' ;

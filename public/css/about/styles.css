@@ -1,6 +1,6 @@
 /* About Page start */
-.about-page {
-   padding-top: 25px;
+section {
+   margin-top: 25px;
 }
 .about-page .wrapper {
    position: relative;
@@ -13,7 +13,7 @@
    top: 30%;
    background: white;
    width: 50%;
-   padding: 25px;
+   padding: 25px 25px 18px;
    right: 10px;
    text-decoration: none;
    color: black;
@@ -30,80 +30,17 @@
    font-weight: 300;
    margin: 0;
 }
+.about-page .wrapper a i {
+   display: block;
+   width: -moz-fit-content;
+   width: fit-content;
+   margin-left: auto;
+   color: #00bcd4;
+   font-size: 30px;
+   transition: 0.3s;
+}
+.about-page .wrapper a:hover i {
+   transform: translateX(8px);
+}
 /* About Page end */
 
-/* About__About Us page start */
-.aboutus-page {
-   margin-right: 20px;
-}
-.whoarewe {
-   background-color: white;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-   margin-top: 20px;
-}
-.whoarewe img {
-   width: 100%;
-}
-.whoarewe-text {
-   padding: 25px;
-}
-.extra-info {
-   background-color: #fff;
-   margin: 24px 0;
-   padding: 30px;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-   text-align: center;
-}
-.extra-info b {
-   font-size: 18px;
-   margin-bottom: 30px;
-   display: block;
-}
-.info-img-list {
-   padding: 0;
-   margin: 0;
-   display: flex;
-   align-items: center;
-}
-.info-items {
-   display: block;
-   padding: 10px;
-}
-.info-items img {
-   width: 100%;
-   box-shadow: 0 0 20px #ddd;
-}
-/* About__About Us page end */
-
-/* About__Structure page start  */
-.structure-page {
-   padding-right: 30px;
-}
-.structure-content {
-   background-color: white;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-   margin: 30px 0;
-}
-.structure-content img {
-   width: 100%;
-}
-.structure-content-content {
-   padding: 30px;
-}
-/* About__Structure page end  */
-
-/* About__Leadership page start  */
-.leadership-page {
-   padding-right: 30px;
-}
-.leadership-content {
-   background-color: #fff;
-   padding-bottom: 1px;
-}
-.leadership-content img {
-   width: 100%;
-}
-.leadership-content p {
-   margin: 20px;
-}
-/* About__Leadership page end  */

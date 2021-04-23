@@ -11,16 +11,20 @@ class AboutController extends Controller
     {   
         return view('about.index');
     }
-    public function aboutus() 
+
+    public function whoweare() 
     {
-        return view('about.aboutus');
+        return view('about.whoweare');
     }
+
     public function structure() 
     {
         return view('about.structure');
     }
+
     public function leadership() 
     {
         return view('about.leadership');
     }
+    
 }
