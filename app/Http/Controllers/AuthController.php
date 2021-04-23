@@ -28,7 +28,7 @@ class AuthController extends Controller
                 'token' => $token
             ]);
             //Sending password reset link to user's mail
-            \Mail::to($user->email)->send(new ForgotPassword($user->nickname, route('login.reset_password') . '?token =' . $token));
+            \Mail::to($user->email)->send(new ForgotPassword($user->nickname, route('login.reset_password') . '?token=' . $token));
             return 'success';
         }
         //If user doesn't exist
@@ -37,28 +37,34 @@ class AuthController extends Controller
 
     public function resetPassword(Request $request)
     {   
+        //Get token
         $token = $request->token;
+        //Find email from password_resets table by token
         $email = DB::table('password_resets')->where('token', $token)->value('email');
-        if(!$email) return 'Ошибка. Запросите новую ссылку!';
-        else {
+        //If email not exists
+        if (!$email){
+            return view('login.invalid_link');
+        } else {
             return view('login.reset_password', compact('token'));
         } 
-
-        return view('login.reset_password');
     }
 
     public function resetPasswordPost(Request $request)
     {
+        //Get token
         $token = $request->token;
+        $password = $request->password;
+        //Find email from password_resets table by token
         $email = DB::table('password_resets')->where('token', $token)->value('email');
+        //Find user by email
         $user = User::where('email', $email)->first();
-
-        $user->password = bcrypt($request->password);
+        //Reset user's password
+        $user->password = bcrypt($password);
         $user->save();
-
-        DB::table('password_resets')->where('token', $token)->delete();
-
-        return redirect()->route('login');
+        //Delete password_reset table
+        DB::table('password_resets')->where('email', $email)->delete();
+        
+        return 'success';
     }
 
 }
