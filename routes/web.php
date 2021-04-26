@@ -32,10 +32,13 @@ Route::get('/about', 'AboutController@index')->name('about.index');
 
 //------------News-page's route--------------
 Route::get('/news', 'NewsController@index')->name('news.index');
-Route::get('/news/{news}', 'NewsController@single')->name('news.single');
+Route::get('/news/{id}', 'NewsController@single')->name('news.single');
    //News-page categories' routes
    Route::get('/inner_news', 'NewsController@inner')->name('news.inner');
    Route::get('/global_news', 'NewsController@global')->name('news.global');
+      //Like and dislike routes
+      Route::post('/like', 'GradeController@like');
+      Route::post('/dislike', 'GradeController@dislike');
 //------------News-page's route--------------
 
 

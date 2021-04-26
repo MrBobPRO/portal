@@ -6,11 +6,7 @@
         <script src="{{ asset('js/home/scripts.js') }}"></script>
     @break
 
-    @case('about.index')
-        <script src="{{ asset('js/about/scripts.js') }}"></script>
-    @break
-
-    @case('news.index') @case('news.companynews') @case('news.worldnews') @case('news.shownews')
+    @case('news.single')
         <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break
 

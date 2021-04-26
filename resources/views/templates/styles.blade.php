@@ -8,12 +8,12 @@
         <link href="{{ asset('css/home/media.css') }}" rel="stylesheet">
     @break
     
-    @case('about.index') @case('about.aboutus') @case('about.structure') @case('about.leadership')
+    @case('about.index') @case('about.whoweare') @case('about.structure') @case('about.leadership')
         <link href="{{ asset('css/about/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/about/media.css') }}" rel="stylesheet">
     @break
     
-    @case('news.index') @case('news.companynews') @case('news.worldnews') @case('news.shownews')
+    @case('news.index') @case('news.single') @case('news.inner') @case('news.global')
         <link href="{{ asset('css/news/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/news/media.css') }}" rel="stylesheet">
     @break

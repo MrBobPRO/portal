@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\Auth;
+
 class NewsController extends Controller
 {
     public function index()
@@ -15,21 +17,37 @@ class NewsController extends Controller
 
     public function inner()
     { 
-        $news = News::where('type', true)->paginate(6);
+        $news = News::where('global', false)->paginate(6);
 
-        return view('news.companynews', compact('companyNews'));
+        return view('news.categories', compact('news'));
     }
 
     public function global()
     { 
-        $worldNews = News::where('type', false)->paginate(6);
+        $news = News::where('global', true)->paginate(6);
 
-        return view('news.worldnews', compact('worldNews'));
+        return view('news.categories', compact('news'));
     }
 
-    public function single(News $news)
+    public function single($id)
     { 
-        return view('news.shownews', compact('news'));
+        $news = News::find($id);
+        //generate titile for breadcrumb
+        if(mb_strlen($news->title) > 23)
+            $crumbsTitle = mb_substr($news->title, 0, 20) . '...';
+        else
+            $crumbsTitle = $news->title;
+
+        $likes = $news->grades->where('like', true);
+        $dislikes = $news->grades->where('like', false);
+
+        //used to get users grade for blade template
+        $usersGrade = $news->grades->where('user_id', Auth::user()->id)->first();
+        if(!$usersGrade) $usersGrade = 'null';
+        else if($usersGrade->like) $usersGrade = 'like';
+            else $usersGrade = 'dislike';
+
+        return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade'));
     }
 
 }

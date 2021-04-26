@@ -1,28 +1,33 @@
 <nav class="main-nav">
    <ul class="navbar">
-      <li class="navbar-items {{ $route == 'home.index' ? 'active' : ''}}">
+      <li class="{{ $route == 'home.index' ? 'active' : ''}}">
          <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'about.index' 
-                              || $route == 'about.aboutus' 
+
+      <li class="{{ $route == 'about.index' 
+                              || $route == 'about.whoweare' 
                               || $route == 'about.structure' 
                               || $route == 'about.leadership' ? 'active' : ''}}">
          <a href=" {{ route('about.index') }} ">{{ __('О компании') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'news.index'  
-                              || $route == 'news.companynews' 
-                              || $route == 'news.worldnews' 
-                              || $route == 'news.shownews' ? 'active' : ''}}">
+
+      <li class="{{ $route == 'news.index'  
+                              || $route == 'news.inner' 
+                              || $route == 'news.global' 
+                              || $route == 'news.single' ? 'active' : ''}}">
          <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'entertainment.index' ? 'active' : ''}}">
+
+      <li class="{{ $route == 'entertainment.index' ? 'active' : ''}}">
          <a href=" {{ route('entertainment.index') }} ">{{ __('Развлечения') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'projects.index' 
+
+      <li class="{{ $route == 'projects.index' 
                               || $route == 'projects.showproject' ? 'active' : ''}}">
          <a href=" {{ route('projects.index') }} ">{{ __('Проекты и инициативы') }}</a>
       </li>
-      <li class="navbar-items {{ $route == 'knowledge.index' 
+      
+      <li class="{{ $route == 'knowledge.index' 
                               || $route == 'knowledge.books.index'
                               || $route == 'knowledge.books.showbook'
                               || $route == 'knowledge.videos.index' ? 'active' : ''}}">

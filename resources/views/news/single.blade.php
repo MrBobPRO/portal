@@ -1,54 +1,98 @@
 @extends('templates.master')
 @section('content')
    
-   <section class="news-page">
-      
-      <div class="companynews-header">
+@include('templates.breadcrumbs')
 
-         <h3 class="title">{{ $news->title }}</h3>
+   <section class="single-news-page">
 
-         <ul class="crumbs">
-            <li class="crumbs-items">
-               <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
-               <i class="fa fa-square-full"></i>
-            </li>
-            <li class="crumbs-items">
-               <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
-               <i class="fa fa-square-full"></i>
-            </li>
+      <div class="news-content">
+         <h3>{{$news->title}}</h3>
+         <img src="{{ asset('img/news/'. $news->image) }}">
+         <div class="news-content-text">{{$news->text}}</div>
 
-            @if ( $news->type == true)
-               <li class="crumbs-items">
-                  <a href=" {{ route('news.companynews') }} ">{{ __('Новости компании') }}</a>
-                  <i class="fa fa-square-full"></i>
-               </li>
-            @else
-               <li class="crumbs-items">
-                  <a href=" {{ route('news.worldnews') }} ">{{ __('Интересные мировые новости') }}</a>
-                  <i class="fa fa-square-full"></i>
-               </li> 
-            @endif
+         <div class="grades-container">
+            <span class="news-content-date">
+               <?php 
+                  $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
+                  $formatted = $date->isoFormat('DD MMMM YYYY');
+               ?>
+               {{$formatted}}
+            </span>
 
-            <li class="crumbs-items">
-               <a>{{ $news->title }}</a>
-            </li>
-         </ul>  
+            {{-- used in ajax requests --}}
+            <input id="news_id" type="hidden" value="{{$news->id}}">
 
-      </div>
+            <div class="grade-icons-container no-selection">
+               <span id="likes_count" class="grades-count" data-bs-toggle="modal" data-bs-target="#likedModal" title="Посмотреть кто лайкнул">{{count($likes)}}</span>
+               {{-- Like buttons --}}
+               <div class="like-icons">
+                  <span id="remove_like" class="material-icons {{$usersGrade == 'like'? '' : 'hidden'}}" onclick="ajaxLike('remove_like')">thumb_up</span>
+                  <span id="like" class="material-icons-outlined {{$usersGrade == 'like'? 'hidden' : ''}}" onclick="ajaxLike('like')">thumb_up</span>
+               </div>
+               {{-- Dislike buttons --}}
+               <div class="dislike-icons">
+                  <span id="remove_dislike" class="material-icons {{$usersGrade == 'dislike'? '' : 'hidden'}}" onclick="ajaxDislike('remove_dislike')">thumb_down</span>
+                  <span id="dislike" class="material-icons-outlined {{$usersGrade == 'dislike'? 'hidden' : ''}}" onclick="ajaxDislike('dislike')">thumb_down</span>
+               </div>
 
-      <div class="news">
-         <img src="{{ asset('img/news/' . $news->image) }}" alt="img" onclick="showModal('{{ asset('img/news/'. $news->image) }}')">
-         <p> {{ $news->text }} </p>
-         <?php $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-         $formatted = $date->isoFormat('DD MMMM YYYY') ?>
-         <span> {{ $formatted }} </span>
+               <span id="dislikes_count" class="grades-count" data-bs-toggle="modal" data-bs-target="#dislikedModal" title="Посмотреть кто дислайкнул">{{count($dislikes)}}</span>
+            </div>
+         </div>
       </div>
 
    </section>
 
-   <div class="image-modal" id="image-modal">
-      <img id="modal-img" src="#" alt="img">
-      <span class="close" onclick="hideModal()"><i class="fa fa-times"></i> </span>
-   </div> 
+<!-- Liked Modal -->
+<div class="modal fade grades-modal" id="likedModal" tabindex="-1" aria-labelledby="likedModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="likedModalLabel"><span class="material-icons">thumb_up</span> Лайкнули ({{count($likes)}})</h5>
+       </div>
+       <div class="modal-body" id="liked_modal_body">
+         @foreach ($likes as $like)
+         <?php $u = App\Models\User::find($like->user_id); 
+               $current_users_id = \Auth::user()->id;
+         ?>
+            <div class="modal-item
+               {{-- Highlite users grade. Used for deleting on grade change --}}
+               {{$current_users_id == $u->id ? 'users-choice' : ''}} 
+            ">
+               <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+            </div>
+         @endforeach
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+       </div>
+     </div>
+   </div>
+</div>
+
+
+<!-- Disliked Modal -->
+<div class="modal fade grades-modal" id="dislikedModal" tabindex="-1" aria-labelledby="dislikedModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="dislikedModalLabel"><span class="material-icons">thumb_up</span> Дислайкнули ({{count($dislikes)}})</h5>
+       </div>
+       <div class="modal-body" id="disliked_modal_body">
+         @foreach ($dislikes as $like)
+         <?php $u = App\Models\User::find($like->user_id); ?>
+            <div class="modal-item
+               {{-- Highlite users grade. Used for deleting on grade change --}}
+               {{$current_users_id == $u->id ? 'users-choice' : ''}} 
+            ">
+               <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+            </div>
+         @endforeach
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+       </div>
+     </div>
+   </div>
+</div>
    
 @endsection

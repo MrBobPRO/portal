@@ -37,7 +37,15 @@ main {
 .text-block p:last-child {
    margin-bottom: 0;
 }
-
+.main-btn {
+   background: #00bcd4;
+   color: white;
+   padding: 8px 20px;
+   border: 1px solid #00bcd4;
+   border-radius: 4px;
+   font-weight: 500;
+   font-size: 15px;
+}
 /* Focus start */
 *:focus {
    outline: none;
@@ -84,30 +92,25 @@ button:focus {
 
 /* Pagination start */
 .pagination {
-   margin: 20px 0;
+   margin: 40px 0 0;
    justify-content: center;
 }
-.page-item {
-   margin: 4px;
-}
 .page-link {
-   border: none;
-   border-radius: 5px;
-   width: 35px;
-   height: 35px;
-   line-height: 35px;
-   padding: 0;
-   margin: 0;
-   text-align: center;
-   font-weight: 600;
-   box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+   color: black;
 }
-.page-item:first-child .page-link,
-.page-item:last-child .page-link {
-   font-size: 30px;
-   line-height: 30px;
+.page-item.active .page-link {
+   background-color: #00bcd4;
+   border-color: #00bcd4;
+}
+.page-link:focus {
+   box-shadow: none;
+   color: black;
+}
+.page-link:hover {
+   color: black;
 }
 /* Pagination end */
+
 
 /* Dashboard start */
 .dashboard-btn {
@@ -239,17 +242,24 @@ button:focus {
    background-color: white;
    display: flex;
    justify-content: space-between;
-   padding: 15px 50px;
+   padding: 0;
    margin-bottom: 0;
 }
-.navbar-items {
+.navbar li {
    display: block;
+   text-transform: uppercase;
+   border-bottom: 4px solid white;
 }
-.navbar-items a {
+.navbar li.active {
+   border-color: #00bcd4;
+}
+.navbar li a {
    color: black;
    font-weight: 500;
-   font-size: 16px;
+   font-size: 15px;
    text-decoration: none;
+   padding: 21px 25px 16px;
+   display: flex;
 }
 /* Navbar end */
 
@@ -262,6 +272,7 @@ button:focus {
    padding: 12px 0 8px;
    width: 100%;
    z-index: 9;
+   box-shadow: 0px 0px 5px rgb(0 0 0 / 10%);
 }
 .toolbar-inner {
    display: flex;
@@ -428,7 +439,7 @@ button:focus {
    background: #00bcd4;
 }
 .breadcrumbs a span {
-   padding: 8px 15px 8px 35px;
+   padding: 15px 25px 15px 35px;
    display: flex;
    align-items: center;
    color: #536171;
@@ -437,37 +448,26 @@ button:focus {
    color: white;
 }
 .breadcrumbs a span::after {
-   width: 29px;
-   height: 29px;
+   width: 32px;
+   height: 32px;
    position: absolute;
    content: '';
-   top: 5px;
-   border: 1px solid #c7c7c7;
+   top: 7px;
+   border: 1px solid #b5b2b2;
    background: white;
    transform: rotate(45deg);
    right: -15px;
    border-left: 0;
    border-bottom: 0;
    z-index: 1;
+   border-radius: 5px;
 }
 .breadcrumbs a:last-child span::after {
    background: #00bcd4;
 }
-.breadcrumbs a span i {
-   font-style: normal;
-   font-family: 'Roboto', sans-serif;
-   font-size: 16px;
-   margin-left: 12px;
-   padding-top: 2px;
-   color: black;
-   z-index: 2;
-   font-weight: 500;
-}
-.breadcrumbs a:last-child span i {
-   color: white;
-}
 .breadcrumbs .brd-home span {
    color: #00bcd4;
-   padding: 8px 20px 8px 20px;
+   padding: 0 20px;
+   height: 100%;
 }
 /* Breadcrumbs end */

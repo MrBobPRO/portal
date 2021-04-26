@@ -4,19 +4,6 @@
 @include('templates.breadcrumbs')
 
    <section class="news-page">
-      {{-- Categories start --}}
-      <div class="wrapper">
-         <a href="{{ route('news.inner') }}">
-            <img src="{{ asset('img/news_page/inner.jpg') }}">
-            <p>{{ __('Новости компании') }}</p>
-         </a> 
-
-         <a href="{{ route('news.global') }}">
-            <img src="{{ asset('img/news_page/global.jpg') }}">
-            <p>{{ __('Мировые новости') }}</p>
-         </a> 
-      </div>
-      {{-- Categories end --}}
 
       {{-- Latest news start --}}
       <div class="latest-news">
