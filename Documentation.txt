@@ -5,7 +5,9 @@ Timezone -> Asia/Dushanbe
 Bootstrap v5.0
 Google Roboto Font
 JQuery v3.6
-Font Awesome 5
+Material Icons
+Owl Carousel => slider
+Plyr player => used as videoplayer (https://plyr.io/)
 
 ---Authentication---
 For authentication used Laravel Breeze and all routes have been disabled except Login & Logout (/routes/auth.php)

@@ -5,19 +5,21 @@
 
    <section class="single-news-page">
 
+      {{-- News content start --}}
       <div class="news-content">
          <h3>{{$news->title}}</h3>
          <img src="{{ asset('img/news/'. $news->image) }}">
          <div class="news-content-text">{{$news->text}}</div>
 
          <div class="grades-container">
-            <span class="news-content-date">
+            <div class="news-content-date">
+               <span class="material-icons">watch_later</span>
                <?php 
                   $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-                  $formatted = $date->isoFormat('DD MMMM YYYY');
+                  $formatted = $date->isoFormat('DD MMMM YYYY H:m:s');
                ?>
                {{$formatted}}
-            </span>
+            </div>
 
             {{-- used in ajax requests --}}
             <input id="news_id" type="hidden" value="{{$news->id}}">
@@ -39,6 +41,39 @@
             </div>
          </div>
       </div>
+      {{-- News content end --}}
+
+      {{-- Comments start --}}
+      <div class="comments-container">
+         <h3>Коментарии ({{$commentsCount}})</h3>
+
+         <form action="/news/comment" method="POST">
+            @csrf
+            <input type="hidden" name="id" value="{{$news->id}}">
+            <img src="{{ asset('img/users/' . \Auth::user()->avatar) }}">
+            <input type="text" name="body" placeholder="Напишите коментарий..." autocomplete="off"/>
+            <button type="submit"><span class="material-icons" title="Отправить">send</span></button>
+         </form>
+
+         <div class="comments-list">
+            @foreach ($comments as $comment)
+                <div class="single-comment">
+                   <img src="{{ asset('img/users/' . $comment->user->avatar) }}">
+                   <div class="comment-body">
+                      <h6>{{$comment->user->name}}</h6>
+                      <span>
+                        <?php 
+                           $date = \Carbon\Carbon::parse($comment->created_at)->locale('ru')->diffForHumans();
+                        ?>
+                        {{$date}}
+                      </span>
+                      <p>{{$comment->body}}</p>
+                   </div>
+                </div>
+            @endforeach
+         </div>
+      </div>
+      {{-- Comments end --}}
 
    </section>
 
@@ -79,7 +114,9 @@
        </div>
        <div class="modal-body" id="disliked_modal_body">
          @foreach ($dislikes as $like)
-         <?php $u = App\Models\User::find($like->user_id); ?>
+         <?php $u = App\Models\User::find($like->user_id); 
+               $current_users_id = \Auth::user()->id;
+         ?>
             <div class="modal-item
                {{-- Highlite users grade. Used for deleting on grade change --}}
                {{$current_users_id == $u->id ? 'users-choice' : ''}} 

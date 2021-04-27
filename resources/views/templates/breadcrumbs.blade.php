@@ -46,5 +46,9 @@
                <a href="{{ route('news.single', $news->id) }}"><span>{{ $crumbsTitle }}</span></a>
             @break
 
+      @case('entertainment.index')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+      @break
+
       @endswitch
    </div>

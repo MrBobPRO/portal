@@ -2,7 +2,9 @@
 @switch($route)
 
     @case('home.index')
+        {{-- Owl Carousel --}}
         <script src="{{ asset('js/home/owl.carousel.min.js') }}"></script>
+        
         <script src="{{ asset('js/home/scripts.js') }}"></script>
     @break
 
@@ -11,6 +13,9 @@
     @break
 
     @case('entertainment.index') 
+        {{-- Plyr video player --}}
+        <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
+
         <script src="{{ asset('js/entertainment/scripts.js') }}"></script>
     @break
 

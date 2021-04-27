@@ -14,4 +14,9 @@ class News extends Model
         return $this->hasMany(Grade::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

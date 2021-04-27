@@ -37,8 +37,10 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
    Route::get('/inner_news', 'NewsController@inner')->name('news.inner');
    Route::get('/global_news', 'NewsController@global')->name('news.global');
       //Like and dislike routes
-      Route::post('/like', 'GradeController@like');
-      Route::post('/dislike', 'GradeController@dislike');
+      Route::post('/news/like', 'GradeController@like');
+      Route::post('/news/dislike', 'GradeController@dislike');
+      //Comment
+      Route::post('/news/comment', 'CommentController@store');
 //------------News-page's route--------------
 
 

@@ -11,6 +11,8 @@ use App\Models\Subject;
 use App\Models\Subjectcat;
 use App\Models\Material;
 use App\Models\Book;
+use App\Models\Comment;
+use App\Models\Entertainment;
 use App\Models\Grade;
 class DatabaseSeeder extends Seeder
 {
@@ -21,25 +23,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-        $grade = new Grade;
-        $grade->user_id = 2;
-        $grade->news_id = 1;
-        $grade->like = true;
-        $grade->save();
-
-        $grade = new Grade;
-        $grade->user_id = 1;
-        $grade->news_id = 1;
-        $grade->like = false;
-        $grade->save();
-
-        $grade = new Grade;
-        $grade->user_id = 3;
-        $grade->news_id = 1;
-        $grade->like = true;
-        $grade->save();
-
         //Create Users
         $avatars = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'];
         $names = ['ikrom', 'BoburJon', 'Михаил', 'Дмитрий', 'Азамат'];
@@ -71,13 +54,77 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < count($global); $i++) {
             $news = new News;
             $news->global = $global[$i];
-            $news->image = 'news' . ($i) . '.jpg';
+            $news->image = ($i+1) . '.jpg';
             $news->title = 'Заголовок новостей' ;
             if($i == 4) $news->title = 'Очень длинный заголовок новостей' ;
             $news->text = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil eos ipsum repudiandae ab. Accusantium nesciunt harum ipsum quaerat aliquam, numquam enim expedita excepturi distinctio omnis esse necessitatibus id dolor perferendis tempore iure ratione saepe vel impedit blanditiis officia assumenda commodi illo. Consequatur esse ullam, voluptate labore odio ab debitis dolor iusto delectus obcaecati amet. Dolor unde harum quo necessitatibus nisi neque quae debitis recusandae eos sunt iste tempora, voluptate non sequi sint blanditiis quos laborum libero rerum repudiandae porro. Ullam dolor nihil in! Maxime assumenda hic porro qui corrupti, amet, eligendi at eum laboriosam repellendus voluptatum commodi corporis dolore recusandae neque adipisci nobis maiores, nostrum velit laborum eos! Consequatur ipsa pariatur accusamus id sit doloremque provident nisi nemo a voluptate excepturi, qui, corporis placeat dolorem nobis voluptates nostrum ipsam officiis porro. Ullam eius, porro adipisci obcaecati corporis alias ipsam in nisi, amet dicta atque aliquid ratione delectus possimus molestiae non deleniti. Ea explicabo placeat fuga laudantium quos, fugit labore odio nesciunt iure, nostrum ad velit dolores cupiditate. Repellat, reiciendis officia quisquam obcaecati repellendus eius quae. Dolor nisi laborum neque ad saepe quasi voluptatem quia quo harum debitis cum voluptates tempora, rerum fugiat, voluptatibus alias nam vero, excepturi nostrum nulla incidunt.' ;
             $news->save();
         } 
+
+        //grades for news
+        $grade = new Grade;
+        $grade->user_id = 2;
+        $grade->news_id = 1;
+        $grade->like = true;
+        $grade->save();
+
+        $grade = new Grade;
+        $grade->user_id = 1;
+        $grade->news_id = 1;
+        $grade->like = false;
+        $grade->save();
+
+        $grade = new Grade;
+        $grade->user_id = 3;
+        $grade->news_id = 1;
+        $grade->like = true;
+        $grade->save();
+
+        //comments for news
+        $c = new Comment;
+        $c->user_id = 1;
+        $c->news_id = 1;
+        $c->body = 'Смелость — это способность подавить воображаемые страхи и получить намного более насыщенную и богатую жизнь, в которой ты сам себе отказываешь.';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-23 12:44:07');
+        $c->save();
+
+        $c = new Comment;
+        $c->user_id = 2;
+        $c->news_id = 1;
+        $c->body = 'Икром ты это в серьёз??';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:05:22');
+        $c->save();
+
+        $c = new Comment;
+        $c->user_id = 1;
+        $c->news_id = 1;
+        $c->body = 'Зуб даю!';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:12:27');
+        $c->save();
+
+        //Intertainment
+        $enter = ['Властелин капец','Храбрые перцем','Одна дома','Фарсаг 9','Митохондриа!','Бегущий в спортзале','Доктор МОМ','Лига уродов'];
+        for ($i=0; $i < count($enter); $i++) {
+            $ent = new Entertainment;
+            $ent->filename = '1.mp4';
+            if(($i+1) % 2 == 0) $ent->filename = '2.mp4';
+            $ent->title = $enter[$i];
+            $ent->subtitles = '1.vtt';
+            if(($i+1) % 2 == 0) $ent->subtitles = null;
+            $ent->save();
+        }
         
+
+        //Projects
+        for ($i=0; $i < 11; $i++) {
+            $projects = new Project;
+            $projects->image = 'project' . ($i+1) . '.jpg';
+            $projects->title = 'Заголовок проекта';
+            $projects->text = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio tenetur eaque qui natus, illo dicta odit similique rem labore provident dignissimos dolorum, excepturi quidem, quis iure ipsam reiciendis a dolore enim? Suscipit sit dolor optio qui fugiat unde, rerum perspiciatis quia? Veritatis totam molestias exercitationem nemo non commodi tempore assumenda sit tenetur hic dicta sequi repellat mollitia reiciendis quas, doloremque ducimus voluptate repudiandae velit facilis, qui porro ad. Cum voluptatibus veniam quia accusamus delectus voluptatem, magnam, voluptas beatae earum aperiam, ratione dolore pariatur quam corporis reiciendis quibusdam repudiandae sit harum provident architecto! Porro quibusdam earum illo, a rerum quod at.' ;
+            $projects->save();
+        }
+
+
         //Create Videos
         $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
         $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
@@ -110,15 +157,6 @@ class DatabaseSeeder extends Seeder
                     $books->save();
                 }
             } 
-        }
-
-        //Create Projects
-        for ($i=0; $i < 11; $i++) {
-            $projects = new Project;
-            $projects->image = 'project' . ($i+1) . '.jpg';
-            $projects->title = 'Заголовок проекта';
-            $projects->text = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio tenetur eaque qui natus, illo dicta odit similique rem labore provident dignissimos dolorum, excepturi quidem, quis iure ipsam reiciendis a dolore enim? Suscipit sit dolor optio qui fugiat unde, rerum perspiciatis quia? Veritatis totam molestias exercitationem nemo non commodi tempore assumenda sit tenetur hic dicta sequi repellat mollitia reiciendis quas, doloremque ducimus voluptate repudiandae velit facilis, qui porro ad. Cum voluptatibus veniam quia accusamus delectus voluptatem, magnam, voluptas beatae earum aperiam, ratione dolore pariatur quam corporis reiciendis quibusdam repudiandae sit harum provident architecto! Porro quibusdam earum illo, a rerum quod at.' ;
-            $projects->save();
         }
 
         //Create Subjects && Subjectcats && Materials

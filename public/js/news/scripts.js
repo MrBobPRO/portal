@@ -35,7 +35,7 @@ function ajaxLike(action) {
 
    $.ajax({
       type: 'POST',
-      url: '/like',
+      url: '/news/like',
       data: {news_id: id, action: action },
 
       success: function (result) {
@@ -108,7 +108,7 @@ function ajaxDislike(action) {
 
    $.ajax({
       type: 'POST',
-      url: '/dislike',
+      url: '/news/dislike',
       data: {news_id: id, action: action },
 
       success: function (result) {

@@ -47,7 +47,11 @@ class NewsController extends Controller
         else if($usersGrade->like) $usersGrade = 'like';
             else $usersGrade = 'dislike';
 
-        return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade'));
+        //comments
+        $comments = $news->comments()->oldest()->get();
+        $commentsCount = count($comments);
+
+        return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
 }

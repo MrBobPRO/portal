@@ -1,113 +1,35 @@
-.entertainment-page {
-   padding-right: 30px;
-}
-.companynews-header {
-   padding: 0px 20px 10px 20px;
-}
 
-.companynews-header .title, 
-.worldnews-page .title{
-   text-transform: uppercase;
-   font-size: 30px;
-   color: #004578;
-   font-weight: bold;
+section {
+   margin-top: 25px;
 }
-.crumbs {
-   margin: 10px 0 25px 0;
-   padding: 0 0 0 0;
+:root {
+   --plyr-color-main: #00bcd4;
+}
+.videos-list {
    display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
 }
-.crumbs-items {
-   display: block;
-   position: relative;
-   margin-right: 30px;
+.videos-list .single-video {
+   width: calc(50% - 20px);
+   margin-bottom: 40px;
 }
-.crumbs-items:last-child {
-   color: grey;
-   cursor: context-menu;
+.videos-list video {
+   height: 250px;
 }
-.crumbs-items a {
-   text-transform: uppercase;
-   text-decoration: none;
-   color: #004578;
-   font-weight: bold;
+.single-video .video-description {
+   background: white;
+   padding: 15px 20px;
 }
-.crumbs-items i {
-   transform: rotate(45deg);
-   font-size: 6px;
-   position: absolute;
-   top: 8.5px;
-   right: -20px;
+ .videos-list p {
+   color: #00bcd4;
+   margin-bottom: 5px;
+   font-weight: 500;
 }
-/* Video-Gallery */
-.entertainment-video {
-   background-color: #fff;
-   padding: 10px;
+.videos-list span {
+   font-size: 14px;
+   font-weight: 500;
 }
-.play-video {
-   width: 100%;
-   background-color: #000;
-   position: relative;
-   padding-bottom: 50%;
-   height: auto;
+.pagination {
+   margin-top: 0;
 }
-.play-video video {
-   position: absolute;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-}
-.video-gallery {
-   margin: 20px 0;
-   padding: 0 10px 20px 10px;
-   background-color: #fff;
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
-   justify-items: center;
-   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
-}
-.video-gallery-items {
-   display: block;
-   margin: 20px 0 0 0;
-   position: relative;
-   cursor: pointer;
-}
-.video-gallery-items img {
-   width: 210px;
-   height: 119px;
-   object-fit: contain;
-}
-.play-icon {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(0, 0, 0, 0.8);
-   transition: all .3s ease-in-out;
-}
-.play-icon img {
-   width: 50px;
-   height: 50px;
-}
-.play-icon:hover {
-   background-color: rgba(0, 0, 0, 0);
-}
- 
-.play-icon.active {
-   background-color: rgba(0, 0, 0, 0);
-   box-shadow: 0 0 10px;
-   cursor: context-menu;
-   border: none;
-}
- 
-.play-icon.active img {
-   opacity: 0;
-}
-
-
- 

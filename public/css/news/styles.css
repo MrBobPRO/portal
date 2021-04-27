@@ -108,15 +108,24 @@ img {
    line-height: 1.7;
 }
 .grades-container {
-   padding: 0 25px 30px;
+   padding: 0 25px 25px;
    display: flex;
    justify-content: space-between;
+   align-items: center;
 }
 .grades-container .news-content-date {
-   font-weight: bold;
+   font-weight: 400;
    font-size: 15px;
-   border-bottom: 2px solid black;
+   display: flex;
+   align-items: center;
+   color: #313131;
+   text-transform: capitalize;
+}
+.grades-container .news-content-date span {
+   padding-bottom: 2px;
+   margin-right: 5px;
    cursor: auto;
+   color: #929292;
 }
 .grades-container .grade-icons-container {
    color: #00bcd4;
@@ -167,4 +176,77 @@ img {
    display: none;
 }
 /* Grades modal end */
+
+/* Comments start */
+.comments-container {
+   padding: 25px;
+   background: white;
+   border-top: 1px solid #e0e0e0;
+}
+.comments-container h3 {
+   font-size: 18px;
+   margin: 0;
+   font-weight: bold;
+   line-height: 1;
+   color: #00bcd4;
+}
+.comments-container form {
+   margin: 25px 0;
+   display: flex;
+   border: 1px solid #e0e0e0;
+   border-radius: 40px;
+   padding: 10px 15px;
+   align-items: center;
+}
+.comments-container form img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+}
+.comments-container form input {
+   width: 100%;
+   border: none;
+   height: 100%;
+   padding: 5px 15px;
+   font-weight: 300;
+}
+.comments-container form input::placeholder {
+   opacity: 0.6;
+}
+.comments-container form button {
+   background: transparent;
+   border: none;
+   padding: 0;
+   line-height: 0;
+   color: #b1b1b1;
+   transition: 0.3s;
+}
+.comments-container form button:hover {
+   color: #00bcd4;
+   transform: translateX(4px);
+}
+.single-comment {
+   margin-bottom: 20px;
+   display: flex;
+}
+.single-comment:last-child {
+   margin-bottom: 0;
+}
+.single-comment img {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   margin-right: 20px;
+}
+.single-comment h6 {
+   font-weight: bold;
+   margin-bottom: 4px;
+}
+.single-comment span {
+   color: #c5c5c5;
+}
+.single-comment p {
+   margin-top: 8px;
+}
+/* Comments end */
 /* single news page end */
