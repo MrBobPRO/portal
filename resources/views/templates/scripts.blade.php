@@ -24,6 +24,10 @@
 
     @case('knowledge.index') @case('knowledge.books.index') @case('knowledge.books.showbook') @case('knowledge.videos.index') @case('knowledge.videos.showvideo')
         <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
-    @break 
+    @break
+
+    @case('profile.index') 
+        <script src="{{ asset('js/profile/scripts.js') }}"></script>
+    @break
 
 @endswitch

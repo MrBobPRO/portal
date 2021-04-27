@@ -11,9 +11,7 @@ Route::post('/reset_password', 'AuthController@resetPasswordPost');
 //Language-change's routes
    Route::post('/setLangRu', 'LanguageController@setLangRu');
    Route::post('/setLangEn', 'LanguageController@setLangEn');
-
    Route::post('/send_credentials', 'HomeController@send_credentials');
-
 
 //Home-page's route
    Route::get('/', 'HomeController@index')->name('home.index');
@@ -45,5 +43,11 @@ Route::post('/reset_password', 'AuthController@resetPasswordPost');
    Route::get('/knowledge/book/{book}', 'KnowledgeController@showbook')->name('knowledge.books.showbook');
    Route::get('/knowledge/videos/{material}', 'KnowledgeController@videos')->name('knowledge.videos.index');
  
+//Profile-page's route
+   Route::get('/profile', 'ProfileController@index')->name('profile.index');
+   Route::post('/edit_profile', 'ProfileController@editProfile');
+   Route::post('/edit_password', 'ProfileController@editPassword');
+
+
 require __DIR__.'/auth.php';
  

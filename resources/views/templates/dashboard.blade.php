@@ -6,7 +6,7 @@
       </div>
 
       <div class="dash-links">
-         <a class="active" href="#"><span class="material-icons-outlined">manage_accounts</span>{{ __('Профиль') }}</a>
+         <a class="active" href=" {{ route('profile.index') }} "><span class="material-icons-outlined">manage_accounts</span>{{ __('Профиль') }}</a>
          <a href="#"><span class="material-icons-outlined">emoji_events</span>{{ __('Награды') }}</a>
          <a href="#"><span class="material-icons-outlined">star_outline</span>{{ __('Бонусы') }}</a>
          <a href="#"><span class="material-icons-outlined">drive_file_rename_outline</span>{{ __('Настройки') }}</a>

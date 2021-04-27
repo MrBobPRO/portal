@@ -11,6 +11,7 @@ use App\Models\Subject;
 use App\Models\Subjectcat;
 use App\Models\Material;
 use App\Models\Book;
+use App\Models\Language;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -44,8 +45,19 @@ class DatabaseSeeder extends Seeder
             $user->nickname = $nicknames[$i];
             $user->position = 'Должность';
             $user->birth_date = $birthdates[$i];
+            $user->description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsam consequatur at!';
             $user->save();
         }
+
+        //Create languages
+        $langs = ['Английский', 'Русский', 'Турецкий', 'Таджикский', 'Узбекский', 'Арабский'];
+        foreach ($langs as $lan) {
+            $lang = new Language;
+            $lang->user_id = '0';
+            $lang->name = $lan;
+            $lang->save();
+        }
+
 
         //Create News
         $types = [false, true, true, true, false, false, false];
@@ -59,38 +71,38 @@ class DatabaseSeeder extends Seeder
         } 
         
         //Create Videos
-        $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
-        $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
-        for ($i=0; $i < count($materialIDs); $i++){
-            for ($j=0; $j < 13; $j++) {
-                for ($k=0; $k < count($videoCategory); $k++) {
-                    $videos = new Video;
-                    $videos->material_id = $materialIDs[$i];
-                    $videos->category = $videoCategory[$k];
-                    $videos->videoSrc = 'video.mp4';
-                    $videos->image = 'video.jpg';
-                    $videos->save();
-                }
-            } 
-        }
+        // $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
+        // $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
+        // for ($i=0; $i < count($materialIDs); $i++){
+        //     for ($j=0; $j < 13; $j++) {
+        //         for ($k=0; $k < count($videoCategory); $k++) {
+        //             $videos = new Video;
+        //             $videos->material_id = $materialIDs[$i];
+        //             $videos->category = $videoCategory[$k];
+        //             $videos->videoSrc = 'video.mp4';
+        //             $videos->image = 'video.jpg';
+        //             $videos->save();
+        //         }
+        //     } 
+        // }
 
         
         //Create Books
-        $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
-        $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
-        for ($i=0; $i < count($matIDs); $i++){
-            for ($j=0; $j < 13; $j++) {
-                for ($k=0; $k < count($bookCategory); $k++) {
-                    $books = new Book;
-                    $books->name = 'Название книги';
-                    $books->material_id = $matIDs[$i];
-                    $books->category = $bookCategory[$k];
-                    $books->image = 'image.jpg';
-                    $books->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias modi nostrum repellendus!';
-                    $books->save();
-                }
-            } 
-        }
+        // $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
+        // $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
+        // for ($i=0; $i < count($matIDs); $i++){
+        //     for ($j=0; $j < 13; $j++) {
+        //         for ($k=0; $k < count($bookCategory); $k++) {
+        //             $books = new Book;
+        //             $books->name = 'Название книги';
+        //             $books->material_id = $matIDs[$i];
+        //             $books->category = $bookCategory[$k];
+        //             $books->image = 'image.jpg';
+        //             $books->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias modi nostrum repellendus!';
+        //             $books->save();
+        //         }
+        //     } 
+        // }
 
         //Create Projects
         for ($i=0; $i < 11; $i++) {
