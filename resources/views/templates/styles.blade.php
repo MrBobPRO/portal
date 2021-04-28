@@ -28,12 +28,19 @@
         <link href="{{ asset('css/entertainment/media.css') }}" rel="stylesheet">
     @break
 
-    @case('projects.index') @case('projects.showproject')
+    @case('projects.index') @case('projects.single')
         <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break
 
-    @case('knowledge.index') @case('knowledge.books.index') @case('knowledge.books.showbook') @case('knowledge.videos.index') @case('knowledge.videos.showvideo')
+    @case('knowledge.index') @case('knowledge.books.index')
+        <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
+    @break
+
+    @case('knowledge.videos.index')
+        {{-- Plyr video player --}}
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
         <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break

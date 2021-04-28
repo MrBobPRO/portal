@@ -40,26 +40,28 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
       Route::post('/news/like', 'GradeController@like');
       Route::post('/news/dislike', 'GradeController@dislike');
       //Comment
-      Route::post('/news/comment', 'CommentController@store');
+      Route::post('/news/comment', 'CommentController@news');
 //------------News-page's route--------------
 
 
 //------------Entertainment-page's route--------------
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment.index');
-//------------News-page's route--------------
+//------------Entertainment-page's route--------------
 
 
-//------------News-page's route--------------
+//------------Project page's route--------------
 Route::get('/projects', 'ProjectsController@index')->name('projects.index');
-Route::get('/projects/{project}', 'ProjectsController@showproject')->name('projects.showproject');
-//------------Pojects-page's route--------------
+Route::get('/projects/{id}', 'ProjectsController@single')->name('projects.single');
+
+Route::post('/projects/comment', 'CommentController@projects');
+//------------Poject page's route--------------
 
 
 //------------Knowledge-page's route--------------
 Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge.index');
 Route::get('/knowledge/books/{material}', 'KnowledgeController@books')->name('knowledge.books.index');
-Route::get('/knowledge/book/{book}', 'KnowledgeController@showbook')->name('knowledge.books.showbook');
-Route::get('/knowledge/videos/{material}', 'KnowledgeController@videos')->name('knowledge.videos.index');
+Route::get('/read_book_{book}', 'KnowledgeController@books_single')->name('knowledge.books.single');
+Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowledge.videos.index');
 //------------Knowledge-page's route--------------
  
 

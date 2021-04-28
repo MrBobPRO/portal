@@ -23,7 +23,7 @@
       </li>
 
       <li class="{{ $route == 'projects.index' 
-                              || $route == 'projects.showproject' ? 'active' : ''}}">
+                              || $route == 'projects.single' ? 'active' : ''}}">
          <a href=" {{ route('projects.index') }} ">{{ __('Проекты и инициативы') }}</a>
       </li>
       

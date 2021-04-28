@@ -9,11 +9,12 @@
          @foreach ($videos as $video)
             <div class="single-video">
                {{-- Custom id used in js --}}
-               <video class="plyr" playsinline controls id="player{{$count}}" data-poster="/img/news/6.jpg">
-                  <source src="\videos\entertainment\{{$video->filename}}"/>
+               <video class="plyr" playsinline controls id="player{{$count}}" 
+                  data-poster="/videos/entertainment/posters/{{$video->poster !='' ? $video->poster : 'default.jpg'}}">
+                  <source src="/videos/entertainment/{{$video->filename}}"/>
                
                   @if($video->subtitles != '')
-                     <track kind="captions" label="English" src="\videos\entertainment\subtitles\{{$video->subtitles}}" srclang="en" default />
+                     <track kind="captions" label="English" src="/videos/entertainment/subtitles/{{$video->subtitles}}" srclang="en" default />
                   @endif
                </video>
                

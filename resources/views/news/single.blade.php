@@ -13,10 +13,9 @@
 
          <div class="grades-container">
             <div class="news-content-date">
-               <span class="material-icons">watch_later</span>
                <?php 
                   $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-                  $formatted = $date->isoFormat('DD MMMM YYYY H:m:s');
+                  $formatted = $date->isoFormat('DD MMMM YYYY');
                ?>
                {{$formatted}}
             </div>
@@ -82,7 +81,7 @@
    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="likedModalLabel"><span class="material-icons">thumb_up</span> Лайкнули ({{count($likes)}})</h5>
+         <h5 class="modal-title" id="likedModalLabel"><span class="material-icons">thumb_up</span> Лайки</h5>
        </div>
        <div class="modal-body" id="liked_modal_body">
          @foreach ($likes as $like)
@@ -110,7 +109,7 @@
    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="dislikedModalLabel"><span class="material-icons">thumb_up</span> Дислайкнули ({{count($dislikes)}})</h5>
+         <h5 class="modal-title" id="dislikedModalLabel"><span class="material-icons">thumb_down</span> Дислайки</h5>
        </div>
        <div class="modal-body" id="disliked_modal_body">
          @foreach ($dislikes as $like)

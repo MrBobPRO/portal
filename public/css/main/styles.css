@@ -21,6 +21,9 @@ main {
    width: 1000px;
    padding-right: 40px;
 }
+section {
+   margin-top: 25px;
+}
 .banner-block {
    width: 100%;
    margin: 25px 0;

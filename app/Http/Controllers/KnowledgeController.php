@@ -15,23 +15,39 @@ class KnowledgeController extends Controller
         $subjects = Subject::get();
         $subjectcats = Subjectcat::get();
         $materials = Material::get();
+        
         return view('knowledge.index', compact('subjects', 'subjectcats', 'materials'));
     }
+
     public function books(Material $material) {
         $books = Book::where('material_id', $material->id)
                         ->where('category', $material->category)
                         ->paginate(12);
-        return view('knowledge.books.index', compact('books', 'material'));
+
+        //used in breadcrumbs       
+        $subjectcat = Subjectcat::where('id', $material->subjectcat_id)->first();
+        $subject = Subject::where('id', $subjectcat->subject_id)->first();
+
+        return view('knowledge.books.index', compact('books', 'material', 'subjectcat', 'subject'));
     }
-    public function showbook(Book $book) {
-        $material = Material::where('id', $book->material_id)->first();
-        return view('knowledge.books.showbook', compact('book', 'material'));
+    
+    public function books_single(Book $book) {
+
+        return view('knowledge.books.single', compact('book'));
+        
     }
-    public function videos(Material $material) {
+
+    public function videos($id) {
+        $material = Material::find($id);
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)
-                        ->paginate(12);
-        return view('knowledge.videos.index', compact('videos', 'material'));
+                        ->paginate(16);
+        
+        //used in breadcrumbs       
+        $subjectcat = Subjectcat::where('id', $material->subjectcat_id)->first();
+        $subject = Subject::where('id', $subjectcat->subject_id)->first();
+
+        return view('knowledge.videos.index', compact('videos', 'material', 'subjectcat', 'subject'));
     }
 
 }

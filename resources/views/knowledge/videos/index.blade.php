@@ -1,53 +1,41 @@
 @extends('templates.master')
 @section('content')
 
+@include('templates.breadcrumbs')
+
    <section class="videos-page">
-
-      <div class="knowledge-header">
-
-         <h3 class="title"> {{ __( $material->name ) }} </h3>
-
-         <ul class="crumbs">
-            <li class="crumbs-items">
-               <a href=" {{ route('home.index') }} "> {{ __('Главная') }} </a>
-               <i class="fa fa-square-full"></i>
-            </li>
-            <li class="crumbs-items">
-               <a href=" {{ route('knowledge.index') }} "> {{ __('Центр знаний') }} </a>
-               <i class="fa fa-square-full"></i>
-            </li>
-            <li class="crumbs-items">
-               <a> {{ __( $material->name ) }} </a>
-            </li>
-         </ul>  
-
+      <div class="videos-list">
+         <?php $count = 1; ?>
+         @foreach ($videos as $video)
+            <div class="single-video">
+               {{-- Custom id used in js --}}
+               <video class="plyr" playsinline controls id="player{{$count}}" 
+                  data-poster="/videos/knowledge/posters/{{$video->poster !='' ? $video->poster : 'default.jpg'}}">
+                  <source src="/videos/knowledge/{{$video->filename}}"/>
+               
+                  @if($video->subtitles != '')
+                     <track kind="captions" label="English" src="/videos/knowledge/subtitles/{{$video->subtitles}}" srclang="en" default />
+                  @endif
+               </video>
+               
+               <div class="video-description">
+                  <p>{{$video->title}}</p>
+                  <span>
+                     <?php 
+                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD.MM.YYYY');
+                     ?>
+                     {{$formatted}}
+                  </span>
+               </div>
+               
+            </div>
+            <?php $count++ ?>
+      @endforeach
       </div>
 
-      <div class="video-gallery">
-         <div class="video-player">
-            <video id="video_id" src=" {{ asset('videos/' . $videos[0]['videoSrc']) }} " autoplay controls></video>
-         </div>
-         <ul>
-
-            @foreach ($videos as $video)
-
-               <li class="video-items">
-                  <img src="{{ asset('img/videos/' . $video->image) }}" data-id=" {{ asset('videos/' . $video->videoSrc) }} ">
-                  <div class="play-icon">
-                     <div class="img">
-                        <img src="{{ asset('img/entertainment/play.svg') }}">
-                     </div>
-                  </div>   
-               </li>
-
-            @endforeach
-
-         </ul>
-
-         {{ $videos->links() }}
-
-      </div>
+      {{$videos->links()}}
 
    </section>
-
+   
 @endsection

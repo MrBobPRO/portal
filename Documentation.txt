@@ -8,6 +8,33 @@ JQuery v3.6
 Material Icons
 Owl Carousel => slider
 Plyr player => used as videoplayer (https://plyr.io/)
+JQuery 3dflipbook -> used for reading books. More at : https://3dflipbook.net/ (licensed)
+
+----------JQuery 3dflipbook--------
+Copied files:
+webpack.config.js -> public folder
+cmaps -> public folder
+images -> public folder
+sounds -> public folder
+fonts -> public folder
+templates -> public folder
+
+copied into public css folder :
+black-book-view.css
+font-awesome.min.css
+search-book-view.css
+short-black-book-view.css
+short-white-book-view.css
+white-book-view.css
+
+copied into public js folder :
+3dflipbook.min.js
+default-book-view.js
+html2canvas.min.js
+jquery.min.js
+pdf.min.js
+pdf.worker.js
+three.min.js
 
 ---Authentication---
 For authentication used Laravel Breeze and all routes have been disabled except Login & Logout (/routes/auth.php)

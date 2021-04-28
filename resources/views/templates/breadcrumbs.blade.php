@@ -50,5 +50,28 @@
          <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
       @break
 
+      @case('projects.index')
+         <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+      @break
+
+         @case('projects.single')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            <a href="{{ route('news.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         @break
+
+      @case('knowledge.index')
+         <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+      @break
+
+         @case('knowledge.videos.index')
+            <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+            <a href="{{ route('knowledge.videos.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
+         @break
+
+      @case('knowledge.books.index')
+         <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+         <a href="{{ route('knowledge.books.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
+      @break
+
       @endswitch
    </div>

@@ -17,8 +17,10 @@ class CreateVideosTable extends Migration
             $table->id();
             $table->integer('material_id')->default(0);
             $table->string('category');
-            $table->string('videoSrc');
-            $table->string('image');
+            $table->string('filename');
+            $table->string('title');
+            $table->string('subtitles')->nullable();
+            $table->string('poster')->nullable();
             $table->timestamps();
         });
     }

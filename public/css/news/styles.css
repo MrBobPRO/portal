@@ -1,7 +1,4 @@
 /* News main page */
-section {
-   margin-top: 25px;
-}
 img {
    max-width: 100%;
 }
@@ -114,18 +111,12 @@ img {
    align-items: center;
 }
 .grades-container .news-content-date {
-   font-weight: 400;
+   font-weight: 500;
    font-size: 15px;
    display: flex;
    align-items: center;
    color: #313131;
    text-transform: capitalize;
-}
-.grades-container .news-content-date span {
-   padding-bottom: 2px;
-   margin-right: 5px;
-   cursor: auto;
-   color: #929292;
 }
 .grades-container .grade-icons-container {
    color: #00bcd4;
@@ -134,12 +125,18 @@ img {
 }
 .grades-container .like-icons {
    margin-right: 30px;
+   display: flex;
+   align-items: center;
+}
+.grades-container .dislike-icons {
+   display: flex;
+   align-items: center;
 }
 .grades-container span {
    cursor: pointer;
 }
 .grades-container .grades-count {
-   font-size: 22px;
+   font-size: 20px;
    margin: 0 8px;
    color: black;
 }

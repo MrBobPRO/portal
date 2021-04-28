@@ -19,11 +19,13 @@
         <script src="{{ asset('js/entertainment/scripts.js') }}"></script>
     @break
 
-    @case('projects.index') @case('projects.showproject') 
+    @case('projects.index') @case('projects.single') 
         <script src="{{ asset('js/projects/scripts.js') }}"></script>
     @break
 
-    @case('knowledge.index') @case('knowledge.books.index') @case('knowledge.books.showbook') @case('knowledge.videos.index') @case('knowledge.videos.showvideo')
+    @case('knowledge.videos.index')
+        {{-- Plyr video player --}}
+        <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
         <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
     @break 
 
