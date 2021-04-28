@@ -6,9 +6,11 @@ use App\Models\User;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class ProfileController extends Controller
+
 {
     public function index() 
     {
@@ -52,7 +54,21 @@ class ProfileController extends Controller
             
 
         return redirect('/profile');
-
- 
+            
     }
+
+    public function editPassword(Request $request) 
+    {
+        $user = User::find(Auth::user()->id);
+        if (Hash::check($request->password, $user->password)) {
+            if ($request->newPassword == $request->confirmPassword) {
+                $user->password = bcrypt($request->newPassword);
+                $user->save();
+                return 'success';
+            }
+            return 'newPasswordDoesntMatch';
+        }
+        return 'passwordNotMatched';
+    }
+
 }

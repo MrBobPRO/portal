@@ -206,6 +206,40 @@
    right: 90px;
    font-size: 28px;
    color: #00bcd4;
+   cursor: pointer;
 }
-
+.password-error {
+   position: absolute;
+   right: 310px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.new-password-error {
+   position: absolute;
+   left: 440px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.confirm-password-error {
+   position: absolute;
+   left: 440px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.edit-password-form-btn {
+   border: none;
+   background-color: #00bcd4;
+   color: white;
+   font-weight: bold;
+   padding: 10px;
+   width: 220px;
+   margin: 20px 100px 0 auto;
+   box-shadow: 0 0 10px gray;
+}
 /* Edit password form end */

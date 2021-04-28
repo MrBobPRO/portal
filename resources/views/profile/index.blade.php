@@ -63,24 +63,27 @@
 
         <h3 class="acc-info"> Изменить пароль </h3>
         {{-- Edit password form start --}}
-        <form class="edit-password-form" action="/edit_password" method="POST">
-            
-            <label class="password" for="password">Password
-                <input type="password" name="password" id="password">
+        <form class="edit-password-form" method="POST" onsubmit="ajax_edit_password()">
+            @csrf
+            <label class="password" for="password">Пароль
+                <input type="password" name="password" id="password" required>
                 <span class="material-icons-outlined" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
+                <div class="password-error">Неправильный пароль</div>
             </label>
 
-            <label class="new-password" for="new-password">New password
-                <input type="password" name="new-password" id="new-password">
-                <span class="material-icons-outlined">visibility</span>
+            <label class="new-password" for="new-password">Новый пароль
+                <input type="password" name="new-password" id="new-password" required>
+                <span class="material-icons-outlined" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
+                <div class="new-password-error">Пароли не совпадают</div>
+            </label> 
+
+            <label class="confirm-password" for="confirm-password">Подтвердите пароль
+                <input type="password" name="confirm-password" id="confirm-password" required>
+                <span class="material-icons-outlined" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>
+                <div class="confirm-password-error">Пароли не совпадают</div>
             </label>
 
-            <label class="confirm-password" for="confirm-password">Confirm password
-                <input type="password" name="confirm-password" id="confirm-password">
-                <span class="material-icons-outlined">visibility</span>
-            </label>
-
-            <button class="edit-info-form-btn" type="submit">Сохранить изменения</button>
+            <button class="edit-password-form-btn" type="submit">Сохранить изменения</button>
 
         </form>{{-- Edit password form end --}}
 
