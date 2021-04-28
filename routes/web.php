@@ -64,6 +64,11 @@ Route::get('/read_book_{book}', 'KnowledgeController@books_single')->name('knowl
 Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowledge.videos.index');
 //------------Knowledge-page's route--------------
  
+//Profile-page's route
+   Route::get('/profile', 'ProfileController@index')->name('profile.index');
+   Route::post('/edit_profile', 'ProfileController@editProfile');
+   Route::post('/edit_password', 'ProfileController@editPassword');
+
 
 require __DIR__.'/auth.php';
  

@@ -27,6 +27,10 @@
         {{-- Plyr video player --}}
         <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
         <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
-    @break 
+    @break
+
+    @case('profile.index') 
+        <script src="{{ asset('js/profile/scripts.js') }}"></script>
+    @break
 
 @endswitch

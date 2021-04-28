@@ -14,6 +14,7 @@ use App\Models\Book;
 use App\Models\Comment;
 use App\Models\Entertainment;
 use App\Models\Grade;
+use App\Models\Language;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -46,8 +47,19 @@ class DatabaseSeeder extends Seeder
             $user->nickname = $nicknames[$i];
             $user->position = 'Должность';
             $user->birth_date = $birthdates[$i];
+            $user->description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsam consequatur at!';
             $user->save();
         }
+
+        //Create languages
+        $langs = ['Английский', 'Русский', 'Турецкий', 'Таджикский', 'Узбекский', 'Арабский'];
+        foreach ($langs as $lan) {
+            $lang = new Language;
+            $lang->user_id = '0';
+            $lang->name = $lan;
+            $lang->save();
+        }
+
 
         //Create News
         $global = [false, true, true, true, false, false, false];

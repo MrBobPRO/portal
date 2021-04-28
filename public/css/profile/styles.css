@@ -1,0 +1,245 @@
+.profile-page {
+   position: relative;
+   background-color: #fff;
+   padding: 24px 20px 80px 40px;
+}
+.profile-page .title {
+   margin-bottom: 30px;
+   text-transform: uppercase;
+   color: #00bcd4;
+}
+.edit-info-form {
+   display: flex;
+   flex-direction: column;
+}
+.edit-info-form img {
+   display: inline-block;
+   height: 270px;
+   width: 300px;
+   background-color: #c4c4c4;
+   object-fit: cover;
+}
+.upload {
+   position: relative;
+}
+.upload-btn {
+   display: inline-block;
+   background-color: #00bcd4;
+   height: 40px;
+   width: 150px;
+   text-align: center;
+   line-height: 38px;
+   color: #fff;
+   cursor: pointer;
+   position: absolute;
+   bottom: 80px;
+   left: 330px;
+}
+.upload input {
+   position: absolute;
+   top: 155px;
+   right: 223px;
+}
+.image-description {
+   position: absolute;
+   bottom: 10px;
+   left: 330px;
+   line-height: 24px;
+}
+.acc-info, .change-password {
+   text-transform: uppercase;
+   font-size: 30px;
+   margin-top: 40px;
+}
+.info-block {
+   display: flex;
+   flex-direction: column;
+}
+.info-block label {
+   font-size: 25px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-left: 50px;
+}
+.info-block input {
+   margin: 10px 80px 10px 10px;
+   width: 400px;
+   padding: 5px 10px;
+   border: 2px solid #00bcd4;
+}
+.position input {
+   background-color: #fff;
+}
+.textarea {
+   width: 400px;
+   margin: 10px 80px 10px 10px;
+   height: 150px;
+   padding: 5px;
+   border: 2px solid #00bcd4;
+   overflow: hidden;
+}
+.description {
+   height: 100%;
+   width: 100%;
+   font-size: 20px;
+   border: 0;
+   resize: none;
+}
+
+/* Select2 multiple styles start*/
+.select2_multiple_container {
+   width: 400px;
+   margin-right: 80px;
+   border: 2px solid #00bcd4;
+   min-height: 56px;
+}
+.select2_multiple_container .select2-selection--multiple {
+   border: none;
+   padding: 3px 5px 7px;
+}
+.select2_multiple_container .select2-container--focus select2-selection--multiple {
+   border: 1px solid #d2d2d2 !important;
+}
+.select2_multiple_container .select2-selection__choice {
+   background-color: #00bcd4 !important;
+   color: white;
+   border: none !important;
+   padding: 5px !important;
+       padding-right: 5px;
+   padding-right: 24px !important;
+   font-size: 15px;
+   border-radius: 0 !important;
+   font-weight: bold;
+}
+.select2_multiple_container .select2-selection__choice__remove {
+   color: white !important;
+   left: auto !important;
+   right: 0 !important;
+   border-left: 1px solid #aaa !important;
+   border-right: none !important;
+   padding: 0 6px !important;
+   height: 100%;
+}
+.select2_multiple_container .select2-selection__choice__remove:hover {
+   color: white !important;
+   background: transparent !important;
+}
+.select2_multiple_container .select2-search--inline {
+   display: inline-flex;
+   margin: 0;
+   height: 42px;
+   width: auto;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+   border: none;
+   padding: 0px;
+}
+.select2-container--default .select2-selection--multiple {
+   border: none;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+   margin: 0;
+   height: 100%;
+   padding: 0 10px;
+}
+/* Select2 multiple dropdown styles start*/
+.select2_multiple_dropdown {
+   font-size: 15px !important;
+}
+.select2_multiple_dropdown .select2-results__options {
+   max-height: 272px !important;
+}
+.select2_multiple_dropdown .select2-results__option{
+   padding: 6px 10px;
+   position: relative;
+}
+.select2_multiple_dropdown .select2-results__option--selected {
+   background-color: #f1f1f1 !important;
+}
+.select2_multiple_dropdown .select2-results__option--highlighted.select2-results__option--selectable {
+   background-color: #f1f1f1;
+   color: initial;
+}
+.select2_multiple_dropdown .select2-results__option--selected::after {
+   content: '✓';
+   position: absolute;
+   right: 10px;
+   color: #7151ed;
+   font-weight: bold;
+}
+.edit-info-form-btn {
+   border: none;
+   background-color: #00bcd4;
+   color: white;
+   font-weight: bold;
+   padding: 10px;
+   width: 220px;
+   margin: 20px 100px 0 auto;
+   box-shadow: 0 0 10px gray;
+}
+
+/* Edit password form start */
+
+.edit-password-form {
+   display: flex;
+   flex-direction: column;
+   margin: 30px 0;
+}
+.edit-password-form label {
+   position: relative;
+   font-size: 25px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-left: 50px;
+}
+.edit-password-form input {
+   margin: 10px 80px 10px 10px;
+   width: 400px;
+   padding: 5px 10px;
+   border: 2px solid #00bcd4;
+}
+.edit-password-form label span {
+   position: absolute;
+   top: 20px;
+   right: 90px;
+   font-size: 28px;
+   color: #00bcd4;
+   cursor: pointer;
+}
+.password-error {
+   position: absolute;
+   right: 310px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.new-password-error {
+   position: absolute;
+   left: 440px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.confirm-password-error {
+   position: absolute;
+   left: 440px;
+   bottom: -10px;
+   font-size: 15px;
+   color: red;
+   display: none;
+}
+.edit-password-form-btn {
+   border: none;
+   background-color: #00bcd4;
+   color: white;
+   font-weight: bold;
+   padding: 10px;
+   width: 220px;
+   margin: 20px 100px 0 auto;
+   box-shadow: 0 0 10px gray;
+}
+/* Edit password form end */

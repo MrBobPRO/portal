@@ -45,4 +45,9 @@
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break
 
+    @case('profile.index') 
+        <link href="{{ asset('css/profile/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/profile/media.css') }}" rel="stylesheet">
+    @break
+
 @endswitch
