@@ -15,15 +15,32 @@ class ProfileController extends Controller
     public function index() 
     {
         $user = Auth::user();
+        $languages = Language::all();
 
-        $languages = Language::get();
-
-        return view('profile.index', compact('user', 'languages'));
+        return view('dashboard.profile.index', compact('user', 'languages'));
     }
 
     public function update_profile(Request $request) 
     {
         $user = User::find(Auth::user()->id);
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->description = $request->description;
+        $user->save();
+
+        Language::where('user_id', $user->id)->delete();
+        
+        foreach ($request->languages as $lang) 
+        {
+            $language = new Language;
+            $language->user_id = $user->id;
+            $language->name = $lang;
+            $language->save();
+        }
 
         if($request->hasFile('avatar')) 
         {
@@ -34,32 +51,15 @@ class ProfileController extends Controller
             $user->avatar = $fileName;
             $user->save();
         }
-            $user->name = $request->name;
-            $user->surname = $request->surname;
-            $user->nickname = $request->nickname;
-            $user->birth_date = $request->birth_date;
-            $user->email = $request->email;
-            $user->description = $request->description;
-            $user->save();
-
-            Language::where('user_id', $user->id)->delete();
             
-            foreach ($request->languages as $lang) 
-            {
-                $language = new Language;
-                $language->user_id = $user->id;
-                $language->name = $lang;
-                $language->save();
-            }
-            
-
-        return redirect('/profile');
+        return redirect()->back();
             
     }
 
     public function update_password(Request $request) 
     {
         $user = User::find(Auth::user()->id);
+
         if (Hash::check($request->password, $user->password)) {
             if ($request->newPassword == $request->confirmPassword) {
                 $user->password = bcrypt($request->newPassword);

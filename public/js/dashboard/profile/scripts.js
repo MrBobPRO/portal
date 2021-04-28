@@ -60,7 +60,7 @@ function ajax_edit_password() {
    //Send ajax request
    $.ajax({
          type: 'POST',
-         url: '/edit_password',
+         url: '/update_password',
          data:{
             password: password,
             newPassword: newPassword,

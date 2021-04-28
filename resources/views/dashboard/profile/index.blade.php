@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('dashboard.templates.master')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 
         <h2 class="title">Профиль</h2>
         {{-- Edit profile form start --}}
-        <form class="edit-info-form" action="/edit_profile" method="POST" enctype="multipart/form-data">
+        <form class="edit-info-form" action="/update_profile" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- Change user avatar block start --}}
             <div class="upload">

@@ -19,8 +19,11 @@
       
    <link href="{{ asset('css/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/main/media.css') }}" rel="stylesheet">
-   
-   @include('templates.styles')
+
+   <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
+
+   @include('dashboard.templates.styles')
 
       <style>
          :root {
@@ -28,7 +31,6 @@
          }   
       </style>
 
-   
 </head>
 <body>
 
@@ -51,8 +53,8 @@
    {{-- Select2 --}}
    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
    <script src="{{ asset('js/main/scripts.js') }}"></script>
-   
-   @include('templates.scripts')
+
+   @include('dashboard.templates.scripts')
 
 </body>
 </html>
