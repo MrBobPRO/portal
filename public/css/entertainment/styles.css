@@ -1,6 +1,6 @@
 
 :root {
-   --plyr-color-main: #00bcd4;
+   --plyr-color-main: var(--color-scheme);
 }
 .videos-list {
    display: flex;
@@ -19,7 +19,7 @@
    padding: 15px 20px;
 }
  .videos-list p {
-   color: #00bcd4;
+   color: var(--color-scheme);
    margin-bottom: 5px;
    font-weight: 500;
 }

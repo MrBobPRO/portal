@@ -29,7 +29,7 @@
    position: relative;
  }
  .projects-list a div p {
-   color: #00bcd4;
+   color: var(--color-scheme);
    font-weight: bold;
    margin: 15px 0 5px;
  }
@@ -50,7 +50,7 @@
    padding: 25px;
    font-weight: bold;
    line-height: 1;
-   color: #00bcd4;
+   color: var(--color-scheme);
 }
 .projects-content img {
    width: 100%;
@@ -83,7 +83,7 @@
    margin: 0;
    font-weight: bold;
    line-height: 1;
-   color: #00bcd4;
+   color: var(--color-scheme);
 }
 .comments-container form {
    margin: 25px 0;
@@ -117,7 +117,7 @@
    transition: 0.3s;
 }
 .comments-container form button:hover {
-   color: #00bcd4;
+   color: var(--color-scheme);
    transform: translateX(4px);
 }
 .single-comment {

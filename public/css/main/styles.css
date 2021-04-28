@@ -1,4 +1,6 @@
-
+:root {
+   --color-scheme: #00bcd4;
+}
 body {
    font-family: 'Roboto', sans-serif;
    font-size: 16px;
@@ -41,10 +43,10 @@ section {
    margin-bottom: 0;
 }
 .main-btn {
-   background: #00bcd4;
+   background: var(--color-scheme);
    color: white;
    padding: 8px 20px;
-   border: 1px solid #00bcd4;
+   border: 1px solid var(--color-scheme);
    border-radius: 4px;
    font-weight: 500;
    font-size: 15px;
@@ -63,11 +65,11 @@ button:focus {
 /* Selection start */
 ::-moz-selection { 
    color: white;
-   background: #00bcd4;
+   background: var(--color-scheme);
  }
  ::selection {
    color: white;
-   background: #00bcd4;
+   background: var(--color-scheme);
  }
  .no-selection {
    -webkit-touch-callout: none; /* iOS Safari */
@@ -102,8 +104,8 @@ button:focus {
    color: black;
 }
 .page-item.active .page-link {
-   background-color: #00bcd4;
-   border-color: #00bcd4;
+   background-color: var(--color-scheme);
+   border-color: var(--color-scheme);
 }
 .page-link:focus {
    box-shadow: none;
@@ -206,7 +208,7 @@ button:focus {
    transition: 0.3s;
 }
 .dashboard .dash-links a.active {
-   background-color: #00bcd4 !important;
+   background-color: var(--color-scheme) !important;
    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(233 30 99 / 40%);
 }
 .dashboard .dash-links a:hover {
@@ -254,7 +256,7 @@ button:focus {
    border-bottom: 4px solid white;
 }
 .navbar li.active {
-   border-color: #00bcd4;
+   border-color: var(--color-scheme);
 }
 .navbar li a {
    color: black;
@@ -347,7 +349,7 @@ button:focus {
    padding-top: 4px;
 }
 .sidebar h1 span {
-   color: #00bcd4;
+   color: var(--color-scheme);
 }
 .sidebar .birthdays {
    background: white;
@@ -359,7 +361,7 @@ button:focus {
    max-width: 100%;
 }
 .sidebar .single-birthday span {
-   background: #00bcd4;
+   background: var(--color-scheme);
    font-weight: bold;
    font-size: 14px;
    color: white;
@@ -376,7 +378,7 @@ button:focus {
    background: white;
 }
 .sidebar .single-birthday {
-   border-top: 5px solid #00bcd4;
+   border-top: 5px solid var(--color-scheme);
 }
 .sidebar-news {
    background: white;
@@ -385,7 +387,7 @@ button:focus {
 .sidebar-single-news {
    position: relative;
    padding-bottom: 15px;
-   border-top: 5px solid #00bcd4;
+   border-top: 5px solid var(--color-scheme);
 }
 .sidebar-single-news img {
    max-width: 100%;
@@ -412,7 +414,7 @@ button:focus {
    line-height: 1.7;
 }
 .sidebar-single-news span {
-   background: #00bcd4;
+   background: var(--color-scheme);
    font-weight: bold;
    font-size: 14px;
    color: white;
@@ -439,7 +441,7 @@ button:focus {
    text-decoration: none;
 }
 .breadcrumbs a:last-child {
-   background: #00bcd4;
+   background: var(--color-scheme);
 }
 .breadcrumbs a span {
    padding: 15px 25px 15px 35px;
@@ -466,10 +468,10 @@ button:focus {
    border-radius: 5px;
 }
 .breadcrumbs a:last-child span::after {
-   background: #00bcd4;
+   background: var(--color-scheme);
 }
 .breadcrumbs .brd-home span {
-   color: #00bcd4;
+   color: var(--color-scheme);
    padding: 0 20px;
    height: 100%;
 }

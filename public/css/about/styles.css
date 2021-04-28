@@ -32,7 +32,7 @@
    width: -moz-fit-content;
    width: fit-content;
    margin-left: auto;
-   color: #00bcd4;
+   color: var(--color-scheme);
    font-size: 30px;
    transition: 0.3s;
 }
