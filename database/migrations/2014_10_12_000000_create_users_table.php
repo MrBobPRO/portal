@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->string('password');
             $table->string('description');
+            $table->string('colorScheme')->default('#00bcd4');
+            $table->string('dashBg')->default('#00bcd4');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

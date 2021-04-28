@@ -21,7 +21,7 @@ class ProfileController extends Controller
         return view('profile.index', compact('user', 'languages'));
     }
 
-    public function editProfile(Request $request) 
+    public function update_profile(Request $request) 
     {
         $user = User::find(Auth::user()->id);
 
@@ -57,7 +57,7 @@ class ProfileController extends Controller
             
     }
 
-    public function editPassword(Request $request) 
+    public function update_password(Request $request) 
     {
         $user = User::find(Auth::user()->id);
         if (Hash::check($request->password, $user->password)) {

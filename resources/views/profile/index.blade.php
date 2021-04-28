@@ -67,19 +67,19 @@
             @csrf
             <label class="password" for="password">Пароль
                 <input type="password" name="password" id="password" required>
-                <span class="material-icons-outlined" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
+                <span class="material-icons-outlined no-selection" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
                 <div class="password-error">Неправильный пароль</div>
             </label>
 
             <label class="new-password" for="new-password">Новый пароль
                 <input type="password" name="new-password" id="new-password" required>
-                <span class="material-icons-outlined" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
+                <span class="material-icons-outlined no-selection" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
                 <div class="new-password-error">Пароли не совпадают</div>
             </label> 
 
             <label class="confirm-password" for="confirm-password">Подтвердите пароль
                 <input type="password" name="confirm-password" id="confirm-password" required>
-                <span class="material-icons-outlined" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>
+                <span class="material-icons-outlined no-selection" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>
                 <div class="confirm-password-error">Пароли не совпадают</div>
             </label>
 

@@ -21,6 +21,13 @@
    <link href="{{ asset('css/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/main/media.css') }}" rel="stylesheet">
    @include('templates.styles')
+
+      <style>
+         :root {
+            --color-scheme: {{\Auth::user()->colorScheme}};
+         }   
+      </style>
+
    
 </head>
 <body>
