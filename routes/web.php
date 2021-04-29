@@ -68,6 +68,7 @@ Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowle
 //-----------------Dashboard routes-------------------
 //Profile-page's route
 Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard.profile.index');
+Route::post('/update_avatar', 'ProfileController@update_avatar');
 Route::post('/update_profile', 'ProfileController@update_profile');
 Route::post('/update_password', 'ProfileController@update_password');
 //-----------------Dashboard routes-------------------

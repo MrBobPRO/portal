@@ -20,6 +20,23 @@ class ProfileController extends Controller
         return view('dashboard.profile.index', compact('user', 'languages'));
     }
 
+    public function update_avatar(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        if($request->hasFile('avatar')) 
+        {
+            $fileName = $user->id . '.' . $request->file('avatar')->getClientOriginalExtension();
+            
+            $request->file('avatar')->move(public_path('img/users'), $fileName);
+            
+            $user->avatar = $fileName;
+            $user->save();
+        }
+
+        return redirect()->back();
+    }
+    
     public function update_profile(Request $request) 
     {
         $user = User::find(Auth::user()->id);
@@ -32,24 +49,11 @@ class ProfileController extends Controller
         $user->description = $request->description;
         $user->save();
 
-        Language::where('user_id', $user->id)->delete();
-        
+        //detach languages and attach new ones
+        $user->languages()->detach();
         foreach ($request->languages as $lang) 
         {
-            $language = new Language;
-            $language->user_id = $user->id;
-            $language->name = $lang;
-            $language->save();
-        }
-
-        if($request->hasFile('avatar')) 
-        {
-            $fileName = $user->id . '.' . $request->file('avatar')->getClientOriginalExtension();
-            
-            $request->file('avatar')->move(public_path('img/users'), $fileName);
-            
-            $user->avatar = $fileName;
-            $user->save();
+            $user->languages()->attach($lang);
         }
             
         return redirect()->back();

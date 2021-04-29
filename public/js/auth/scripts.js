@@ -8,7 +8,7 @@ function showHidePassword(input, btn) {
    } else {
       icon.innerHTML = 'visibility'
       password.setAttribute('type', 'password')
-   }
+   }  
 };
 
 var label = document.getElementById('email-label');

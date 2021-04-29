@@ -1,36 +1,14 @@
-$(document).ready(function () {
-   //Select2
-   $('.select2_single').select2(
-      {
-         allowClear: true,
-         language: 'ru'
-      }
-   );  
 
-   //MultiSelect2
-   $('.select2_multiple').select2(
-      {
-         closeOnSelect: false,
-         language: 'ru',
-         width: '100%'
-         // tags: true, means that user can create new option
-         // tokenSeparators: [',', ' '], Automatic tokenization into tags
-      }
-   );   
-});
+function showHidePassword(inpt, btn) {
+   var input = document.getElementById(inpt);
+   var button = document.getElementById(btn);
 
-function showHidePassword(input, button) {
-   var password = document.getElementById(input);
-   var eye = document.getElementById(button);
-
-   eye.onclick = function() {
-      if (eye.innerHTML == 'visibility_off') {
-         password.setAttribute('type', 'password');
-         eye.innerHTML = 'visibility';
-      } else {
-         password.setAttribute('type', 'text');
-         eye.innerHTML = 'visibility_off';
-      }
+   if (button.innerHTML == 'visibility_off') {
+      input.setAttribute('type', 'password');
+      button.innerHTML = 'visibility';
+   } else {
+      input.setAttribute('type', 'text');
+      button.innerHTML = 'visibility_off';
    }
 }
 
@@ -83,18 +61,19 @@ function ajax_edit_password() {
                newPasswordInput.style.borderColor = 'red';
                confirmPasswordInput.style.borderColor = 'red';
             } else {
-               password = '';
+               passwordInput.value = '';
                passwordInput.style.borderColor = '#00bcd4';
                passwordError.style.display = 'none';
 
-               newPassword = '';
+               newPasswordInput.value = '';
                newPasswordInput.style.borderColor = '#00bcd4';
                newPasswordError.style.display = 'none';
 
-               confirmPassword = '';
+               confirmPasswordInput.value = '';
                confirmPasswordInput.style.borderColor = '#00bcd4';
                confirmPasswordError.innerHTML = 'Ваш пароль успешно изменен';
-               confirmPasswordError.style.color = 'green';
+               confirmPasswordError.style.display = 'block';
+               confirmPasswordError.style.color = 'limegreen';
             }
 
          },

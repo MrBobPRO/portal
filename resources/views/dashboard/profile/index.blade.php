@@ -3,90 +3,132 @@
 @section('content')
 
     <section class="profile-page">
+        {{-- Edit profile avatar start --}}
+        <div class="change-ava-container">
+            <img src="{{ asset('img/users/' . $user->avatar) }}">
+            <div>
+                <button data-bs-toggle="modal" data-bs-target="#avaModal" class="main-btn">
+                    <span class="material-icons-outlined">photo_camera</span> Изменить фото
+                </button>
+                <p>Рекомендуется загрузить квадратную фотку.<br>Иначе фото автоматический будет вырезан при загрузке !</p>
+            </div>
+        </div>  {{-- Edit profile avatar end --}}
 
-        <h2 class="title">Профиль</h2>
-        {{-- Edit profile form start --}}
-        <form class="edit-info-form" action="/update_profile" method="POST" enctype="multipart/form-data">
+        <h2>Персональная информация</h2>
+        {{-- Personal data form start --}}
+        <form id="update_profile" action="/update_profile" method="POST" enctype="multipart/form-data">
             @csrf
-            {{-- Change user avatar block start --}}
-            <div class="upload">
-                <img src=" {{ asset('img/users/' . $user->avatar) }} " alt="img">
-                <label>
-                    <input type="file" accept=".jpg, .png" name="avatar" id="avatar">
-                    <div class="upload-btn">Выберите файл</div>
-                </label>
-                <p class="image-description">Допустимые форматы: только .jpg, .png <br>Максимальный размер файла - 500 КБ, минимальный - 70 КБ</p>
-            </div>{{-- Change user avatar block end --}}
+            <div class="input-container-inline">
+                <label>Имя</label>
+                <input type="text" name="name" value="{{ $user->name }}" required>
+            </div>
 
-            <h3 class="acc-info"> Информация </h3>
-            {{-- Edit user information block start --}}
-            <div class="info-block">
-                <label class="name"> Имя
-                    <input type="text" name="name" id="name" value="{{ $user->name }}" required>
-                </label>
-                <label class="surname"> Фамилия
-                    <input type="text" name="surname" id="surname" value="{{ $user->surname }}" required>
-                </label>
-                <label class="nickname"> Ник
-                    <input type="text" name="nickname" id="nickname" value="{{ $user->nickname }}" required>
-                </label>
-                <label class="birth_date"> День рождения
-                    <input type="date" name="birth_date" id="birth_date" value="{{$user->birth_date}}" required>
-                </label>
-                <label class="email"> E-mail
-                    <input type="email" name="email" id="email" value="{{ $user->email }}" required>
-                </label>
-                <label class="position"> Должность
-                    <input type="text" name="position" id="position" disabled value="{{ $user->position }}" required>
-                </label>
-                {{-- Language multiselect start --}}
-                <label class="languages"> Языки
-                    <div class="select2_multiple_container">
-                        <select name="languages[]" id="languages" class="select2_multiple" data-dropdown-css-class="select2_multiple_dropdown" multiple required>
-                            @foreach ($languages as $language)
-                                <option value="{{$language->name}}" {{ $language->user_id == $user->id ? 'selected' : '' }}>{{$language->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </label>{{-- Language multiselect end --}}
+            <div class="input-container-inline">
+                <label>Фамилия</label>
+                <input type="text" name="surname" value="{{ $user->surname }}" required>
+            </div>
 
-                <label class="description-label" for="description"> Описание
-                    <div class="textarea">
-                        <textarea spellcheck="false" class="description" name="description" id="description" required>{{ $user->description }}</textarea>
-                    </div>
-                </label>
-            </div>{{-- Edit user information block end --}}
+            <div class="input-container-inline">
+                <label>Ник</label>
+                <input type="text" name="nickname" value="{{ $user->nickname }}" required>
+            </div>
 
-            <button class="edit-info-form-btn" type="submit">Сохранить изменения</button>
+            <div class="input-container-inline">
+                <label>День рождения</label>
+                <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>
+            </div>
 
-        </form>{{-- Edit profile form end --}}
+            <div class="input-container-inline">
+                <label>E-mail</label>
+                <input type="email" name="email" value="{{ $user->email }}" required>
+            </div>
 
-        <h3 class="acc-info"> Изменить пароль </h3>
-        {{-- Edit password form start --}}
-        <form class="edit-password-form" method="POST" onsubmit="ajax_edit_password()">
+            <div class="input-container-inline">
+                <label>Должность</label>
+                <input type="text" name="position" value="{{ $user->position }}" readonly>
+            </div>
+
+            <div class="input-container-inline">
+                <label>Языки</label>
+                <div class="select2_multiple_container">
+                    <select name="languages[]" id="languages" class="select2_multiple" data-dropdown-css-class="select2_multiple_dropdown" multiple required>
+                        @foreach ($languages as $language)
+                            <option value="{{$language->id}}" 
+                                @foreach($user->languages as $userLang)
+                                    @if($userLang->id == $language->id) 
+                                        selected
+                                    @endif
+                                @endforeach
+                            >{{$language->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-container-inline">
+                <label>Описание</label>
+                <textarea spellcheck="false" name="description" rows="5" required>{{ $user->description }}</textarea>
+            </div>
+
+            <button class="main-btn update-profile-btn" type="submit"><span class="material-icons-outlined">edit</span> Обновить профиль</button>
+        </form>  {{-- Personal data form end --}}
+
+        <h2 class="title-seperator">Изменить пароль</h2>
+        {{-- Change password form start --}}
+        <form id="update_password" onsubmit="ajax_edit_password()">
             @csrf
-            <label class="password" for="password">Пароль
-                <input type="password" name="password" id="password" required>
-                <span class="material-icons-outlined no-selection" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
-                <div class="password-error">Неправильный пароль</div>
-            </label>
+            <div class="input-container-inline">
+                <label>Старый пароль</label>
+                <div class="input-password-container">
+                    <input type="password" name="password" id="password" required>
+                    <span class="material-icons-outlined no-selection" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
+                </div>
+                <p class="input-error password-error">Неправильный пароль</p>
+            </div>
 
-            <label class="new-password" for="new-password">Новый пароль
-                <input type="password" name="new-password" id="new-password" required>
-                <span class="material-icons-outlined no-selection" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
-                <div class="new-password-error">Пароли не совпадают</div>
-            </label> 
+            <div class="input-container-inline">
+                <label>Новый пароль</label>
+                <div class="input-password-container">
+                    <input type="password" name="new-password" id="new-password" required>
+                    <span class="material-icons-outlined no-selection" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
+                </div>
+                <p class="input-error new-password-error">Пароли не совпадают</p>
+            </div>
 
-            <label class="confirm-password" for="confirm-password">Подтвердите пароль
-                <input type="password" name="confirm-password" id="confirm-password" required>
-                <span class="material-icons-outlined no-selection" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>
-                <div class="confirm-password-error">Пароли не совпадают</div>
-            </label>
+            <div class="input-container-inline">
+                <label>Подтвердите новый пароль</label>
+                <div class="input-password-container">
+                    <input type="password" name="confirm-password" id="confirm-password" required>
+                    <span class="material-icons-outlined no-selection" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>
+                </div>
+                <p class="input-error confirm-password-error">Пароли не совпадают</p>
+            </div>
 
-            <button class="edit-password-form-btn" type="submit">Сохранить изменения</button>
+            <button class="main-btn update-password-btn" type="submit"><span class="material-icons">vpn_key</span> Обновить пароль</button>
 
-        </form>{{-- Edit password form end --}}
+        </form>  {{-- Change password form end --}}
 
     </section>
     
+<!-- Avatar change modal -->
+<div class="modal fade avatar-modal" id="avaModal" tabindex="-1" aria-labelledby="avadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="avadModalLabel">Изменить фото</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="update_avatar_modal" action="/update_avatar" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="avatar" required>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="document.getElementById('update_avatar_modal').submit()" class="main-btn">Изменить</button>
+        </div>
+      </div>
+    </div>
+ </div>
+
 @endsection

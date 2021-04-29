@@ -23,7 +23,7 @@
    <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
 
-   @include('dashboard.templates.styles')
+   @include('dashboard.templates.styles') 
 
       <style>
          :root {
@@ -39,6 +39,7 @@
    <main>
       <div class="content">
          @include('templates.navbar')
+         @include('dashboard.templates.breadcrumbs')
          @yield('content')
       </div>
       @include('templates.sidebar')
@@ -53,6 +54,7 @@
    {{-- Select2 --}}
    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
    <script src="{{ asset('js/main/scripts.js') }}"></script>
+   <script src="{{ asset('js/dashboard/main/scripts.js') }}"></script>
 
    @include('dashboard.templates.scripts')
 

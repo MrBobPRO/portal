@@ -55,10 +55,17 @@ class DatabaseSeeder extends Seeder
         $langs = ['Английский', 'Русский', 'Турецкий', 'Таджикский', 'Узбекский', 'Арабский'];
         foreach ($langs as $lan) {
             $lang = new Language;
-            $lang->user_id = '0';
             $lang->name = $lan;
             $lang->save();
         }
+
+        $u = User::find(1);
+        $u->languages()->attach(1);
+        $u->languages()->attach(2);
+
+        $u = User::find(2);
+        $u->languages()->attach(3);
+        $u->languages()->attach(4);
 
 
         //Create News

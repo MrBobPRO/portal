@@ -77,9 +77,7 @@
                      <input id="password" type="password" name="password" required autocomplete="current-password"
                         placeholder="{{ __('Пароль') }}">
                      <button onclick="showHidePassword('password', 'password-btn-icon')" id="password-btn" type="button">
-                        <span id="password-btn-icon" class="material-icons-outlined">
-                           visibility
-                        </span>
+                        <span id="password-btn-icon" class="material-icons-outlined">visibility</span>
                      </button>
                   </div>
                   <div class="submit-container">
