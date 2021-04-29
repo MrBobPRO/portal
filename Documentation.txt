@@ -7,7 +7,7 @@ Google Roboto Font
 JQuery v3.6
 Select2 v4.1 -> used to style selects and multiselects
 Material Icons
-Intervention Image -> used for manipulating with uploaded images
+Intervention Image -> used for manipulating with uploaded images~
 Owl Carousel => slider
 Plyr player => used as videoplayer (https://plyr.io/)
 JQuery 3dflipbook -> used for reading books. More at : https://3dflipbook.net/ (licensed)
