@@ -7,7 +7,7 @@ use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Image;
 
 class ProfileController extends Controller
 
@@ -23,13 +23,44 @@ class ProfileController extends Controller
     public function update_avatar(Request $request)
     {
         $user = User::find(Auth::user()->id);
+        $file = $request->file('avatar');
 
-        if($request->hasFile('avatar')) 
+        if($file) 
         {
-            $fileName = $user->id . '.' . $request->file('avatar')->getClientOriginalExtension();
+            $fileName = $user->id . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('img/users/original'), $fileName);
             
-            $request->file('avatar')->move(public_path('img/users'), $fileName);
-            
+            //Create new img from original
+            $img = Image::make(public_path('img/users/original/' . $fileName));
+            $height = $img->height();
+            $width = $img->width();
+
+            //make same images height and width
+            if($width < $height) {
+                $img->fit($width, $width, function ($constraint) {
+                    $constraint->upsize();
+                }, 'center');
+            }
+
+            else {
+                $img->fit($height, $height, function ($constraint) {
+                    $constraint->upsize();
+                }, 'center');
+            }
+
+            //resize image if images width > 500px
+            $newWidth = $img->width();
+            if($newWidth > 500) {
+                $img->resize(500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            //save img
+            $img->save(public_path('img/users/' . $fileName));
+            // delete original img
+            unlink(public_path('img/users/original/' . $fileName));
+
             $user->avatar = $fileName;
             $user->save();
         }
