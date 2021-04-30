@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->integer('position_id');
             $table->integer('designation_id');
             $table->string('colorScheme')->default('#00bcd4');
-            $table->string('dashBg')->default('default1.jpg');
+            $table->string('dashBg')->default('dash1.jpg');
+            $table->boolean('darkMode')->default(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
