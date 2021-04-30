@@ -1,0 +1,121 @@
+
+ul {
+   margin: 0px;
+   padding: 0px;
+}
+li {
+   display: block;
+}
+.settings-page {
+   background-color: #fff;
+   padding: 20px 30px;
+}
+.settings-page .title {
+   text-transform: uppercase;
+   color: #00bcd4;
+}
+.color-title,
+.theme-title {
+   text-transform: uppercase;
+   font-size: 20px;
+   font-weight: bold;
+   margin: 0px;
+}
+/* Change colorScheme block start */
+.color-list {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   height: 100px;
+   width: 400px;
+}
+.color-items {
+   cursor: pointer;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+}
+.lightblue {
+   background-color: #00bcd4;
+}
+.purple {
+   background-color: #9368e9;
+}
+.blue {
+   background-color: #2ca8ff;
+}
+.green {
+   background-color: #18ce0f;
+}
+.orange {
+   background-color: #ff9800;
+}
+.red {
+   background-color: #f44336;
+}
+.burgundy {
+   background-color: #e91e63;
+}
+.color-items.active {
+   outline: 5px solid;
+   outline-color: #d4d4d4;
+}
+.scheme-btn {
+   border: none;
+   background-color: var(--color-scheme);
+   padding: 5px 15px;
+   color: #fff;
+   margin: 0 0 20px 20px;
+   box-shadow: 0 0 5px gray;
+}/* Change colorScheme block end */
+
+/* Change background start */
+.theme-list {
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   margin: 10px 0;
+}
+.theme-items {
+   margin: 10px;
+   cursor: pointer;
+}
+.theme-items.active {
+   outline: 6px solid;
+   outline-color: #d4d4d4;
+}
+.theme-items img {
+   width: 150px;
+   height: 250px;
+   object-fit: cover;
+}
+.inputBox {
+   width: 50px;
+   height: 20px;
+   background-color: rgb(231,231,231);
+   border-radius: 50px;
+   position: relative;
+   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.295), inset 0 5px 5px rgba(0, 0, 0, 0.295);;
+   margin: 20px 0 30px 160px;
+}
+.inputBox .title {
+   position: absolute;
+   top: 0;
+   left: -145px;
+   font-size: 16px;
+   text-transform: none;
+   color: black;
+   font-weight: bold;
+   width: 150px;
+}
+.inputBox label {
+   font-size: 23px;
+   position: absolute;
+   cursor: pointer;
+   transform: translate(-5px, -6px);
+   transition: transform .4s;
+}
+.inputBox input:checked ~ label {
+   transform: translate(25px, -6px);
+}
+/* Change background end */

@@ -1,3 +1,5 @@
+const { root } = require("postcss");
+
 $(document).ready(function () {
    //Select2
    $('.select2_single').select2(
@@ -103,5 +105,6 @@ function ajax_edit_password() {
          }
       });
 }//Ajax request setup end
-
 //Edit password end
+
+

@@ -6,4 +6,9 @@
     <link href="{{ asset('css/dashboard/profile/media.css') }}" rel="stylesheet">
 @break
 
+@case('dashboard.settings.index') 
+    <link href="{{ asset('css/dashboard/settings/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard/settings/media.css') }}" rel="stylesheet">
+@break
+
 @endswitch

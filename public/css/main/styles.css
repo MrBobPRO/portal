@@ -158,6 +158,16 @@ button:focus {
    -ms-touch-action: auto;
    background-size: cover;
 }
+.dashboard .overlay {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: black;
+   opacity: 0.7;
+}
+.overlay.show {
+   opacity: 0;
+}
 .dashboard.hidden {
    width: 0;
 }
@@ -206,6 +216,7 @@ button:focus {
    margin-bottom: 5px;
    align-items: center;
    transition: 0.3s;
+   position: relative;
 }
 .dashboard .dash-links a.active {
    background-color: var(--color-scheme) !important;
@@ -220,6 +231,7 @@ button:focus {
    opacity: 0.9;
 }
 .dashboard .dash-links button {
+   position: relative;
    color: white;
    text-decoration: none;
    font-weight: 300;

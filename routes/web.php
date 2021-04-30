@@ -70,6 +70,10 @@ Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowle
 Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard.profile.index');
 Route::post('/update_profile', 'ProfileController@update_profile');
 Route::post('/update_password', 'ProfileController@update_password');
+//Settings-page's routes
+Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.settings.index');
+Route::post('/update_color', 'SettingsController@changeColor');
+Route::post('/update_background', 'SettingsController@changeBackground');
 //-----------------Dashboard routes-------------------
 
 require __DIR__.'/auth.php';
