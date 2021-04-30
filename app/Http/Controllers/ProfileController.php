@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Image;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 
 {
     public function index() 
     {
+
         $user = Auth::user();
         $languages = Language::all();
 

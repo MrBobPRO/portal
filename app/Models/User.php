@@ -45,4 +45,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Language::class);
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
+
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class);
+    }
 }

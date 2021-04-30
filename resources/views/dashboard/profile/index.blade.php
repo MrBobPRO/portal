@@ -44,8 +44,18 @@
             </div>
 
             <div class="input-container-inline">
+                <label>Отдел</label>
+                <input type="text" value="{{ $user->department->name }}" readonly>
+            </div>
+
+            <div class="input-container-inline">
+                <label>Позиция</label>
+                <input type="text" value="{{ $user->designation->name }}" readonly>
+            </div>
+
+            <div class="input-container-inline">
                 <label>Должность</label>
-                <input type="text" name="position" value="{{ $user->position }}" readonly>
+                <input type="text" value="{{ $user->position->name }}" readonly>
             </div>
 
             <div class="input-container-inline">

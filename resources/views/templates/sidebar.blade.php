@@ -6,13 +6,13 @@
       </h1>
       
       <div class="single-birthday">
-         <img src="{{asset('img/users/b1.jpg')}}">
+         <img src="{{asset('img/users/6.jpg')}}">
          <span>Сегодня</span>
          <p>Нурова Шакира</p>
       </div>
 
       <div class="single-birthday">
-         <img src="{{asset('img/users/b2.jpg')}}">
+         <img src="{{asset('img/users/7.jpg')}}">
          <span>Завтра</span>
          <p>Расул Икромов</p>
       </div>

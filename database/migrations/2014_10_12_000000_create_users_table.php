@@ -20,10 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('nickname')->unique();
             $table->date('birth_date');
             $table->string('email')->unique();
-            $table->string('position');
             $table->string('avatar');
             $table->string('password');
             $table->string('description');
+            $table->integer('department_id');
+            $table->integer('position_id');
+            $table->integer('designation_id');
             $table->string('colorScheme')->default('#00bcd4');
             $table->string('dashBg')->default('default1.jpg');
             $table->timestamp('email_verified_at')->nullable();
