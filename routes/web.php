@@ -20,6 +20,9 @@ Route::post('/setLangRu', 'LanguageController@setLangRu');
 Route::post('/setLangEn', 'LanguageController@setLangEn');
 //--------------Language-change's routes--------------
 
+//--------------Dashboard visibility change--------------
+Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
+//--------------Dashboard visibility change--------------
 
 //------------About-page's route--------------
 Route::get('/about', 'AboutController@index')->name('about.index');

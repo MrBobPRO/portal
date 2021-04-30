@@ -16,8 +16,20 @@ class HomeController extends Controller
         $this->middleware('auth')->except('email');
     }
 
+    public function store_dashboard_visibility(Request $request)
+    {   
+        session([
+            'dashboard' => $request->visibility
+        ]);
+
+        return 'success';
+    }
+
     public function index()
     {   
+        // if(session('dashboard') == 'hidden')
+        // dd(session('dashboard'));
+
         return view('home.index');
     }
 

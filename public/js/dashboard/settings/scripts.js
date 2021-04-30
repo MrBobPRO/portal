@@ -1,6 +1,6 @@
 function changeColor(color, name) {
    var r = document.querySelector(':root');
-   var items = document.getElementsByClassName('color-items');
+   var items = document.getElementsByClassName('colors-item');
    var activeBtn = document.getElementsByClassName(name)[0];
    var input = document.getElementById('color-scheme');
 

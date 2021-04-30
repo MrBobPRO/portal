@@ -7,5 +7,9 @@
          <a href="{{ route('dashboard.profile.index') }}"><span>{{ __('Профиль') }}</span></a>
       @break
 
+      @case('dashboard.settings.index')
+         <a href="{{ route('dashboard.settings.index') }}"><span>{{ __('Настройки') }}</span></a>
+      @break
+
       @endswitch
    </div>

@@ -1,39 +1,23 @@
 
-ul {
-   margin: 0px;
-   padding: 0px;
+section {
+   padding: 40px 45px;
+   background: white;
 }
-li {
-   display: block;
-}
-.settings-page {
-   background-color: #fff;
-   padding: 20px 30px;
-}
-.settings-page .title {
-   text-transform: uppercase;
-   color: #00bcd4;
-}
-.color-title,
-.theme-title {
-   text-transform: uppercase;
-   font-size: 20px;
-   font-weight: bold;
-   margin: 0px;
+h2 {
+   margin-bottom: 35px;
 }
 /* Change colorScheme block start */
-.color-list {
+.colors-list {
    display: flex;
-   justify-content: space-around;
-   align-items: center;
-   height: 100px;
-   width: 400px;
+   width: 60%;
 }
-.color-items {
+.colors-item {
    cursor: pointer;
-   width: 20px;
-   height: 20px;
+   width: 22px;
+   height: 22px;
    border-radius: 50%;
+   margin-right: 30px;
+   display: block;
 }
 .lightblue {
    background-color: #00bcd4;
@@ -56,18 +40,13 @@ li {
 .burgundy {
    background-color: #e91e63;
 }
-.color-items.active {
-   outline: 5px solid;
-   outline-color: #d4d4d4;
+.colors-item.active {
+   box-shadow: 0px 0px 5px 8px rgb(0 0 0 / 15%);
 }
 .scheme-btn {
-   border: none;
-   background-color: var(--color-scheme);
-   padding: 5px 15px;
-   color: #fff;
-   margin: 0 0 20px 20px;
-   box-shadow: 0 0 5px gray;
-}/* Change colorScheme block end */
+   margin-left: auto;
+}
+/* Change colorScheme block end */
 
 /* Change background start */
 .theme-list {
@@ -75,19 +54,23 @@ li {
    justify-content: start;
    align-items: center;
    margin: 10px 0;
+   width: 100%;
+   padding: 0;
+   margin: 0;
 }
 .theme-items {
    margin: 10px;
    cursor: pointer;
+   display: block;
+   width: 18%;
 }
 .theme-items.active {
-   outline: 6px solid;
-   outline-color: #d4d4d4;
+   box-shadow: 0px 0px 5px 8px rgb(0 0 0 / 15%);
 }
 .theme-items img {
-   width: 150px;
-   height: 250px;
+   width: 100%;
    object-fit: cover;
+   border-radius: 5px;
 }
 .inputBox {
    width: 50px;
@@ -95,7 +78,7 @@ li {
    background-color: rgb(231,231,231);
    border-radius: 50px;
    position: relative;
-   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.295), inset 0 5px 5px rgba(0, 0, 0, 0.295);;
+   box-shadow: 0 5px 5px rgb(0 0 0 / 20%), inset 0 5px 5px rgb(0 0 0 / 10%);
    margin: 20px 0 30px 160px;
 }
 .inputBox .title {

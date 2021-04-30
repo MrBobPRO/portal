@@ -10,7 +10,9 @@ class SettingsController extends Controller
 {
     public function index() 
     {
-        return view('dashboard.settings.index');
+        $user = Auth::user();
+
+        return view('dashboard.settings.index', compact('user'));
     }
 
     public function changeColor(Request $request) 
