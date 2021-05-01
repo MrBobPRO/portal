@@ -67,15 +67,15 @@
                <div class="login-title">{{ __('Вход на сайт') }}</div>
                <form action="{{route('login')}}" id="login-form" method="POST">
                   @csrf
-                  <input type="text" name="name" :value="old('name')" required autofocus 
-                  @if(count($errors))
-                     style="border-color: red" placeholder="{{ __('Неверный логин или пароль!') }}" 
-                  @else
-                     placeholder="{{ __('Имя пользователя') }}" 
-                  @endif>
+                  <input type="text" name="nickname" value="{{old('nickname')}}" required placeholder="{{ __('Никнейм') }}">
                   <div class="password-item">
                      <input id="password" type="password" name="password" required autocomplete="current-password"
-                        placeholder="{{ __('Пароль') }}">
+                        @if(count($errors))
+                           style="border-color: red" placeholder="{{ __('Неверный логин или пароль!') }}" 
+                        @else
+                           placeholder="{{ __('Пароль') }}"
+                        @endif
+                        >
                      <button onclick="showHidePassword('password', 'password-btn-icon')" id="password-btn" type="button">
                         <span id="password-btn-icon" class="material-icons-outlined">visibility</span>
                      </button>

@@ -20,9 +20,6 @@ Route::post('/setLangRu', 'LanguageController@setLangRu');
 Route::post('/setLangEn', 'LanguageController@setLangEn');
 //--------------Language-change's routes--------------
 
-//--------------Dashboard visibility change--------------
-Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
-//--------------Dashboard visibility change--------------
 
 //------------About-page's route--------------
 Route::get('/about', 'AboutController@index')->name('about.index');
@@ -78,6 +75,12 @@ Route::post('/update_password', 'ProfileController@update_password');
 Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.settings.index');
 Route::post('/update_color', 'SettingsController@changeColor');
 Route::post('/update_background', 'SettingsController@changeBackground');
+//Users page`s routes
+Route::get('/dashboard/users', 'UsersController@index')->name('dashboard.users.index');
+Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.users.single');
+
+//Dashboard visibility change
+Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
 //-----------------Dashboard routes-------------------
 
 require __DIR__.'/auth.php';

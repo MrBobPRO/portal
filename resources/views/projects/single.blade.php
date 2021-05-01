@@ -9,7 +9,7 @@
       <div class="projects-content">
          <h3>{{$project->title}}</h3>
          <img src="{{ asset('img/projects/' . $project->image) }}">
-         <div class="projects-content-text">{{$project->text}}</div>
+         <div class="projects-content-text">{!!$project->text!!}</div>
          <div class="project-date">
             <?php 
                $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');

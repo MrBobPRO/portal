@@ -25,7 +25,7 @@
                <img src="{{ asset('img/news/'. $new->image) }}">
                <a href="{{route('news.single', $new->id)}}">
                   <h3>{{$new->title}}</h3>
-                  <p>{{$new->text}}</p>
+                  <p>{!!$new->text!!}</p>
                   <span class="news-date">
                      <?php 
                         $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');

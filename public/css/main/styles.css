@@ -51,6 +51,9 @@ section {
    font-weight: 500;
    font-size: 15px;
 }
+.dropdown-item.active, .dropdown-item:active {
+   background-color: var(--color-scheme);
+}
 /* Focus start */
 *:focus {
    outline: none;
@@ -196,6 +199,11 @@ button:focus {
    align-items: center;
    color: white;
    text-decoration: none;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
 }
 .dashboard .profile-ava i {
    margin-right: 12px;

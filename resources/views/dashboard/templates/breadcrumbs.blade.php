@@ -11,5 +11,14 @@
          <a href="{{ route('dashboard.settings.index') }}"><span>{{ __('Настройки') }}</span></a>
       @break
 
+      @case('dashboard.users.index')
+         <a href="{{ route('dashboard.users.index') }}"><span>Сотрудники</span></a>
+      @break
+
+      @case('dashboard.users.single')
+         <a href="{{ route('dashboard.users.index') }}"><span>Сотрудники</span></a>
+         <a href="{{ route('dashboard.users.single', $user->id) }}"><span>{{$user->name . ' ' . $user->surname}}</span></a>
+      @break
+
       @endswitch
    </div>

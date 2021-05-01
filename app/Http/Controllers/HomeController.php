@@ -26,10 +26,7 @@ class HomeController extends Controller
     }
 
     public function index()
-    {   
-        // if(session('dashboard') == 'hidden')
-        // dd(session('dashboard'));
-
+    {  
         return view('home.index');
     }
 

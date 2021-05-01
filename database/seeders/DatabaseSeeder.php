@@ -60,9 +60,9 @@ class DatabaseSeeder extends Seeder
 
         //Create Users
         $avatars = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
-        $names = ['Ikrom', 'BoburJon', 'Михаил', 'Дмитрий', 'Азамат', 'Медина', 'Снежанна', 'Амриддин', 'Эхсон', 'Парвина'];
+        $names = ['Икром', 'Бобур', 'Даврон', 'Дмитрий', 'Азамат', 'Медина', 'Снежанна', 'Амриддин', 'Михаил', 'Парвина'];
+        $surnames = ['Рахимов', 'Нуридинов', 'Олегов', 'Камаров', 'Зияев', 'Иброровна', 'Бадоева', 'Холов', 'Сохибназаров', 'Мирославовна'];
         $nicknames = ['ikrom', 'Bob', 'miha', 'dima', 'aza', 'medina', 'snejok', 'amrik', 'superman', 'skype'];
-        $surnames = ['Dilshodovich', 'Nuridinov', 'Олегович', 'Камаров', 'Зияев', 'Иброровна', 'Бадоева', 'Холов', 'Сохибназаров', 'Мирославовна'];
         $emails = ['ikromr04@gmail.com', 'boburjon_n@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru', 'med_2000@mail.ru', 'snejok@mail.ru', 'amriqul@mail.ru', 'superman_sila@mail.ru', 'parvinka99@mail.ru'];
         $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
             $user->department_id = $dep_id[$i];
             $user->position_id = $pos_id[$i];
             $user->designation_id = $des_id[$i];
-            $user->description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsam consequatur at!';
+            $user->description = 'Родилась 27 сентября 1978 года в небольшом городе Кицмань на севере Черновицкой области Украинской ССР.';
             $user->save();
         }
 

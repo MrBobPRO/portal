@@ -9,7 +9,7 @@
       <div class="news-content">
          <h3>{{$news->title}}</h3>
          <img src="{{ asset('img/news/'. $news->image) }}">
-         <div class="news-content-text">{{$news->text}}</div>
+         <div class="news-content-text">{!!$news->text!!}</div>
 
          <div class="grades-container">
             <div class="news-content-date">

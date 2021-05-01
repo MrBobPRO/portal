@@ -3,21 +3,8 @@
 
 @include('templates.breadcrumbs')
 
-{{-- Hide sidebar and main menu --}}
-<style>
-   main {
-      padding-top: 0px;
-   }
-   .sidebar {
-      display: none;
-   }
-   .content {
-      width: 100%;
-   }
-   .main-nav {
-      display: none
-   }
-</style>
+   {{-- include no sidebar and no menu styles --}}
+   <link href="{{ asset('css/no_sidebar/styles.css') }}" rel="stylesheet">
 
    <section class="structure-page">
       {{-- Department list start --}}
@@ -39,7 +26,7 @@
                   ?>
 
                   @foreach ($users as $u)
-                     <a href="#" class="users-list-item">
+                     <a href="{{route('dashboard.users.single', $u->id)}}" class="users-list-item">
                         <img src="{{ asset('img/users/' . $u->avatar) }}">
                         <div>
                            <h6>{{$u->userName . ' ' . $u->surname}}</h6>

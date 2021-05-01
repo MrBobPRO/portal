@@ -1,0 +1,13 @@
+
+main {
+   padding-top: 0px;
+}
+.sidebar {
+   display: none;
+}
+.content {
+   width: 100%;
+}
+.main-nav {
+   display: none
+}
