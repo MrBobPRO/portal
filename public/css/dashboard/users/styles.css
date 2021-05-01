@@ -1,6 +1,7 @@
 
 /* Index page start */
 .users-list {
+   margin-top: 30px;
    display: flex;
    flex-wrap: wrap;
 }
