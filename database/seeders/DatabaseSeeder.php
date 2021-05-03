@@ -63,6 +63,7 @@ class DatabaseSeeder extends Seeder
         $names = ['Икром', 'Бобур', 'Даврон', 'Дмитрий', 'Азамат', 'Медина', 'Снежанна', 'Амриддин', 'Михаил', 'Парвина'];
         $surnames = ['Рахимов', 'Нуридинов', 'Олегов', 'Камаров', 'Зияев', 'Иброровна', 'Бадоева', 'Холов', 'Сохибназаров', 'Мирославовна'];
         $nicknames = ['ikrom', 'Bob', 'miha', 'dima', 'aza', 'medina', 'snejok', 'amrik', 'superman', 'skype'];
+        $roles = ['admin', 'admin', 'user', 'user', 'user', 'user', 'user', 'user', 'user', 'user'];
         $emails = ['ikromr04@gmail.com', 'boburjon_n@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru', 'med_2000@mail.ru', 'snejok@mail.ru', 'amriqul@mail.ru', 'superman_sila@mail.ru', 'parvinka99@mail.ru'];
         $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
@@ -81,6 +82,7 @@ class DatabaseSeeder extends Seeder
             $user = new User;
             $user->name = $names[$i];
             $user->surname = $surnames[$i];
+            $user->role = $roles[$i];
             $user->email = $emails[$i];
             $user->password = bcrypt('12345');
             $user->avatar = $avatars[$i];

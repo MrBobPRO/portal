@@ -1,15 +1,19 @@
 
+<?php $userr = \Auth::user(); ?>
 <div class="no-selection dashboard-btn">
-
+   {{-- Toogle button --}}
    <span class="material-icons-outlined m-lang" onclick="toogleDashboard()">menu</span>
+   {{-- Dashboard start --}}
    <div id="dashboard" class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
-      style="background-image: url({{asset('img/dashboards/' . \Auth::user()->dashBg)}})">
+      style="background-image: url({{asset('img/dashboards/' . $userr->dashBg)}})">
 
-      <div id="dashOverlay" class="overlay {{\Auth::user()->darkMode == '1' ? '' : 'show'}}"></div>
+      <div id="dashOverlay" class="overlay {{$userr->darkMode == '1' ? '' : 'show'}}"></div>
+
       <div class="profile-ava">
-         <a href="#"><img src="{{ asset('img/users/' . \Auth::user()->avatar) }}">{{\Auth::user()->name}}</a>
+         <a href="#"><img src="{{ asset('img/users/' . $userr->avatar) }}">{{$userr->name}}</a>
       </div>
 
+      {{-- Dashboard links start --}}
       <div class="dash-links">
          <a class="{{$route == 'dashboard.profile.index' ? 'active' : ''}}" href=" {{ route('dashboard.profile.index') }} "><span class="material-icons-outlined">manage_accounts</span>{{ __('Профиль') }}</a>
 
@@ -18,14 +22,33 @@
          <a class="@if($route == 'dashboard.users.index' || $route == 'dashboard.users.single') active @endif"
           href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>Сотрудники</a>
 
-         <a href="#"><span class="material-icons-outlined">star_outline</span>{{ __('Бонусы') }}</a>
+         {{-- Admin links tart --}}
+         @if($userr->role == 'admin')
+            <div class="dash-links-seperator"></div>
 
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
+
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
+
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">image</span>Галерея</a>
+
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
+
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
+
+         @endif {{-- Admin links end --}}
+         {{-- Logout button --}}
          <form action="{{route('logout')}}" method="POST">
             @csrf
             <button type="submit"><span class="material-icons-outlined">logout</span>{{ __('Выйти') }}</button>
          </form>
 
-      </div>
+      </div>{{-- Dashboard links end --}}
       
-   </div>
+   </div> {{-- Dashboard end --}}
 </div>

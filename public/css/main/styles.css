@@ -260,6 +260,13 @@ button:focus {
 .dashboard .dash-links button:hover {
    background: #ffffff2e;
 }
+.dash-links-seperator {
+   margin: 20px 0;
+   height: 1px;
+   border-top: 1px solid #ffffff29;
+   z-index: 1;
+   position: relative;
+}
 /* Dashboard end */
 
 /* Navbar start */

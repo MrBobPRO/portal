@@ -20,13 +20,13 @@
                      ->where('users.department_id', $department->id)
                      ->join('designations', 'users.designation_id', '=', 'designations.id')
                      ->join('positions', 'users.position_id', '=', 'positions.id')
-                     ->select('users.*', 'designations.*', 'positions.*', 'users.name as userName', 'designations.name as designationName', 'positions.name as positionName')
+                     ->select('users.*', 'designations.*', 'positions.*', 'users.name as userName', 'users.id as userId', 'designations.name as designationName', 'positions.name as positionName')
                      ->orderBy('designations.priority', 'asc')
                      ->get();
                   ?>
 
                   @foreach ($users as $u)
-                     <a href="{{route('dashboard.users.single', $u->id)}}" class="users-list-item">
+                     <a href="{{route('dashboard.users.single', $u->userId)}}" class="users-list-item">
                         <img src="{{ asset('img/users/' . $u->avatar) }}">
                         <div>
                            <h6>{{$u->userName . ' ' . $u->surname}}</h6>

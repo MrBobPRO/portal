@@ -28,7 +28,7 @@
             @csrf
             <input type="hidden" name="id" value="{{$project->id}}">
             <img src="{{ asset('img/users/' . \Auth::user()->avatar) }}">
-            <input type="text" name="body" placeholder="Напишите коментарий..." autocomplete="off"/>
+            <input type="text" name="body" placeholder="Напишите коментарий..." autocomplete="off" required/>
             <button type="submit"><span class="material-icons" title="Отправить">send</span></button>
          </form>
 
