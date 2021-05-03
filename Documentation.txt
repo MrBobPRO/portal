@@ -58,3 +58,8 @@ session(['my_locale' => 'ru']);
 
 4)Locale & fallback_locale (default languages) setted as 'ru' (config/app.php)
 
+-----------Admin Middleware-----------
+Only Admins can enter some routes
+1) Created & preaperad Admin Middleware
+2) Added into $routeMiddleware (App/Http/KerneL)
+3) Assigned to needed controllers

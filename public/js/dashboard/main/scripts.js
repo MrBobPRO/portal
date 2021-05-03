@@ -67,7 +67,7 @@ $(document).ready(function () {
 
 //Chaange search placeholder on select2 show and focus on it
 $('.select2_single').on('select2:open', function (e) {
-   $('.select2-search__field')[0].placeholder = 'Поиск...';
+   // $('.select2-search__field')[0].placeholder = 'Поиск...';
    $('.select2-search__field')[0].focus();
 });
 //Change clear buttons title on select2 single select

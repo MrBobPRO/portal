@@ -35,7 +35,15 @@ class AppServiceProvider extends ServiceProvider
             $view->with('route', \Route::currentRouteName());
         });
 
+        view()->composer('templates.no_sidebar_master', function ($view) {
+            $view->with('route', \Route::currentRouteName());
+        });
+
         view()->composer('dashboard.templates.master', function ($view) {
+            $view->with('route', \Route::currentRouteName());
+        });
+
+        view()->composer('dashboard.templates.no_sidebar_master', function ($view) {
             $view->with('route', \Route::currentRouteName());
         });
 

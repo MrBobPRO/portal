@@ -22,7 +22,7 @@ input[type=file] {
   border-radius: 0.25rem;
   background: white;
   position: relative;
-  padding: 0.375rem 0.40rem;
+  padding: 8px 10px;
   width: 100%;
   cursor: pointer;
   font-weight: 300;
@@ -52,6 +52,7 @@ input, textarea {
    font-size: 16px;
    font-weight: 300;
    line-height: 1.7;
+   border-radius: 5px;
 }
 input:read-only {
   background-color: #f1f1f1;
@@ -70,6 +71,14 @@ input:read-only {
   line-height: 1.7;
   background: white;
   min-height: 45px;
+}
+.formed-page {
+  padding: 40px 45px;
+  background: white;
+}
+.formed-page .main-btn {
+  margin-left: auto;
+  margin-top: 30px;
 }
 /* Password input styles start */
 .input-password-container {
@@ -116,7 +125,50 @@ input:read-only {
 .input-container-inline .value-replacer {
   width: 60%;
 }
+.input-container-inline .select2_single_container {
+  width: 60%;
+  max-width: 100%;
+}
+.input-container-inline .select2_single_container .select2-container--default {
+  box-shadow: none;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+}
+.input-container-inline .select2_single_container .select2-selection__clear {
+  display: none;
+}
 /* Inline input styles start */
+
+/* Primary list start */
+.primary-list-titles {
+  padding: 10px 20px;
+  background: white;
+  font-size: 15px;
+  margin: 15px 0;
+  display: flex;
+  font-weight: bold;
+}
+.primary-list-item {
+  padding: 10px 20px;
+  background: white;
+  font-size: 15px;
+  display: flex;
+  border-bottom: 1px solid #0000001f;
+  color: black;
+  text-decoration: none;
+  position: relative;
+}
+.primary-list-item:hover {
+  background: #f1f1f1;
+  color: black;
+}
+.primary-list-item div {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+/* Primary list end */
 
 /* Select2 single styles start*/
 .select2_single_container {
@@ -154,6 +206,7 @@ input:read-only {
   top: -44px;
 }
 .select2_single_dropdown .select2-search__field {
+  font-size: 15px;
   padding: 6px 10px;
   border: 1px solid #0000001f !important;
 }

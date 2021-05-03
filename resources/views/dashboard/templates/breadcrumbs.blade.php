@@ -15,10 +15,19 @@
          <a href="{{ route('dashboard.users.index') }}"><span>Сотрудники</span></a>
       @break
 
-      @case('dashboard.users.single')
-         <a href="{{ route('dashboard.users.index') }}"><span>Сотрудники</span></a>
-         <a href="{{ route('dashboard.users.single', $user->id) }}"><span>{{$user->name . ' ' . $user->surname}}</span></a>
+         @case('dashboard.users.single')
+            <a href="{{ route('dashboard.users.index') }}"><span>Сотрудники</span></a>
+            <a href="{{ route('dashboard.users.single', $user->id) }}"><span>{{$user->name . ' ' . $user->surname}}</span></a>
+         @break
+
+      @case('dashboard.news.index')
+         <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
       @break
+
+         @case('dashboard.news.single')
+            <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
+            <a href="{{ route('dashboard.news.single', $news->id) }}"><span>{{$news->title}}</span></a>
+         @break
 
       @endswitch
    </div>

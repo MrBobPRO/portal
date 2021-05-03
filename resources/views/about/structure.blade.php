@@ -1,10 +1,7 @@
-@extends('templates.master')
+@extends('templates.no_sidebar_master')
 @section('content')
 
 @include('templates.breadcrumbs')
-
-   {{-- include no sidebar and no menu styles --}}
-   <link href="{{ asset('css/no_sidebar/styles.css') }}" rel="stylesheet">
 
    <section class="structure-page">
       {{-- Department list start --}}

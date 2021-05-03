@@ -1,10 +1,7 @@
 
-@extends('dashboard.templates.master')
+@extends('dashboard.templates.no_sidebar_master')
 
 @section('content')
-
-   {{-- include no sidebar and no menu styles --}}
-   <link href="{{ asset('css/no_sidebar/styles.css') }}" rel="stylesheet">
 
    <section class="users-page">
 

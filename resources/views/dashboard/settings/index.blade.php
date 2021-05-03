@@ -1,7 +1,7 @@
 @extends('dashboard.templates.master')
 @section('content')
     
-<section class="settings-page">
+<section class="settings-page formed-page">
 
    {{-- Change color scheme start --}}
    <h2>Цветовая схема</h2>
@@ -22,7 +22,7 @@
    <form action="/update_color" method="POST">
       @csrf
       <input name="colorscheme" id="color-scheme" class="visually-hidden" type="text" value="{{$user->colorScheme}}">
-      <button class="main-btn scheme-btn" type="submit"><span class="material-icons">palette</span> Изменить цвет</button>
+      <button class="main-btn" type="submit"><span class="material-icons">palette</span> Изменить цвет</button>
    </form>
    {{-- Change color scheme end --}}
 
@@ -55,7 +55,7 @@
          <label for="darkbg" id="emoji" onclick="changeMode()">{{\Auth::user()->darkMode == '1' ? '😊' : '😡'}}</label>
       </div>
       <input class="visually-hidden" type="text" name="dashbg" id="dashbg" value="{{$user->dashBg}}">
-      <button class="main-btn scheme-btn"><span class="material-icons-outlined">image</span> Изменить фон</button>
+      <button class="main-btn"><span class="material-icons-outlined">image</span> Изменить фон</button>
    </form>
    {{-- Change background end --}}
 

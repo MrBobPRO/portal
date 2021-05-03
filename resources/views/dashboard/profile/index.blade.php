@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="profile-page">
+    <section class="profile-page formed-page">
         {{-- Edit profile avatar start --}}
         <div class="change-ava-container">
             <img src="{{ asset('img/users/' . $user->avatar) }}">

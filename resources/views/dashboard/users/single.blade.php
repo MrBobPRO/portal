@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section class="single-users-page">
+    <section class="single-users-page formed-page">
 
       <img src="{{ asset('img/users/' . $user->avatar) }}">
 

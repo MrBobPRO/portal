@@ -81,6 +81,11 @@ Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.u
 
 //Dashboard visibility change
 Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
+
+      //-----------Admins routes start-------------
+      Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
+      Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+      //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 
 require __DIR__.'/auth.php';
