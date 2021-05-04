@@ -18,7 +18,10 @@
          <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
       </li>
 
-      <li class="{{ $route == 'entertainment.index' ? 'active' : ''}}">
+      <li class="{{ $route == 'entertainment.index'
+                              || $route == 'entertainment.videos.index'
+                              || $route == 'entertainment.gallery.index'
+                              || $route == 'entertainment.gallery.show' ? 'active' : ''}}">
          <a href=" {{ route('entertainment.index') }} ">{{ __('Развлечения') }}</a>
       </li>
 

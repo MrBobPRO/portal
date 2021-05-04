@@ -9,6 +9,8 @@ use App\Models\Language;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\Designation;
+use App\Models\Image;
+use App\Models\Gallery;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,6 +20,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Gallery
+        $galleryNames = ['Навруз', 'Тимбилдинг', 'Новый год', 'Поход'];
+        for($i=0; $i < count($galleryNames); $i++) {
+            $gallery = new Gallery;
+            $gallery->name = $galleryNames[$i];
+            $gallery->image = 'gall' . ($i) . '.jpg';
+            $gallery->date = date_create_from_format('Y-m-d', '2015-04-05');
+            $gallery->save();  
+        }
+
+        //Images
+        for($i=0; $i < 12; $i++) {
+            $image = new Image;
+            $image->name = 'img' . ($i+1) . '.jpg';
+            $image->gallery_id = $i;
+            $image->title = 'Заглавие';
+            $image->author = 'Author';
+            $image->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem.';
+            $image->save();
+        }
 
         //Departments
         $departaments = ['Руководство', 'Отдел управление персоналом', 'Отдел юридических аспектов', 'Отдел финансов', 'Отдел разработки программного обеспечения', 'Отдел ИТ', 'Отдел маркетинга'];

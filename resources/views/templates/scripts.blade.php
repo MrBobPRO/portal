@@ -12,11 +12,20 @@
         <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break
 
-    @case('entertainment.index') 
-        {{-- Plyr video player --}}
-        <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
-
+    @case('entertainment.index')  
         <script src="{{ asset('js/entertainment/scripts.js') }}"></script>
+    @break
+
+    @case('entertainment.videos.index')  
+        <script src="{{ asset('js/entertainment/videos/scripts.js') }}"></script>
+    @break
+
+    @case('entertainment.gallery.index') @case('entertainment.gallery.show')
+        {{-- Gallery scripts --}}
+        <script src="{{ asset('js/entertainment/gallery/jquery.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/entertainment/gallery/lc_lightbox.lite.js') }}" type="text/javascript"></script>
+    
+        <script src="{{ asset('js/entertainment/gallery/scripts.js') }}"></script>
     @break
 
     @case('projects.index') @case('projects.single') 

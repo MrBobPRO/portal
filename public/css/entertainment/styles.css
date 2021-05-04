@@ -1,32 +1,33 @@
-
-:root {
-   --plyr-color-main: var(--color-scheme);
+/* Entertainment page start */
+/* Categories start */
+img {
+   max-width: 100%;
 }
-.videos-list {
+.wrapper {
    display: flex;
-   flex-wrap: wrap;
    justify-content: space-between;
+   margin-bottom: 25px;
 }
-.videos-list .single-video {
+.wrapper a {
    width: calc(50% - 20px);
-   margin-bottom: 40px;
+   overflow: hidden;
+   text-decoration: none;
 }
-.videos-list video {
-   height: 250px;
+.wrapper a img {
+   transition: 0.3s;
 }
-.single-video .video-description {
+.wrapper a:hover img {
+   transform: scale(1.2);
+}
+.wrapper a p {
+   width: 100%;
    background: white;
+   display: flex;
    padding: 15px 20px;
-}
- .videos-list p {
+   text-decoration: none;
    color: var(--color-scheme);
-   margin-bottom: 5px;
-   font-weight: 500;
-}
-.videos-list span {
-   font-size: 14px;
-   font-weight: 500;
-}
-.pagination {
-   margin-top: 0;
-}
+   font-weight: bold;
+   z-index: 2;
+   position: relative;
+   margin: 0;
+}/* Categories end */

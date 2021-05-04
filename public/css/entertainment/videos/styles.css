@@ -1,0 +1,32 @@
+
+:root {
+   --plyr-color-main: var(--color-scheme);
+}
+.videos-list {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+.videos-list .single-video {
+   width: calc(50% - 20px);
+   margin-bottom: 40px;
+}
+.videos-list video {
+   height: 250px;
+}
+.single-video .video-description {
+   background: white;
+   padding: 15px 20px;
+}
+ .videos-list p {
+   color: var(--color-scheme);
+   margin-bottom: 5px;
+   font-weight: 500;
+}
+.videos-list span {
+   font-size: 14px;
+   font-weight: 500;
+}
+.pagination {
+   margin-top: 0;
+}

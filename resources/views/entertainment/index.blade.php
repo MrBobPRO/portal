@@ -4,38 +4,19 @@
 @include('templates.breadcrumbs')
 
    <section class="entertainment-page">
-      <div class="videos-list">
-         <?php $count = 1; ?>
-         @foreach ($videos as $video)
-            <div class="single-video">
-               {{-- Custom id used in js --}}
-               <video class="plyr" playsinline controls id="player{{$count}}" 
-                  data-poster="/videos/entertainment/posters/{{$video->poster !='' ? $video->poster : 'default.jpg'}}">
-                  <source src="/videos/entertainment/{{$video->filename}}"/>
-               
-                  @if($video->subtitles != '')
-                     <track kind="captions" label="English" src="/videos/entertainment/subtitles/{{$video->subtitles}}" srclang="en" default />
-                  @endif
-               </video>
-               
-               <div class="video-description">
-                  <p>{{$video->title}}</p>
-                  <span>
-                     <?php 
-                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
-                        $formatted = $date->isoFormat('DD.MM.YYYY');
-                     ?>
-                     {{$formatted}}
-                  </span>
-               </div>
-               
-            </div>
-            <?php $count++ ?>
-      @endforeach
+      {{-- Categories start --}}
+      <div class="wrapper">
+         <a href="{{ route('entertainment.videos.index') }}">
+            <img src="{{ asset('img/entertainment/videos.jpg') }}">
+            <p>{{ __('Видео') }}</p>
+         </a> 
+
+         <a href="{{ route('entertainment.gallery.index') }}">
+            <img src="{{ asset('img/entertainment/gallery.jpg') }}">
+            <p>{{ __('Галерея') }}</p>
+         </a> 
       </div>
-
-      {{$videos->links()}}
-
+      {{-- Categories end --}}
    </section>
    
 @endsection

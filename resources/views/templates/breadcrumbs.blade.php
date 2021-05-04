@@ -50,6 +50,22 @@
          <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
       @break
 
+      @case('entertainment.videos.index')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+      @break
+
+      @case('entertainment.gallery.index')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
+      @break
+
+      @case('entertainment.gallery.show')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
+         <a href="{{ route('entertainment.gallery.show', $gallery->id) }}"><span>{{ $gallery->name }}</span></a>
+      @break
+
       @case('projects.index')
          <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
       @break

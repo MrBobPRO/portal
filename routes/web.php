@@ -46,6 +46,10 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
 
 //------------Entertainment-page's route--------------
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment.index');
+Route::get('/entertainment/videos', 'EntertainmentController@videos')->name('entertainment.videos.index');
+Route::get('/entertainment/gallery', 'EntertainmentController@gallery')->name('entertainment.gallery.index');
+Route::get('/entertainment/gallery/{gallery}', 'EntertainmentController@galleryShow')->name('entertainment.gallery.show');
+
 //------------Entertainment-page's route--------------
 
 
