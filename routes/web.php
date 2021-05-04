@@ -6,6 +6,14 @@ Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::post('/send_credentials', 'HomeController@send_credentials');
 
+//-----------------Chat routes----------------------
+Route::post('/chat/push', 'ChatController@push');
+Route::post('/chat/update', 'ChatController@update');
+//Chat visibility change
+Route::post('/store_chat_visibility', 'ChatController@store_visibility');
+//-----------------Chat routes----------------------
+
+
 //--------------forgot password routes-------------------
 Route::get('/forgot_password', 'AuthController@forgotPassword')->name('login.forgot_password');
 Route::post('/forgot_password', 'AuthController@checkEmail');
@@ -87,6 +95,7 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
+
 
 require __DIR__.'/auth.php';
  

@@ -36,6 +36,7 @@
 </head>
 <body>
 
+   @include('templates.chat')
    @include('templates.toolbar')
    
    <main>

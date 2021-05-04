@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Chat;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
-
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
 
         \Schema::defaultStringLength(191);
 
+        // share global variables with all routes
+        View::share('chat', Chat::latest()->take(10)->get()->reverse());
+        View::share('lastMsgId', Chat::latest()->first()->id);
+
         view()->composer('templates.master', function ($view) {
             $view->with('route', \Route::currentRouteName());
         });
@@ -51,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('route', \Route::currentRouteName());
         });
         
+
         view()->composer('templates.sidebar', function ($view) {
             $latest_news = News::latest()->take(2)->get();
             $view->with('latest_news', $latest_news);
