@@ -9,7 +9,7 @@
          @foreach ($videos as $video)
             <div class="single-video">
                {{-- Custom id used in js --}}
-               <video class="plyr" playsinline controls id="player{{$count}}" 
+               <video class="plyr" playsinline controls id="player{{$count}}" onplay="pauseInactivePlayers({{$count}})" 
                   data-poster="/videos/entertainment/posters/{{$video->poster !='' ? $video->poster : 'default.jpg'}}">
                   <source src="/videos/entertainment/{{$video->filename}}"/>
                
