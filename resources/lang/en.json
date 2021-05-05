@@ -3,7 +3,7 @@
    "сотрудникам": "employees",
    "компании ТГЭМ": "of the TGEM company",
    "Вход на сайт" : "Sign in",
-   "Имя пользователя": "Username",
+   "Никнейм": "Nickname",
    "Пароль": "Password",
    "Войти": "Login",
    "Забыли пароль ?": "Forgot your password ?",
@@ -13,6 +13,7 @@
    "Развлечения": "Entertainment",
    "Проекты и инициативы": "Projects and Initiatives",
    "Неверный логин или пароль!": "Incorrect credentials!",
+   "ОАО «Точикгидроэлектромонтаж». Все права защищены." : "ОАО «Точикгидроэлектромонтаж». All rights reserved.",
    
    "Центр знаний": "Knowledge center",
       "Английский": "English",
