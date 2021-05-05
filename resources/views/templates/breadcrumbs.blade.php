@@ -77,7 +77,7 @@
             @else
                   <a href="{{ route('projects.ongoing') }}"><span>{{ __('Действующие проекты') }}</span></a>
             @endif
-            <a href="{{ route('news.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+            <a href="{{ route('projects.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
          @break
 
          @case('projects.completed')
