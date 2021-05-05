@@ -21,8 +21,6 @@
     @break
 
     @case('entertainment.index')  
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
-
         <link href="{{ asset('css/entertainment/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/entertainment/media.css') }}" rel="stylesheet">
     @break
@@ -35,7 +33,7 @@
         <link href="{{ asset('css/entertainment/videos/media.css') }}" rel="stylesheet">
     @break
 
-    @case('entertainment.gallery.index') @case('entertainment.gallery.show')
+    @case('entertainment.gallery.index') @case('entertainment.gallery.single')
         {{-- Gallery --}}
         <link rel="stylesheet" href="{{ asset('css/entertainment/gallery/lc_lightbox.css') }}">
         <!-- Gallery themes -->
@@ -45,7 +43,7 @@
         <link href="{{ asset('css/entertainment/gallery/media.css') }}" rel="stylesheet">
     @break
 
-    @case('projects.index') @case('projects.single') @case('projects.completed') @case('projects.uncompleted')
+    @case('projects.index') @case('projects.single') @case('projects.completed') @case('projects.ongoing')
         <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break

@@ -1,4 +1,12 @@
 
+//Ajax request setup start
+$.ajaxSetup({
+   headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+   }
+});
+
+
 var dashboard = document.getElementById('dashboard');
 //show or hide dashboard on click
 function toogleDashboard() {
@@ -14,12 +22,6 @@ function toogleDashboard() {
 
 }
 
-//Ajax request setup start
-$.ajaxSetup({
-   headers: {
-         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
-});
 
 function ajaxStoreDashVisibility(vision) {
    $.ajax({

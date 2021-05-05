@@ -1,9 +1,12 @@
-.projects-list {
+section {
+   margin-top: 15px;
+}
+.galleries-list {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
 }
-.projects-list a {
+.galleries-list a {
    width: calc(50% - 20px);
    margin-bottom: 40px;
    text-decoration: none;
@@ -11,44 +14,45 @@
    overflow: hidden;
    padding: 20px;
 }
-.projects-list a img {
+.galleries-list a img {
    width: 100%;
    height: 220px;
    object-fit: cover;
    border-radius: 4px;
    transition: 0.3s;
 }
-.projects-list a div {
+.galleries-list a div {
    max-width: 100%;
    background: white;
    z-index: 2;
    position: relative;
  }
- .projects-list a div p {
+ .galleries-list a div p {
    color: var(--color-scheme);
    font-weight: bold;
    margin: 15px 0 5px;
  }
- .projects-list a div span {
+ .galleries-list a div span {
    color: black;
    font-size: 14px;
    text-transform: capitalize;
 }
 
+/* Single gallery start */
+.gallery {
+   display: flex;
+   flex-wrap: wrap;
+}
 .elem, .elem * {
 	box-sizing: border-box;
 	margin: 0 !important;	
 }
 .elem {
-	display: inline-block;
-	font-size: 0;
-	width: 33%;
-	border: 20px solid transparent;
-	border-bottom: none;
-	background: #fff;
-	padding: 10px;
-	height: auto;
-	background-clip: padding-box;
+   width: calc(33.3% - 30px);
+   border: none;
+   background: #fff;
+   padding: 15px;
+   margin: 15px !important;
 }
 .elem > span {
 	display: block;
@@ -58,3 +62,4 @@
 	background-size: cover;	
 	background-position: center center;
 }
+/* Single gallery end */

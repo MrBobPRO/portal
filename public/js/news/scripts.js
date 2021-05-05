@@ -1,10 +1,3 @@
-//Ajax request setup
-$.ajaxSetup({
-   headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
-});
-
 //global variables
 var id = document.getElementById('news_id').value,
    remove_like = document.getElementById('remove_like'),
@@ -15,7 +8,7 @@ var id = document.getElementById('news_id').value,
    dislikes_count = document.getElementById('dislikes_count'),
    liked_modal_body = document.getElementById('liked_modal_body'),
    disliked_modal_body = document.getElementById('disliked_modal_body')
-   ;
+;
 
 
 function ajaxLike(action) {

@@ -26,21 +26,21 @@ class DatabaseSeeder extends Seeder
         for($i=0; $i < count($galleryNames); $i++) {
             $gallery = new Gallery;
             $gallery->name = $galleryNames[$i];
-            $gallery->image = 'gall' . ($i) . '.jpg';
-            $gallery->date = date_create_from_format('Y-m-d', '2015-04-05');
+            $gallery->image = ($i+1) . '.jpg';
+            $gallery->date = date_create_from_format('Y-m-d', '2018-04-0' . ($i+1));
             $gallery->save();  
         }
 
         //Images
-        for($i=0; $i < 12; $i++) {
-            $image = new Image;
-            $image->name = 'img' . ($i+1) . '.jpg';
-            $image->gallery_id = $i;
-            $image->title = 'Заглавие';
-            $image->author = 'Author';
-            $image->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem.';
-            $image->save();
+        for($x=1; $x<5; $x++) {
+            for($i=0; $i < 9; $i++) {
+                $image = new Image;
+                $image->filename = ($i+1) . '.jpg';
+                $image->gallery_id = $x;
+                $image->save();
+            }
         }
+
 
         //Departments
         $departaments = ['Руководство', 'Отдел управление персоналом', 'Отдел юридических аспектов', 'Отдел финансов', 'Отдел разработки программного обеспечения', 'Отдел ИТ', 'Отдел маркетинга'];

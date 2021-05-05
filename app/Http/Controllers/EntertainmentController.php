@@ -25,15 +25,15 @@ class EntertainmentController extends Controller
 
     public function gallery() 
     {
-        $galleries = Gallery::paginate(6);
+        $galleries = Gallery::latest()->paginate(12);
 
         return view('entertainment.gallery.index', compact('galleries'));
     }
 
-    public function galleryShow(Gallery $gallery) 
+    public function gallery_single($id) 
     {
-        $images = Image::paginate(9);
+        $gallery = Gallery::find($id);
 
-        return view('entertainment.gallery.show', compact('gallery', 'images'));
+        return view('entertainment.gallery.single', compact('gallery'));
     }
 }

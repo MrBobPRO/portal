@@ -3,7 +3,7 @@
 
 <button onclick="showChat()" id="show_chat_btn"><span class="material-icons-outlined">chat</span></button>
 <div class="chat-container {{session('chat') == 'hidden' ? 'hidden-chat' : ''}}" id="chat">
-   <div class="chat-header">Групповой чат 
+   <div class="chat-header">Общий чат 
       <button onclick="hideChat()"><span class="material-icons-outlined">close</span></button>
    </div>
    <div class="chat-body" id="chat_body">

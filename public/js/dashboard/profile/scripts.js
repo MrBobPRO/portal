@@ -13,13 +13,6 @@ function showHidePassword(inpt, btn) {
 }
 
 //Edit password start
-//Ajax request setup start
-$.ajaxSetup({
-   headers: {
-         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
-});
-
 function ajax_edit_password() {
    event.preventDefault();
    //Variables

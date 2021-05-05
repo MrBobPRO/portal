@@ -6,6 +6,11 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <meta name="csrf-token" content="{{ csrf_token() }}" />
    <title>TGEM</title>
+
+   <meta name="robots" content="none"/>
+   <meta name="googlebot" content="noindex, nofollow"/>
+   <meta name="yandex" content="none"/>
+
    {{-- Roboto Font --}}
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">

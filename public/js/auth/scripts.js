@@ -1,4 +1,11 @@
 
+//Ajax request setup
+$.ajaxSetup({
+   headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+   }
+});
+
 function showHidePassword(input, btn) {
    var icon = document.getElementById(btn);
    var password = document.getElementById(input);
@@ -30,12 +37,6 @@ function resendEmail() {
    sendBtn.removeAttribute('disabled')
 }
 
-//Ajax request setup
-$.ajaxSetup({
-   headers: {
-         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
-});
 
 function ajax_forgot_password() {
    event.preventDefault();

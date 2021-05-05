@@ -5,10 +5,10 @@
 
    <section class="entertainment-gallery-page">
 
-      <div class="projects-list">
+      <div class="galleries-list">
          @foreach ($galleries as $gallery)
-            <a href="{{ route('entertainment.gallery.show', $gallery->id) }}">
-               <img src="{{ asset('img/entertainment/gallery/' . $gallery->image) }}">
+            <a href="{{ route('entertainment.gallery.single', $gallery->id) }}">
+               <img src="{{ asset('img/entertainment/galleries/' . $gallery->image) }}">
 
                <div>
                   <p>{{$gallery->name}}</p>

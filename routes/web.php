@@ -56,7 +56,7 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment.index');
 Route::get('/entertainment/videos', 'EntertainmentController@videos')->name('entertainment.videos.index');
 Route::get('/entertainment/gallery', 'EntertainmentController@gallery')->name('entertainment.gallery.index');
-Route::get('/entertainment/gallery/{gallery}', 'EntertainmentController@galleryShow')->name('entertainment.gallery.show');
+Route::get('/entertainment/gallery/{id}', 'EntertainmentController@gallery_single')->name('entertainment.gallery.single');
 
 //------------Entertainment-page's route--------------
 
@@ -65,7 +65,7 @@ Route::get('/entertainment/gallery/{gallery}', 'EntertainmentController@galleryS
 Route::get('/projects', 'ProjectsController@index')->name('projects.index');
 Route::get('/projects/{id}', 'ProjectsController@single')->name('projects.single');
 Route::get('/projects_completed', 'ProjectsController@completed')->name('projects.completed');
-Route::get('/projects_uncompleted', 'ProjectsController@uncompleted')->name('projects.uncompleted');
+Route::get('/projects_ongoing', 'ProjectsController@ongoing')->name('projects.ongoing');
 
 Route::post('/projects/comment', 'CommentController@projects');
 //------------Poject page's route--------------

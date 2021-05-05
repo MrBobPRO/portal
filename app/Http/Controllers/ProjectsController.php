@@ -20,7 +20,7 @@ class ProjectsController extends Controller
         return view('projects.categories', compact('projects'));
     }
 
-    public function uncompleted()
+    public function ongoing()
     {  
         $projects = Project::where('completed', false)->paginate(10);
 
