@@ -4,7 +4,7 @@
 <button onclick="showChat()" id="show_chat_btn"><span class="material-icons-outlined">chat</span></button>
 <div class="chat-container {{session('chat') == 'hidden' ? 'hidden-chat' : ''}}" id="chat">
    <div class="chat-header">Групповой чат 
-      <button onclick="hideChat()"><span class="material-icons-outlined">keyboard_arrow_down</span></button>
+      <button onclick="hideChat()"><span class="material-icons-outlined">close</span></button>
    </div>
    <div class="chat-body" id="chat_body">
       @foreach ($chat as $c)
@@ -48,6 +48,6 @@
 
    <form method="POST" id="chat_push" onsubmit="ajax_chat_push()">
       <input type="text" id="chat_input" name="text" autocomplete="off" placeholder="Начните общатся...">
-      <button type="button"><span class="material-icons">send</span></button>
+      <button type="submit"><span class="material-icons">send</span></button>
    </form>
 </div>

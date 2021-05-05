@@ -11,6 +11,7 @@
          <img src="{{ asset('img/projects/' . $project->image) }}">
          <div class="projects-content-text">{!!$project->text!!}</div>
          <div class="project-date">
+            <span class="material-icons-outlined">event</span>
             <?php 
                $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
                $formatted = $date->isoFormat('DD MMMM YYYY');
