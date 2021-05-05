@@ -45,7 +45,7 @@
         <link href="{{ asset('css/entertainment/gallery/media.css') }}" rel="stylesheet">
     @break
 
-    @case('projects.index') @case('projects.single')
+    @case('projects.index') @case('projects.single') @case('projects.completed') @case('projects.uncompleted')
         <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break

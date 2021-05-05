@@ -72,7 +72,22 @@
 
          @case('projects.single')
             <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+               @if ($project->completed)
+            <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a> 
+            @else
+               <a href="{{ route('projects.uncompleted') }}"><span>{{ __('Действующие проекты') }}</span></a>
+            @endif
             <a href="{{ route('news.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         @break
+
+         @case('projects.completed')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a>
+         @break
+
+         @case('projects.uncompleted')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            <a href="{{ route('projects.uncompleted') }}"><span>{{ __('Действующие проекты') }}</span></a>
          @break
 
       @case('knowledge.index')

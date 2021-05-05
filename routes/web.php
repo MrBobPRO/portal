@@ -56,6 +56,8 @@ Route::get('/entertainment/gallery/{gallery}', 'EntertainmentController@galleryS
 //------------Project page's route--------------
 Route::get('/projects', 'ProjectsController@index')->name('projects.index');
 Route::get('/projects/{id}', 'ProjectsController@single')->name('projects.single');
+Route::get('/projects_completed', 'ProjectsController@completed')->name('projects.completed');
+Route::get('/projects_uncompleted', 'ProjectsController@uncompleted')->name('projects.uncompleted');
 
 Route::post('/projects/comment', 'CommentController@projects');
 //------------Poject page's route--------------

@@ -13,6 +13,20 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function completed()
+    {  
+        $projects = Project::where('completed', true)->paginate(10);
+
+        return view('projects.categories', compact('projects'));
+    }
+
+    public function uncompleted()
+    {  
+        $projects = Project::where('completed', false)->paginate(10);
+
+        return view('projects.categories', compact('projects'));
+    }
+
     public function single($id)
     {  
         $project = Project::find($id);

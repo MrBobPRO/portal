@@ -6,25 +6,19 @@
    <section class="projects-page">
 
       <div class="projects-list">
-         @foreach ($projects as $project)
-            <a href="{{ route('projects.single', $project->id) }}">
-               <img src="{{ asset('img/projects/' . $project->image) }}">
-
+            <a href="{{ route('projects.completed') }}">
+               <img src="{{ asset('img/projects/completed.jpg') }}">
                <div>
-                  <p>{{$project->title}}</p>
-                  <span>
-                     <?php 
-                        $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                        $formatted = $date->isoFormat('DD MMMM YYYY');
-                     ?>
-                     {{$formatted}}
-                  </span>
+                  <p>Выполненные проекты</p>
                </div>
             </a>
-         @endforeach
+            <a href="{{ route('projects.uncompleted') }}">
+               <img src="{{ asset('img/projects/uncompleted.jpg') }}">
+               <div>
+                  <p>Действующие проекты</p>
+               </div>
+            </a>
       </div>
-
-      {{ $projects->links() }}
 
    </section>
    

@@ -96,6 +96,11 @@ class SecondSeeder extends Seeder
             $projects->image = ($i+1) . '.jpg';
             $projects->title = 'Заголовок проекта';
             $projects->text = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio tenetur eaque qui natus, illo dicta odit similique rem labore provident dignissimos dolorum, excepturi quidem, quis iure ipsam reiciendis a dolore enim? Suscipit sit dolor optio qui fugiat unde, rerum perspiciatis quia? Veritatis totam molestias exercitationem nemo non commodi tempore assumenda sit tenetur hic dicta sequi repellat mollitia reiciendis quas, doloremque ducimus voluptate repudiandae velit facilis, qui porro ad. Cum voluptatibus veniam quia accusamus delectus voluptatem, magnam, voluptas beatae earum aperiam, ratione dolore pariatur quam corporis reiciendis quibusdam repudiandae sit harum provident architecto! Porro quibusdam earum illo, a rerum quod at.' ;
+            if ($i % 2 === 0) {
+                $projects->completed = true;
+            } else {
+                $projects->completed = false;
+            }
             $projects->save();
         }
 

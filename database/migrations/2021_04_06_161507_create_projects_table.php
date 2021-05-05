@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('image');
             $table->string('title');
             $table->text('text');
+            $table->boolean('completed');
             $table->timestamps();
         });
     }
