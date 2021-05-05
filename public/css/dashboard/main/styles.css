@@ -27,7 +27,7 @@ input[type=file] {
   cursor: pointer;
   font-weight: 300;
 }
-input[type=file]::-webkit-file-upload-button {
+input[type=file]::-webkit-file-upload-button, input[type=file]::file-selector-button {
   display: none;
 }
 input[type=file]:after {
