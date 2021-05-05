@@ -30,16 +30,16 @@
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
 
             <a class="@if($route == 'dashboard.videos.index' || $route == 'dashboard.videos.single') active @endif"
-            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
+            href="#"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
 
             <a class="@if($route == 'dashboard.gallery.index' || $route == 'dashboard.gallery.single') active @endif"
-            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">image</span>Галерея</a>
+            href="#"><span class="material-icons-outlined">image</span>Галерея</a>
 
             <a class="@if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single') active @endif"
-            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
+            href="#"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
 
             <a class="@if($route == 'dashboard.knowledge.index' || $route == 'dashboard.knowledge.single') active @endif"
-            href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
+            href="#"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
 
          @endif {{-- Admin links end --}}
          {{-- Logout button --}}
