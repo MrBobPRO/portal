@@ -21,14 +21,14 @@
       <li class="{{ $route == 'entertainment.index'
                               || $route == 'entertainment.videos.index'
                               || $route == 'entertainment.gallery.index'
-                              || $route == 'entertainment.gallery.show' ? 'active' : ''}}">
+                              || $route == 'entertainment.gallery.single' ? 'active' : ''}}">
          <a href=" {{ route('entertainment.index') }} ">{{ __('Развлечения') }}</a>
       </li>
 
       <li class="{{ $route == 'projects.index' 
                               || $route == 'projects.single'
                               || $route == 'projects.completed'
-                              || $route == 'projects.uncompleted' ? 'active' : ''}}">
+                              || $route == 'projects.ongoing' ? 'active' : ''}}">
          <a href=" {{ route('projects.index') }} ">{{ __('Проекты и инициативы') }}</a>
       </li>
       
