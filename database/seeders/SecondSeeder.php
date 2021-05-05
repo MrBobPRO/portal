@@ -67,19 +67,19 @@ class SecondSeeder extends Seeder
         $c = new Comment;
         $c->user_id = 2;
         $c->news_id = 1;
-        $c->body = 'Икром ты это в серьёз??';
+        $c->body = 'Как же хорошо сказано...';
         $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:05:22');
         $c->save();
 
         $c = new Comment;
         $c->user_id = 1;
         $c->news_id = 1;
-        $c->body = 'Зуб даю!';
+        $c->body = 'Меня тоже тронула эта цитата';
         $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:12:27');
         $c->save();
 
         //Intertainment
-        $enter = ['Властелин капец','Храбрые перцем','Одна дома','Фарсаг 9','Митохондриа!','Бегущий в спортзале','Доктор МОМ','Лига уродов'];
+        $enter = ['Властелин колец','Храброе сердцем','Один дома','Форсаж 9','Митохондриа','Бегущий в лабиринте','Доктор Дулиттл','Лига справедливости'];
         for ($i=0; $i < count($enter); $i++) {
             $ent = new Entertainment;
             $ent->filename = '1.mp4';
