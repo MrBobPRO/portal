@@ -56,6 +56,7 @@ img {
    border-radius: 4px;
    text-decoration: none;
    color: #212529;
+   width: calc(55% + 100px);
 }
 .single-news h3 {
    font-size: 20px;
@@ -80,7 +81,7 @@ img {
    color: var(--color-scheme);
    font-size: 14px;
 }
-/* Latest news end */
+/* Latest news end*/
 
 /* single news page start */
 .news-content {

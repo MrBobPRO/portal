@@ -18,12 +18,17 @@
          <a href=" {{ route('news.index') }} ">{{ __('Новости') }}</a>
       </li>
 
-      <li class="{{ $route == 'entertainment.index' ? 'active' : ''}}">
+      <li class="{{ $route == 'entertainment.index'
+                              || $route == 'entertainment.videos.index'
+                              || $route == 'entertainment.gallery.index'
+                              || $route == 'entertainment.gallery.show' ? 'active' : ''}}">
          <a href=" {{ route('entertainment.index') }} ">{{ __('Развлечения') }}</a>
       </li>
 
       <li class="{{ $route == 'projects.index' 
-                              || $route == 'projects.single' ? 'active' : ''}}">
+                              || $route == 'projects.single'
+                              || $route == 'projects.completed'
+                              || $route == 'projects.uncompleted' ? 'active' : ''}}">
          <a href=" {{ route('projects.index') }} ">{{ __('Проекты и инициативы') }}</a>
       </li>
       

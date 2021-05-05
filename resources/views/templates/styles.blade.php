@@ -20,15 +20,32 @@
         <link href="{{ asset('css/news/media.css') }}" rel="stylesheet">
     @break
 
-    @case('entertainment.index')
-        {{-- Plyr video player --}}
+    @case('entertainment.index')  
         <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
-        
+
         <link href="{{ asset('css/entertainment/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/entertainment/media.css') }}" rel="stylesheet">
     @break
 
-    @case('projects.index') @case('projects.single')
+    @case('entertainment.videos.index') 
+        {{-- Plyr video player --}}
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
+
+        <link href="{{ asset('css/entertainment/videos/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/entertainment/videos/media.css') }}" rel="stylesheet">
+    @break
+
+    @case('entertainment.gallery.index') @case('entertainment.gallery.show')
+        {{-- Gallery --}}
+        <link rel="stylesheet" href="{{ asset('css/entertainment/gallery/lc_lightbox.css') }}">
+        <!-- Gallery themes -->
+        <link rel="stylesheet" href="{{ asset('css/entertainment/gallery/minimal.css') }}">
+
+        <link href="{{ asset('css/entertainment/gallery/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/entertainment/gallery/media.css') }}" rel="stylesheet">
+    @break
+
+    @case('projects.index') @case('projects.single') @case('projects.completed') @case('projects.uncompleted')
         <link href="{{ asset('css/projects/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break

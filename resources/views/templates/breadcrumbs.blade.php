@@ -50,13 +50,44 @@
          <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
       @break
 
+      @case('entertainment.videos.index')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+      @break
+
+      @case('entertainment.gallery.index')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
+      @break
+
+      @case('entertainment.gallery.show')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
+         <a href="{{ route('entertainment.gallery.show', $gallery->id) }}"><span>{{ $gallery->name }}</span></a>
+      @break
+
       @case('projects.index')
          <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
       @break
 
          @case('projects.single')
             <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+               @if ($project->completed)
+            <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a> 
+            @else
+               <a href="{{ route('projects.uncompleted') }}"><span>{{ __('Действующие проекты') }}</span></a>
+            @endif
             <a href="{{ route('news.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         @break
+
+         @case('projects.completed')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a>
+         @break
+
+         @case('projects.uncompleted')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            <a href="{{ route('projects.uncompleted') }}"><span>{{ __('Действующие проекты') }}</span></a>
          @break
 
       @case('knowledge.index')
