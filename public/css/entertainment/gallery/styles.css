@@ -42,6 +42,7 @@ section {
 .gallery {
    display: flex;
    flex-wrap: wrap;
+   margin: 0 -10px;
 }
 .elem, .elem * {
 	box-sizing: border-box;
