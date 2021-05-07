@@ -5,7 +5,7 @@
    <section class="news-page">
       
       {{-- news seach start --}}
-      <div class="select2_single_container users_search_container">
+      <div class="select2_single_container">
          <select class="select2_single select2_single_linked" data-placeholder="Поиск новостей..." data-dropdown-css-class="select2_single_dropdown">
             <option></option>
             @foreach($allNews as $new)

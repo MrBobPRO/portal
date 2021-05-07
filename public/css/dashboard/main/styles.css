@@ -40,7 +40,7 @@ input[type=file]:after {
   display: flex;
   align-items: center;
   color: black;
-  background: rgb(233, 236, 239);
+  background: #f7f7f7;
   padding: 0px 20px;
 }
 label {
@@ -139,6 +139,16 @@ input:read-only {
 }
 /* Inline input styles start */
 
+.inlined-form-inside-label {
+  display: inline;
+}
+.inlined-form-inside-label button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  font-weight: bold;
+  color: var(--color-scheme);
+}
 /* Primary list start */
 .primary-list-titles {
   padding: 10px 20px;
@@ -167,6 +177,10 @@ input:read-only {
   overflow: hidden;
   white-space: nowrap;
   padding-right: 10px;
+}
+.primary-list-item .list-new-item {
+  color: var(--color-scheme);
+  font-weight: bold;
 }
 /* Primary list end */
 

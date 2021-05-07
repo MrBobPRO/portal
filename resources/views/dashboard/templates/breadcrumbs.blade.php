@@ -29,5 +29,23 @@
             <a href="{{ route('dashboard.news.single', $news->id) }}"><span>{{$news->title}}</span></a>
          @break
 
+      @case('dashboard.ideas.index')
+         <a href="{{ route('dashboard.ideas.index') }}"><span>{{ __('Идеи') }}</span></a>
+      @break
+
+         @case('dashboard.ideas.single')
+            <a href="{{ route('dashboard.ideas.index') }}"><span>{{ __('Идеи') }}</span></a>
+            <a href="{{ route('dashboard.ideas.index') }}"><span>{{$crumbsTitle}}</span></a>
+         @break
+
+         @case('dashboard.complaints.index')
+            <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
+         @break
+
+            @case('dashboard.complaints.single')
+               <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
+               <a href="{{ route('dashboard.complaints.index') }}"><span>{{$crumbsTitle}}</span></a>
+            @break
+
       @endswitch
    </div>

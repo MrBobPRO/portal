@@ -29,6 +29,17 @@ Route::post('/setLangEn', 'LanguageController@setLangEn');
 //--------------Language-change's routes--------------
 
 
+//--------------forgot password routes-------------------
+Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
+Route::post('/ideas/store', 'IdeaController@store');
+Route::post('/ideas/download', 'IdeaController@download');
+
+Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
+Route::post('/complaints/store', 'ComplaintController@store');
+Route::post('/complaints/download', 'ComplaintController@download');
+//--------------forgot password routes-------------------
+
+
 //------------About-page's route--------------
 Route::get('/about', 'AboutController@index')->name('about.index');
    //About-page categories' routes
@@ -99,6 +110,12 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       //-----------Admins routes start-------------
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+
+      Route::get('/dashboard/ideas', 'AdminController@ideas')->name('dashboard.ideas.index');
+      Route::get('/dashboard/ideas/{id}', 'AdminController@ideas_single')->name('dashboard.ideas.single');
+
+      Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
+      Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 

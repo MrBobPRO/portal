@@ -60,4 +60,10 @@
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break
 
+    @case('ideas.create') @case('complaints.create')
+        {{-- Styles linked because of form styles --}}
+        <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/ideas & complaints/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

@@ -136,7 +136,7 @@ button:focus {
 .dashboard-btn {
    position: fixed;
    top: 0;
-   color: grey;
+   color: #ababab;
    font-size: 20px;
    width: 40px;
    z-index: 10;
@@ -144,19 +144,19 @@ button:focus {
    align-items: center;
    height: 58px;
 }
-.dashboard-btn .m-lang {
+.dashboard-btn .dash-toogler {
    cursor: pointer;
    padding: 12px;
    margin-left: 8px;
    border-radius: 50%;
    transition: 0.3s;
 }
-.dashboard-btn .m-lang:hover {
+.dashboard-btn .dash-toogler:hover {
    background: #ecebec;
 }
 .dashboard {
    position: fixed;
-   top: 58px;
+   top: 59px;
    bottom: 0;
    left: 0;
    width: 220px;
@@ -250,6 +250,9 @@ button:focus {
    font-size: 22px;
    opacity: 0.9;
 }
+.dashboard .dash-links a .idea-icon {
+   transform: rotate(180deg);
+}
 .dashboard .dash-links button {
    position: relative;
    color: white;
@@ -334,12 +337,13 @@ button:focus {
 }
 .toolbar-items {
    display: block;
-   cursor: pointer;
    margin: 4px 8px;
 }
+.toolbar .idea-icon span{
+   transform: rotate(180deg);
+}
 .toolbar-items span {
-   color: grey;
-   font-size: 22px;
+   color: #ababab;
 }
 .search-form {
    position: relative;
