@@ -20,6 +20,7 @@ class CreateComplaintsTable extends Migration
             $table->text('text');
             $table->string('file')->nullable();
             $table->boolean('new')->default(true);
+            $table->text('response')->nullable();
             $table->timestamps();
         });
     }

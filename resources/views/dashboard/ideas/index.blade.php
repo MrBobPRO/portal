@@ -35,7 +35,7 @@
                   {{$formatted}}
                </div>
                <div class="width-25">
-                  {!!$idea->new ? '<span class="list-new-item">НОВЫЙ</span>' : 'Посмотрено'!!}
+                  {!!$idea->new ? '<span class="list-new-item">НОВЫЙ</span>' : ''!!}
                </div>
             </a>
          @endforeach

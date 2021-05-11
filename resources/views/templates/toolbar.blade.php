@@ -5,7 +5,12 @@
 
          <a href="{{route('complaints.create')}}" title="Написать жалобу" class="toolbar-items"><span class="material-icons-outlined">sentiment_dissatisfied</span></a>
 
-         <a href="#" title="Уведомления" class="toolbar-items"><span class="material-icons-outlined">notifications</span></a>
+         <a href="{{route('notifications.index')}}" title="Уведомления" class="toolbar-items">
+            @if($notificationsCount > 0)
+               <span class="material-icons primary-color">notifications</span></a>
+            @else
+               <span class="material-icons-outlined">notifications</span></a>
+            @endif
       </ul>
 
       <form  class="search-form" action="/search" method="GET">

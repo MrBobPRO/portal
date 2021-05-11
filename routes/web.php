@@ -29,15 +29,20 @@ Route::post('/setLangEn', 'LanguageController@setLangEn');
 //--------------Language-change's routes--------------
 
 
-//--------------forgot password routes-------------------
+//--------------Ideas complaints & notification routes-------------------
 Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
 Route::post('/ideas/store', 'IdeaController@store');
 Route::post('/ideas/download', 'IdeaController@download');
+Route::post('/ideas/response', 'IdeaController@response');
 
 Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
 Route::post('/complaints/store', 'ComplaintController@store');
 Route::post('/complaints/download', 'ComplaintController@download');
-//--------------forgot password routes-------------------
+Route::post('/complaints/response', 'ComplaintController@response');
+
+Route::get('/notifications', 'NotificationController@index')->name('notifications.index');
+Route::get('/notifications/{id}', 'NotificationController@single')->name('notifications.single');
+//--------------Ideas complaints & notification routes-------------------
 
 
 //------------About-page's route--------------

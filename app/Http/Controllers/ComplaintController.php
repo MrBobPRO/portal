@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,24 @@ class ComplaintController extends Controller
         $path = public_path('files/complaints/' . $request->file);
 
         return response()->download($path);
+    }
+
+    public function response(Request $request)
+    {
+        $complaint = Complaint::find($request->id);
+        $response = $request->response;
+
+        $complaint->response = $response;
+        $complaint->save();
+
+        //send notification to user
+        $notification = new Notification;
+        $notification->user_id = $complaint->user_id;
+        $notification->title = 'Ответ на вашу жалобу "' . $complaint->title . '"';
+        $notification->text = $request->response;
+        $notification->save();
+
+        return redirect()->back();
     }
 
 }

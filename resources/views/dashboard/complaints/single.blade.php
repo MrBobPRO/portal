@@ -38,11 +38,31 @@
       <div class="value-replacer">
          <?php 
             $date = \Carbon\Carbon::parse($complaint->created_at)->locale('ru');
-            $formatted = $date->isoFormat('DD MMMM YYYY');
+            $formatted = $date->isoFormat('DD MMMM YYYY H:mm:s');
          ?>
          {{ $formatted }}
       </div>
    </div>
+
+   @if($complaint->response == '')
+      <form action="/complaints/response" method="POST">
+         @csrf
+         <input type="hidden" value="{{$complaint->id}}" name="id">
+            <div class="input-container-inline">
+               <label>Ответ администрации</label>
+               <textarea name="response" rows="5" required></textarea>
+            </div>
+
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">send</span> Ответить</button>
+      </form>
+   @else
+      <div class="input-container-inline">
+         <label>Ответ администрации</label>
+         <div class="value-replacer">
+            {{ $complaint->response }}
+         </div>
+      </div>
+   @endif
 
 </section>
 

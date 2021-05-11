@@ -7,8 +7,10 @@ use App\Models\Complaint;
 use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -72,7 +74,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('templates.dashboard', function ($view) {
             $view->with('newComplaintsCount', Complaint::where('new', true)->count());
         });
-        
+
+        //share notifications count with toolbar
+        view()->composer('templates.toolbar', function ($view) {
+            $view->with('notificationsCount', Notification::where('new', true)
+                 ->where('user_id', Auth::user()->id)
+                 ->count());
+        });
+
         //sidebar news and bdays
         view()->composer('templates.sidebar', function ($view) {
             $latest_news = News::latest()->take(2)->get();

@@ -112,5 +112,14 @@
          <a href="{{ route('ideas.create') }}"><span>Написать жалобу</span></a>
       @break
 
+      @case('notifications.index')
+         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+      @break
+
+      @case('notifications.single')
+         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+         <a href="{{ route('notifications.single', $notification->id) }}"><span>{{$crumbsTitle}}</span></a>
+      @break
+
       @endswitch
    </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,24 @@ class IdeaController extends Controller
         $path = public_path('files/ideas/' . $request->file);
 
         return response()->download($path);
+    }
+
+    public function response(Request $request)
+    {
+        $idea = Idea::find($request->id);
+        $response = $request->response;
+
+        $idea->response = $response;
+        $idea->save();
+
+        //send notification to user
+        $notification = new Notification;
+        $notification->user_id = $idea->user_id;
+        $notification->title = 'Ответ на вашу идею "' . $idea->title . '"';
+        $notification->text = $request->response;
+        $notification->save();
+
+        return redirect()->back();
     }
 
 }

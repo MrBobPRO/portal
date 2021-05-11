@@ -66,6 +66,9 @@ section {
 .width-20 {
    width: 20%;
 }
+.primary-color {
+   color: var(--color-scheme) !important;
+}
 /* Focus start */
 *:focus {
    outline: none;
