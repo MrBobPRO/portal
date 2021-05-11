@@ -9,6 +9,7 @@ Route::post('/send_credentials', 'HomeController@send_credentials');
 //-----------------Chat routes----------------------
 Route::post('/chat/push', 'ChatController@push');
 Route::post('/chat/update', 'ChatController@update');
+Route::post('/chat/load_older_msgs', 'ChatController@load_older_msgs');
 //Chat visibility change
 Route::post('/store_chat_visibility', 'ChatController@store_visibility');
 //-----------------Chat routes----------------------

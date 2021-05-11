@@ -576,6 +576,17 @@ button:focus {
    display: flex;
    flex-direction: column;
 }
+#chats_spinner {
+   position: absolute;
+   top: 70px;
+   left: 50%;
+   z-index: 2;
+   visibility: hidden;
+   width: 25px;
+   height: 25px;
+   font-size: 12px;
+   visibility: hidden;
+}
 .chat-body::-webkit-scrollbar {
    width: 8px;
  }

@@ -6,7 +6,7 @@ use App\Mail\ForgotPassword;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentials;
 use App\Models\User;
-use App\Models\News;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {

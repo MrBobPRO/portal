@@ -42,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('templates.chat', function ($view) {
+            $view->with('oldestMsgId', Chat::latest()->take(20)->get()->reverse()->first()->id);
+        });
+
+        view()->composer('templates.chat', function ($view) {
             $view->with('lastMsgId', Chat::latest()->first()->id);
         });
 

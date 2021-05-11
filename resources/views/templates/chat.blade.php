@@ -1,12 +1,22 @@
-{{-- used in JS on ajaxChatUpdate --}}
-<script>var lastMsgId = {{$lastMsgId}};</script>
+{{-- used in JS in ajax functions--}}
+<script>
+   var userId = {{\Auth::user()->id}};
+   var lastMsgId = {{$lastMsgId}};
+   var oldestMsgId = {{$oldestMsgId}};
+</script>
 
 <button onclick="showChat()" id="show_chat_btn"><span class="material-icons-outlined">chat</span></button>
 <div class="chat-container {{session('chat') == 'hidden' ? 'hidden-chat' : ''}}" id="chat">
+
+   <div class="spinner-border" role="status" id="chats_spinner">
+      <span class="visually-hidden">Loading...</span>
+   </div>
+
    <div class="chat-header">Общий чат 
       <button onclick="hideChat()"><span class="material-icons-outlined">close</span></button>
    </div>
-   <div class="chat-body" id="chat_body">
+   <div class="chat-body" id="chat_body" onscroll="onChatScroll()">
+
       @foreach ($chat as $c)
          {{-- Alight right users msg --}}
          @if($c->user_id == \Auth::user()->id)
