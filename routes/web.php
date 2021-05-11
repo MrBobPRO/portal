@@ -26,6 +26,7 @@ Route::post('/reset_password', 'AuthController@resetPasswordPost');
 //--------------Language-change's routes--------------
 Route::post('/setLangRu', 'LanguageController@setLangRu');
 Route::post('/setLangEn', 'LanguageController@setLangEn');
+Route::post('/setLangTj', 'LanguageController@setLangTj');
 //--------------Language-change's routes--------------
 
 

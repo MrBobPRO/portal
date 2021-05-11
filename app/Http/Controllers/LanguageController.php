@@ -25,4 +25,13 @@ class LanguageController extends Controller
         return redirect()->back();
     }
 
+    public function setLangTj()
+    {
+        session([
+            'my_locale' => 'tj'
+        ]);
+
+        return redirect()->back();
+    }
+
 }

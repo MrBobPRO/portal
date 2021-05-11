@@ -22,41 +22,82 @@
          <button class="btn dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             @if(\App::currentLocale() == 'ru')
                <img src="{{asset('img/main/russian.png')}}"> ru 
-            @else
+            @elseif(\App::currentLocale() == 'en')
                <img src="{{asset('img/main/english.png')}}"> en
+            @else
+               <img src="{{asset('img/main/tajik.png')}}"> tj
             @endif
          </button>
 
          <ul class="dropdown-menu" aria-labelledby="langDropdown">
             @if(\App::currentLocale() == 'ru')
-               <li>
-                  <form action="/setLangRu" method="POST">
-                     @csrf
-                     <button type="submit" class="dropdown-item"><img src="{{asset('img/main/russian.png')}}"> ru</button>
-                  </form>
-               </li>
+            <li>
+               <form action="/setLangRu" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/russian.png')}}">
+                     ru</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangTj" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/tajik.png')}}">
+                     tj</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangEn" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/english.png')}}">
+                     en</button>
+               </form>
+            </li>
 
-               <li>
-                  <form action="/setLangEn" method="POST">
-                     @csrf
-                     <button type="submit" class="dropdown-item"><img src="{{asset('img/main/english.png')}}"> en</button>
-                  </form>
-               </li>
-
+            @elseif(\App::currentLocale() == 'en')
+            <li>
+               <form action="/setLangEn" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/english.png')}}">
+                     en</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangTj" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/tajik.png')}}">
+                     tj</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangRu" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/russian.png')}}">
+                     ru</button>
+               </form>
+            </li>
+            {{-- else if TJ --}}
             @else
-               <li>
-                  <form action="/setLangEn" method="POST">
-                     @csrf
-                     <button type="submit" class="dropdown-item"><img src="{{asset('img/main/english.png')}}"> en</button>
-                  </form>
-               </li>
-               <li>
-                  
-                  <form action="/setLangRu" method="POST">
-                     @csrf
-                     <button type="submit" class="dropdown-item"><img src="{{asset('img/main/russian.png')}}"> ru</button>
-                  </form>
-               </li>
+            <li>
+               <form action="/setLangTj" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/tajik.png')}}">
+                     tj</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangRu" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/russian.png')}}">
+                     ru</button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangEn" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><img src="{{asset('img/main/english.png')}}">
+                     en</button>
+               </form>
+            </li>
             @endif
          </ul>
       </div>

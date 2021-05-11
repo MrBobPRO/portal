@@ -48,6 +48,7 @@ For authentication used Laravel Breeze and all routes have been disabled except 
 
 ---Localiztion---
 English translations are written on \resources\lang\en.json file
+Tajik translations are written on \resources\lang\tj.json file
 
 1)Created Middleware 'Language', that will change appLocale into sessionLocale
 $this->app->setLocale(session('my_locale', config('app.locale')));
