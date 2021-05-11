@@ -8,7 +8,7 @@
       <div class="departments-list">
          @foreach ($departments as $department)
             <div class="departments-list-item">
-               <h2><span class="material-icons-outlined">double_arrow</span> {{$department->name}}</h2>
+               <h2><span class="material-icons-outlined">arrow_right</span> {{$department->name}}</h2>
                {{-- Users list item start --}}
                <div class="users-list">
                   
