@@ -73,4 +73,9 @@ class NewsController extends Controller
         return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
+    public function update(Request $request)
+    {
+        dd($request->text);
+    }
+
 }

@@ -7,6 +7,7 @@ use App\Models\Idea;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -18,13 +19,13 @@ class AdminController extends Controller
     public function news()
     {
         $allNews = DB::table('news')
-                        ->orderBy('title', 'asc')
-                        ->select('news.id', 'news.title')
+                        ->orderBy('ruTitle', 'asc')
+                        ->select('news.id', 'news.ruTitle')
                         ->get();
 
         $news = DB::table('news')
                         ->latest()
-                        ->select('news.id', 'news.title', 'news.created_at', 'news.global')
+                        ->select('news.id', 'news.ruTitle', 'news.created_at', 'news.global')
                         ->paginate(30);
 
         return view('dashboard.news.index', compact('news', 'allNews'));
@@ -35,10 +36,10 @@ class AdminController extends Controller
         $news = News::find($id);
 
         //genereate title for breadcrumbs
-        if(mb_strlen($news->title) > 55)
-            $crumbsTitle = mb_substr($news->title, 0, 52) . '...';
+        if(mb_strlen($news->ruTitle) > 55)
+            $crumbsTitle = mb_substr($news->ruTitle, 0, 52) . '...';
         else
-            $crumbsTitle = $news->title;
+            $crumbsTitle = $news->ruTitle;
 
         return view('dashboard.news.single', compact('news', 'crumbsTitle'));
     }
@@ -95,6 +96,20 @@ class AdminController extends Controller
             $crumbsTitle = $complaint->title;
 
         return view('dashboard.complaints.single', compact('complaint', 'crumbsTitle'));
+    }
+
+    public function upload_simditor_photo(Request $request)
+    {
+        $file = $request->file('simditor_photo');
+        $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
+
+        $file->move(public_path('img/' . $request->folder . '/simditor'), $filename);
+
+        return [
+            "success" => true,
+            "msg" => "success", 
+            "file_path" => '/img/' . $request->folder . '/simditor/' . $filename
+        ];
     }
 
 }

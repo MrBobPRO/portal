@@ -21,6 +21,8 @@
    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
    {{-- Select2 --}}
    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+   {{-- Simditor v2.3.28 --}}
+   <link href="{{ asset('js/simditor/styles/simditor.css') }}" rel="stylesheet">
       
    <link href="{{ asset('css/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/main/media.css') }}" rel="stylesheet">
@@ -59,6 +61,13 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
    {{-- Select2 --}}
    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+   {{-- Simditor v2.3.28 --}}
+   <script src="{{ asset('js/simditor/scripts/module.js') }}"></script>
+   <script src="{{ asset('js/simditor/scripts/hotkeys.js') }}"></script>
+   <script src="{{ asset('js/simditor/scripts/uploader.js') }}"></script>
+   <script src="{{ asset('js/simditor/scripts/simditor.js') }}"></script>
+
    <script src="{{ asset('js/main/scripts.js') }}"></script>
    <script src="{{ asset('js/dashboard/main/scripts.js') }}"></script>
 

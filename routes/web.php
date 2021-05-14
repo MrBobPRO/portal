@@ -115,8 +115,12 @@ Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.u
 Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
 
       //-----------Admins routes start-------------
+      //Simditor upload photo route
+      Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
+
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+      Route::post('/update_news', 'NewsController@update');
 
       Route::get('/dashboard/ideas', 'AdminController@ideas')->name('dashboard.ideas.index');
       Route::get('/dashboard/ideas/{id}', 'AdminController@ideas_single')->name('dashboard.ideas.single');
@@ -125,6 +129,7 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
+
 
 
 require __DIR__.'/auth.php';

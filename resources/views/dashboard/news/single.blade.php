@@ -7,12 +7,14 @@
          @csrf
          <div class="input-container-inline">
              <label>Заголовок</label>
-             <input type="text" name="name" value="{{ $news->title }}" required>
+             <input type="text" name="name" value="{{ $news->ruTitle }}" required>
          </div>
 
          <div class="input-container-inline">
             <label>Текст</label>
-            <textarea id="disco" name="description" rows="8" required>{{ $news->text }}</textarea>
+            <div class="simditor_container">
+               <textarea class="simditor-wysiwyg" name="text" rows="8" required>{{ $news->ruText }}</textarea>
+            </div>
          </div>
 
          <div class="input-container-inline">

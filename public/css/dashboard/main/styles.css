@@ -137,6 +137,9 @@ input:read-only {
 .input-container-inline .select2_single_container .select2-selection__clear {
   display: none;
 }
+.input-container-inline .simditor_container {
+  width: 60%;
+}
 /* Inline input styles start */
 
 .inlined-form-inside-label {
@@ -308,3 +311,10 @@ input:read-only {
 }
 /* Select2 multiple dropdown styles end*/
 /* Select2 multiple styles end*/
+
+/* Simditor wysiwyg styles start */
+.simditor .simditor-body img {
+  margin: 20px 0 5px;
+  max-width: 100%;
+  height: auto;
+}
