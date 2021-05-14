@@ -22,10 +22,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //Gallery
-        $galleryNames = ['Праздник Навруз', 'Тимбилдинг', 'Новый год', 'Поход'];
-        for($i=0; $i < count($galleryNames); $i++) {
+        $galleryRu = ['Праздник Навруз', 'Тимбилдинг', 'Новый год', 'Поход'];
+        $galleryTj = ['Иди Навруз', 'Тимбилдинг', 'Соли нав', 'Поход'];
+        $galleryEn = ['Navruz', 'Teambuilding', 'New year', 'Party'];
+        for($i=0; $i < count($galleryRu); $i++) {
             $gallery = new Gallery;
-            $gallery->name = $galleryNames[$i];
+            $gallery->ruTitle = $galleryRu[$i];
+            $gallery->tjTitle = $galleryTj[$i];
+            $gallery->enTitle = $galleryEn[$i];
             $gallery->image = ($i+1) . '.jpg';
             $gallery->date = date_create_from_format('Y-m-d', '2018-04-0' . ($i+1));
             $gallery->save();  

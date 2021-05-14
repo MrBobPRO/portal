@@ -5,6 +5,7 @@ section {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
+   margin-top: 25px;
 }
 .galleries-list a {
    width: calc(50% - 20px);
@@ -29,7 +30,7 @@ section {
  }
  .galleries-list a div p {
    color: var(--color-scheme);
-   font-weight: bold;
+   font-weight: 500;
    margin: 15px 0 5px;
  }
  .galleries-list a div span {

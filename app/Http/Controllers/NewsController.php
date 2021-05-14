@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
@@ -33,10 +34,28 @@ class NewsController extends Controller
     { 
         $news = News::find($id);
         //generate titile for breadcrumb
-        if(mb_strlen($news->title) > 23)
-            $crumbsTitle = mb_substr($news->title, 0, 20) . '...';
-        else
-            $crumbsTitle = $news->title;
+        $locale = App::currentLocale();
+
+        if($locale == 'ru') {
+            if(mb_strlen($news->ruTitle) > 23)
+                $crumbsTitle = mb_substr($news->ruTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->ruTitle;
+        }
+
+        else if($locale == 'tj') {
+            if(mb_strlen($news->tjTitle) > 23)
+                $crumbsTitle = mb_substr($news->tjTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->tjTitle;
+        }
+
+        else if($locale == 'en') {
+            if(mb_strlen($news->enTitle) > 23)
+                $crumbsTitle = mb_substr($news->enTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->enTitle;
+        }
 
         $likes = $news->grades->where('like', true);
         $dislikes = $news->grades->where('like', false);

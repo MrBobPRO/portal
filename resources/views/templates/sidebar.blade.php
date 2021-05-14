@@ -27,15 +27,45 @@
          <div class="sidebar-single-news">
             <a href=" {{ route('news.single', $new->id) }} ">
                <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
-               <h4>{{ $new->title }}</h4>
-               <p>{!! $new->text !!}</p> 
-               <span>
-                  <?php 
-                     $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
-                     $formatted = $date->isoFormat('DD MMMM YYYY');
-                  ?>
-                  {{$formatted}}
-               </span>
+
+               @switch(\App::currentLocale())
+                  @case('ru')
+                  <h4>{{ $new->ruTitle }}</h4>
+                  <p>{!! $new->ruText !!}</p> 
+                  <span>
+                     <?php 
+                        $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}
+                  </span>
+                  @break
+                  
+                  @case('tj')
+                     <h4>{{ $new->tjTitle }}</h4>
+                     <p>{!! $new->tjText !!}</p> 
+                     <span>
+                        <?php 
+                           $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
+                           $formatted = $date->isoFormat('DD.MM.YYYY');
+                        ?>
+                        {{$formatted}}
+                     </span>
+                  @break
+
+                  @case('en')
+                     <h4>{{ $new->enTitle }}</h4>
+                     <p>{!! $new->enText !!}</p> 
+                     <span>
+                        <?php 
+                           $date = \Carbon\Carbon::parse($new->created_at)->locale('en');
+                           $formatted = $date->isoFormat('DD MMMM YYYY');
+                        ?>
+                        {{$formatted}}
+                     </span>
+                  @break
+               @endswitch
+               
             </a>
          </div>
       @endforeach
