@@ -6,6 +6,7 @@ use App\Models\Complaint;
 use App\Models\Idea;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -31,15 +32,38 @@ class AdminController extends Controller
         return view('dashboard.news.index', compact('news', 'allNews'));
     }
 
+    public function news_create()
+    {
+        return view('dashboard.news.create');
+    }
+
     public function news_single($id)
     {
         $news = News::find($id);
 
         //genereate title for breadcrumbs
-        if(mb_strlen($news->ruTitle) > 55)
-            $crumbsTitle = mb_substr($news->ruTitle, 0, 52) . '...';
-        else
-            $crumbsTitle = $news->ruTitle;
+        $locale = App::currentLocale();
+
+        if($locale == 'ru') {
+            if(mb_strlen($news->ruTitle) > 23)
+                $crumbsTitle = mb_substr($news->ruTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->ruTitle;
+        }
+
+        else if($locale == 'tj') {
+            if(mb_strlen($news->tjTitle) > 23)
+                $crumbsTitle = mb_substr($news->tjTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->tjTitle;
+        }
+ 
+        else if($locale == 'en') {
+            if(mb_strlen($news->enTitle) > 23)
+                $crumbsTitle = mb_substr($news->enTitle, 0, 20) . '...';
+            else
+                $crumbsTitle = $news->enTitle;
+        }
 
         return view('dashboard.news.single', compact('news', 'crumbsTitle'));
     }

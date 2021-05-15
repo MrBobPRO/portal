@@ -80,6 +80,29 @@ input:read-only {
   margin-left: auto;
   margin-top: 30px;
 }
+.form-image {
+  margin-top: 10px;
+}
+.dash-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dash-search-container .select2_single_container {
+  width: 500px;
+}
+.dash-search-container a {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--color-scheme);
+  color: white;
+  text-decoration: none;
+  border: 1px solid var(--color-scheme);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+}
 /* Password input styles start */
 .input-password-container {
   display: flex;
@@ -97,7 +120,7 @@ input:read-only {
 }
 /* Password input styles end */
 
-/* Inline input styles start */
+/* Inline inputs styles start */
 .input-container-inline {
    display: flex;
    margin-bottom: 15px;
@@ -140,8 +163,6 @@ input:read-only {
 .input-container-inline .simditor_container {
   width: 60%;
 }
-/* Inline input styles start */
-
 .inlined-form-inside-label {
   display: inline;
 }
@@ -152,6 +173,31 @@ input:read-only {
   font-weight: bold;
   color: var(--color-scheme);
 }
+/* Inline inputs styles end */
+
+/* Blocked inputs styles start */
+.input-container-blocked {
+  margin-bottom: 30px;
+}
+.input-container-blocked label {
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.input-container-blocked input {
+  width: 100%;
+}
+.input-container-blocked .select2_single_container {
+  max-width: 100%;
+  margin-top: 0;
+}
+.input-container-blocked .select2_single_container .select2-container--default {
+  box-shadow: none;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+}
+/* Blocked inputs styles end */
+
 /* Primary list start */
 .primary-list-titles {
   padding: 10px 20px;
@@ -170,6 +216,7 @@ input:read-only {
   color: black;
   text-decoration: none;
   position: relative;
+  font-weight: 300;
 }
 .primary-list-item:hover {
   background: #f1f1f1;
@@ -235,7 +282,7 @@ input:read-only {
   max-height: 282px !important;
 }
 .select2_single_dropdown .select2-results__option {
-  padding: 6px 15px;
+  padding: 8px 15px;
   font-weight: 300;
 }
 .select2_single_dropdown .select2-results__option--selected {
@@ -318,3 +365,7 @@ input:read-only {
   max-width: 100%;
   height: auto;
 }
+.simditor .simditor-body, .editor-style {
+  font-family: 'Roboto', sans-serif;
+}
+/* Simditor wysiwyg styles end */

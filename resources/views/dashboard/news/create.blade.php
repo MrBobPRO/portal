@@ -3,32 +3,30 @@
 @section('content')
 
    <section class="news-single-page formed-page">
-      <form action="/update_news" method="POST" enctype="multipart/form-data">
-
-         <input type="hidden" name="id" value="{{$news->id}}">
+      <form action="/store_news" method="POST" enctype="multipart/form-data">
 
          @csrf
          <div class="input-container-blocked">
              <label>Заголовок на русском</label>
-             <input type="text" name="ruTitle" value="{{ $news->ruTitle }}" required>
+             <input type="text" name="ruTitle" required>
          </div>
 
          <div class="input-container-blocked">
                <label>Заголовок на таджикском</label>
-               <input type="text" name="tjTitle" value="{{ $news->tjTitle }}" required>
+               <input type="text" name="tjTitle" required>
          </div>
 
          <div class="input-container-blocked">
                <label>Заголовок на английском</label>
-               <input type="text" name="enTitle" value="{{ $news->enTitle }}" required>
+               <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
             <label>Тип</label>
             <div class="select2_single_container">
                <select class="select2_single" name="global" required data-dropdown-css-class="select2_single_dropdown">
-                  <option value="1" {{$news->global ? 'selected' : ''}}>Мировые новости</option>
-                  <option value="0" {{$news->global ? '' : 'selected'}}>Новости компании</option>
+                  <option value="1">Мировые новости</option>
+                  <option value="0">Новости компании</option>
                </select>
             </div>
          </div>
@@ -36,31 +34,30 @@
          <div class="input-container-blocked">
             <label>Картинка</label>
             <input type="file" name="image" accept=".jpg, .png, .jpeg">
-            <img class="form-image" src="{{asset('img/news/' . $news->image)}}">
          </div>
 
          <div class="input-container-blocked">
             <label>Текст на русском</label>
             <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="ruText" rows="8" required>{{ $news->ruText }}</textarea>
+               <textarea class="simditor-wysiwyg" name="ruText" rows="8" required></textarea>
             </div>
          </div>
 
          <div class="input-container-blocked">
             <label>Текст на таджикском</label>
             <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="tjText" rows="8" required>{{ $news->tjText }}</textarea>
+               <textarea class="simditor-wysiwyg" name="tjText" rows="8" required></textarea>
             </div>
          </div>
 
          <div class="input-container-blocked">
             <label>Текст на английском</label>
             <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="enText" rows="8" required>{{ $news->enText }}</textarea>
+               <textarea class="simditor-wysiwyg" name="enText" rows="8" required></textarea>
             </div>
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить</button>
      </form>
    </section>
 

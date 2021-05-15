@@ -26,7 +26,12 @@
 
          @case('dashboard.news.single')
             <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
-            <a href="{{ route('dashboard.news.single', $news->id) }}"><span>{{$news->title}}</span></a>
+            <a href="{{ route('dashboard.news.single', $news->id) }}"><span>{{$crumbsTitle}}</span></a>
+         @break
+
+         @case('dashboard.news.create')
+            <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
+            <a href="{{ route('dashboard.news.create') }}"><span>Добавить</span></a>
          @break
 
       @case('dashboard.ideas.index')

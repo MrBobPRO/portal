@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     { 
-        $news = News::paginate(6);
+        $news = News::latest()->paginate(6);
 
         return view('news.index', compact('news'));
     }
@@ -73,9 +73,57 @@ class NewsController extends Controller
         return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
+    public function store(Request $request)
+    {
+        $news = News::create([
+            'ruTitle' => $request->ruTitle,
+            'tjTitle' => $request->tjTitle,
+            'enTitle' => $request->enTitle,
+            'ruText' => $request->ruText,
+            'tjText' => $request->tjText,
+            'enText' => $request->enText,
+            'global' => $request->global,
+            'image' => 'image.jpg'
+        ]);
+
+        //change image
+        $file = $request->file('image');
+
+        $fileName = $news->id . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('img/news'), $fileName);
+
+        $news->image = $fileName;
+        $news->save();
+
+        return redirect()->route('dashboard.news.index');
+    }
+
     public function update(Request $request)
     {
-        dd($request->text);
+        $news = News::find($request->id);
+
+        $news->ruTitle = $request->ruTitle;
+        $news->tjTitle = $request->tjTitle;
+        $news->enTitle = $request->enTitle;
+        $news->ruText = $request->ruText;
+        $news->tjText = $request->tjText;
+        $news->enText = $request->enText;
+        $news->global = $request->global;
+        $news->save();
+
+        //change image
+        $file = $request->file('image');
+
+        if($file) 
+        {
+            $fileName = $news->id . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('img/news'), $fileName);
+
+            $news->image = $fileName;
+            $news->save();
+        }
+
+        return redirect()->back();
     }
 
 }

@@ -4,16 +4,21 @@
 
    <section class="news-page">
       
-      {{-- news seach start --}}
-      <div class="select2_single_container">
-         <select class="select2_single select2_single_linked" data-placeholder="Поиск новостей..." data-dropdown-css-class="select2_single_dropdown">
-            <option></option>
-            @foreach($allNews as $new)
-               <option value="{{ route('dashboard.news.single', $new->id)}}">{{$new->ruTitle}}</option>   
-            @endforeach
-         </select>
+      <div class="dash-search-container">
+         {{-- news seach start --}}
+         <div class="select2_single_container">
+            <select class="select2_single select2_single_linked" data-placeholder="Поиск новостей..." data-dropdown-css-class="select2_single_dropdown">
+               <option></option>
+               @foreach($allNews as $new)
+                  <option value="{{ route('dashboard.news.single', $new->id)}}">{{$new->ruTitle}}</option>   
+               @endforeach
+            </select>
+         </div>
+         {{-- news seach end --}}
+
+         <a href="{{route('dashboard.news.create')}}">Добавить</a>
       </div>
-      {{-- news seach end --}}
+
       
       <div class="primary-list-titles">
          <div class="width-33">Заголовок</div>
