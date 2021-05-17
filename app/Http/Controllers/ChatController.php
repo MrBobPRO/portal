@@ -50,11 +50,33 @@ class ChatController extends Controller
         if(count($msgs))
             $lastMsgId = $msgs->last()->id;
         else
-            $lastMsgId = Chat::latest()->first()->id;
+            $lastMsgId = $request->id;
+            // $lastMsgId = Chat::latest()->first()->id;
 
         return [
             'msgs' => $msgs,
             'lastMsgId' => $lastMsgId
+        ];
+    }
+
+    public function load_older_msgs(Request $request)
+    {
+        $msgs = DB::table('chats')
+                    ->where('chats.id', '<', $request->id)
+                    ->join('users', 'chats.user_id', '=', 'users.id')
+                    ->select('chats.id', 'chats.text', 'chats.user_id', 'chats.created_at', 'users.name', 'users.avatar')
+                    ->latest()
+                    ->take(20)
+                    ->get();
+
+        if(count($msgs))
+            $oldestMsgId = $msgs->last()->id;
+        else
+            $oldestMsgId = 1;
+
+        return [
+            'msgs' => $msgs,
+            'oldestMsgId' => $oldestMsgId
         ];
     }
 

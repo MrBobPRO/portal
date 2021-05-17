@@ -93,6 +93,7 @@ function ajax_chat_push() {
 }
 
 
+
 //ajax update chat messages every 4 second
 var updateChatInterval = setInterval(ajaxUpdateChat, 4000);
  
@@ -130,6 +131,78 @@ function ajaxUpdateChat() {
    });
 }
 
+
+
+
+//load older messages on chat top scroll
+var loading_older_msgs = false;
+var chats_spinner = document.getElementById('chats_spinner');
+
+function onChatScroll() {
+   var scrollPosition = chat_body.scrollTop;
+   if (scrollPosition < 350 && !loading_older_msgs) 
+      ajaxLoadOlderMsgs()
+}
+
+function ajaxLoadOlderMsgs()
+{
+   loading_older_msgs = true;
+   //show spinner on start
+   chats_spinner.style.visibility = 'visible';
+
+   $.ajax({
+      type: 'POST',
+      url: '/chat/load_older_msgs',
+      data: { id: oldestMsgId},
+      timeout: 600000,
+
+      success: function (response) {
+
+         let items = '';
+
+         if (response.msgs.length > 0) {
+            response.msgs.forEach(msg => {
+               let d = new Date(msg.created_at);
+               let clss = 'chat-item';
+               //change msgs class if its users msg. UserId declared in blade via php
+               if (userId == msg.user_id)
+                  clss = 'chat-item users-msg';
+               
+               items = 
+               '<div class="' + clss  + '">' +
+                  '<img src="/img/users/' + msg.avatar + '">' +
+                  '<div>' +
+                     '<h6>' + msg.name + '</h6>' +
+                     '<p>' + msg.text + '</p>' +
+                     '<span>' + d.getHours() + ':' + ('0' + d.getMinutes()).slice(-2) + '</span>' +
+                  '</div>' +
+               '</div>' + items;
+            });
+         }
+
+         //Chats oldest message id declared in blade via php
+         oldestMsgId = response.oldestMsgId;
+         //add new msgs
+         $('#chat_body').prepend(items);
+         // clear items
+         items = '';
+
+         loading_older_msgs = false;
+         //hide spinner on the end
+         chats_spinner.style.visibility = 'hidden';
+      },
+      
+      error: function () {
+         console.log('error!');
+      }
+   });
+
+}
+
+
+
+
+
 //show & hide chat functions
 var chat = document.getElementById('chat');
 
@@ -158,4 +231,6 @@ function ajaxStoreChatVisibility(vision) {
       }
    });
 }
+
+
 //--------------------------Chat end--------------------------------

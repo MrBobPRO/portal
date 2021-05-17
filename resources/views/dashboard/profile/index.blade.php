@@ -77,10 +77,10 @@
 
             <div class="input-container-inline">
                 <label>Описание</label>
-                <textarea spellcheck="false" name="description" rows="5" required>{{ $user->description }}</textarea>
+                <textarea name="description" rows="5" required>{{ $user->description }}</textarea>
             </div>
 
-            <button class="main-btn update-profile-btn" type="submit"><span class="material-icons-outlined">edit</span> Обновить профиль</button>
+            <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Обновить профиль</button>
         </form>  {{-- Personal data form end --}}
 
         <h2 class="title-seperator">Изменить пароль</h2>
@@ -114,7 +114,7 @@
                 <p class="input-error confirm-password-error">Пароли не совпадают</p>
             </div>
 
-            <button class="main-btn update-password-btn" type="submit"><span class="material-icons">vpn_key</span> Обновить пароль</button>
+            <button class="main-btn" type="submit"><span class="material-icons">vpn_key</span> Обновить пароль</button>
 
         </form>  {{-- Change password form end --}}
 

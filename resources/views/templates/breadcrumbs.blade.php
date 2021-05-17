@@ -113,5 +113,22 @@
          <a href="{{ route('knowledge.books.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
       @break
 
+      @case('ideas.create')
+         <a href="{{ route('ideas.create') }}"><span>Подать идею</span></a>
+      @break
+
+      @case('complaints.create')
+         <a href="{{ route('ideas.create') }}"><span>Написать жалобу</span></a>
+      @break
+
+      @case('notifications.index')
+         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+      @break
+
+      @case('notifications.single')
+         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+         <a href="{{ route('notifications.single', $notification->id) }}"><span>{{$crumbsTitle}}</span></a>
+      @break
+
       @endswitch
    </div>

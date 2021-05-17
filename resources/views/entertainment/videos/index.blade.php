@@ -19,7 +19,15 @@
                </video>
                
                <div class="video-description">
-                  <p>{{$video->title}}</p>
+                  
+                  @if(\App::currentLocale() == 'ru')
+                     <p>{{$video->ruTitle}}</p>
+                  @elseif(\App::currentLocale() == 'tj')
+                     <p>{{$video->tjTitle}}</p>
+                  @elseif(\App::currentLocale() == 'en')
+                     <p>{{$video->enTitle}}</p>
+                  @endif
+
                   <span>
                      <?php
                         $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');

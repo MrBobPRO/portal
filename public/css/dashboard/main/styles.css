@@ -40,7 +40,7 @@ input[type=file]:after {
   display: flex;
   align-items: center;
   color: black;
-  background: rgb(233, 236, 239);
+  background: #f7f7f7;
   padding: 0px 20px;
 }
 label {
@@ -80,6 +80,31 @@ input:read-only {
   margin-left: auto;
   margin-top: 30px;
 }
+.form-image {
+  margin-top: 10px;
+  max-width: 100%;
+}
+.dash-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dash-search-container .select2_single_container {
+  width: 500px;
+  margin: 0 0 10px;
+}
+.dash-search-container a {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--color-scheme);
+  color: white;
+  text-decoration: none;
+  border: 1px solid var(--color-scheme);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+}
 /* Password input styles start */
 .input-password-container {
   display: flex;
@@ -97,7 +122,7 @@ input:read-only {
 }
 /* Password input styles end */
 
-/* Inline input styles start */
+/* Inline inputs styles start */
 .input-container-inline {
   display: flex;
   margin-bottom: 15px;
@@ -137,7 +162,43 @@ input:read-only {
 .input-container-inline .select2_single_container .select2-selection__clear {
   display: none;
 }
-/* Inline input styles start */
+.input-container-inline .simditor_container {
+  width: 60%;
+}
+.inlined-form-inside-label {
+  display: inline;
+}
+.inlined-form-inside-label button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  font-weight: bold;
+  color: var(--color-scheme);
+}
+/* Inline inputs styles end */
+
+/* Blocked inputs styles start */
+.input-container-blocked {
+  margin-bottom: 30px;
+}
+.input-container-blocked label {
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.input-container-blocked input {
+  width: 100%;
+}
+.input-container-blocked .select2_single_container {
+  max-width: 100%;
+  margin-top: 0;
+}
+.input-container-blocked .select2_single_container .select2-container--default {
+  box-shadow: none;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+}
+/* Blocked inputs styles end */
 
 /* Primary list start */
 .primary-list-titles {
@@ -157,6 +218,7 @@ input:read-only {
   color: black;
   text-decoration: none;
   position: relative;
+  font-weight: 300;
 }
 .primary-list-item:hover {
   background: #f1f1f1;
@@ -167,6 +229,10 @@ input:read-only {
   overflow: hidden;
   white-space: nowrap;
   padding-right: 10px;
+}
+.primary-list-item .list-new-item {
+  color: var(--color-scheme);
+  font-weight: bold;
 }
 /* Primary list end */
 
@@ -218,7 +284,7 @@ input:read-only {
   max-height: 282px !important;
 }
 .select2_single_dropdown .select2-results__option {
-  padding: 6px 15px;
+  padding: 8px 15px;
   font-weight: 300;
 }
 .select2_single_dropdown .select2-results__option--selected {
@@ -294,3 +360,14 @@ input:read-only {
 }
 /* Select2 multiple dropdown styles end*/
 /* Select2 multiple styles end*/
+
+/* Simditor wysiwyg styles start */
+.simditor .simditor-body img {
+  margin: 20px 0 5px;
+  max-width: 100%;
+  height: auto;
+}
+.simditor .simditor-body, .editor-style {
+  font-family: 'Roboto', sans-serif;
+}
+/* Simditor wysiwyg styles end */

@@ -60,4 +60,15 @@
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break
 
+    @case('ideas.create') @case('complaints.create')
+        {{-- Dashboard styles linked because of list & form styles --}}
+        <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/ideas & complaints/styles.css') }}" rel="stylesheet">
+    @break
+
+    @case('notifications.index') @case('notifications.single')
+        {{-- Dashboard styles linked because of list & form styles --}}
+        <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

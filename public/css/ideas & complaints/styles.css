@@ -1,0 +1,8 @@
+
+.form-flashed {
+   background: var(--color-scheme);
+   color: white;
+   padding: 8px;
+   text-align: center;
+   margin-bottom: 30px;
+}

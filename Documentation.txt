@@ -4,14 +4,15 @@ Timezone -> Asia/Dushanbe
 ---Installed packages & plugins---
 Bootstrap v5.0
 Google Roboto Font
+Material Icons
 JQuery v3.6
 Select2 v4.1 -> used to style selects and multiselects
-Material Icons
 Intervention Image -> used for manipulating with uploaded images
-Owl Carousel => slider
+Owl Carousel => slider~
 Plyr v3.6.7 player => used as videoplayer (https://plyr.io/)
 LC Lightbox gallery plugin -> more at (https://www.jqueryscript.net/gallery/Gallery-Popup-With-jQuery-LC-Lightbox.html)
 JQuery 3dflipbook -> used for reading books. More at : https://3dflipbook.net/ (licensed)
+Simditor v2.3.28 -> used as WYSIWYG text editor. More at (https://simditor.tower.im/)
 
 ----------JQuery 3dflipbook--------
 Free version is almost same as licensed. Right now used free version
@@ -48,6 +49,7 @@ For authentication used Laravel Breeze and all routes have been disabled except 
 
 ---Localiztion---
 English translations are written on \resources\lang\en.json file
+Tajik translations are written on \resources\lang\tj.json file
 
 1)Created Middleware 'Language', that will change appLocale into sessionLocale
 $this->app->setLocale(session('my_locale', config('app.locale')));

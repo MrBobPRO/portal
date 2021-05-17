@@ -2,7 +2,7 @@
 <?php $userr = \Auth::user(); ?>
 <div class="no-selection dashboard-btn">
    {{-- Toogle button --}}
-   <span class="material-icons-outlined m-lang" onclick="toogleDashboard()">menu</span>
+   <span class="material-icons-outlined dash-toogler" onclick="toogleDashboard()">menu</span>
    {{-- Dashboard start --}}
    <div id="dashboard" class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
       style="background-image: url({{asset('img/dashboards/' . $userr->dashBg)}})">
@@ -29,6 +29,16 @@
             <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
 
+            <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
+               href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>Идеи
+               @if($newIdeasCount > 0) ({{$newIdeasCount}}) @endif
+            </a>
+
+            <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
+               href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы
+               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif   
+            </a>
+
             <a class="@if($route == 'dashboard.videos.index' || $route == 'dashboard.videos.single') active @endif"
             href="#"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
 
@@ -42,6 +52,7 @@
             href="#"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
 
          @endif {{-- Admin links end --}}
+
          {{-- Logout button --}}
          <form action="{{route('logout')}}" method="POST">
             @csrf

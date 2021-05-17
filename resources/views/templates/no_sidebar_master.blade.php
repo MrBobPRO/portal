@@ -30,7 +30,7 @@
       <style>
          :root {
             --color-scheme: {{\Auth::user()->colorScheme}};
-         }   
+         }
       </style>
 
    

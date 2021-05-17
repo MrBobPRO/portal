@@ -16,7 +16,9 @@ class CreateEntertainmentsTable extends Migration
         Schema::create('entertainments', function (Blueprint $table) {
             $table->id();
             $table->string('filename');
-            $table->string('title');
+            $table->string('ruTitle');
+            $table->string('tjTitle');
+            $table->string('enTitle');
             $table->string('subtitles')->nullable();
             $table->string('poster')->nullable();
             $table->timestamps();

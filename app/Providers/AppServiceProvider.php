@@ -3,10 +3,14 @@
 namespace App\Providers;
 
 use App\Models\Chat;
+use App\Models\Complaint;
+use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,9 +36,13 @@ class AppServiceProvider extends ServiceProvider
 
         \Schema::defaultStringLength(191);
 
-        // share global variables with all routes
+        // share chat data with all routes
         view()->composer('templates.chat', function ($view) {
             $view->with('chat', Chat::latest()->take(20)->get()->reverse());
+        });
+
+        view()->composer('templates.chat', function ($view) {
+            $view->with('oldestMsgId', Chat::latest()->take(20)->get()->reverse()->first()->id);
         });
 
         view()->composer('templates.chat', function ($view) {
@@ -61,8 +69,24 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('templates.breadcrumbs', function ($view) {
             $view->with('route', \Route::currentRouteName());
         });
+
+        //share with dashboard ideas and complaints counts
+        view()->composer('templates.dashboard', function ($view) {
+            $view->with('newIdeasCount', Idea::where('new', true)->count());
+        });
         
-        //sidebar
+        view()->composer('templates.dashboard', function ($view) {
+            $view->with('newComplaintsCount', Complaint::where('new', true)->count());
+        });
+
+        //share notifications count with toolbar
+        view()->composer('templates.toolbar', function ($view) {
+            $view->with('notificationsCount', Notification::where('new', true)
+                 ->where('user_id', Auth::user()->id)
+                 ->count());
+        });
+
+        //sidebar news and bdays
         view()->composer('templates.sidebar', function ($view) {
             $latest_news = News::latest()->take(2)->get();
             $view->with('latest_news', $latest_news);

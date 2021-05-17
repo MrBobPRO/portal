@@ -107,6 +107,10 @@ img {
    font-weight: 300;
    line-height: 1.7;
 }
+.news-content .news-content-text img {
+   max-width: 100%;
+   height: auto;
+}
 .grades-container {
    padding: 0 25px 25px;
    display: flex;

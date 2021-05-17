@@ -9,6 +9,7 @@ Route::post('/send_credentials', 'HomeController@send_credentials');
 //-----------------Chat routes----------------------
 Route::post('/chat/push', 'ChatController@push');
 Route::post('/chat/update', 'ChatController@update');
+Route::post('/chat/load_older_msgs', 'ChatController@load_older_msgs');
 //Chat visibility change
 Route::post('/store_chat_visibility', 'ChatController@store_visibility');
 //-----------------Chat routes----------------------
@@ -26,7 +27,24 @@ Route::post('/reset_password', 'AuthController@resetPasswordPost');
 //--------------Language-change's routes--------------
 Route::post('/setLangRu', 'LanguageController@setLangRu');
 Route::post('/setLangEn', 'LanguageController@setLangEn');
+Route::post('/setLangTj', 'LanguageController@setLangTj');
 //--------------Language-change's routes--------------
+
+
+//--------------Ideas complaints & notification routes-------------------
+Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
+Route::post('/ideas/store', 'IdeaController@store');
+Route::post('/ideas/download', 'IdeaController@download');
+Route::post('/ideas/response', 'IdeaController@response');
+
+Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
+Route::post('/complaints/store', 'ComplaintController@store');
+Route::post('/complaints/download', 'ComplaintController@download');
+Route::post('/complaints/response', 'ComplaintController@response');
+
+Route::get('/notifications', 'NotificationController@index')->name('notifications.index');
+Route::get('/notifications/{id}', 'NotificationController@single')->name('notifications.single');
+//--------------Ideas complaints & notification routes-------------------
 
 
 //------------About-page's route--------------
@@ -97,10 +115,23 @@ Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.u
 Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
 
       //-----------Admins routes start-------------
+      //Simditor upload photo route
+      Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
+
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
+      Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+      Route::post('/update_news', 'NewsController@update');
+      Route::post('/store_news', 'NewsController@store');
+
+      Route::get('/dashboard/ideas', 'AdminController@ideas')->name('dashboard.ideas.index');
+      Route::get('/dashboard/ideas/{id}', 'AdminController@ideas_single')->name('dashboard.ideas.single');
+
+      Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
+      Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
+
 
 
 require __DIR__.'/auth.php';
