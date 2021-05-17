@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\Entertainment;
 use App\Models\Idea;
 use App\Models\News;
 use Illuminate\Http\Request;
@@ -17,16 +18,37 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    // -----------------------------------Simditor start-------------------------------------------
+    public function upload_simditor_photo(Request $request)
+    {
+        $file = $request->file('simditor_photo');
+        $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
+
+        $file->move(public_path('img/' . $request->folder . '/simditor'), $filename);
+
+        return [
+            "success" => true,
+            "msg" => "success", 
+            "file_path" => '/img/' . $request->folder . '/simditor/' . $filename
+        ];
+    }
+    // -----------------------------------Simditor end-------------------------------------------
+
+
+    // -----------------------------------News start-------------------------------------------
     public function news()
     {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
         $allNews = DB::table('news')
-                        ->orderBy('ruTitle', 'asc')
-                        ->select('news.id', 'news.ruTitle')
+                        ->orderBy($title, 'asc')
+                        ->select('news.id', 'news.' . $title . ' as title')
                         ->get();
 
         $news = DB::table('news')
                         ->latest()
-                        ->select('news.id', 'news.ruTitle', 'news.created_at', 'news.global')
+                        ->select('news.id', 'news.' . $title . ' as title', 'news.created_at', 'news.global')
                         ->paginate(30);
 
         return view('dashboard.news.index', compact('news', 'allNews'));
@@ -41,33 +63,19 @@ class AdminController extends Controller
     {
         $news = News::find($id);
 
-        //genereate title for breadcrumbs
-        $locale = App::currentLocale();
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $news[$title];
 
-        if($locale == 'ru') {
-            if(mb_strlen($news->ruTitle) > 23)
-                $crumbsTitle = mb_substr($news->ruTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->ruTitle;
-        }
-
-        else if($locale == 'tj') {
-            if(mb_strlen($news->tjTitle) > 23)
-                $crumbsTitle = mb_substr($news->tjTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->tjTitle;
-        }
- 
-        else if($locale == 'en') {
-            if(mb_strlen($news->enTitle) > 23)
-                $crumbsTitle = mb_substr($news->enTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->enTitle;
-        }
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
 
         return view('dashboard.news.single', compact('news', 'crumbsTitle'));
     }
+    // -----------------------------------News end-------------------------------------------
 
+
+    // -----------------------------------Ideas start-------------------------------------------
     public function ideas()
     {
         $allIdeas = DB::table('ideas')
@@ -94,7 +102,10 @@ class AdminController extends Controller
 
         return view('dashboard.ideas.single', compact('idea', 'crumbsTitle'));
     }
+    // -----------------------------------Ideas end-------------------------------------------
 
+
+    // -----------------------------------Complaints start-------------------------------------------
     public function complaints()
     {
         $allComplaints = DB::table('complaints')
@@ -121,19 +132,40 @@ class AdminController extends Controller
 
         return view('dashboard.complaints.single', compact('complaint', 'crumbsTitle'));
     }
+    // -----------------------------------Complaints end-------------------------------------------
 
-    public function upload_simditor_photo(Request $request)
+
+    // -----------------------------------Videos start-------------------------------------------
+    public function videos()
     {
-        $file = $request->file('simditor_photo');
-        $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
 
-        $file->move(public_path('img/' . $request->folder . '/simditor'), $filename);
+        $allVideos = DB::table('entertainments')
+                        ->orderBy($title, 'asc')
+                        ->select('entertainments.id', 'entertainments.' . $title . ' as title')
+                        ->get();
 
-        return [
-            "success" => true,
-            "msg" => "success", 
-            "file_path" => '/img/' . $request->folder . '/simditor/' . $filename
-        ];
+        $videos = DB::table('entertainments')
+                        ->latest()
+                        ->select('entertainments.id', 'entertainments.' . $title . ' as title', 'entertainments.created_at')
+                        ->paginate(30);
+
+        return view('dashboard.entertainment.videos.index', compact('videos', 'allVideos'));
     }
 
+    public function videos_single($id)
+    {
+        $video = Entertainment::find($id);
+
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $video[$title];
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle'));
+    }
+    // -----------------------------------Complaints end-------------------------------------------
 }

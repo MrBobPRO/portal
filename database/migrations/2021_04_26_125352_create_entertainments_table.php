@@ -20,7 +20,7 @@ class CreateEntertainmentsTable extends Migration
             $table->string('tjTitle');
             $table->string('enTitle');
             $table->string('subtitles')->nullable();
-            $table->string('poster')->nullable();
+            $table->string('poster')->default('default.jpg');
             $table->timestamps();
         });
     }

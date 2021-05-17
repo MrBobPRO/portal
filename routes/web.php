@@ -117,18 +117,25 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       //-----------Admins routes start-------------
       //Simditor upload photo route
       Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
-
+      //News
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
       Route::post('/update_news', 'NewsController@update');
       Route::post('/store_news', 'NewsController@store');
-
+      //Ideas
       Route::get('/dashboard/ideas', 'AdminController@ideas')->name('dashboard.ideas.index');
       Route::get('/dashboard/ideas/{id}', 'AdminController@ideas_single')->name('dashboard.ideas.single');
-
+      //Complaints
       Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
+      //Videos
+      Route::get('/dashboard/videos', 'AdminController@videos')->name('dashboard.videos.index');
+      Route::get('/dashboard/videos_create', 'AdminController@videos_create')->name('dashboard.videos.create');
+      Route::get('/dashboard/videos/{id}', 'AdminController@videos_single')->name('dashboard.videos.single');
+      Route::post('/update_video', 'EntertainmentController@videos_update');
+      Route::post('/store_video', 'EntertainmentController@videos_store');
+      Route::post('/entertainmet/check_uploading_video_size', 'EntertainmentController@check_uploading_video_size');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 

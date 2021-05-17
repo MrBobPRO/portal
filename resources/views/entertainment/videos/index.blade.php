@@ -10,7 +10,7 @@
             <div class="single-video">
                {{-- Custom id used in js --}}
                <video class="plyr" playsinline controls id="player{{$count}}" onplay="pauseInactivePlayers({{$count}})" 
-                  data-poster="/videos/entertainment/posters/{{$video->poster !='' ? $video->poster : 'default.jpg'}}">
+                  data-poster="/videos/entertainment/posters/{{$video->poster}}">
                   <source src="/videos/entertainment/{{$video->filename}}"/>
                
                   @if($video->subtitles != '')

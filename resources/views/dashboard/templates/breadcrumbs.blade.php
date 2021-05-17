@@ -20,6 +20,7 @@
             <a href="{{ route('dashboard.users.single', $user->id) }}"><span>{{$user->name . ' ' . $user->surname}}</span></a>
          @break
 
+
       @case('dashboard.news.index')
          <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
       @break
@@ -34,6 +35,7 @@
             <a href="{{ route('dashboard.news.create') }}"><span>Добавить</span></a>
          @break
 
+
       @case('dashboard.ideas.index')
          <a href="{{ route('dashboard.ideas.index') }}"><span>{{ __('Идеи') }}</span></a>
       @break
@@ -43,14 +45,30 @@
             <a href="{{ route('dashboard.ideas.index') }}"><span>{{$crumbsTitle}}</span></a>
          @break
 
-         @case('dashboard.complaints.index')
+
+      @case('dashboard.complaints.index')
+         <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
+      @break
+
+         @case('dashboard.complaints.single')
             <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
+            <a href="{{ route('dashboard.complaints.index') }}"><span>{{$crumbsTitle}}</span></a>
          @break
 
-            @case('dashboard.complaints.single')
-               <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
-               <a href="{{ route('dashboard.complaints.index') }}"><span>{{$crumbsTitle}}</span></a>
-            @break
+
+      @case('dashboard.videos.index')
+         <a href="{{ route('dashboard.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+      @break
+
+         @case('dashboard.videos.single')
+            <a href="{{ route('dashboard.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+            <a href="{{ route('dashboard.videos.single', $video->id) }}"><span>{{$crumbsTitle}}</span></a>
+         @break
+
+         @case('dashboard.videos.create')
+            <a href="{{ route('dashboard.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+            <a href="{{ route('dashboard.videos.create') }}"><span>Добавить</span></a>
+         @break
 
       @endswitch
    </div>

@@ -40,7 +40,7 @@
             </a>
 
             <a class="@if($route == 'dashboard.videos.index' || $route == 'dashboard.videos.single') active @endif"
-            href="#"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
+            href="{{ route('dashboard.videos.index') }}"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
 
             <a class="@if($route == 'dashboard.gallery.index' || $route == 'dashboard.gallery.single') active @endif"
             href="#"><span class="material-icons-outlined">image</span>Галерея</a>

@@ -13,4 +13,8 @@
     <script src="{{ asset('js/dashboard/news/scripts.js') }}"></script>
 @break
 
+@case('dashboard.videos.create') @case('dashboard.videos.single') 
+    <script src="{{ asset('js/dashboard/entertainment/videos/scripts.js') }}"></script>
+@break
+
 @endswitch
