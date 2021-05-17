@@ -109,9 +109,7 @@ img {
 }
 .news-content .news-content-text img {
    max-width: 100%;
-   width: auto;
-   margin: auto;
-   display: block;
+   height: auto;
 }
 .grades-container {
    padding: 0 25px 25px;

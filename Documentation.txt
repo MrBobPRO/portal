@@ -4,9 +4,9 @@ Timezone -> Asia/Dushanbe
 ---Installed packages & plugins---
 Bootstrap v5.0
 Google Roboto Font
+Material Icons
 JQuery v3.6
 Select2 v4.1 -> used to style selects and multiselects
-Material Icons
 Intervention Image -> used for manipulating with uploaded images
 Owl Carousel => slider
 Plyr v3.6.7 player => used as videoplayer (https://plyr.io/)

@@ -82,6 +82,7 @@ input:read-only {
 }
 .form-image {
   margin-top: 10px;
+  max-width: 100%;
 }
 .dash-search-container {
   display: flex;
@@ -90,6 +91,7 @@ input:read-only {
 }
 .dash-search-container .select2_single_container {
   width: 500px;
+  margin: 0 0 10px;
 }
 .dash-search-container a {
   display: flex;

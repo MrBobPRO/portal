@@ -10,8 +10,11 @@ use App\Models\Department;
 use App\Models\Position;
 use App\Models\Designation;
 use App\Models\Chat;
+use App\Models\Complaint;
 use App\Models\Image;
 use App\Models\Gallery;
+use App\Models\Idea;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -154,11 +157,30 @@ class DatabaseSeeder extends Seeder
                 $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-23 12:44:' . $i);
             $c->save();
         }
+
+        $c = new Chat;
+        $c->user_id = 4;
+        $c->text = '12345';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 08:30:00');
+        $c->save();
+
+        $c = new Chat;
+        $c->user_id = 4;
+        $c->text = '67890 1234567890';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 08:31:00');
+        $c->save();
         
         //Run second seeder
         $this->call([
             SecondSeeder::class
         ]);
+
+        $c = new Complaint();
+        $c->user_id = 3;
+        $c->title = 'Где мои новые наушники??';
+        $c->text = 'Вы мне 2 месяца назад обещали новые наушники! И где же они???????? Мне ещё долго ждать их?? Или лучше самому купить?';
+        $c->save();
+
 
     }
 }

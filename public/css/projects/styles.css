@@ -109,6 +109,10 @@
    font-weight: 300;
    line-height: 1.7;
 }
+.projects-content .projects-content-text img {
+   max-width: 100%;
+   height: auto;
+}
 .projects-content .project-date {
    font-weight: 500;
    font-size: 15px;
