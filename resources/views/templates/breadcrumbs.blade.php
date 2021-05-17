@@ -75,7 +75,16 @@
             @if ($project->completed)
                <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a> 
             @else
-                  <a href="{{ route('projects.ongoing') }}"><span>{{ __('Действующие проекты') }}</span></a>
+               <a href="{{ route('projects.ongoing') }}"><span>{{ __('Действующие проекты') }}</span></a>
+            @endif
+            <a href="{{ route('projects.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         @break
+         @case('projects.single')
+            <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
+            @if ($project->completed)
+               <a href="{{ route('projects.completed') }}"><span>{{ __('Выполненные проекты') }}</span></a> 
+            @else
+               <a href="{{ route('projects.ongoing') }}"><span>{{ __('Действующие проекты') }}</span></a>
             @endif
             <a href="{{ route('projects.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
          @break
