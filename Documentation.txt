@@ -8,7 +8,7 @@ Material Icons
 JQuery v3.6
 Select2 v4.1 -> used to style selects and multiselects
 Intervention Image -> used for manipulating with uploaded images
-Owl Carousel => slider
+Owl Carousel => slider~
 Plyr v3.6.7 player => used as videoplayer (https://plyr.io/)
 LC Lightbox gallery plugin -> more at (https://www.jqueryscript.net/gallery/Gallery-Popup-With-jQuery-LC-Lightbox.html)
 JQuery 3dflipbook -> used for reading books. More at : https://3dflipbook.net/ (licensed)
