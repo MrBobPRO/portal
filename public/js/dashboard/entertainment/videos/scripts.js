@@ -6,14 +6,15 @@ function videos_update() {
    //display file sizes if inputs contain files
    var file = document.getElementById('file').files[0];
    if (file) {
-      document.getElementById('file_size').innerHTML = (file.size/1024/1024).toFixed(2) + ' мг. ' 
+      document.getElementById('spinner_file_size').innerHTML = (file.size / 1024 / 1024).toFixed(2) + ' мг. ';
+      window.scrollTo(0, 0);
+      document.getElementById('spinner-container').classList.add('show');
    }
 
    //generate new FormData object
    var form = $('#videos_update_form')[0];
    var data = new FormData(form);
 
-   var check_uploading_file_size_interval = setInterval(ajax_check_uploading_file_size, 2000);
 
    //send video store ajax request
    $.ajax({
@@ -26,30 +27,38 @@ function videos_update() {
       cache: false,
       timeout: 600000,
 
+      xhr: function () {  //show progress of uploading file
+         
+
+         var xhr = new XMLHttpRequest();
+         var total = 0;
+         var spinner_uploaded_percent = $('#spinner_uploaded_percent')[0];
+                     
+           
+         //if file exists
+         if (file) {
+            // Get the total size of file
+            total = file.size;
+
+            // Called when upload progress changes. xhr2
+            xhr.upload.addEventListener("progress", function (evt) {
+               // get loading state in percent
+               var loaded = (evt.loaded / total).toFixed(2) * 100;
+               
+               spinner_uploaded_percent.innerHTML = loaded + ' %';
+            }, false);
+         }
+            
+         return xhr;
+         
+      },
+
       success: function () {
+         window.scrollTo(0, 0);
          location.reload();
       },
       error: function () {
-         alert('error');
-      }
-   });
-}
-
-function ajax_check_uploading_file_size() {
-
-   var id = $('#id')[0].value;
-
-   $.ajax({
-      type: 'POST',
-      url: '/entertainmet/check_uploading_video_size',
-      data: {id: id},
-      timeout: 600000,
-
-      success: function (response) {
-         $('#uploaded_size')[0].innerHTML = response;
-      },
-      error: function () {
-         alert('error');
+         alert('Error!');
       }
    });
 }

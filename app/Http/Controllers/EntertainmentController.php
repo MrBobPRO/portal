@@ -41,27 +41,45 @@ class EntertainmentController extends Controller
     {
         $video = Entertainment::find($request->id);
 
-        $file = $request->file('file');
-        $filename = $video->id . '.' . $file->getClientOriginalExtension();
-
-        $video->filename = $filename;
+        $video->ruTitle = $request->ruTitle;
+        $video->tjTitle = $request->tjTitle;
+        $video->enTitle = $request->enTitle;
         $video->save();
 
-        $file->move(public_path('videos/entertainment'), $filename);
+        // change subtitles
+        $sub = $request->file('subtitles');
+        if($sub) {
+            $filename = $video->id . '.' . $sub->getClientOriginalExtension();
+
+            $video->subtitles = $filename;
+            $video->save();
+    
+            $sub->move(public_path('videos/entertainment/subtitles'), $filename);
+        }
+
+        // change poster
+        $pos = $request->file('poster');
+        if($pos) {
+            $filename = $video->id . '.' . $pos->getClientOriginalExtension();
+
+            $video->poster = $filename;
+            $video->save();
+    
+            $pos->move(public_path('videos/entertainment/posters'), $filename);
+        }
+
+        // change video file
+        $file = $request->file('file');
+        if($file) {
+            $filename = $video->id . '.' . $file->getClientOriginalExtension();
+
+            $video->filename = $filename;
+            $video->save();
+    
+            $file->move(public_path('videos/entertainment'), $filename);
+        }
 
         return 'success';
-    }
-
-    public function check_uploading_video_size(Request $request)
-    {
-        $video = Entertainment::find($request->id)->filename;
-
-        $file = public_path('videos/entertainment/' . $video);
-        
-        if(file_exists($file)) 
-            return round((filesize($file) / 1024 / 1204), 2);
-        else 
-            return '0';
     }
 
 }

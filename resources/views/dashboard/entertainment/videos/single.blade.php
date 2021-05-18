@@ -2,6 +2,16 @@
 
 @section('content')
 
+   {{-- Spinner used while form submit --}}
+   <div class="spinner-container" id="spinner-container">
+      <div class="spinner-border" role="status">
+         <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Пожалуйста дождитесь загрузки файла на сервер<br>Размер файла : <span id="spinner_file_size"></span>
+         Загружено : <span id="spinner_uploaded_percent"></span>
+      </p>
+   </div>
+
    <section class="news-single-page formed-page">
       <form method="POST" enctype="multipart/form-data" onsubmit="videos_update()" id="videos_update_form">
 
@@ -17,7 +27,7 @@
          </div>
 
          <div class="input-container-blocked">
-            <label>Субтитры. {{$video->subtitles == '' ? 'Отсуствуют.' : $video->subtitles}} Поддерживаемые форматы (vtt)</label>
+            <label>Субтитры. {{$video->subtitles == '' ? 'Отсуствуют.' : 'Имеется.'}} Поддерживаемые форматы (vtt)</label>
             <input type="file" name="subtitles" accept=".vtt">
          </div>
 
@@ -41,8 +51,6 @@
             <input type="file" name="poster" accept=".jpg, .png, .jpeg">
             <img class="form-image" src="{{asset('videos/entertainment/posters/' . $video->poster)}}">
          </div>
-
-         <p>Размер файла :<span id="file_size"></span> Загружено <span id="uploaded_size"></span> мг.</p>
 
          <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
      </form>

@@ -236,6 +236,36 @@ input:read-only {
 }
 /* Primary list end */
 
+/* Spinner styles start */
+.spinner-container {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10%;
+  flex-direction: column;
+  display: none;
+  opacity: 0;
+  transition: display 0s, opacity 0.5s;
+}
+.spinner-container p {
+  margin-top: 20px;
+  text-align: center;
+}
+.spinner-container.show {
+  display: flex;
+  opacity: 1;
+}
+.spinner-container .spinner-border {
+  color: #1A078F;
+}
+/* Spinner styles end */
+
 /* Select2 single styles start*/
 .select2_single_container {
    max-width: 500px;
