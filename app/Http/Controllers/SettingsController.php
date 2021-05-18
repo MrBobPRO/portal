@@ -28,19 +28,33 @@ class SettingsController extends Controller
     public function changeBackground(Request $request) 
     {
         $user = User::find(Auth::user()->id);
-        $user->dashBg = $request->dashbg;
+
+        if($request->custom_img) {
+            $temp_path = public_path('img/dashboards/temp/' . $request->dashbg);
+            $original_path = public_path('img/dashboards/' . $request->dashbg);
+            copy($temp_path, $original_path);
+            $user->dashBg = $request->dashbg;
+
+        }
+
+        else {
+            $user->dashBg = $request->dashbg;
+        }
+
         if ($request->darkbg == 'on') {
             $user->darkMode = true;
         } else {
             $user->darkMode = false;
         }
         $user->save();
+
         
-        return redirect('/dashboard/settings');        
+        return redirect()->back();        
     }
 
     public function update_dashbg(Request $request)
     {
+
         $user = User::find(Auth::user()->id);
         $file = $request->file('dashbg');
 
@@ -53,8 +67,6 @@ class SettingsController extends Controller
             $img = Image::make(public_path('img/dashboards/temp/' . $fileName));
             //save img
             $img->save(public_path('img/dashboards/temp/' . $fileName));
-            $img->save(public_path('img/dashboards/' . $fileName));
-
 
             return $fileName;
         }

@@ -59,6 +59,7 @@
       @csrf
       <div class="inputBox">
          <span class="title">Тёмный режим:</span>
+         <input type="hidden" name="custom_img" value="0" id="custom_img">
          <input class="visually-hidden" type="checkbox" name="darkbg" id="darkbg" {{\Auth::user()->darkMode == '1' ? 'checked' : ''}}>
          <label for="darkbg" id="emoji" onclick="changeMode()">{{\Auth::user()->darkMode == '1' ? '😊' : '😡'}}</label>
       </div>

@@ -25,6 +25,7 @@ function changeDashBg(img, i) {
    }
 
    activeBtn.classList.add('active');
+   $('#custom_img')[0].value = 0;
    input.value = img;
 }
 
@@ -76,7 +77,7 @@ $.ajax({
       dashboard.style.backgroundImage = 'url(/img/dashboards/temp/default.jpg)';
       dashboard.style.backgroundImage = 'url(/img/dashboards/temp/' + fileName + '?q=' + q + ')';
       q++;
-      console.log(fileName);
+      $('#custom_img')[0].value = 1;
       input.value = fileName;
    },
    error: function () {
