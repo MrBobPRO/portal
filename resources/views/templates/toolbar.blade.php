@@ -1,5 +1,6 @@
 <div class="toolbar">
    <div class="toolbar-inner">
+      
       <ul class="toolbar-right">
          <a href="{{route('ideas.create')}}" title="Подать идею" class="toolbar-items idea-icon"><span class="material-icons-outlined">tungsten</span></a>
 

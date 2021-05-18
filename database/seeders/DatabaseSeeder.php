@@ -92,8 +92,8 @@ class DatabaseSeeder extends Seeder
         $avatars = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
         $names = ['Икром', 'Бобур', 'Даврон', 'Дмитрий', 'Азамат', 'Медина', 'Снежанна', 'Амриддин', 'Михаил', 'Парвина'];
         $surnames = ['Рахимов', 'Нуридинов', 'Олегов', 'Камаров', 'Зияев', 'Иброровна', 'Бадоева', 'Холов', 'Сохибназаров', 'Мирославовна'];
-        $nicknames = ['ikrom', 'bobur', 'miha', 'dima', 'aza', 'medina', 'snejok', 'amrik', 'superman', 'skype'];
-        $roles = ['admin', 'admin', 'user', 'user', 'user', 'user', 'user', 'user', 'user', 'user'];
+        $nicknames = ['ikrom', 'bobur', 'miha', 'dima', 'admin', 'aza', 'snejok', 'amrik', 'user', 'skype'];
+        $roles = ['admin', 'admin', 'user', 'user', 'admin', 'user', 'user', 'user', 'user', 'user'];
         $emails = ['ikromr04@gmail.com', 'boburjon_n@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru', 'med_2000@mail.ru', 'snejok@mail.ru', 'amriqul@mail.ru', 'superman_sila@mail.ru', 'parvinka99@mail.ru'];
         $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
