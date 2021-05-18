@@ -107,6 +107,7 @@ Route::post('/update_password', 'ProfileController@update_password');
 Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.settings.index');
 Route::post('/update_color', 'SettingsController@changeColor');
 Route::post('/update_background', 'SettingsController@changeBackground');
+Route::post('/update_dashbg', 'SettingsController@update_dashbg');
 //Users page`s routes
 Route::get('/dashboard/users', 'UsersController@index')->name('dashboard.users.index');
 Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.users.single');

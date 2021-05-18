@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Image;
+use Illuminate\Support\Facades\DB;
 class SettingsController extends Controller
 {
     public function index() 
@@ -36,6 +37,28 @@ class SettingsController extends Controller
         $user->save();
         
         return redirect('/dashboard/settings');        
+    }
+
+    public function update_dashbg(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $file = $request->file('dashbg');
+
+        if($file) 
+        {
+            $fileName = $user->id . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('img/dashboards/temp'), $fileName);
+            
+            //Create new img from original
+            $img = Image::make(public_path('img/dashboards/temp/' . $fileName));
+            //save img
+            $img->save(public_path('img/dashboards/temp/' . $fileName));
+            $img->save(public_path('img/dashboards/' . $fileName));
+
+
+            return $fileName;
+        }
+
     }
 
 }

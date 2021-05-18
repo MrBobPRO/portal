@@ -175,6 +175,7 @@ button:focus {
    touch-action: auto;
    -ms-touch-action: auto;
    background-size: cover;
+   background-position-x: center;
 }
 .dashboard .overlay {
    position: absolute;
