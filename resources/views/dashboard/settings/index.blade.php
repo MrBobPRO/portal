@@ -43,14 +43,23 @@
          <img src="{{ asset('img/dashboards/dash4.jpg') }}" alt="img">
       </li>
       <li class="theme-items {{$user->dashBg == 'dash5.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash5.jpg', '4')">
-         <img src="{{ asset('img/dashboards/dash5.jpg') }}" alt="img">
-      </li>
+         <form id="dashbg_update_form" method="POST">
+            <label class="dashbg-label" for="dashbg-input">
+               <div class="own-theme">
+                  <span class="material-icons-outlined">add_circle_outline</span>
+                  <b>Добавить фон</b>
+               </div>
+            </label> 
+            <input class="visually-hidden" id="dashbg-input" type="file" name="dashbg" accept=".jpg, .png, .jpeg" required>   
+         </form>
+        </li>
    </ul>
 
    <form action="/update_background" method="POST">
       @csrf
       <div class="inputBox">
          <span class="title">Тёмный режим:</span>
+         <input type="hidden" name="custom_img" value="0" id="custom_img">
          <input class="visually-hidden" type="checkbox" name="darkbg" id="darkbg" {{\Auth::user()->darkMode == '1' ? 'checked' : ''}}>
          <label for="darkbg" id="emoji" onclick="changeMode()">{{\Auth::user()->darkMode == '1' ? '😊' : '😡'}}</label>
       </div>

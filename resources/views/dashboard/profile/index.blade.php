@@ -13,7 +13,7 @@
                 <p>Рекомендуется загрузить квадратную фотку.<br>Иначе фото автоматический будет вырезан при загрузке !</p>
             </div>
         </div>  {{-- Edit profile avatar end --}}
-
+        
         <h2>Персональная информация</h2>
         {{-- Personal data form start --}}
         <form id="update_profile" action="/update_profile" method="POST" enctype="multipart/form-data">
@@ -124,21 +124,22 @@
 <div class="modal fade avatar-modal" id="avaModal" tabindex="-1" aria-labelledby="avadModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="avadModalLabel">Изменить фото</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form id="update_avatar_modal" action="/update_avatar" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="avatar" accept=".jpg, .png, .jpeg" required>
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" onclick="document.getElementById('update_avatar_modal').submit()" class="main-btn">Изменить</button>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="avadModalLabel">Изменить фото</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="update_avatar_modal" action="/update_dashbg" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="avatar" accept=".jpg, .png, .jpeg" required>
+                    <button></button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="document.getElementById('update_avatar_modal').submit()" class="main-btn">Изменить</button>
+            </div>
       </div>
     </div>
- </div>
+</div>
 
 @endsection
