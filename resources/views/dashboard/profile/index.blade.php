@@ -149,7 +149,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="update_avatar_modal" action="/update_dashbg" method="POST" enctype="multipart/form-data">
+                <form id="update_avatar_modal" action="/update_avatar" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="avatar" accept=".jpg, .png, .jpeg" required>
                     <button></button>

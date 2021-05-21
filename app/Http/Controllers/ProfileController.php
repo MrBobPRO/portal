@@ -127,7 +127,7 @@ class ProfileController extends Controller
         {       
             $user->languages()->attach($lang);
         }
-
+        
         return redirect()->back();
             
     }
