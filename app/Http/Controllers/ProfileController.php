@@ -73,22 +73,61 @@ class ProfileController extends Controller
     public function update_profile(Request $request) 
     {
         $user = User::find(Auth::user()->id);
-
+        //Validation start
+        if ($request->nickname != $user->nickname) {
+            $request->validate([
+                'nickname' => 'unique:users',
+            ]);
+        } else if ($request->email != $user->email) {
+            $request->validate([
+                'email' => 'unique:users',
+            ]);
+        }//Validation end 
+        //Edit user start
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->nickname = $request->nickname;
         $user->birth_date = $request->birth_date;
         $user->email = $request->email;
         $user->description = $request->description;
-        $user->save();
-
-        //detach languages and attach new ones
+        $user->save();//Edit user end
+        //Detach languages and attach new ones
         $user->languages()->detach();
         foreach ($request->languages as $lang) 
-        {
+        {       
             $user->languages()->attach($lang);
         }
             
+        return redirect()->back();
+            
+    }
+    public function update_employee_profile(Request $request) 
+    {
+        //Find emloyee by id
+        $user = User::find($request->user_id);
+        //Validation start
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => 'unique:users',
+            ]);
+        }//Validation end 
+        //Edit user start
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->department_id = $request->department_id;
+        $user->designation_id = $request->designation_id;
+        $user->position_id = $request->position_id;
+        $user->description = $request->description;
+        $user->save();//Edit user end
+        //Detach languages and attach new ones
+        $user->languages()->detach();
+        foreach ($request->languages as $lang) 
+        {       
+            $user->languages()->attach($lang);
+        }
+        
         return redirect()->back();
             
     }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Designation;
+use App\Models\Position;
 use App\Models\Language;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +23,19 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        return view('dashboard.users.single', compact('user'));
+        if (\Auth::user()->role === 'admin') 
+        {
+            $languages = Language::get();
+            $departments = Department::get();
+            $designations = Designation::get();
+            $positions = Position::get();
+            return view('dashboard.users.admin_single', compact('user', 'languages', 'departments', 'designations', 'positions'));
+        } 
+        else 
+        {
+            return view('dashboard.users.single', compact('user'));
+        }
+
     }
 
 }
