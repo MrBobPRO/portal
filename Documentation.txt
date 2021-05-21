@@ -1,18 +1,19 @@
----Laravel v8.33.1 (PHP v7.4.5)
+Laravel v8.33.1 (PHP v7.4.5)
 Timezone -> Asia/Dushanbe
 
 ---Installed packages & plugins---
 Bootstrap v5.0
 Google Roboto Font
-Material Icons
+Material Icons -> More at https://fonts.google.com/icons
 JQuery v3.6
-Select2 v4.1 -> used to style selects and multiselects
-Intervention Image -> used for manipulating with uploaded images
-Owl Carousel => slider~
-Plyr v3.6.7 player => used as videoplayer (https://plyr.io/)
-LC Lightbox gallery plugin -> more at (https://www.jqueryscript.net/gallery/Gallery-Popup-With-jQuery-LC-Lightbox.html)
-JQuery 3dflipbook -> used for reading books. More at : https://3dflipbook.net/ (licensed)
-Simditor v2.3.28 -> used as WYSIWYG text editor. More at (https://simditor.tower.im/)
+Select2 v4.1 -> used to style selects and multiselects. More at https://select2.org/
+Intervention Image -> used for manipulating with uploaded images. More at http://image.intervention.io/
+Owl Carousel v2.3.4 -> used as slider. More at https://owlcarousel2.github.io/OwlCarousel2/
+Plyr v3.6.7 player -> used as Videoplayer. More at https://plyr.io/
+LC Lightbox gallery plugin -> used as Gallery Lightbox. More at https://www.jqueryscript.net/gallery/Gallery-Popup-With-jQuery-LC-Lightbox.html
+JQuery 3dflipbook -> used for reading books. More at https://3dflipbook.net/ (licensed)
+Simditor v2.3.28 -> used as WYSIWYG text editor. More at https://simditor.tower.im/
+Dropzone v5.7.0 -> used for Drag & drop files. More at https://www.dropzonejs.com/
 
 ----------JQuery 3dflipbook--------
 Free version is almost same as licensed. Right now used free version

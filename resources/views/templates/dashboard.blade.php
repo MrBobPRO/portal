@@ -26,7 +26,7 @@
          @if($userr->role == 'admin')
             <div class="dash-links-seperator"></div>
 
-            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single') active @endif"
+            <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') active @endif"
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
 
             <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
@@ -39,14 +39,14 @@
                @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif   
             </a>
 
-            <a class="@if($route == 'dashboard.videos.index' || $route == 'dashboard.videos.single') active @endif"
+            <a class="@if($route == 'dashboard.videos.index' || $route == 'dashboard.videos.single' || $route == 'dashboard.videos.create') active @endif"
             href="{{ route('dashboard.videos.index') }}"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
 
-            <a class="@if($route == 'dashboard.gallery.index' || $route == 'dashboard.gallery.single') active @endif"
-            href="#"><span class="material-icons-outlined">image</span>Галерея</a>
+            <a class="@if($route == 'dashboard.galleries.index' || $route == 'dashboard.galleries.single' || $route == 'dashboard.galleries.create') active @endif"
+            href="{{ route('dashboard.galleries.index') }}"><span class="material-icons-outlined">image</span>Галерея</a>
 
-            <a class="@if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single') active @endif"
-            href="#"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
+            <a class="@if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single' || $route == 'dashboard.projects.create') active @endif"
+            href="{{ route('dashboard.projects.index') }}"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
 
             <a class="@if($route == 'dashboard.knowledge.index' || $route == 'dashboard.knowledge.single') active @endif"
             href="#"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>

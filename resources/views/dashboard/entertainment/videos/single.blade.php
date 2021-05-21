@@ -19,7 +19,7 @@
          @csrf
 
          <div class="input-container-blocked">
-            <label>Файл. Поддерживаемые форматы (webm, mp4, ogg)</label>
+            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
             <input type="file" name="file" id="file" accept=".mp4, .webm, .ogg">
             <video width="400" height="240" controls>
                <source src="{{asset('videos/entertainment/'. $video->filename)}}">

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Complaint;
 use App\Models\Entertainment;
+use App\Models\Gallery;
 use App\Models\Idea;
+use App\Models\Image;
 use App\Models\News;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -33,6 +36,28 @@ class AdminController extends Controller
         ];
     }
     // -----------------------------------Simditor end-------------------------------------------
+
+    public function upload_dropzone_photo(Request $request)
+    {
+        $files = $request->file('files');
+
+        if($files) {
+            foreach($files as $file) {
+                $img = Image::create([
+                    'gallery_id' => $request->gallery_id,
+                    'filename' => 'file'
+                ]);
+        
+                $filename = $img->id . '.' . $file->getClientOriginalExtension();
+                $img->filename = $filename;
+                $img->save();
+        
+                $file->move(public_path('img/entertainment/images'), $filename);
+            }
+        }
+
+        return 'success';
+    }
 
 
     // -----------------------------------News start-------------------------------------------
@@ -154,6 +179,11 @@ class AdminController extends Controller
         return view('dashboard.entertainment.videos.index', compact('videos', 'allVideos'));
     }
 
+    public function videos_create()
+    {
+        return view('dashboard.entertainment.videos.create');
+    }
+
     public function videos_single($id)
     {
         $video = Entertainment::find($id);
@@ -167,5 +197,85 @@ class AdminController extends Controller
 
         return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle'));
     }
-    // -----------------------------------Complaints end-------------------------------------------
+    // -----------------------------------Videos end-------------------------------------------
+
+    // -----------------------------------Projects start-------------------------------------------
+    public function projects()
+    {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
+        $allProjects = DB::table('projects')
+                        ->orderBy($title, 'asc')
+                        ->select('projects.id', 'projects.' . $title . ' as title')
+                        ->get();
+
+        $projects = DB::table('projects')
+                        ->latest()
+                        ->select('projects.id', 'projects.' . $title . ' as title', 'projects.created_at', 'projects.completed')
+                        ->paginate(30);
+
+        return view('dashboard.projects.index', compact('projects', 'allProjects'));
+    }
+
+    public function projects_create()
+    {
+        return view('dashboard.projects.create');
+    }
+
+    public function projects_single($id)
+    {
+        $project = Project::find($id);
+
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $project[$title];
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('dashboard.projects.single', compact('project', 'crumbsTitle'));
+    }
+    // -----------------------------------Projects end-------------------------------------------
+
+
+        // -----------------------------------Gallery start-------------------------------------------
+        public function galleries()
+        {
+            //generate title as ruTitle & tjTitle & enTitle
+            $title = App::currentLocale() . 'Title';
+    
+            $allGalleries = DB::table('galleries')
+                            ->orderBy($title, 'asc')
+                            ->select('galleries.id', 'galleries.' . $title . ' as title')
+                            ->get();
+    
+            $galleries = DB::table('galleries')
+                            ->latest()
+                            ->select('galleries.id', 'galleries.' . $title . ' as title', 'galleries.date')
+                            ->paginate(30);
+    
+            return view('dashboard.entertainment.galleries.index', compact('galleries', 'allGalleries'));
+        }
+    
+        public function galleries_create()
+        {
+            return view('dashboard.entertainment.galleries.create');
+        }
+    
+        public function galleries_single($id)
+        {
+            $gallery = Gallery::find($id);
+    
+            //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+            $title = App::currentLocale() . 'Title';
+            $crumbsTitle = $gallery[$title];
+    
+            if(mb_strlen($crumbsTitle) > 23)
+                $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+    
+            return view('dashboard.entertainment.galleries.single', compact('gallery', 'crumbsTitle'));
+        }
+        // -----------------------------------Gallery end-------------------------------------------
+
 }

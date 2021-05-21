@@ -9,6 +9,7 @@
 .owl-carousel .item img {
    width: 100%;
    object-fit: cover;
+   cursor: grab;
 }
 .owl-theme .owl-dots {
    position: absolute;

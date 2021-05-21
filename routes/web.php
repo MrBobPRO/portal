@@ -118,6 +118,8 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       //-----------Admins routes start-------------
       //Simditor upload photo route
       Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
+      //Dropzone upload photo route
+      Route::post('/upload/dropzone_photo', 'AdminController@upload_dropzone_photo');
       //News
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
@@ -137,6 +139,20 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_video', 'EntertainmentController@videos_update');
       Route::post('/store_video', 'EntertainmentController@videos_store');
       Route::post('/entertainmet/check_uploading_video_size', 'EntertainmentController@check_uploading_video_size');
+      //Projects
+      Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
+      Route::get('/dashboard/projects_create', 'AdminController@projects_create')->name('dashboard.projects.create');
+      Route::get('/dashboard/projects/{id}', 'AdminController@projects_single')->name('dashboard.projects.single');
+      Route::post('/update_projects', 'ProjectsController@update');
+      Route::post('/store_projects', 'ProjectsController@store');
+
+      //Galleries
+      Route::get('/dashboard/galleries', 'AdminController@galleries')->name('dashboard.galleries.index');
+      Route::get('/dashboard/galleries_create', 'AdminController@galleries_create')->name('dashboard.galleries.create');
+      Route::get('/dashboard/galleries/{id}', 'AdminController@galleries_single')->name('dashboard.galleries.single');
+      Route::post('/update_galleries', 'EntertainmentController@galleries_update');
+      Route::post('/store_galleries', 'EntertainmentController@galleries_store');
+      Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 

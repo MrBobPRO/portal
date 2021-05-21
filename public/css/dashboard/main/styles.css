@@ -82,7 +82,7 @@ input:read-only {
 }
 .form-image {
   margin-top: 10px;
-  max-width: 100%;
+  max-width: 60%;
 }
 .dash-search-container {
   display: flex;
@@ -265,6 +265,7 @@ input:read-only {
   color: #1A078F;
 }
 /* Spinner styles end */
+
 
 /* Select2 single styles start*/
 .select2_single_container {

@@ -78,14 +78,14 @@ h2 {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background-color: #e8e8e8;
+   border: 3px solid #e8e8e8;
 }
 .own-theme span {
    font-size: 40px;
    color: #b2b2b2;
 }
-.own-theme b {
-   color: #a0a0a0;
+.own-theme p {
+   margin-top: 10px;
 }
 .inputBox {
    width: 50px;

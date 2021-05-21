@@ -17,4 +17,13 @@
     <script src="{{ asset('js/dashboard/entertainment/videos/scripts.js') }}"></script>
 @break
 
+@case('dashboard.projects.create') @case('dashboard.projects.single') 
+    <script src="{{ asset('js/dashboard/projects/scripts.js') }}"></script>
+@break
+
+@case('dashboard.galleries.create') @case('dashboard.galleries.single') 
+    <script src="{{ asset('js/dropzone-5.7.0/dist/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('js/dashboard/entertainment/galleries/scripts.js') }}"></script>
+@break
+
 @endswitch

@@ -20,7 +20,7 @@ class CreateVideosTable extends Migration
             $table->string('filename');
             $table->string('title');
             $table->string('subtitles')->nullable();
-            $table->string('poster')->nullable();
+            $table->string('poster')->default('default.jpg');
             $table->timestamps();
         });
     }

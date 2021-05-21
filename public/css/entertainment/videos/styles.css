@@ -8,8 +8,8 @@
    justify-content: space-between;
 }
 .videos-list .single-video {
-   width: calc(50% - 20px);
-   margin-bottom: 40px;
+   width: calc(50% - 10px);
+   margin-bottom: 20px;
    background: white;
 }
 .videos-list video {

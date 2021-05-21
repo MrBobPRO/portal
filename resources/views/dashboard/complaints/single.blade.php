@@ -5,6 +5,13 @@
 <section class="single-complaints-page formed-page">
 
    <div class="input-container-inline">
+      <label>Автор</label>
+      <div class="value-replacer">
+         {{$complaint->user->name}} {{$complaint->user->surname}}
+      </div>
+   </div>
+
+   <div class="input-container-inline">
       <label>Заголовок</label>
       <div class="value-replacer">
          {{ $complaint->title }}

@@ -664,3 +664,9 @@ button:focus {
    color: var(--color-scheme);
 }
 /* Chat styles end */
+
+/* Plyr videoplayer styles start */
+.plyr__poster {
+   background-size: cover !important;
+ }
+ /* Plyr videoplayer styles end */

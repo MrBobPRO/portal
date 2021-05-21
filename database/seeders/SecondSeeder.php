@@ -126,7 +126,6 @@ class SecondSeeder extends Seeder
                     $videos->material_id = $materialIDs[$i];
                     $videos->category = $videoCategory[$k];
                     $videos->filename = 'video.mp4';
-                    $videos->poster = '';
                     $videos->title = 'Видеоурок ' . $k;
                     $videos->save();
                 }

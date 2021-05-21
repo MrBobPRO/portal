@@ -5,6 +5,13 @@
 <section class="single-ideas-page formed-page">
 
    <div class="input-container-inline">
+      <label>Автор</label>
+      <div class="value-replacer">
+         {{$idea->user->name}} {{$idea->user->surname}}
+      </div>
+   </div>
+
+   <div class="input-container-inline">
       <label>Заголовок</label>
       <div class="value-replacer">
          {{ $idea->title }}

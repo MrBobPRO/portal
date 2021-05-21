@@ -63,7 +63,7 @@
       @case('entertainment.gallery.single')
          <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
          <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
-         <a href="{{ route('entertainment.gallery.single', $gallery->id) }}"><span>{{ $gallery->name }}</span></a>
+         <a href="{{ route('entertainment.gallery.single', $gallery->id) }}"><span>{{ $crumbsTitle }}</span></a>
       @break
 
       @case('projects.index')

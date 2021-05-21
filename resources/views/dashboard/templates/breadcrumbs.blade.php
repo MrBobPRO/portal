@@ -70,5 +70,33 @@
             <a href="{{ route('dashboard.videos.create') }}"><span>Добавить</span></a>
          @break
 
+      @case('dashboard.projects.index')
+         <a href="{{ route('dashboard.projects.index') }}"><span>{{ __('Проекты') }}</span></a>
+      @break
+
+         @case('dashboard.projects.single')
+            <a href="{{ route('dashboard.projects.index') }}"><span>{{ __('Проекты') }}</span></a>
+            <a href="{{ route('dashboard.projects.single', $project->id) }}"><span>{{$crumbsTitle}}</span></a>
+         @break
+
+         @case('dashboard.projects.create')
+            <a href="{{ route('dashboard.projects.index') }}"><span>{{ __('Проекты') }}</span></a>
+            <a href="{{ route('dashboard.projects.create') }}"><span>Добавить</span></a>
+         @break
+
+      @case('dashboard.galleries.index')
+         <a href="{{ route('dashboard.galleries.index') }}"><span>{{ __('Галерея') }}</span></a>
+      @break
+
+         @case('dashboard.galleries.single')
+            <a href="{{ route('dashboard.galleries.index') }}"><span>{{ __('Галерея') }}</span></a>
+            <a href="{{ route('dashboard.galleries.single', $gallery->id) }}"><span>{{$crumbsTitle}}</span></a>
+         @break
+
+         @case('dashboard.galleries.create')
+            <a href="{{ route('dashboard.galleries.index') }}"><span>{{ __('Галерея') }}</span></a>
+            <a href="{{ route('dashboard.galleries.create') }}"><span>Добавить</span></a>
+         @break
+
       @endswitch
    </div>

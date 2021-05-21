@@ -47,7 +47,7 @@
             <label class="dashbg-label" for="dashbg-input">
                <div class="own-theme">
                   <span class="material-icons-outlined">add_circle_outline</span>
-                  <b>Добавить фон</b>
+                  <p>Добавить фон</p>
                </div>
             </label> 
             <input class="visually-hidden" id="dashbg-input" type="file" name="dashbg" accept=".jpg, .png, .jpeg" required>   
