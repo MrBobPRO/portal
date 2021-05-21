@@ -42,7 +42,7 @@
       <li class="theme-items {{$user->dashBg == 'dash4.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash4.jpg', '3')">
          <img src="{{ asset('img/dashboards/dash4.jpg') }}" alt="img">
       </li>
-      <li class="theme-items {{$user->dashBg == 'dash5.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash5.jpg', '4')">
+      <li class="theme-items">
          <form id="dashbg_update_form" method="POST">
             <label class="dashbg-label" for="dashbg-input">
                <div class="own-theme">

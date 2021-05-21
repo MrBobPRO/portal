@@ -30,7 +30,17 @@
 
             <div class="input-container-inline">
                 <label>Ник</label>
-                <input type="text" name="nickname" value="{{ $user->nickname }}" required>
+                <input type="text"  
+                    name="nickname" 
+                    value="{{ old('nickname') ? old('nickname') : $user->nickname }}" 
+                    @error('nickname')
+                        style="border-color: red"
+                    @enderror
+                    required
+                >
+                @error('nickname')
+                    <p style="display: block" class="input-error password-error">Пользователь с таким ником уже существует</p>
+                @enderror
             </div>
 
             <div class="input-container-inline">
@@ -40,7 +50,17 @@
 
             <div class="input-container-inline">
                 <label>E-mail</label>
-                <input type="email" name="email" value="{{ $user->email }}" required>
+                <input type="email" ''
+                    name="email" 
+                    value="{{ old('email') ? old('email') : $user->email }}" 
+                    @error('email')
+                        style="border-color: red"
+                    @enderror
+                    required
+                >
+                @error('email')
+                    <p style="display: block" class="input-error password-error">Пользователь с таким email-ом уже существует</p>
+                @enderror
             </div>
 
             <div class="input-container-inline">

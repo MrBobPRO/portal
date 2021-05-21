@@ -35,8 +35,7 @@ class SettingsController extends Controller
             copy($temp_path, $original_path);
             $user->dashBg = $request->dashbg;
 
-        }
-
+        } 
         else {
             $user->dashBg = $request->dashbg;
         }
@@ -47,7 +46,6 @@ class SettingsController extends Controller
             $user->darkMode = false;
         }
         $user->save();
-
         
         return redirect()->back();        
     }

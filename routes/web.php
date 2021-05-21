@@ -103,6 +103,7 @@ Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard.pro
 Route::post('/update_avatar', 'ProfileController@update_avatar');
 Route::post('/update_profile', 'ProfileController@update_profile');
 Route::post('/update_password', 'ProfileController@update_password');
+Route::post('/update_employee_profile', 'ProfileController@update_employee_profile');
 //Settings-page's routes
 Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.settings.index');
 Route::post('/update_color', 'SettingsController@changeColor');
@@ -137,6 +138,8 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_video', 'EntertainmentController@videos_update');
       Route::post('/store_video', 'EntertainmentController@videos_store');
       Route::post('/entertainmet/check_uploading_video_size', 'EntertainmentController@check_uploading_video_size');
+      //Profile edit
+      
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 
