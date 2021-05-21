@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $galleryRu = ['Праздник Навруз', 'Тимбилдинг', 'Новый год', 'Поход'];
         $galleryTj = ['Иди Навруз', 'Тимбилдинг', 'Соли нав', 'Поход'];
         $galleryEn = ['Navruz', 'Teambuilding', 'New year', 'Party'];
+
         for($i=0; $i < count($galleryRu); $i++) {
             $gallery = new Gallery;
             $gallery->ruTitle = $galleryRu[$i];
@@ -39,12 +40,14 @@ class DatabaseSeeder extends Seeder
         }
 
         //Images
+        $qq = 1;
         for($x=1; $x<5; $x++) {
             for($i=0; $i < 9; $i++) {
                 $image = new Image;
-                $image->filename = ($i+1) . '.jpg';
+                $image->filename = $qq . '.jpg';
                 $image->gallery_id = $x;
                 $image->save();
+                $qq++;
             }
         }
 
