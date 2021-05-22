@@ -20,7 +20,7 @@ main {
    justify-content: space-between;
 }
 .content {
-   width: 1000px;
+   width: calc(100% - 310px);
    padding-right: 40px;
 }
 section {

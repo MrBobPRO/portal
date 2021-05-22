@@ -98,16 +98,21 @@ class DatabaseSeeder extends Seeder
         $nicknames = ['ikrom', 'bobur', 'miha', 'dima', 'admin', 'aza', 'snejok', 'amrik', 'user', 'skype'];
         $roles = ['admin', 'admin', 'user', 'user', 'admin', 'user', 'user', 'user', 'user', 'user'];
         $emails = ['ikromr04@gmail.com', 'boburjon_n@mail.ru', 'misha@mail.ru', 'dima@mail.ru', 'azamat@mail.ru', 'med_2000@mail.ru', 'snejok@mail.ru', 'amriqul@mail.ru', 'superman_sila@mail.ru', 'parvinka99@mail.ru'];
+
+        $today = date('Y-m-d');
+        $tomorrow = strtotime("+1 day");
+        $afterTomorrow = strtotime("+2 day");
+
         $birthdates = [
             date_create_from_format('Y-m-d', '1997-04-05'),
             date_create_from_format('Y-m-d', '1987-04-03'),
             date_create_from_format('Y-m-d', '1956-04-03'),
             date_create_from_format('Y-m-d', '1800-04-06'),
             date_create_from_format('Y-m-d', '2001-04-07'),
-            date_create_from_format('Y-m-d', '1997-04-05'),
-            date_create_from_format('Y-m-d', '1987-04-03'),
-            date_create_from_format('Y-m-d', '1956-04-03'),
+            date_create_from_format('Y-m-d', '1990-' . date('m-d')),
+            date_create_from_format('Y-m-d', '1996-' . date('m-d', $tomorrow)),
             date_create_from_format('Y-m-d', '1800-04-06'),
+            date_create_from_format('Y-m-d', '2001-' . date('m-d', $afterTomorrow)),
             date_create_from_format('Y-m-d', '2001-04-07')
         ];
 
