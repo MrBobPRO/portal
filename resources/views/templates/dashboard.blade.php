@@ -1,16 +1,17 @@
 
-<?php $userr = \Auth::user(); ?>
+<?php $appUser = \Auth::user(); ?>
+
 <div class="no-selection dashboard-btn">
    {{-- Toogle button --}}
    <span class="material-icons-outlined dash-toogler" onclick="toogleDashboard()">menu</span>
    {{-- Dashboard start --}}
    <div id="dashboard" class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
-      style="background-image: url({{asset('img/dashboards/' . $userr->dashBg)}})">
+      style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})">
 
-      <div id="dashOverlay" class="overlay {{$userr->darkMode == '1' ? '' : 'show'}}"></div>
+      <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'show'}}"></div>
 
       <div class="profile-ava">
-         <a href="#"><img src="{{ asset('img/users/' . $userr->avatar) }}">{{$userr->name}}</a>
+         <a href="#"><img src="{{ asset('img/users/' . $appUser->avatar) }}">{{$appUser->name}}</a>
       </div>
 
       {{-- Dashboard links start --}}
@@ -23,7 +24,7 @@
           href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>Сотрудники</a>
 
          {{-- Admin links tart --}}
-         @if($userr->role == 'admin')
+         @if($appUser->role == 'admin')
             <div class="dash-links-seperator"></div>
 
             <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') active @endif"

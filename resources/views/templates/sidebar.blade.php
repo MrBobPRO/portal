@@ -1,5 +1,6 @@
 
 <div id="sidebar" class="sidebar">
+   {{-- Sidebar Birthdays start --}}
    <div class="birthdays">
       <h1>День рождении
          <span class="material-icons-outlined">star</span>
@@ -17,7 +18,9 @@
          <p>Расул Икромов</p>
       </div>
    </div>
+   {{-- Birthdays end --}}
 
+   {{-- Sidebar News start --}}
    <div class="sidebar-news">
       <h1>Последние новости
          <span class="material-icons-outlined">article</span>
@@ -28,47 +31,38 @@
             <a href=" {{ route('news.single', $new->id) }} ">
                <img src="{{ asset('img/news/' . $new->image) }}" alt="Loading...">
 
-               @switch(\App::currentLocale())
-                  @case('ru')
-                  <h4>{{ $new->ruTitle }}</h4>
-                  <p>{!! $new->ruText !!}</p> 
-                  <span>
-                     <?php 
-                        $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
-                        $formatted = $date->isoFormat('DD MMMM YYYY');
-                     ?>
-                     {{$formatted}}
-                  </span>
-                  @break
-                  
-                  @case('tj')
-                     <h4>{{ $new->tjTitle }}</h4>
-                     <p>{!! $new->tjText !!}</p> 
-                     <span>
-                        <?php 
-                           $date = \Carbon\Carbon::parse($new->created_at)->locale('ru');
-                           $formatted = $date->isoFormat('DD.MM.YYYY');
-                        ?>
-                        {{$formatted}}
-                     </span>
-                  @break
+               <?php
+                  $appLocale = \App::currentLocale();
 
-                  @case('en')
-                     <h4>{{ $new->enTitle }}</h4>
-                     <p>{!! $new->enText !!}</p> 
-                     <span>
-                        <?php 
-                           $date = \Carbon\Carbon::parse($new->created_at)->locale('en');
-                           $formatted = $date->isoFormat('DD MMMM YYYY');
-                        ?>
-                        {{$formatted}}
-                     </span>
-                  @break
-               @endswitch
+                  // Generate News title from appLocale
+                  $sidebarNewsTitle = $new[$appLocale . 'Title'];
+
+                  //Generate News Date Locale from appLocale
+                  if($appLocale == 'en') 
+                     $sidebarNewsDateLocale = 'en';
+                  else
+                     $sidebarNewsDateLocale = 'ru';
+
+                  // Generate News text from appLocale
+                  $sidebarNewsText = $new[$appLocale . 'Text'];
+                  //Replace all tags by space
+                  $sidebarNewsText = preg_replace('#<[^>]+>#', ' ', $sidebarNewsText);
+               ?>
+
+               <h4>{{ $sidebarNewsTitle }}</h4>
+               <p>{!! $sidebarNewsText !!}</p> 
+
+               <span>
+                  <?php 
+                     $date = \Carbon\Carbon::parse($new->created_at)->locale($sidebarNewsDateLocale);
+                     $formatted = $date->isoFormat('DD MMMM YYYY');
+                  ?>
+                  {{$formatted}}
+               </span>
                
             </a>
          </div>
       @endforeach
 
-   </div>
+   </div>  {{-- Sidebar News end --}}
 </div>

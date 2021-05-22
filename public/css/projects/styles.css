@@ -109,6 +109,9 @@
    font-weight: 300;
    line-height: 1.7;
 }
+.projects-content .projects-content-text b {
+   font-weight: bold;
+}
 .projects-content .projects-content-text img {
    max-width: 100%;
    height: auto;

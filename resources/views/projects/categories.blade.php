@@ -7,48 +7,39 @@
 
       {{-- Project category start --}}
       <div class="category">
+
+         <?php $appLocale = \App::currentLocale(); ?>
+
          @foreach ($projects as $project)
             <div class="single-project">
                <img src="{{ asset('img/projects/'. $project->image) }}">
                <a href="{{route('projects.single', $project->id)}}">
 
-               @switch(\App::currentLocale())
-                  @case('ru')
-                     <h3>{{ $project->ruTitle }}</h3>
-                     <p>{!! $project->ruText !!}</p> 
-                     <span class="project-date">
-                        <?php 
-                           $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                           $formatted = $date->isoFormat('DD MMMM YYYY');
-                        ?>
-                        {{$formatted}}
-                     </span>
-                  @break
-                  
-                  @case('tj')
-                     <h3>{{ $project->tjTitle }}</h3>
-                     <p>{!! $project->tjText !!}</p> 
-                     <span class="project-date">
-                        <?php 
-                           $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                           $formatted = $date->isoFormat('DD.MM.YYYY');
-                        ?>
-                        {{$formatted}}
-                     </span>
-                  @break
+                  <?php
+                     // Generate projects title from appLocale
+                     $projectsTitle = $project[$appLocale . 'Title'];
 
-                  @case('en')
-                     <h3>{{ $project->enTitle }}</h3>
-                     <p>{!! $project->enText !!}</p> 
-                     <span class="project-date">
-                        <?php 
-                           $date = \Carbon\Carbon::parse($project->created_at)->locale('en');
-                           $formatted = $date->isoFormat('DD MMMM YYYY');
-                        ?>
-                        {{$formatted}}
-                     </span>
-                  @break
-               @endswitch
+                     //Generate projects Date Locale from appLocale
+                     if($appLocale == 'en') 
+                        $projectsDateLocale = 'en';
+                     else
+                        $projectsDateLocale = 'ru';
+
+                     // Generate projects text from appLocale
+                     $projectsText = $project[$appLocale . 'Text'];
+                     //Replace all tags by space
+                     $projectsText = preg_replace('#<[^>]+>#', ' ', $projectsText);
+                  ?>
+
+                  <h3>{{ $projectsTitle }}</h3>
+                  <p>{!! $projectsText !!}</p> 
+                  <span class="project-date">
+                     <?php 
+                        $date = \Carbon\Carbon::parse($project->created_at)->locale($projectsDateLocale);
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}
+                  </span>
 
                </a>
             </div>

@@ -107,6 +107,9 @@ img {
    font-weight: 300;
    line-height: 1.7;
 }
+.news-content .news-content-text b {
+   font-weight: bold;
+}
 .news-content .news-content-text img {
    max-width: 100%;
    height: auto;

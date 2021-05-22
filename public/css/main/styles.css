@@ -459,6 +459,7 @@ button:focus {
    padding: 0 20px;
    margin: 0;
    line-height: 1.7;
+   overflow-wrap: break-word;
 }
 .sidebar-single-news span {
    background: var(--color-scheme);
