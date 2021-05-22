@@ -1,5 +1,5 @@
 Laravel v8.33.1 (PHP v7.4.5)
-Timezone -> Asia/Dushanbe`
+Timezone -> Asia/Dushanbe
 
 ---Installed packages & plugins---
 Bootstrap v5.0
