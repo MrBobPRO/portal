@@ -9,7 +9,6 @@ use App\Models\Language;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\Designation;
-use App\Models\Chat;
 use App\Models\Complaint;
 use App\Models\Image;
 use App\Models\Gallery;
@@ -150,44 +149,17 @@ class DatabaseSeeder extends Seeder
         $u->languages()->attach(4);
 
 
-        $txts = ['test1','test2','test3','test4','test5','test6','test7','test8','test9','test10','test11','test12','test13','test14','test15','test16','test17','test18','test19','test20', 'test21','test22','test23','test24','test25','test26','test27','test28','test29','test30','test31','test32','test33','test34','test35','test36','test37','test38','test39','test40', 'test41','test42','test43','test44','test55','test46','test47','test48','test49','test50','test51','test52','test53','test54','test55','test56','test57','test58','test59','test60','Привет, акаи Бобур!', 'Добрый день, Икром', 'Мне нужна ваша помощь ака', 'Слушаю??', 'Так как меня не было вчера я не получил свои задачки. У вас же они есть можете мне отправить?', 'Хорошо я тебе отправлю', 'Спасибо, вы лучший!', 'Кто бы сомневался!'];
-        //chat
-        for ($i = 0; $i < count($txts); $i++) {
-            $c = new Chat;
-            if($i % 2 ==0)
-                $c->user_id = 1;
-            else
-                $c->user_id = 2;
-            $c->text = $txts[$i];
-            if($i < 10)
-                $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-23 12:44:0' . $i);
-            else
-                $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-23 12:44:' . $i);
-            $c->save();
-        }
-
-        $c = new Chat;
-        $c->user_id = 4;
-        $c->text = '12345';
-        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 08:30:00');
-        $c->save();
-
-        $c = new Chat;
-        $c->user_id = 4;
-        $c->text = '67890 1234567890';
-        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 08:31:00');
-        $c->save();
-        
-        //Run second seeder
-        $this->call([
-            SecondSeeder::class
-        ]);
-
         $c = new Complaint();
         $c->user_id = 3;
         $c->title = 'Где мои новые наушники??';
         $c->text = 'Вы мне 2 месяца назад обещали новые наушники! И где же они???????? Мне ещё долго ждать их?? Или лучше самому купить?';
         $c->save();
+        
+
+        //Run second seeder
+        $this->call([
+            SecondSeeder::class
+        ]);
 
 
     }

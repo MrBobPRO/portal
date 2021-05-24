@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Chat;
 use App\Models\Complaint;
 use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
@@ -10,9 +9,7 @@ use App\Models\News;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,19 +33,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         \Schema::defaultStringLength(191);
-
-        // share chat data with all routes
-        view()->composer(['templates.chat'], function ($view) {
-            $view->with('chat', Chat::latest()->take(20)->get()->reverse());
-        });
-
-        view()->composer('templates.chat', function ($view) {
-            $view->with('oldestMsgId', Chat::latest()->take(20)->get()->reverse()->first()->id);
-        });
-
-        view()->composer('templates.chat', function ($view) {
-            $view->with('lastMsgId', Chat::latest()->first()->id);
-        });
 
         // share route name
         view()->composer(['templates.master', 'templates.no_sidebar_master', 'dashboard.templates.master', 'dashboard.templates.no_sidebar_master', 'templates.breadcrumbs'], function ($view) {
