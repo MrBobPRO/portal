@@ -79,6 +79,7 @@
             @endif
             <a href="{{ route('projects.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
          @break
+         
          @case('projects.single')
             <a href="{{ route('projects.index') }}"><span>{{ __('Проекты и инициативы') }}</span></a>
             @if ($project->completed)

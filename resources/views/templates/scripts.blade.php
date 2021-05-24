@@ -3,7 +3,7 @@
 
     @case('home.index')
         {{-- Owl Carousel --}}
-        <script src="{{ asset('js/home/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/owl_carousel2-2.3.4/owl.carousel.min.js') }}"></script>
         
         <script src="{{ asset('js/home/scripts.js') }}"></script>
     @break

@@ -3,8 +3,8 @@
     
     @case('home.index')
         {{-- Owl Carousel --}}
-        <link href="{{ asset('css/home/owl.carousel.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/home/owl.theme.default.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('js/owl_carousel2-2.3.4/assets/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('js/owl_carousel2-2.3.4/assets/owl.theme.default.min.css') }}" rel="stylesheet">
 
         <link href="{{ asset('css/home/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/home/media.css') }}" rel="stylesheet">

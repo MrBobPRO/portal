@@ -34,7 +34,7 @@ function ajaxStoreDashVisibility(vision) {
          console.log('success');
       },
       error: function () {
-         alert('ERROR!');
+         console.log('ERROR!');
       }
    });
 }
@@ -133,7 +133,6 @@ function ajaxUpdateChat() {
 
 
 
-
 //load older messages on chat top scroll
 var loading_older_msgs = false;
 var chats_spinner = document.getElementById('chats_spinner');
@@ -202,7 +201,6 @@ function ajaxLoadOlderMsgs()
 
 
 
-
 //show & hide chat functions
 var chat = document.getElementById('chat');
 
@@ -227,10 +225,9 @@ function ajaxStoreChatVisibility(vision) {
          console.log('success');
       },
       error: function () {
-         alert('ERROR!');
+         console.log('ERROR!');
       }
    });
 }
-
 
 //--------------------------Chat end--------------------------------
