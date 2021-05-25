@@ -1,5 +1,5 @@
 //global variables
-var id = document.getElementById('news_id').value,
+var id = document.getElementById('idea_id').value,
    remove_like = document.getElementById('remove_like'),
    like = document.getElementById('like'),
    remove_dislike = document.getElementById('remove_dislike'),
@@ -29,7 +29,7 @@ function ajaxLike(action) {
    $.ajax({
       type: 'POST',
       url: '/like',
-      data: {news_id: id, action: action, source: 'news'},
+      data: {idea_id: id, action: action, source: 'idea'},
 
       success: function (result) {
          switch (result.action) {
@@ -102,7 +102,7 @@ function ajaxDislike(action) {
    $.ajax({
       type: 'POST',
       url: '/dislike',
-      data: {news_id: id, action: action, source: 'news' },
+      data: {idea_id: id, action: action, source: 'idea' },
 
       success: function (result) {
          switch (result.action) {

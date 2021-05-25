@@ -39,11 +39,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('route', \Route::currentRouteName());
         });
 
-        //share with dashboard ideas and complaints counts
-        view()->composer('templates.dashboard', function ($view) {
-            $view->with('newIdeasCount', Idea::where('new', true)->count());
-        });
-        
+        //share with dashboard complaints counts
         view()->composer('templates.dashboard', function ($view) {
             $view->with('newComplaintsCount', Complaint::where('new', true)->count());
         });

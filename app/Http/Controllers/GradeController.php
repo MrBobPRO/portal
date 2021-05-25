@@ -11,10 +11,22 @@ class GradeController extends Controller
     public function like(Request $request)
     {
         //check if user has already graded current news
-        $news_id = $request->news_id;
         $user = Auth::user();
         $user_id = $user->id;
-        $grade = Grade::where('news_id', $news_id)->where('user_id', $user_id)->first();
+
+        //check source
+        if($request->source == 'news') {
+            $news_id = $request->news_id;
+            $idea_id = null;
+            $grade = Grade::where('news_id', $news_id)->where('user_id', $user_id)->first();
+        }
+        //else if its idea
+        else {
+            $idea_id = $request->idea_id;
+            $news_id = null;
+            $grade = Grade::where('idea_id', $idea_id)->where('user_id', $user_id)->first();
+        }
+
 
         // if user HAS NOT already graded current news
         if($request->action == 'like' && !$grade) {
@@ -22,6 +34,7 @@ class GradeController extends Controller
             Grade::create([
                 'user_id' => $user_id,
                 'news_id' => $news_id,
+                'idea_id' => $idea_id,
                 'like' => true
             ]);
         
@@ -57,10 +70,21 @@ class GradeController extends Controller
     public function dislike(Request $request)
     {
         //check if user has already graded current news
-        $news_id = $request->news_id;
         $user = Auth::user();
         $user_id = $user->id;
-        $grade = Grade::where('news_id', $news_id)->where('user_id', $user_id)->first();
+
+        //check source
+        if($request->source == 'news') {
+            $news_id = $request->news_id;
+            $idea_id = null;
+            $grade = Grade::where('news_id', $news_id)->where('user_id', $user_id)->first();
+        }
+        //else if its idea
+        else {
+            $idea_id = $request->idea_id;
+            $news_id = null;
+            $grade = Grade::where('idea_id', $idea_id)->where('user_id', $user_id)->first();
+        }
 
         // if user HAS NOT already graded current news
         if($request->action == 'dislike' && !$grade) {
@@ -68,6 +92,7 @@ class GradeController extends Controller
             Grade::create([
                 'user_id' => $user_id,
                 'news_id' => $news_id,
+                'idea_id' => $idea_id,
                 'like' => false
             ]);
         

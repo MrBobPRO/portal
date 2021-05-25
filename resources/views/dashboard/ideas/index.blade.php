@@ -16,26 +16,22 @@
       {{-- Ideas seach end --}}
       
       <div class="primary-list-titles">
-         <div class="width-25">Заголовок</div>
-         <div class="width-25">Автор</div>
-         <div class="width-25">Дата добавления</div>
-         <div class="width-25">Статус</div>
+         <div class="width-33">Заголовок</div>
+         <div class="width-33">Автор</div>
+         <div class="width-33">Дата добавления</div>
       </div>
 
       <div class="primary-list">
          @foreach($ideas as $idea)
             <a class="primary-list-item" href="{{ route('dashboard.ideas.single', $idea->id)}}">
-               <div class="width-25">{{$idea->title}}</div>
-               <div class="width-25">{{$idea->user->name}} {{$idea->user->surname}}</div>
-               <div class="width-25">
+               <div class="width-33">{{$idea->title}}</div>
+               <div class="width-33">{{$idea->user->name}} {{$idea->user->surname}}</div>
+               <div class="width-33">
                   <?php 
                      $date = \Carbon\Carbon::parse($idea->created_at)->locale('ru');
                      $formatted = $date->isoFormat('DD MMMM YYYY H:mm:s');
                   ?>
                   {{$formatted}}
-               </div>
-               <div class="width-25">
-                  {!!$idea->new ? '<span class="list-new-item">НОВЫЙ</span>' : 'Просмотрено'!!}
                </div>
             </a>
          @endforeach

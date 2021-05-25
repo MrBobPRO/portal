@@ -13,7 +13,6 @@ class CommentController extends Controller
         Comment::create([
             'user_id' => Auth::user()->id,
             'news_id' => $request->id,
-            'project_id' => null,
             'body' => $request->body
         ]);
 
@@ -24,8 +23,18 @@ class CommentController extends Controller
     {
         Comment::create([
             'user_id' => Auth::user()->id,
-            'news_id' => null,
             'project_id' => $request->id,
+            'body' => $request->body
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function ideas(Request $request)
+    {
+        Comment::create([
+            'user_id' => Auth::user()->id,
+            'idea_id' => $request->id,
             'body' => $request->body
         ]);
 

@@ -100,36 +100,6 @@ class AdminController extends Controller
     // -----------------------------------News end-------------------------------------------
 
 
-    // -----------------------------------Ideas start-------------------------------------------
-    public function ideas()
-    {
-        $allIdeas = DB::table('ideas')
-                        ->orderBy('title', 'asc')
-                        ->select('ideas.id', 'ideas.title')
-                        ->get();
-
-        $ideas = Idea::latest()->paginate(30);
-
-        return view('dashboard.ideas.index', compact('allIdeas', 'ideas'));
-    }
-
-    public function ideas_single($id)
-    {
-        $idea  = Idea::find($id);
-        //change ideas status
-        $idea->new = false;
-        $idea->save();
-        //genereate title for breadcrumbs
-        if(mb_strlen($idea->title) > 55)
-            $crumbsTitle = mb_substr($idea->title, 0, 52) . '...';
-        else
-            $crumbsTitle = $idea->title;
-
-        return view('dashboard.ideas.single', compact('idea', 'crumbsTitle'));
-    }
-    // -----------------------------------Ideas end-------------------------------------------
-
-
     // -----------------------------------Complaints start-------------------------------------------
     public function complaints()
     {

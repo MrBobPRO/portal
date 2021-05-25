@@ -8,6 +8,15 @@
         <script src="{{ asset('js/home/scripts.js') }}"></script>
     @break
 
+    @case('ideas.create')
+        {{-- Simditor v2.3.28 --}}
+        <script src="{{ asset('js/simditor/scripts/module.js') }}"></script>
+        <script src="{{ asset('js/simditor/scripts/hotkeys.js') }}"></script>
+        <script src="{{ asset('js/simditor/scripts/uploader.js') }}"></script>
+        <script src="{{ asset('js/simditor/scripts/simditor.js') }}"></script>
+        <script src="{{ asset('js/ideas/scripts.js') }}"></script>
+    @break
+
     @case('news.single')
         <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break

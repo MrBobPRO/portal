@@ -13,5 +13,15 @@ class Idea extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
     
 }

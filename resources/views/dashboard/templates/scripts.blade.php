@@ -9,6 +9,10 @@
     <script src="{{ asset('js/dashboard/settings/scripts.js') }}"></script>
 @break
 
+@case('dashboard.ideas.single') 
+    <script src="{{ asset('js/dashboard/ideas/scripts.js') }}"></script>
+@break
+
 @case('dashboard.news.create') @case('dashboard.news.single') 
     <script src="{{ asset('js/dashboard/news/scripts.js') }}"></script>
 @break

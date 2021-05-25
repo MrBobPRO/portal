@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id');
             $table->integer('news_id')->nullable();
             $table->integer('project_id')->nullable();
+            $table->integer('idea_id')->nullable();
             $table->text('body');
             $table->timestamps();
         });

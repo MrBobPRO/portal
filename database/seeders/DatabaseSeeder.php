@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 use App\Models\User;
@@ -12,6 +13,7 @@ use App\Models\Designation;
 use App\Models\Complaint;
 use App\Models\Image;
 use App\Models\Gallery;
+use App\Models\Grade;
 use App\Models\Idea;
 
 class DatabaseSeeder extends Seeder
@@ -106,11 +108,11 @@ class DatabaseSeeder extends Seeder
             date_create_from_format('Y-m-d', '1997-04-05'),
             date_create_from_format('Y-m-d', '1987-04-03'),
             date_create_from_format('Y-m-d', '1956-04-03'),
-            date_create_from_format('Y-m-d', '1800-04-06'),
+            date_create_from_format('Y-m-d', '2000-04-06'),
             date_create_from_format('Y-m-d', '2001-04-07'),
             date_create_from_format('Y-m-d', '1990-' . date('m-d')),
             date_create_from_format('Y-m-d', '1996-' . date('m-d', $tomorrow)),
-            date_create_from_format('Y-m-d', '1800-04-06'),
+            date_create_from_format('Y-m-d', '1990-04-06'),
             date_create_from_format('Y-m-d', '2001-' . date('m-d', $afterTomorrow)),
             date_create_from_format('Y-m-d', '2001-04-07')
         ];
@@ -155,6 +157,58 @@ class DatabaseSeeder extends Seeder
         $c->text = 'Вы мне 2 месяца назад обещали новые наушники! И где же они???????? Мне ещё долго ждать их?? Или лучше самому купить?';
         $c->save();
         
+        $i = new Idea;
+        $i->title = 'Тимбилдинг в Искандаркуле!';
+        $i->text = "<p>Предлагаю <b>всей тимой</b> сходить 20 июня в Искендеркуль на тимбилндинги ! Причины</p><ol><li>&nbsp;Давно не ходили в тимбилдинги</li><li>Заслужили</li><li>Отдых не помешает</li><li>Темболее погодая какая классная!</li></ol><p>Озеро&nbsp;Искандеркуль&nbsp;по преданиям получило своё название от имени&nbsp;Александра Македонского[1], которого на Востоке называли&nbsp;Искандер Зулькарнайн&nbsp;(Искандер двурогий). Слово «куль» (тадж.&nbsp;кӯл,&nbsp;узб.&nbsp;ko'l) означает собственно «озеро», отсюда название&nbsp;— «Искандеркуль». Александр Македонский якобы здесь побывал на своём пути из&nbsp;Средней Азии&nbsp;в&nbsp;Индию.<br></p><p><img alt='Iskanderkul-na-16-polosu.jpg' src='/img/ideas/simditor/AR4z953JqjyD1G3.jpg' width='960' height='720'><br></p><p>Озеро имеет завальный тип строения, оно подпружено&nbsp;мореной, засыпанной сверху горной породой, что явилось результатом обвала, возможно вследствие сильного землетрясения. Озеро расположено на высоте 2195 метров над уровнем моря, в отрогах горного узла&nbsp;Кухистан, между западными оконечностями Гиссарского и Зерафшанского хребтов.<br></p><p>Общая площадь водной поверхности озера составляет 3,4 км², глубина озера достигает 72 метров, объём по данным 1978 года, составляло 0,24 км³[2]. По мнению ученых, в древности озеро имело более высокий уровень воды, следы которого можно увидеть на склонах окружающих гор, на высоте более 120 метров[3].<br></p><p>В озеро впадают реки&nbsp;Сарытаг,&nbsp;Хазормечь, Сарима, а также мелкие горные ручьи. Из озера вытекает река&nbsp;—&nbsp;Искандердарья, входящая в бассейн&nbsp;Зеравшана.<br></p>
+        <p>Кто едет ставим лайки!";
+        $i->user_id = 4;
+        $i->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-22 08:22:00');
+        $i->save();
+
+        $c = new Comment;
+        $c->idea_id = 1;
+        $c->user_id = 10;
+        $c->body = 'Мы только за, если всё за счет компании))';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-22 09:00:00');
+        $c->save();
+
+        $c = new Comment;
+        $c->idea_id = 1;
+        $c->user_id = 8;
+        $c->body = 'А мы едем с ночовкой или без?';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-22 09:20:00');
+        $c->save();
+
+        $c = new Comment;
+        $c->idea_id = 1;
+        $c->user_id = 7;
+        $c->body = 'Ночовка наверное по желанию будет. Кто без ночовки, довезём после ужина по домам';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-22 09:22:00');
+        $c->save();
+
+        $g = new Grade;
+        $g->like = true;
+        $g->idea_id = 1;
+        $g->user_id = 5;
+        $g->save();
+
+        $g = new Grade;
+        $g->like = true;
+        $g->idea_id = 1;
+        $g->user_id = 4;
+        $g->save();
+
+        $g = new Grade;
+        $g->like = true;
+        $g->idea_id = 1;
+        $g->user_id = 3;
+        $g->save();
+
+        $g = new Grade;
+        $g->like = false;
+        $g->idea_id = 1;
+        $g->user_id = 10;
+        $g->save();
 
         //Run second seeder
         $this->call([

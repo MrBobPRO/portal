@@ -23,17 +23,15 @@
          <a class="@if($route == 'dashboard.users.index' || $route == 'dashboard.users.single') active @endif"
           href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>Сотрудники</a>
 
+          <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
+          href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>Идеи</a>
+
          {{-- Admin links tart --}}
          @if($appUser->role == 'admin')
             <div class="dash-links-seperator"></div>
 
             <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') active @endif"
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
-
-            <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
-               href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>Идеи
-               @if($newIdeasCount > 0) ({{$newIdeasCount}}) @endif
-            </a>
 
             <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
                href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы

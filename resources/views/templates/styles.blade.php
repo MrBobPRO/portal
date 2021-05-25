@@ -60,10 +60,16 @@
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break
 
-    @case('ideas.create') @case('complaints.create')
+    @case('ideas.create')
+        {{-- Simditor v2.3.28 --}}
+        <link href="{{ asset('js/simditor/styles/simditor.css') }}" rel="stylesheet">
         {{-- Dashboard styles linked because of list & form styles --}}
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/ideas & complaints/styles.css') }}" rel="stylesheet">
+    @break
+
+    @case('complaints.create')
+        {{-- Dashboard styles linked because of list & form styles --}}
+        <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
     @break
 
     @case('notifications.index') @case('notifications.single')

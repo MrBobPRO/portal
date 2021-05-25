@@ -64,21 +64,21 @@ class SecondSeeder extends Seeder
         $c->user_id = 1;
         $c->news_id = 1;
         $c->body = 'Смелость — это способность подавить воображаемые страхи и получить намного более насыщенную и богатую жизнь, в которой ты сам себе отказываешь.';
-        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-23 12:44:07');
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-22 12:44:07');
         $c->save();
 
         $c = new Comment;
         $c->user_id = 2;
         $c->news_id = 1;
         $c->body = 'Как же хорошо сказано...';
-        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:05:22');
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-23 13:05:22');
         $c->save();
 
         $c = new Comment;
-        $c->user_id = 1;
+        $c->user_id = 3;
         $c->news_id = 1;
-        $c->body = 'Меня тоже тронула эта цитата';
-        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-04-24 13:12:27');
+        $c->body = 'Золотые слова Юрий Венедиктовичь!';
+        $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-24 13:12:27');
         $c->save();
 
         //Intertainment

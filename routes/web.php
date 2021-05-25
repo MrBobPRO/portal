@@ -55,8 +55,8 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
    Route::get('/inner_news', 'NewsController@inner')->name('news.inner');
    Route::get('/global_news', 'NewsController@global')->name('news.global');
       //Like and dislike routes
-      Route::post('/news/like', 'GradeController@like');
-      Route::post('/news/dislike', 'GradeController@dislike');
+      Route::post('/like', 'GradeController@like');
+      Route::post('/dislike', 'GradeController@dislike');
       //Comment
       Route::post('/news/comment', 'CommentController@news');
 //------------News-page's route--------------
@@ -104,6 +104,11 @@ Route::post('/update_dashbg', 'SettingsController@update_dashbg');
 //Users page`s routes
 Route::get('/dashboard/users', 'UsersController@index')->name('dashboard.users.index');
 Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.users.single');
+//Ideas
+Route::get('/dashboard/ideas', 'IdeaController@index')->name('dashboard.ideas.index');
+Route::get('/dashboard/ideas/{id}', 'IdeaController@single')->name('dashboard.ideas.single');
+      //Comment
+      Route::post('/ideas/comment', 'CommentController@ideas');
 
 //Dashboard visibility change
 Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
@@ -119,9 +124,6 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
       Route::post('/update_news', 'NewsController@update');
       Route::post('/store_news', 'NewsController@store');
-      //Ideas
-      Route::get('/dashboard/ideas', 'AdminController@ideas')->name('dashboard.ideas.index');
-      Route::get('/dashboard/ideas/{id}', 'AdminController@ideas_single')->name('dashboard.ideas.single');
       //Complaints
       Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');

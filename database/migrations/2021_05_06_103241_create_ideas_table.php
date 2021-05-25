@@ -19,8 +19,6 @@ class CreateIdeasTable extends Migration
             $table->string('title');
             $table->text('text');
             $table->string('file')->nullable();
-            $table->boolean('new')->default(true);
-            $table->text('response')->nullable();
             $table->timestamps();
         });
     }

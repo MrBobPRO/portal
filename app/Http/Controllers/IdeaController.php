@@ -6,6 +6,7 @@ use App\Models\Idea;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class IdeaController extends Controller
 {
@@ -46,22 +47,43 @@ class IdeaController extends Controller
         return response()->download($path);
     }
 
-    public function response(Request $request)
+
+    public function index()
     {
-        $idea = Idea::find($request->id);
-        $response = $request->response;
+        $allIdeas = DB::table('ideas')
+                        ->orderBy('title', 'asc')
+                        ->select('ideas.id', 'ideas.title')
+                        ->get();
 
-        $idea->response = $response;
-        $idea->save();
+        $ideas = Idea::latest()->paginate(30);
 
-        //send notification to user
-        $notification = new Notification;
-        $notification->user_id = $idea->user_id;
-        $notification->title = 'Ответ на вашу идею "' . $idea->title . '"';
-        $notification->text = $request->response;
-        $notification->save();
+        return view('dashboard.ideas.index', compact('allIdeas', 'ideas'));
+    }
 
-        return redirect()->back();
+    public function single($id)
+    {
+        $idea  = Idea::find($id);
+
+        //genereate title for breadcrumbs
+        if(mb_strlen($idea->title) > 55)
+            $crumbsTitle = mb_substr($idea->title, 0, 52) . '...';
+        else
+            $crumbsTitle = $idea->title;
+
+        $likes = $idea->grades->where('like', true);
+        $dislikes = $idea->grades->where('like', false);
+
+        //used to get users grade for blade template
+        $usersGrade = $idea->grades->where('user_id', Auth::user()->id)->first();
+        if(!$usersGrade) $usersGrade = 'null';
+        else if($usersGrade->like) $usersGrade = 'like';
+            else $usersGrade = 'dislike';
+
+        //comments
+        $comments = $idea->comments()->latest()->get();
+        $commentsCount = count($comments);
+
+        return view('dashboard.ideas.single', compact('idea', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
 }

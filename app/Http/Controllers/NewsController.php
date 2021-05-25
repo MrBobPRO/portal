@@ -67,7 +67,7 @@ class NewsController extends Controller
             else $usersGrade = 'dislike';
 
         //comments
-        $comments = $news->comments()->oldest()->get();
+        $comments = $news->comments()->latest()->get();
         $commentsCount = count($comments);
 
         return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
