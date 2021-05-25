@@ -40,14 +40,7 @@ class IdeaController extends Controller
         return redirect()->back();
     }
 
-    public function download(Request $request)
-    {
-        $path = public_path('files/ideas/' . $request->file);
-
-        return response()->download($path);
-    }
-
-
+    
     public function index()
     {
         $allIdeas = DB::table('ideas')

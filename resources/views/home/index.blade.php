@@ -12,15 +12,15 @@
       <div class="owl-carousel-container">
          <div class="owl-carousel owl-theme">
             @foreach ($items as $item)
-               @if($item->link == '')
+               @if($item->url == '')
                   <div class="item">
                      <img src="{{ asset('img/slider/' . $item->image) }}">
-                     <p>{{$item->title}}</p>
+                     <p style="color: {{$item->color}}">{{$item->title}}</p>
                   </div>
                @else
-                  <a href="{{$item->link}}" class="item">
+                  <a href="{{$item->url}}" class="item">
                      <img src="{{ asset('img/slider/' . $item->image) }}">
-                     <p>{{$item->title}}</p>
+                     <p style="color: {{$item->color}}">{{$item->title}}</p>
                   </a>
                @endif
 

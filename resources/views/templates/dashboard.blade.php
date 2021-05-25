@@ -33,6 +33,9 @@
             <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') active @endif"
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
 
+            <a class="@if($route == 'dashboard.slider.index' || $route == 'dashboard.slider.single' || $route == 'dashboard.slider.create') active @endif"
+            href="{{ route('dashboard.slider.index') }}"><span class="material-icons-outlined">slideshow</span>{{ __('Слайдер') }}</a>
+
             <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
                href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы
                @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif   

@@ -9,6 +9,7 @@ use App\Models\Idea;
 use App\Models\Image;
 use App\Models\News;
 use App\Models\Project;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +99,28 @@ class AdminController extends Controller
         return view('dashboard.news.single', compact('news', 'crumbsTitle'));
     }
     // -----------------------------------News end-------------------------------------------
+
+
+    // -----------------------------------News start-------------------------------------------
+    public function slider()
+    {
+        $items = Slider::orderBy('priority', 'asc')->get();
+
+        return view('dashboard.slider.index', compact('items'));
+    }
+
+    public function slider_create()
+    {
+        return view('dashboard.slider.create');
+    }
+
+    public function slider_single($id)
+    {
+        $item = Slider::find($id);
+
+        return view('dashboard.slider.single', compact('item'));
+    }
+    // -----------------------------------Slider end-------------------------------------------
 
 
     // -----------------------------------Complaints start-------------------------------------------

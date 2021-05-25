@@ -26,7 +26,6 @@ Route::post('/setLangTj', 'LanguageController@setLangTj');
 //--------------Ideas complaints & notification routes-------------------
 Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
 Route::post('/ideas/store', 'IdeaController@store');
-Route::post('/ideas/download', 'IdeaController@download');
 
 Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
 Route::post('/complaints/store', 'ComplaintController@store');
@@ -124,6 +123,12 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
       Route::post('/update_news', 'NewsController@update');
       Route::post('/store_news', 'NewsController@store');
+      //Slider
+      Route::get('/dashboard/slider', 'AdminController@slider')->name('dashboard.slider.index');
+      Route::get('/dashboard/slider_create', 'AdminController@slider_create')->name('dashboard.slider.create');
+      Route::get('/dashboard/slider/{id}', 'AdminController@slider_single')->name('dashboard.slider.single');
+      Route::post('/update_slider_item', 'SliderController@update_item');
+      Route::post('/store_slider_item', 'SliderController@store_item');
       //Complaints
       Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');

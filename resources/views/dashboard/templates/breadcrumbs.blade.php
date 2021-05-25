@@ -35,6 +35,20 @@
             <a href="{{ route('dashboard.news.create') }}"><span>Добавить</span></a>
          @break
 
+         @case('dashboard.slider.index')
+            <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
+         @break
+
+            @case('dashboard.news.single')
+               <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
+               <a href="{{ route('dashboard.slider.single', $item->id) }}"><span>{{$item->priority}}</span></a>
+            @break
+
+            @case('dashboard.news.create')
+               <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
+               <a href="{{ route('dashboard.slider.create') }}"><span>Добавить</span></a>
+            @break
+
 
       @case('dashboard.ideas.index')
          <a href="{{ route('dashboard.ideas.index') }}"><span>{{ __('Идеи') }}</span></a>

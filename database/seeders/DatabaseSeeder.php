@@ -213,14 +213,14 @@ class DatabaseSeeder extends Seeder
         
         $s = new Slider;
         $s->image = '1.jpg';
-        $s->link = '/news/1';
-        $s->title = 'Очень важная новость, перейти!';
+        $s->url = '/dashboard/ideas/1';
+        $s->title = 'Очень важная новость, голосуй !';
         $s->priority = 1;
         $s->save();
 
         $s = new Slider;
         $s->image = '2.jpg';
-        $s->priority = 1;
+        $s->priority = 2;
         $s->save();
 
 

@@ -13,6 +13,10 @@
     <script src="{{ asset('js/dashboard/ideas/scripts.js') }}"></script>
 @break
 
+@case('dashboard.slider.single') @case('dashboard.slider.create')
+    <script src="{{ asset('js/dashboard/slider/scripts.js') }}"></script>
+@break
+
 @case('dashboard.news.create') @case('dashboard.news.single') 
     <script src="{{ asset('js/dashboard/news/scripts.js') }}"></script>
 @break
