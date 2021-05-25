@@ -22,6 +22,7 @@
 
 @case('dashboard.slider.single') @case('dashboard.slider.create')
     <link href="{{ asset('css/dashboard/slider/styles.css') }}" rel="stylesheet">
+    {{-- Spectrum colorPicker --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.css">
 @break
 
