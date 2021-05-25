@@ -27,7 +27,6 @@ Route::post('/setLangTj', 'LanguageController@setLangTj');
 Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
 Route::post('/ideas/store', 'IdeaController@store');
 Route::post('/ideas/download', 'IdeaController@download');
-Route::post('/ideas/response', 'IdeaController@response');
 
 Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
 Route::post('/complaints/store', 'ComplaintController@store');
@@ -86,6 +85,7 @@ Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge.index');
 Route::get('/knowledge/books/{material}', 'KnowledgeController@books')->name('knowledge.books.index');
 Route::get('/read_book_{book}', 'KnowledgeController@books_single')->name('knowledge.books.single');
 Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowledge.videos.index');
+Route::post('/books/download', 'KnowledgeController@books_download');
 //------------Knowledge-page's route--------------
  
 

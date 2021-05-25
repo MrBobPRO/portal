@@ -102,32 +102,34 @@ li {
 /* Videos page end*/
 
 /* Books page start*/
-.books-page .pagination {
-   margin-top: 0;
-}
-.books-list {
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
-}
-.books-list a {
-   width: 31%;
+.books-list-item {
+   padding: 13px 20px;
    background: white;
-   margin-bottom: 35px;
+   border-bottom: 1px solid #0000001f;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   transition: 0.3s;
+}
+.books-list-item:hover {
+   background: #f9f9f9;
+}
+.books-list-item a {
+   font-weight: 300;
+   color: black;
    text-decoration: none;
+   max-width: calc(100% - 50px);
 }
-.books-list a img {
-   max-width: 100%;
-   border-radius: 5px 5px 0 0;
+.books-list-item form {
+   min-width: 50px;
+   display: flex;
+   justify-content: flex-end;
 }
-.books-list a h3 {
-   padding: 15px 15px 8px;
-   font-size: 18px;
+.books-list-item button {
+   border: none;
+   padding: 0;
+   background: transparent;
+   line-height: 1;
    color: var(--color-scheme);
-}
-.books-list a p {
-   margin: 0;
-   padding: 0 15px 15px;
-   color: #212529;
 }
 /* Books page end*/

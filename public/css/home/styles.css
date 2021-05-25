@@ -16,6 +16,18 @@
    bottom: 10px;
    width: 100%;
 }
+.owl-carousel a p {
+   color: black;
+}
+.owl-carousel p {
+   position: absolute;
+   top: 38%;
+   left: 110px;
+   font-weight: 500;
+   font-style: italic;
+   font-size: 22px;
+   text-decoration: underline;
+}
 .owl-navs {
    position: absolute;
    top: 45%;

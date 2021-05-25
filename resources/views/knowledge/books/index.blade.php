@@ -7,15 +7,18 @@
       <div class="books-list">
 
          @foreach ($books as $book)
-            <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank">
-               @if($book->image != '')
-                  <img src="{{ asset('books/imgs/' . $book->image) }}">
-               @else
-                  <img src="{{ asset('books/imgs/default.jpg') }}">
-               @endif
-               <h3> {{ $book->name }} </h3>
-               <p> {{ $book->description }} </p>   
-            </a>   
+            <div class="books-list-item">
+               <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank"> {{ $book->name }} </a>
+   
+               <form action="/books/download" method="POST">
+                  @csrf
+                  <input type="hidden" value="{{$book->id}}" name="id">
+                  <button type="submit">
+                     <span class="material-icons-outlined">file_download</span>
+                  </button>
+               </form>
+
+            </div>
          @endforeach
 
       </div>

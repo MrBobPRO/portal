@@ -22,7 +22,7 @@ class KnowledgeController extends Controller
     public function books(Material $material) {
         $books = Book::where('material_id', $material->id)
                         ->where('category', $material->category)
-                        ->paginate(12);
+                        ->paginate(30);
 
         //used in breadcrumbs       
         $subjectcat = Subjectcat::where('id', $material->subjectcat_id)->first();
@@ -35,6 +35,15 @@ class KnowledgeController extends Controller
 
         return view('knowledge.books.single', compact('book'));
         
+    }
+
+    public function books_download(Request $request)
+    {
+        $book = Book::find($request->id);
+
+        $path = public_path('books/' . $book->filename);
+
+        return response()->download($path, $book->name);
     }
 
     public function videos($id) {

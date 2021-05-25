@@ -11,12 +11,20 @@
       {{-- Owl Carousel --}}
       <div class="owl-carousel-container">
          <div class="owl-carousel owl-theme">
-            <div class="item">
-               <img src="{{ asset('img/home/slider1.jpg') }}" alt="img">
-            </div>
-            <div class="item">
-               <img src="{{ asset('img/home/slider2.jpg') }}" alt="img">
-            </div>
+            @foreach ($items as $item)
+               @if($item->link == '')
+                  <div class="item">
+                     <img src="{{ asset('img/slider/' . $item->image) }}">
+                     <p>{{$item->title}}</p>
+                  </div>
+               @else
+                  <a href="{{$item->link}}" class="item">
+                     <img src="{{ asset('img/slider/' . $item->image) }}">
+                     <p>{{$item->title}}</p>
+                  </a>
+               @endif
+
+            @endforeach
         </div>
 
         {{-- Carousel navs --}}

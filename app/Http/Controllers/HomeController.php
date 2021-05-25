@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ForgotPassword;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentials;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +28,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home.index');
+        $items = Slider::orderBy('priority', 'asc')->get();
+
+        return view('home.index', compact('items'));
     }
 
     public function send_credentials()

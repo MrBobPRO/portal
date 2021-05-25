@@ -15,6 +15,7 @@ use App\Models\Image;
 use App\Models\Gallery;
 use App\Models\Grade;
 use App\Models\Idea;
+use App\Models\Slider;
 
 class DatabaseSeeder extends Seeder
 {
@@ -209,6 +210,19 @@ class DatabaseSeeder extends Seeder
         $g->idea_id = 1;
         $g->user_id = 10;
         $g->save();
+        
+        $s = new Slider;
+        $s->image = '1.jpg';
+        $s->link = '/news/1';
+        $s->title = 'Очень важная новость, перейти!';
+        $s->priority = 1;
+        $s->save();
+
+        $s = new Slider;
+        $s->image = '2.jpg';
+        $s->priority = 1;
+        $s->save();
+
 
         //Run second seeder
         $this->call([

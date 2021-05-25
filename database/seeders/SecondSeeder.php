@@ -144,7 +144,6 @@ class SecondSeeder extends Seeder
                     $books->filename = '1.pdf';
                     $books->material_id = $matIDs[$i];
                     $books->category = $bookCategory[$k];
-                    $books->description = 'Книга — один из видов печатной продукции: непериодическое издание';
                     $books->save();
                 }
             } 
