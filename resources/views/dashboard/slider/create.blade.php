@@ -2,62 +2,36 @@
 
 @section('content')
 
-   <section class="news-single-page formed-page">
-      <form action="/store_news" method="POST" enctype="multipart/form-data">
+   <section class="slider-page formed-page">
+      <form action="/create_slider_item" method="POST" enctype="multipart/form-data">
 
          @csrf
-         <div class="input-container-blocked">
-             <label>Заголовок на русском</label>
-             <input type="text" name="ruTitle" required>
+         <div class="input-container-inline">
+            <label>Приоритет</label>
+            <input type="number" name="priority" required>
          </div>
 
-         <div class="input-container-blocked">
-               <label>Заголовок на таджикском</label>
-               <input type="text" name="tjTitle" required>
+         <div class="input-container-inline">
+            <label>Текст</label>
+            <input type="text" name="title">
          </div>
 
-         <div class="input-container-blocked">
-               <label>Заголовок на английском</label>
-               <input type="text" name="enTitle" required>
+         <div class="input-container-inline">
+            <label>Цвет текста</label>
+            <input class="color-picker" type="color" name="color" required>
          </div>
 
-         <div class="input-container-blocked">
-            <label>Тип</label>
-            <div class="select2_single_container">
-               <select class="select2_single" name="global" required data-dropdown-css-class="select2_single_dropdown">
-                  <option value="1">Мировые новости</option>
-                  <option value="0">Новости компании</option>
-               </select>
-            </div>
+         <div class="input-container-inline">
+            <label>Ссылка</label>
+            <input type="text" name="url">
          </div>
 
-         <div class="input-container-blocked">
+         <div class="input-container-inline">
             <label>Картинка</label>
-            <input type="file" name="image" accept=".jpg, .png, .jpeg">
+            <input type="file" name="image" accept="image/*">
          </div>
 
-         <div class="input-container-blocked">
-            <label>Текст на русском</label>
-            <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="ruText" rows="8" required></textarea>
-            </div>
-         </div>
-
-         <div class="input-container-blocked">
-            <label>Текст на таджикском</label>
-            <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="tjText" rows="8" required></textarea>
-            </div>
-         </div>
-
-         <div class="input-container-blocked">
-            <label>Текст на английском</label>
-            <div class="simditor_container">
-               <textarea class="simditor-wysiwyg" name="enText" rows="8" required></textarea>
-            </div>
-         </div>
-
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Добавить</button>
      </form>
    </section>
 
