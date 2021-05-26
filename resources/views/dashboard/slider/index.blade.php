@@ -6,12 +6,12 @@
       
       {{-- Search is unavailable in sliders page --}}
       <div class="dash-search-container">
-         <a href="{{route('dashboard.news.create')}}">Добавить</a>
+         <a href="{{route('dashboard.slider.create')}}">Добавить</a>
       </div>
 
       
       <div class="primary-list-titles">
-         <div class="width-33">Порядок показа</div>
+         <div class="width-33">Приоритет</div>
          <div class="width-33">Текст</div>
          <div class="width-33">Ссылка</div>
       </div>

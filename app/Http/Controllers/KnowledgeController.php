@@ -43,7 +43,7 @@ class KnowledgeController extends Controller
 
         $path = public_path('books/' . $book->filename);
 
-        return response()->download($path, $book->name);
+        return response()->download($path, $book->filename);
     }
 
     public function videos($id) {

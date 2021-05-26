@@ -14,13 +14,13 @@
 @break
 
 @case('dashboard.slider.single') @case('dashboard.slider.create')
+    {{-- Spectrum colorPicker --}}
+    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
     <script src="{{ asset('js/dashboard/slider/scripts.js') }}"></script>
 @break
 
 @case('dashboard.news.create') @case('dashboard.news.single') 
     <script src="{{ asset('js/dashboard/news/scripts.js') }}"></script>
-    {{-- Spectrum colorPicker --}}
-    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.js"></script>
 @break
 
 @case('dashboard.videos.create') @case('dashboard.videos.single') 

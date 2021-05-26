@@ -152,7 +152,6 @@
                 <form id="update_avatar_modal" action="/update_avatar" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="avatar" accept=".jpg, .png, .jpeg" required>
-                    <button></button>
                 </form>
             </div>
             <div class="modal-footer">

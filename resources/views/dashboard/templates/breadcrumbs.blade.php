@@ -39,12 +39,12 @@
             <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
          @break
 
-            @case('dashboard.news.single')
+            @case('dashboard.slider.single')
                <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
                <a href="{{ route('dashboard.slider.single', $item->id) }}"><span>{{$item->priority}}</span></a>
             @break
 
-            @case('dashboard.news.create')
+            @case('dashboard.slider.create')
                <a href="{{ route('dashboard.slider.index') }}"><span>{{ __('Слайдер') }}</span></a>
                <a href="{{ route('dashboard.slider.create') }}"><span>Добавить</span></a>
             @break

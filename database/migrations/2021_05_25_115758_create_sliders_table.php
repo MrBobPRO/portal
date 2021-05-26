@@ -19,7 +19,7 @@ class CreateSlidersTable extends Migration
             $table->text('title')->nullable();
             $table->string('url')->nullable();
             $table->integer('priority')->default(1);
-            $table->string('color')->default('#000');
+            $table->string('color')->default('#000000');
             $table->timestamps();
         });
     }
