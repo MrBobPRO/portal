@@ -112,6 +112,19 @@ input:read-only {
   text-align: center;
   margin-bottom: 30px;
 }
+.spaced-btw-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.spaced-btw-btns button {
+  margin: 0 !important;
+}
+.delete-btn {
+  background: #9e0505;
+  color: white;
+  border-color: #9e0505;
+}
 /* Password input styles start */
 .input-password-container {
   display: flex;

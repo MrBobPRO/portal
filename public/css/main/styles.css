@@ -427,13 +427,27 @@ button:focus {
 .sidebar .single-birthday {
    border-top: 5px solid var(--color-scheme);
 }
-.sidebar-news {
+.sidebar-news, .sidebar-ads {
    background: white;
    margin-bottom: 40px;
 }
+.sidebar-ads h1 {
+   border-bottom: 5px solid var(--color-scheme);
+   min-height: 60px;
+   margin: 0;
+}
+.sidebar-ads .ads-single {
+   padding: 20px;
+   border-bottom: 1px solid #dadada;
+   font-weight: 300;
+   line-height: 1.7;
+}
+.sidebar-ads .ads-single:last-child {
+   border: none;
+}
 .sidebar-single-news {
-   position: relative;
-   padding-bottom: 15px;
+   position: relative;  
+   padding-bottom: 20px;
    border-top: 5px solid var(--color-scheme);
 }
 .sidebar-single-news img {
@@ -446,7 +460,8 @@ button:focus {
    color: black;
    font-size: 16px;
    padding: 0 20px;
-   margin: 15px 0 10px;
+   margin: 20px 0 10px;
+   font-weight: 400;
 }
 .sidebar-single-news p {
    overflow: hidden;

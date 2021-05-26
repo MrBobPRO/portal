@@ -2,14 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Ads;
 use App\Models\Complaint;
-use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        \Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
 
         // share route name
         view()->composer(['templates.master', 'templates.no_sidebar_master', 'dashboard.templates.master', 'dashboard.templates.no_sidebar_master', 'templates.breadcrumbs'], function ($view) {
@@ -51,12 +52,19 @@ class AppServiceProvider extends ServiceProvider
                  ->count());
         });
 
-        //sidebar news and bdays
+        //sidebar ads
+        view()->composer('templates.sidebar', function ($view) {
+            $ads = Ads::latest()->get();
+            $view->with('ads', $ads);
+        });
+
+        //sidebar news
         view()->composer('templates.sidebar', function ($view) {
             $latest_news = News::latest()->take(2)->get();
             $view->with('latest_news', $latest_news);
         });
 
+        //sidebar birthdays
         view()->composer('templates.sidebar', function ($view) {
             $todayBDs = User::whereMonth('birth_date', date('m'))
             ->whereDay('birth_date', date('d'))

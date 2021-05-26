@@ -1,6 +1,19 @@
 
 <div id="sidebar" class="sidebar">
 
+   {{-- Sidebar Ads start --}}
+   @if(count($ads))
+   <div class="sidebar-ads">
+      <h1>Объявление
+         <span class="material-icons-outlined">new_releases</span>
+      </h1>
+      @foreach ($ads as $ad)
+         <div class="ads-single">{{$ad->text}}</div>
+      @endforeach
+   </div>
+   @endif
+   {{-- Sidebar Ads end --}}
+
    {{-- Sidebar News start --}}
    <div class="sidebar-news">
       <h1>Последние новости

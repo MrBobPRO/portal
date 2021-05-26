@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ads;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
@@ -223,6 +224,15 @@ class DatabaseSeeder extends Seeder
         $s->priority = 2;
         $s->save();
 
+        $a = new Ads;
+        $a->text = 'С 1 июня до 25 августа в столовой обеда не будет, так как в столовой начнется ремонт. С наилучшими пожеланиями администрация!';
+        $a->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-25 10:27:07');
+        $a->save();
+
+        $a = new Ads;
+        $a->text = 'Спешу сообщит всем, что 5 июля Икром Рахимов устраивает вечеринку у себя на даче. Приглашены все!';
+        $a->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-25 09:30:22');
+        $a->save();
 
         //Run second seeder
         $this->call([

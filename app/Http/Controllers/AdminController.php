@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
 use App\Models\Complaint;
 use App\Models\Entertainment;
 use App\Models\Gallery;
@@ -38,6 +39,8 @@ class AdminController extends Controller
     }
     // -----------------------------------Simditor end-------------------------------------------
 
+
+    // -----------------------------------Dropzone start-------------------------------------------
     public function upload_dropzone_photo(Request $request)
     {
         $files = $request->file('files');
@@ -59,6 +62,34 @@ class AdminController extends Controller
 
         return 'success';
     }
+    // -----------------------------------Dropzone end-------------------------------------------
+
+
+    // -----------------------------------Ads start-------------------------------------------
+    public function ads()
+    {
+        $ads = Ads::latest()->get();
+
+        return view('dashboard.ads.index', compact('ads'));
+    }
+
+    public function ads_create()
+    {
+        return view('dashboard.ads.create');
+    }
+
+    public function ads_single($id)
+    {
+        $ad = Ads::find($id);
+
+        $crumbsTitle = $ad->text;
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('dashboard.ads.single', compact('ad', 'crumbsTitle'));
+    }
+    // -----------------------------------Ads end-------------------------------------------
 
 
     // -----------------------------------News start-------------------------------------------
@@ -101,7 +132,7 @@ class AdminController extends Controller
     // -----------------------------------News end-------------------------------------------
 
 
-    // -----------------------------------News start-------------------------------------------
+    // -----------------------------------Slider start-------------------------------------------
     public function slider()
     {
         $items = Slider::orderBy('priority', 'asc')->get();

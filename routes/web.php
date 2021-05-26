@@ -117,6 +117,13 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
       //Dropzone upload photo route
       Route::post('/upload/dropzone_photo', 'AdminController@upload_dropzone_photo');
+      //Ads
+      Route::get('/dashboard/ads', 'AdminController@ads')->name('dashboard.ads.index');
+      Route::get('/dashboard/ads_create', 'AdminController@ads_create')->name('dashboard.ads.create');
+      Route::get('/dashboard/ads/{id}', 'AdminController@ads_single')->name('dashboard.ads.single');
+      Route::post('/update_ads', 'AdsController@update');
+      Route::post('/store_ads', 'AdsController@store');
+      Route::post('/remove_ads', 'AdsController@remove');
       //News
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
