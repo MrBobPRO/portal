@@ -1,37 +1,42 @@
-@extends('templates.master')
+@extends('templates.no_sidebar_master')
 @section('content')
 
 @include('templates.breadcrumbs')
 
-   <section class="about-page">
+   <section class="structure-page">
+      {{-- Department list start --}}
+      <div class="departments-list">
+         @foreach ($departments as $department)
+            <div class="departments-list-item">
+               <h2><span class="material-icons-outlined">arrow_right</span> {{$department->name}}</h2>
+               {{-- Users list item start --}}
+               <div class="users-list">
+                  
+                  <?php 
+                     $users = DB::table('users')
+                     ->where('users.department_id', $department->id)
+                     ->join('designations', 'users.designation_id', '=', 'designations.id')
+                     ->join('positions', 'users.position_id', '=', 'positions.id')
+                     ->select('users.*', 'designations.*', 'positions.*', 'users.name as userName', 'users.id as userId', 'designations.name as designationName', 'positions.name as positionName')
+                     ->orderBy('designations.priority', 'asc')
+                     ->get();
+                  ?>
 
-      <div class="wrapper">
-         <img src="{{ asset('img/about/wrapper1.jpg') }}">
-         <a href="{{ route('about.whoweare') }}">
-            <h2>{{ __('Кто мы') }}?</h2>
-            <p>Нынешний успех ОАО “ТГЭМ” это результат более чем полувекового опыта накопленного инженерами и простыми рабочими приехавшие со всех уголков СССР и передовавшие этот опыт из поколения в поколение.</p>
-            <i class="material-icons">arrow_right_alt</i>
-         </a>
-      </div>
-
-      <div class="wrapper">
-         <img src="{{ asset('img/about/wrapper2.jpg') }}">
-         <a href="{{ route('about.structure') }}">
-            <h2>{{ __('Структура') }}</h2>
-            <p>Нынешний успех ОАО “ТГЭМ” это результат более чем полувекового опыта накопленного инженерами и простыми рабочими приехавшие со всех уголков СССР и передовавшие этот опыт из поколения в поколение.</p>
-            <i class="material-icons">arrow_right_alt</i>
-         </a>
-      </div>
-
-      <div class="wrapper">
-         <img src="{{ asset('img/about/wrapper3.jpg') }}">
-         <a href="{{ route('about.leadership') }}">
-            <h2>{{ __('Руководство') }}</h2>
-            <p>Нынешний успех ОАО “ТГЭМ” это результат более чем полувекового опыта накопленного инженерами и простыми рабочими приехавшие со всех уголков СССР и передовавшие этот опыт из поколения в поколение.</p>
-            <i class="material-icons">arrow_right_alt</i>
-         </a>
-      </div>
+                  @foreach ($users as $u)
+                     <a href="{{route('dashboard.users.single', $u->userId)}}" class="users-list-item">
+                        <img src="{{ asset('img/users/' . $u->avatar) }}">
+                        <div>
+                           <h6>{{$u->userName . ' ' . $u->surname}}</h6>
+                           <p>{{$u->designationName}}</p>
+                           <span>{{$u->positionName}}</span>
+                        </div>
+                     </a>
+                  @endforeach
+               </div> {{-- Users list end start --}}
+            </div> 
+         @endforeach
+      </div> {{-- Department list end start --}}
 
    </section>
 
-@endsection 
+@endsection

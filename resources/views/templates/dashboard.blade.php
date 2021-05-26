@@ -54,7 +54,7 @@
             href="{{ route('dashboard.projects.index') }}"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
 
             <a class="@if($route == 'dashboard.knowledge.index' || $route == 'dashboard.knowledge.single') active @endif"
-            href="#"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
+            href="{{ route('dashboard.knowledge.index') }}"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
 
          @endif {{-- Admin links end --}}
 

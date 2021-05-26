@@ -302,4 +302,24 @@ class AdminController extends Controller
         }
         // -----------------------------------Gallery end-------------------------------------------
 
+        // -----------------------------------Knowledge start-------------------------------------------
+        public function knowledge()
+        {
+            //generate title as ruTitle & tjTitle & enTitle
+            $title = App::currentLocale() . 'Title';
+    
+            $allGalleries = DB::table('galleries')
+                            ->orderBy($title, 'asc')
+                            ->select('galleries.id', 'galleries.' . $title . ' as title')
+                            ->get();
+    
+            $galleries = DB::table('galleries')
+                            ->latest()
+                            ->select('galleries.id', 'galleries.' . $title . ' as title', 'galleries.date')
+                            ->paginate(30);
+    
+            return view('dashboard.knowledge.index', compact('galleries', 'allGalleries'));
+        }
+        // -----------------------------------Knowledge end-------------------------------------------
+
 }
