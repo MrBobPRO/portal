@@ -4,8 +4,8 @@
          <a href=" {{ route('home.index') }} ">{{ __('Главная') }}</a>
       </li>
 
-      <li class="{{ $route == 'about.index' ? 'active' : ''}}">
-         <a href=" {{ route('about.index') }} ">{{ __('Структура') }}</a>
+      <li class="{{ $route == 'structure.index' ? 'active' : ''}}">
+         <a href=" {{ route('structure.index') }} ">{{ __('Структура') }}</a>
       </li>
 
       <li class="{{ $route == 'knowledge.index' 

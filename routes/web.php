@@ -37,9 +37,9 @@ Route::get('/notifications/{id}', 'NotificationController@single')->name('notifi
 //--------------Ideas complaints & notification routes-------------------
 
 
-//------------About-page's route--------------
-Route::get('/about', 'AboutController@index')->name('about.index');
-//------------About-page's route--------------
+//------------Structure page's route--------------
+Route::get('/structure', 'StructureController@index')->name('structure.index');
+//------------Structure-page's route--------------
 
 
 //------------News-page's route--------------
