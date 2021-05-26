@@ -10,7 +10,7 @@
         <link href="{{ asset('css/home/media.css') }}" rel="stylesheet">
     @break
     
-    @case('about.index') @case('about.whoweare') @case('about.structure') @case('about.leadership')
+    @case('about.index')  
         <link href="{{ asset('css/about/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/about/media.css') }}" rel="stylesheet">
     @break

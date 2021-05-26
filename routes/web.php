@@ -39,10 +39,6 @@ Route::get('/notifications/{id}', 'NotificationController@single')->name('notifi
 
 //------------About-page's route--------------
 Route::get('/about', 'AboutController@index')->name('about.index');
-   //About-page categories' routes
-   Route::get('/about/whoweare', 'AboutController@whoweare')->name('about.whoweare');
-   Route::get('/about/structure', 'AboutController@structure')->name('about.structure');
-   Route::get('/about/leadership', 'AboutController@leadership')->name('about.leadership');
 //------------About-page's route--------------
 
 
@@ -153,6 +149,9 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_galleries', 'EntertainmentController@galleries_update');
       Route::post('/store_galleries', 'EntertainmentController@galleries_store');
       Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
+
+      //Knowledge
+      Route::get('/dashboard/knowledge', 'AdminController@knowledge')->name('dashboard.knowledge.index');
       
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------

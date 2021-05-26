@@ -12,26 +12,12 @@ use Illuminate\Support\Facades\DB;
 class AboutController extends Controller
 {
     
-    public function index()
-    {   
-        return view('about.index');
-    }
-
-    public function whoweare() 
-    {
-        return view('about.whoweare');
-    }
-
-    public function structure() 
+    public function index() 
     {
         $departments = Department::orderBy('priority', 'asc')->get();
 
-        return view('about.structure', compact('departments'));
+        return view('about.index', compact('departments'));
     }
 
-    public function leadership() 
-    {
-        return view('about.leadership');
-    }
     
 }
