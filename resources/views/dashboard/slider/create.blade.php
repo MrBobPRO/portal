@@ -3,7 +3,7 @@
 @section('content')
 
    <section class="slider-page formed-page">
-      <form action="/create_slider_item" method="POST" enctype="multipart/form-data">
+      <form action="/store_slider_item" method="POST" enctype="multipart/form-data">
 
          @csrf
          <div class="input-container-inline">
