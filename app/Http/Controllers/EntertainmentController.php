@@ -133,6 +133,18 @@ class EntertainmentController extends Controller
         return 'success';
     }
 
+    public function videos_remove(Request $request)
+    {
+        $video = Entertainment::find($request->id);
+        $path = public_path('videos/entertainment/' . $video->filename);
+        $video->delete();
+
+        //delete video
+        unlink($path);
+
+        return redirect()->route('dashboard.videos.index');
+    }
+
     public function delete_gallery_image(Request $request)
     {
         $path = public_path('img/entertainment/images/' . $request->filename);

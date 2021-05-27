@@ -96,4 +96,12 @@ class ProjectsController extends Controller
 
         return redirect()->back();
     }
+
+    public function remove(Request $request)
+    {
+        Project::find($request->id)->delete();
+
+        return redirect()->route('dashboard.projects.index');
+    }
+
 }

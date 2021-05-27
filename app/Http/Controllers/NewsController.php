@@ -126,4 +126,11 @@ class NewsController extends Controller
         return redirect()->back();
     }
 
+    public function remove(Request $request)
+    {
+        News::find($request->id)->delete();
+
+        return redirect()->route('dashboard.news.index');
+    }
+
 }

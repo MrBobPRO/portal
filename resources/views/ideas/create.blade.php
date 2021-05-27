@@ -30,7 +30,7 @@
             <input type="file" name="file">
          </div>
 
-        <button class="main-btn" type="submit"><span class="material-icons-outlined">forward</span> Отправить</button>
+        <button class="main-btn" type="submit">Отправить</button>
 
       </form>
    </section>

@@ -82,16 +82,15 @@ class SecondSeeder extends Seeder
         $c->save();
 
         //Intertainment
-        $enter = ['Властелин колец','Храброе сердцем','Один дома','Форсаж 9','Митохондриа','Бегущий в лабиринте','Доктор Дулиттл','Лига справедливости'];
+        $enter = ['Властелин колец','Храброе сердцем','Один дома','Форсаж 9','Митохондриа','Бегущий в лабиринте'];
         for ($i=0; $i < count($enter); $i++) {
             $ent = new Entertainment;
-            $ent->filename = '1.mp4';
-            if(($i+1) % 2 == 0) $ent->filename = '2.mp4';
+            $ent->filename = ($i+1) . '.mp4';
             $ent->ruTitle = $enter[$i];
             $ent->tjTitle = 'Номи филми ' . ($i+1);
             $ent->enTitle = 'Movie name ' . ($i+1);
+            if($i == 0 || $i == 3 || $i == 5)
             $ent->subtitles = '1.vtt';
-            if(($i+1) % 2 == 0) $ent->subtitles = null;
             $ent->save();
         }
         

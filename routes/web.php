@@ -126,12 +126,14 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
       Route::post('/update_news', 'NewsController@update');
       Route::post('/store_news', 'NewsController@store');
+      Route::post('/remove_news', 'NewsController@remove');
       //Slider
       Route::get('/dashboard/slider', 'AdminController@slider')->name('dashboard.slider.index');
       Route::get('/dashboard/slider_create', 'AdminController@slider_create')->name('dashboard.slider.create');
       Route::get('/dashboard/slider/{id}', 'AdminController@slider_single')->name('dashboard.slider.single');
       Route::post('/update_slider_item', 'SliderController@update_item');
       Route::post('/store_slider_item', 'SliderController@store_item');
+      Route::post('/remove_slider_item', 'SliderController@remove_item');
       //Complaints
       Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
@@ -141,6 +143,7 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/videos/{id}', 'AdminController@videos_single')->name('dashboard.videos.single');
       Route::post('/update_video', 'EntertainmentController@videos_update');
       Route::post('/store_video', 'EntertainmentController@videos_store');
+      Route::post('/remove_video', 'EntertainmentController@videos_remove');
       Route::post('/entertainmet/check_uploading_video_size', 'EntertainmentController@check_uploading_video_size');
       //Projects
       Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
@@ -148,7 +151,7 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/projects/{id}', 'AdminController@projects_single')->name('dashboard.projects.single');
       Route::post('/update_projects', 'ProjectsController@update');
       Route::post('/store_projects', 'ProjectsController@store');
-
+      Route::post('/remove_projects', 'ProjectsController@remove');
       //Galleries
       Route::get('/dashboard/galleries', 'AdminController@galleries')->name('dashboard.galleries.index');
       Route::get('/dashboard/galleries_create', 'AdminController@galleries_create')->name('dashboard.galleries.create');

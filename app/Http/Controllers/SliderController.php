@@ -53,4 +53,11 @@ class SliderController extends Controller
         return redirect()->route('dashboard.slider.index');
     }
     
+    public function remove_item(Request $request)
+    {
+        Slider::find($request->id)->delete();
+
+        return redirect()->route('dashboard.slider.index');
+    }
+
 }
