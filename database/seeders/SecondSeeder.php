@@ -118,6 +118,7 @@ class SecondSeeder extends Seeder
 
         //Create Videos
         $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
+        $videoRuCategory = ['Уроки','Выступление','Интервью','Монолог','Надземная работа','Подземная работа','Верхолазная работа','Общестроительная работа'];
         $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
         for ($i=0; $i < count($materialIDs); $i++){
             for ($j=0; $j < 13; $j++) {
@@ -125,6 +126,7 @@ class SecondSeeder extends Seeder
                     $videos = new Video;
                     $videos->material_id = $materialIDs[$i];
                     $videos->category = $videoCategory[$k];
+                    $videos->ruCategory = $videoRuCategory[$k];
                     $videos->filename = 'video.mp4';
                     $videos->title = 'Видеоурок ' . $k;
                     $videos->save();
@@ -135,6 +137,7 @@ class SecondSeeder extends Seeder
         
         //Create Books
         $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
+        $bookRuCategory = ['Классная книга','Рабочая книга','Отборные произведение','Отборная литература','Вопросник','Английские уроки','Литература'];
         $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
         for ($i=0; $i < count($matIDs); $i++){
             for ($j=0; $j < 13; $j++) {
@@ -144,6 +147,7 @@ class SecondSeeder extends Seeder
                     $books->filename = '1.pdf';
                     $books->material_id = $matIDs[$i];
                     $books->category = $bookCategory[$k];
+                    $books->ruCategory = $bookRuCategory[$k];
                     $books->save();
                 }
             } 

@@ -10,6 +10,8 @@ use App\Models\Image;
 use App\Models\News;
 use App\Models\Project;
 use App\Models\Slider;
+use App\Models\Book;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -272,22 +274,32 @@ class AdminController extends Controller
         // -----------------------------------Gallery end-------------------------------------------
 
         // -----------------------------------Knowledge start-------------------------------------------
-        public function knowledge()
+        public function knowledge_books() 
         {
-            //generate title as ruTitle & tjTitle & enTitle
-            $title = App::currentLocale() . 'Title';
-    
-            $allGalleries = DB::table('galleries')
-                            ->orderBy($title, 'asc')
-                            ->select('galleries.id', 'galleries.' . $title . ' as title')
-                            ->get();
-    
-            $galleries = DB::table('galleries')
-                            ->latest()
-                            ->select('galleries.id', 'galleries.' . $title . ' as title', 'galleries.date')
-                            ->paginate(30);
-    
-            return view('dashboard.knowledge.index', compact('galleries', 'allGalleries'));
+            $books = Book::latest()->paginate(30);
+
+            return view('dashboard.knowledge.books', compact('books'));
+        }
+
+        public function knowledge_books_single($id) 
+        {
+            $book = Book::find($id);
+
+            return view('dashboard.knowledge.books_single', compact('book'));
+        }
+
+        public function knowledge_videos() 
+        {
+            $videos = Video::latest()->paginate(30);
+
+            return view('dashboard.knowledge.videos', compact('videos'));
+        }
+
+        public function knowledge_videos_single($id) 
+        {
+            $video = Video::find($id);
+
+            return view('dashboard.knowledge.videos_single', compact('video'));
         }
         // -----------------------------------Knowledge end-------------------------------------------
 
