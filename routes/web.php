@@ -152,9 +152,15 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
 
       //Knowledge
       Route::view('/dashboard/knowledge', 'dashboard.knowledge.index')->name('dashboard.knowledge.index');
-      Route::view('/dashboard/knowledge_create', 'dashboard.knowledge.create')->name('dashboard.knowledge.create');
+      Route::get('/dashboard/knowledge_create', 'AdminController@knowledge_create')->name('dashboard.knowledge.create');
+
       Route::get('/dashboard/knowledge/books', 'AdminController@knowledge_books')->name('dashboard.knowledge.books');
       Route::get('/dashboard/knowledge/books/{id}', 'AdminController@knowledge_books_single')->name('dashboard.knowledge.books.single');
+      Route::get('/dashboard/knowledge/books_create/{material}', 'AdminController@knowledge_books_create')->name('dashboard.knowledge.books.create');
+      Route::post('/knowledge_books_store', 'AdminController@knowledge_books_store');
+      Route::post('/knowledge_books_update', 'AdminController@knowledge_books_update');
+      Route::post('/knowledge_books_delete', 'AdminController@knowledge_books_delete');
+
       Route::get('/dashboard/knowledge/videos', 'AdminController@knowledge_videos')->name('dashboard.knowledge.videos');
       Route::get('/dashboard/knowledge/videos/{id}', 'AdminController@knowledge_videos_single')->name('dashboard.knowledge.videos.single');
       

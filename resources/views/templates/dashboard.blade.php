@@ -53,6 +53,7 @@
             <a class="@if($route == 'dashboard.knowledge.index' 
                         || $route == 'dashboard.knowledge.books'
                         || $route == 'dashboard.knowledge.books.single'
+                        || $route == 'dashboard.knowledge.books.create'
                         || $route == 'dashboard.knowledge.videos'
                         || $route == 'dashboard.knowledge.videos.single'
                         || $route == 'dashboard.knowledge.create') active @endif"

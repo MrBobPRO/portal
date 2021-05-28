@@ -15,6 +15,7 @@
             </select>
          </div>
          {{-- Books search end --}}
+         <a href="{{route('dashboard.knowledge.create')}}">Добавить</a>
       </div>
 
       

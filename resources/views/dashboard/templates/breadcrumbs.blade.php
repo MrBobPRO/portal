@@ -116,21 +116,27 @@
             <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
          @break
 
-         @case('dashboard.knowledge.create')
-            <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-            <a href="{{ route('dashboard.knowledge.create') }}"><span>{{ __('Добавить материалы') }}</span></a>
-         @break
+            @case('dashboard.knowledge.create')
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.create') }}"><span>{{ __('Добавить материалы') }}</span></a>
+            @break
 
             @case('dashboard.knowledge.books')
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
                <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
             @break
 
-               @case('dashboard.knowledge.books.single') 
-                  <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-                  <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
-                  <a href="{{ route('dashboard.knowledge.books.single', $book->id) }}"><span>{{ $book->name }}</span></a>
-               @break
+            @case('dashboard.knowledge.books.single') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.single', $book->id) }}"><span>{{ $book->name }}</span></a>
+            @break
+
+            @case('dashboard.knowledge.books.create') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.create', $material->id) }}"><span>{{$subject->name}}/{{$subjectcat->name}}/{{$material->name}}</span></a>
+            @break
 
             @case('dashboard.knowledge.videos')
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>

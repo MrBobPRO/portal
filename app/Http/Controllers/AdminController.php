@@ -12,6 +12,11 @@ use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Book;
 use App\Models\Video;
+use App\Models\Subject;
+use App\Models\Subjectcat;
+use App\Models\Material;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -274,6 +279,15 @@ class AdminController extends Controller
         // -----------------------------------Gallery end-------------------------------------------
 
         // -----------------------------------Knowledge start-------------------------------------------
+        public function knowledge_create()
+        { 
+            $subjects = Subject::get();
+            $subjectcats = Subjectcat::get();
+            $materials = Material::get();
+            
+            return view('dashboard.knowledge.create', compact('subjects', 'subjectcats', 'materials'));
+        }
+
         public function knowledge_books() 
         {
             $books = Book::latest()->paginate(30);
@@ -287,6 +301,66 @@ class AdminController extends Controller
 
             return view('dashboard.knowledge.books_single', compact('book'));
         }
+
+        public function knowledge_books_create(Material $material) 
+        {
+            $subjectcat = Subjectcat::find($material->subjectcat_id);
+            $subject = Subject::find($subjectcat->subject_id);
+
+            return view('dashboard.knowledge.books_create', compact('material', 'subjectcat', 'subject'));
+        }
+
+        public function knowledge_books_store(Request $request) 
+        {
+            $file = $request->file('upload_file');
+
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('books'), $fileName);
+
+            $book = new Book;
+            $book->material_id = $request->material_id;
+            $book->category = $request->category;
+            $book->ruCategory = $request->ruCategory;
+            $book->name = $request->name;
+            $book->filename = $fileName;
+            $book->save();
+    
+            return redirect('/dashboard/knowledge/books');
+        }
+
+        public function knowledge_books_update(Request $request)
+        {
+            //Get book by id
+            $book = Book::find($request->book_id);
+
+            if ($request->name != $book->name) 
+            {   
+                //Edit books name
+                $book->name = $request->name;
+                $book->save();
+            }
+            else if ($request->file != null) {
+                //Delete previous file
+                unlink(public_path('books/' . $book->filename));
+                //Save file
+                $file = $request->file('file');
+                $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('books'), $fileName);
+                //Edit books filename
+                $book->filename = $fileName;
+                $book->save(); 
+            }
+
+            return redirect('/dashboard/knowledge/books');
+        } 
+
+        public function knowledge_books_delete(Request $request)
+        {
+            //Get book by id
+            $book = Book::find($request->book_id);
+
+            return redirect('/dashboard/knowledge/books');
+        } 
 
         public function knowledge_videos() 
         {
