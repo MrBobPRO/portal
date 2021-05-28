@@ -10,6 +10,7 @@ use App\Models\Idea;
 use App\Models\Image;
 use App\Models\News;
 use App\Models\Project;
+use App\Models\Questionnaire;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -90,6 +91,32 @@ class AdminController extends Controller
         return view('dashboard.ads.single', compact('ad', 'crumbsTitle'));
     }
     // -----------------------------------Ads end-------------------------------------------
+
+    // -----------------------------------Questionnaire start-------------------------------------------
+    public function questionnaire()
+    {
+        $questions = Questionnaire::latest()->get();
+
+        return view('dashboard.questionnaire.index', compact('questions'));
+    }
+
+    public function questionnaire_create()
+    {
+        return view('dashboard.questionnaire.create');
+    }
+
+    public function questionnaire_single($id)
+    {
+        $ad = Ads::find($id);
+
+        $crumbsTitle = $ad->text;
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('dashboard.questionnaire.single', compact('ad', 'crumbsTitle'));
+    }
+    // -----------------------------------Questionnaire end-------------------------------------------
 
 
     // -----------------------------------News start-------------------------------------------

@@ -23,7 +23,7 @@ Route::post('/setLangTj', 'LanguageController@setLangTj');
 //--------------Language-change's routes--------------
 
 
-//--------------Ideas complaints & notification routes-------------------
+//--------------Toolbar routes-------------------
 Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
 Route::post('/ideas/store', 'IdeaController@store');
 
@@ -32,9 +32,14 @@ Route::post('/complaints/store', 'ComplaintController@store');
 Route::post('/complaints/download', 'ComplaintController@download');
 Route::post('/complaints/response', 'ComplaintController@response');
 
+Route::get('/questionnaire', 'QuestionnaireController@index')->name('questionnaire.index');
+Route::get('/questionnaire/{id}', 'QuestionnaireController@single')->name('questionnaire.single');
+Route::post('/options/like', 'OptionController@like');
+Route::post('/options/remove_like', 'OptionController@remove_like');
+
 Route::get('/notifications', 'NotificationController@index')->name('notifications.index');
 Route::get('/notifications/{id}', 'NotificationController@single')->name('notifications.single');
-//--------------Ideas complaints & notification routes-------------------
+//--------------Toolbar routes-------------------
 
 
 //------------Structure page's route--------------
@@ -120,6 +125,13 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_ads', 'AdsController@update');
       Route::post('/store_ads', 'AdsController@store');
       Route::post('/remove_ads', 'AdsController@remove');
+      //Questionnaire
+      Route::get('/dashboard/questionnaire', 'AdminController@questionnaire')->name('dashboard.questionnaire.index');
+      Route::get('/dashboard/questionnaire_create', 'AdminController@questionnaire_create')->name('dashboard.questionnaire.create');
+      Route::get('/dashboard/questionnaire/{id}', 'AdminController@questionnaire_single')->name('dashboard.questionnaire.single');
+      Route::post('/update_questionnaire', 'QuestionnaireController@update');
+      Route::post('/store_questionnaire', 'QuestionnaireController@store');
+      Route::post('/remove_questionnaire', 'QuestionnaireController@remove');
       //News
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');

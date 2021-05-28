@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Ads;
+use App\Models\Choice;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,8 @@ use App\Models\Image;
 use App\Models\Gallery;
 use App\Models\Grade;
 use App\Models\Idea;
+use App\Models\Option;
+use App\Models\Questionnaire;
 use App\Models\Slider;
 
 class DatabaseSeeder extends Seeder
@@ -233,6 +236,63 @@ class DatabaseSeeder extends Seeder
         $a->text = 'Спешу сообщит всем, что 5 июля Икром Рахимов устраивает вечеринку у себя на даче. Приглашены все!';
         $a->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-25 09:30:22');
         $a->save();
+
+
+        //questionnaire
+        $q = new Questionnaire;
+        $q->text = 'Дорогие коллеги, давайте по честному проголосуем. Кто будет дежурить в грядущие выходные??';
+        $q->private = false;
+        $q->save();
+        //options
+        $o = new Option;
+        $o->text = 'Бахтиёр';
+        $o->questionnaire_id = 1;
+        $o->save();
+        $o = new Option;
+        $o->text = 'Мансур';
+        $o->questionnaire_id = 1;
+        $o->save();
+        $o = new Option;
+        $o->text = 'Исмоил';
+        $o->questionnaire_id = 1;
+        $o->save();
+        $o = new Option;
+        $o->text = 'Манучехр';
+        $o->questionnaire_id = 1;
+        $o->save();
+        //choices
+        $c = new Choice;
+        $c->user_id = 1;
+        $c->option_id = 1;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 2;
+        $c->option_id = 1;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 3;
+        $c->option_id = 2;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 4;
+        $c->option_id = 4;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 5;
+        $c->option_id = 4;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 6;
+        $c->option_id = 4;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 7;
+        $c->option_id = 4;
+        $c->save();
+        $c = new Choice;
+        $c->user_id = 8;
+        $c->option_id = 4;
+        $c->save();
 
         //Run second seeder
         $this->call([

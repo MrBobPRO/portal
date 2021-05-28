@@ -77,4 +77,11 @@
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
     @break
 
+    @case('questionnaire.index') @case('questionnaire.single')
+        {{-- Dashboard styles linked because of list & form styles --}}
+        <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/questionnaire/styles.css') }}" rel="stylesheet">
+    @break
+
 @endswitch

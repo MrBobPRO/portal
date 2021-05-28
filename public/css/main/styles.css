@@ -357,7 +357,7 @@ button:focus {
    border-radius: 5px;
    padding: 4px 15px;
    background-color: #F7F7F7;
-   width: 580px;
+   width: 530px;
 }
 .search-form input::placeholder {
    opacity: 0.5;

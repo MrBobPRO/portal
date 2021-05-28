@@ -33,6 +33,9 @@
             <a class="@if($route == 'dashboard.ads.index' || $route == 'dashboard.ads.single' || $route == 'dashboard.ads.create') active @endif"
             href="{{ route('dashboard.ads.index') }}"><span class="material-icons-outlined">new_releases</span>{{ __('Объявление') }}</a>
 
+            <a class="@if($route == 'dashboard.questionnaire.index' || $route == 'dashboard.questionnaire.single' || $route == 'dashboard.questionnaire.create') active @endif"
+            href="{{ route('dashboard.questionnaire.index') }}"><span class="material-icons-outlined">help_outline</span>{{ __('Опросник') }}</a> 
+
             <a class="@if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') active @endif"
             href="{{ route('dashboard.news.index') }}"><span class="material-icons-outlined">article</span>{{ __('Новости') }}</a>
 

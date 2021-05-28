@@ -1,0 +1,80 @@
+.formed-page{
+   padding: 35px 40px 40px;
+}
+.question-text {
+   font-weight: 500;
+   margin-bottom: 20px;
+}
+.options-list {
+   max-width: 750px;
+}
+.single-option {
+   background: ghostwhite;
+   padding: 12px 15px;  
+   border-radius: 10px;
+   margin-bottom: 15px;
+   display: flex;
+   align-items: center;
+}
+.options-list .single-option:last-child {
+   margin-bottom: 0;
+}
+.single-option .option-text {
+   width: calc(100% - 40px);
+   cursor: pointer;
+}
+.single-option p {
+   margin: 0;
+}
+.single-option form {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   width: 40px;
+}
+.single-option form button {
+   border: none;
+   padding: 0;
+   background: transparent;
+   color: var(--color-scheme);
+}
+.single-option form p {
+   text-align: center;
+   margin: 0;
+   line-height: 1;
+   min-width: 24px;
+}
+.single-option .choice-percentage {
+   height: 2px;
+   background: var(--color-scheme);
+   margin-top: 5px;
+}
+.single-option .choice-percentage-numeric {
+   margin-top: 5px;
+   font-size: 14px;
+}
+.qs-modal .modal-title {
+   display: flex;
+   align-items: center;
+   font-size: 18px;
+   font-weight: bold;
+}
+.qs-modal .modal-title span {
+   color : var(--color-scheme);
+   margin-right: 6px;
+}
+.modal-user-item {
+   margin-bottom: 10px;
+   display: flex;
+   align-items: center;
+   font-weight: 300;
+}
+.modal-user-item img {
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+}
+.qs-modal button {
+   margin-top: 0 !important;
+}

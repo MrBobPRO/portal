@@ -10,10 +10,13 @@
          <a href="{{route('notifications.index')}}" title="Уведомления" class="toolbar-items">
             {{-- $notificationsCount declared in AppServiceProvider --}}
             @if($notificationsCount > 0)
-               <span class="material-icons primary-color">notifications</span></a>
+               <span class="material-icons primary-color">notifications</span>
             @else
-               <span class="material-icons-outlined">notifications</span></a>
+               <span class="material-icons-outlined">notifications</span>
             @endif
+         </a>
+
+         <a href="{{route('questionnaire.index')}}" title="Опросник" class="toolbar-items"><span class="material-icons-outlined">help_outline</span></a>
       </ul>
       {{-- Toolbar icons end --}}
 
