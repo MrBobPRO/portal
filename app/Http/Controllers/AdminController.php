@@ -412,10 +412,11 @@ class AdminController extends Controller
             return redirect('/dashboard/knowledge/books');
         } 
 
-        public function knowledge_books_delete(Request $request)
+        public function knowledge_books_remove(Request $request)
         {
-            //Get book by id
-            $book = Book::find($request->book_id);
+            $book = Book::find($request->id);
+            unlink(public_path('books/' . $book->filename));
+            $book->delete();
 
             return redirect('/dashboard/knowledge/books');
         } 

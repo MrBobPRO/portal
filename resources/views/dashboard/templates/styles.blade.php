@@ -31,4 +31,9 @@
     <link href="{{ asset('js/dropzone-5.7.0/dist/min/dropzone.min.css') }}" rel="stylesheet">
 @break
 
+@case('dashboard.knowledge.index') @case('dashboard.knowledge.create') 
+    <link href="{{ asset('css/dashboard/knowledge/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard/knowledge/media.css') }}" rel="stylesheet">
+@break
+
 @endswitch
