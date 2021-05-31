@@ -17,7 +17,7 @@ Dropzone v5.7.0 -> used for Drag & drop files. More at https://www.dropzonejs.co
 Spectrum ColorPicker2 -> used as colorpicker. More at: https://seballot.github.io/spectrum/
 
 ----------JQuery 3dflipbook--------
-Free version is almost same as licensed. Right now used free version
+Free version is almost same as licensed. Right now used free version`
 
 //---Licensed version---//
 Copied files into public folder :
