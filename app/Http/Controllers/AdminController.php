@@ -567,6 +567,21 @@ class AdminController extends Controller
     
             return 'success';
         }
+
+        public function knowledge_videos_remove(Request $request)
+        {
+            $video = Video::find($request->id);
+            // Delete video
+            unlink(public_path('videos/knowledge/' . $video->filename));
+            // Delete subtitles
+            unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
+            // Delete poster 
+            unlink(public_path('videos/knowledge/posters/' . $video->poster));
+            
+            $video->delete();
+    
+            return redirect()->route('dashboard.knowledge.videos');
+        }
         // -----------------------------------Knowledge end-------------------------------------------
 
 }

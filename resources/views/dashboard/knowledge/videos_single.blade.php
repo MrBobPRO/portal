@@ -74,7 +74,7 @@
             <div class="modal-footer">
                <button type="button" class="main-btn" data-bs-dismiss="modal">Отмена</button>
 
-               <form action="#" method="POST">
+               <form action="/knowledge_videos_remove" method="POST">
                   {{ csrf_field() }}
                   <input type="hidden" value="{{$video->id}}" name="id"/>
                   <button type="submit" class="main-btn delete-btn">Удалить</button>
