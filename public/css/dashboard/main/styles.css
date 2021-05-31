@@ -125,6 +125,18 @@ input:read-only {
   color: white;
   border-color: #9e0505;
 }
+.checkbox-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.checkbox-container input {
+  width: auto !important;
+  margin-right: 10px;
+}
+.checkbox-container label {
+  font-weight: 300 !important;
+}
 /* Password input styles start */
 .input-password-container {
   display: flex;

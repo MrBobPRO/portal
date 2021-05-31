@@ -40,6 +40,22 @@
 
 
 
+      @case('dashboard.questionnaire.index')
+         <a href="{{ route('dashboard.questionnaire.index') }}"><span>{{ __('Опросник') }}</span></a>
+      @break
+
+      @case('dashboard.questionnaire.single')
+         <a href="{{ route('dashboard.questionnaire.index') }}"><span>{{ __('Опросник') }}</span></a>
+         <a href="{{ route('dashboard.questionnaire.single', $question->id) }}"><span>{{$crumbsTitle}}</span></a>
+      @break
+
+      @case('dashboard.questionnaire.create')
+         <a href="{{ route('dashboard.questionnaire.index') }}"><span>{{ __('Опросник') }}</span></a>
+         <a href="{{ route('dashboard.questionnaire.create') }}"><span>Добавить</span></a>
+      @break
+
+
+
       @case('dashboard.news.index')
          <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
       @break

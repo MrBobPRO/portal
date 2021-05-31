@@ -16,6 +16,10 @@
     <link href="{{ asset('css/dashboard/users/media.css') }}" rel="stylesheet">
 @break
 
+@case('dashboard.questionnaire.single')
+    <link href="{{ asset('css/dashboard/questionnaire/styles.css') }}" rel="stylesheet">
+@break
+
 @case('dashboard.ideas.single')
     <link href="{{ asset('css/dashboard/ideas/styles.css') }}" rel="stylesheet">
 @break

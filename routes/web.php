@@ -132,6 +132,10 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_questionnaire', 'QuestionnaireController@update');
       Route::post('/store_questionnaire', 'QuestionnaireController@store');
       Route::post('/remove_questionnaire', 'QuestionnaireController@remove');
+
+      Route::post('/store_options', 'OptionController@store');
+      Route::post('/update_options', 'OptionController@update');
+      Route::post('/remove_options', 'OptionController@remove');
       //News
       Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
       Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');

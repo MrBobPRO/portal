@@ -95,7 +95,7 @@ class AdminController extends Controller
     // -----------------------------------Questionnaire start-------------------------------------------
     public function questionnaire()
     {
-        $questions = Questionnaire::latest()->get();
+        $questions = Questionnaire::latest()->paginate(30);
 
         return view('dashboard.questionnaire.index', compact('questions'));
     }
@@ -107,14 +107,14 @@ class AdminController extends Controller
 
     public function questionnaire_single($id)
     {
-        $ad = Ads::find($id);
+        $question = Questionnaire::find($id);
 
-        $crumbsTitle = $ad->text;
+        $crumbsTitle = $question->text;
 
         if(mb_strlen($crumbsTitle) > 23)
             $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
 
-        return view('dashboard.questionnaire.single', compact('ad', 'crumbsTitle'));
+        return view('dashboard.questionnaire.single', compact('question', 'crumbsTitle'));
     }
     // -----------------------------------Questionnaire end-------------------------------------------
 

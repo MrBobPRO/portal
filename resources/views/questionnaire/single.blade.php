@@ -22,12 +22,14 @@
             <?php
                // calculate totalPercentage 
                $choicesCount = $option->choices()->count();
-               // $max_options_choices_count count declared in controller
-               $totalPercentage = ($choicesCount * 100) / $max_options_choices_count;
+               // $max_options_choices_count count declared in controller. Escaping division by ZERO
+               if($max_options_choices_count == 0) $totalPercentage = 0;
+               else $totalPercentage = ($choicesCount * 100) / $max_options_choices_count;
 
                //calculate percentage of options choices
-               // $total_choices_count count declared in controller
-               $choicesPercentage = round((($choicesCount * 100) / $total_choices_count), 1); 
+               // $total_choices_count count declared in controller. Escaping division by ZERO
+               if($total_choices_count == 0) $choicesPercentage = 0;
+               else $choicesPercentage = round((($choicesCount * 100) / $total_choices_count), 1); 
             ?>
             <div class="single-option">
                <div class="option-text" data-bs-toggle="modal" data-bs-target="#qsModal{{$counterrr}}">

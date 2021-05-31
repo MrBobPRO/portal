@@ -23,7 +23,12 @@
                   {{$formatted}}
                </div>
                <div class="width-33">
-                  
+                  <?php 
+                     //check if user has already voted
+                     $optionsId = $q->options->pluck('id');
+                     $usersChoice = Auth::user()->choices->whereIn('option_id', $optionsId)->first();
+                  ?>
+                  {{$usersChoice ? 'Выбрано' : 'Пожалуйста выберите 1 вариант'}}
                </div>
             </a>
          @endforeach

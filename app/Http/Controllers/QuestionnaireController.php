@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Option;
 use App\Models\Questionnaire;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,9 +11,13 @@ class QuestionnaireController extends Controller
 {
    public function index()
    {  
-       $questions = Questionnaire::latest()->paginate(20);
+      //get only questionnaires which are younger than users created at date
+      $userCreatedAt = \Carbon\Carbon::parse(Auth::user()->created_at);
+      $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
 
-       return view('questionnaire.index', compact('questions'));
+      $questions = Questionnaire::whereDate('created_at', '>=', $formatted)->latest()->paginate(20);
+
+      return view('questionnaire.index', compact('questions'));
    }
 
    public function single($id)
@@ -49,9 +52,37 @@ class QuestionnaireController extends Controller
       if(mb_strlen($question->text) > 23)
          $crumbsTitle = mb_substr($question->text, 0, 20) . '...';
       else
-         $crumbsTitle = $question->enTitle;
+         $crumbsTitle = $question->text;
 
        return view('questionnaire.single', compact('question', 'crumbsTitle', 'optionsCount', 'max_options_choices_count', 'total_choices_count', 'users_choice_option_id'));
+   }
+
+   public function store(Request $request)
+   {
+      $question = Questionnaire::create([
+         'text' => $request->text,
+         'private' => $request->private ? true : false
+     ]);
+
+         return redirect()->route('dashboard.questionnaire.single', $question->id);
+   }
+
+   public function update(Request $request)
+   {
+      $question = Questionnaire::find($request->id);
+      $question->text = $request->text;
+      $question->private = $request->private ? true : false;
+
+      $question->save();
+
+      return redirect()->back();
+   }
+
+   public function remove(Request $request)
+   {
+       Questionnaire::find($request->id)->delete();
+
+       return redirect()->route('dashboard.questionnaire.index');
    }
 
 }
