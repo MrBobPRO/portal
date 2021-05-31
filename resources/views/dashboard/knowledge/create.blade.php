@@ -56,7 +56,7 @@
                                                       {{ __($material->name) }} </a>
                                                       
                                                 @elseif ($material->type == 'video')
-                                                   <a href=" {{ route('knowledge.videos.index', $material->id) }} ">
+                                                   <a href=" {{ route('dashboard.knowledge.videos.create', $material->id) }} ">
                                                       <span class="material-icons-outlined">videocam</span>
                                                       {{ __($material->name) }} </a>
                                                 @endif

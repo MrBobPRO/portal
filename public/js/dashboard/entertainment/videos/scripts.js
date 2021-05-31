@@ -60,6 +60,7 @@ function videos_update() {
       error: function () {
          alert('Error!');
       }
+      
    });
 }
 

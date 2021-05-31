@@ -47,7 +47,7 @@
             <img class="form-image" src="{{asset('videos/entertainment/posters/default.jpg')}}">
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить видео</button>
      </form>
    </section>
 

@@ -191,11 +191,17 @@
                <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
             @break
 
-               @case('dashboard.knowledge.videos.single') 
-                  <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-                  <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
-                  <a href="{{ route('dashboard.knowledge.videos.single', $video->id) }}"><span>{{ $video->title }}</span></a>
-               @break
+            @case('dashboard.knowledge.videos.single') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.single', $video->id) }}"><span>{{ $video->ruTitle }}</span></a>
+            @break
+
+            @case('dashboard.knowledge.videos.create') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.create', $material->id) }}"><span>{{$subject->name}}/{{$subjectcat->name}}/{{$material->name}}</span></a>
+            @break
 
       @endswitch
    </div>

@@ -17,15 +17,37 @@
          <input type="file" name="file" accept=".pdf">
       </div>
 
-      <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Обновить книгу</button>
+      <div class="spaced-btw-btns">
+         <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> Удалить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+      </div>
    </form>
 
-   {{-- <form action="/knowledge_books_delete" method="POST" enctype="multipart/form-data">
-      @csrf
-      <input type="hidden" name="book_id" value="{{ $book->id }}">
-      <button class="main-btn" style="margin: unset; margin-top: -44px; background-color: #bb1515;" type="submit">Удалить книгу</button>
-   </form> --}}
-
 </section>
+
+<!-- Delete Modal start-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="deleteModal">Удалить</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            Вы уверены что хотите удалить?
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="main-btn" data-bs-dismiss="modal">Отмена</button>
+
+            <form action="/knowledge_books_remove" method="POST">
+               {{ csrf_field() }}
+               <input type="hidden" value="{{$book->id}}" name="id"/>
+               <button type="submit" class="main-btn delete-btn">Удалить</button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Delete Modal end-->
 
 @endsection
