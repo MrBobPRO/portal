@@ -505,6 +505,66 @@ class AdminController extends Controller
     
             $file->move(public_path('videos/knowledge'), $filename);
     
+            return route('dashboard.knowledge.videos');
+
+        }
+
+        public function knowledge_videos_update(Request $request)
+        {
+            // Find video by id
+            $video = Video::find($request->id);
+            
+            $video->ruTitle = $request->ruTitle;
+            $video->tjTitle = $request->tjTitle;
+            $video->enTitle = $request->enTitle;
+            $video->save();
+    
+            // Change subtitles
+            $sub = $request->file('subtitles');
+            if($sub) {
+                if ($video->subtitles) {
+                    // Delete previous subtitles
+                    unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
+                }
+
+                $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
+                $video->subtitles = $filename;
+                $video->save();
+        
+                $sub->move(public_path('videos/knowledge/subtitles'), $filename);
+            }
+    
+            // Change poster
+            $pos = $request->file('poster');
+            if($pos) {
+                if ($video->poster != 'default.jpg') {
+                    // Delete previous poster
+                    unlink(public_path('videos/knowledge/posters/' . $video->poster));
+                }
+                $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
+    
+                $video->poster = $filename;
+                $video->save();
+        
+                $pos->move(public_path('videos/knowledge/posters'), $filename);
+            }
+    
+            // Change video file
+            $file = $request->file('file');
+            if($file) {
+                if ($video->filename) {
+                    // Delete previous video
+                    unlink(public_path('videos/knowledge/' . $video->filename));
+                }
+
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+    
+                $video->filename = $filename;
+                $video->save();
+        
+                $file->move(public_path('videos/knowledge'), $filename);
+            }
+    
             return 'success';
         }
         // -----------------------------------Knowledge end-------------------------------------------
