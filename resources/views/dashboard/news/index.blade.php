@@ -16,7 +16,7 @@
          </div>
          {{-- news seach end --}}
 
-         <a href="{{route('dashboard.news.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.news.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

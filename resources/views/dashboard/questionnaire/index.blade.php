@@ -6,7 +6,7 @@
       
       {{-- Search is unavailable in questionnaires page --}}
       <div class="dash-search-container">
-         <a href="{{route('dashboard.questionnaire.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.questionnaire.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

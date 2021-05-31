@@ -15,7 +15,7 @@
             </select>
          </div>
          {{-- Books search end --}}
-         <a href="{{route('dashboard.knowledge.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.knowledge.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

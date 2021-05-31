@@ -16,7 +16,7 @@
          </div>
          {{-- videos seach end --}}
 
-         <a href="{{route('dashboard.videos.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.videos.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

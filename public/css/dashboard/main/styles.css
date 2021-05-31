@@ -464,5 +464,21 @@ input:read-only {
 .sp-dd {
   display: none !important;
 }
+.add-button {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 50% !important;
+  position: fixed;
+  right: 40px;
+  top: 100vh;
+  margin-top: -80px;
+  align-items: center;
+  justify-content: center;
+}
+.add-button span {
+  font-size: 30px;
+}
 /* Spectrum Colorpicker end */
 

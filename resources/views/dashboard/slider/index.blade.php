@@ -6,7 +6,7 @@
       
       {{-- Search is unavailable in sliders page --}}
       <div class="dash-search-container">
-         <a href="{{route('dashboard.slider.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.slider.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

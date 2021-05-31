@@ -16,7 +16,7 @@
          </div>
          {{-- projects seach end --}}
 
-         <a href="{{route('dashboard.projects.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.projects.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

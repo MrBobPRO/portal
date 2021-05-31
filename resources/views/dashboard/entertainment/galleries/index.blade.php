@@ -16,7 +16,7 @@
          </div>
          {{-- Galleries seach end --}}
 
-         <a href="{{route('dashboard.galleries.create')}}">Добавить</a>
+         <a class="add-button" href="{{route('dashboard.galleries.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       
