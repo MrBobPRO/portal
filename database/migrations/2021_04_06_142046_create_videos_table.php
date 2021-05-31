@@ -19,7 +19,9 @@ class CreateVideosTable extends Migration
             $table->string('category');
             $table->string('ruCategory');
             $table->string('filename');
-            $table->string('title');
+            $table->string('ruTitle');
+            $table->string('tjTitle');
+            $table->string('enTitle');
             $table->string('subtitles')->nullable();
             $table->string('poster')->default('default.jpg');
             $table->timestamps();

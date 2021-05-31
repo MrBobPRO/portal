@@ -9,8 +9,8 @@
          <div class="select2_single_container">
             <select class="select2_single select2_single_linked" data-placeholder="Поиск новостей..." data-dropdown-css-class="select2_single_dropdown">
                <option></option>
-               @foreach($videos as $video)
-                  <option value="{{ route('dashboard.knowledge.videos.single', $video->id)}}">{{$video->title}}</option>   
+               @foreach($allVideos as $allVideo)
+                  <option value="{{ route('dashboard.knowledge.videos.single', $allVideo->id)}}">{{$allVideo->title}}</option>   
                @endforeach
             </select>
          </div>

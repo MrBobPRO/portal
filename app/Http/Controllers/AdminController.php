@@ -348,9 +348,17 @@ class AdminController extends Controller
 
         public function knowledge_books() 
         {
-            $books = Book::latest()->paginate(30);
+            $allBooks = DB::table('books')
+                            ->orderBy('name', 'asc')
+                            ->select('books.id', 'books.name')
+                            ->get();
 
-            return view('dashboard.knowledge.books', compact('books'));
+            $books = DB::table('books')
+                            ->latest()
+                            ->select('books.id', 'books.name', 'books.ruCategory', 'books.created_at')
+                            ->paginate(30);
+
+            return view('dashboard.knowledge.books', compact('books', 'allBooks'));
         }
 
         public function knowledge_books_single($id) 
@@ -423,9 +431,20 @@ class AdminController extends Controller
 
         public function knowledge_videos() 
         {
-            $videos = Video::latest()->paginate(30);
+            //generate title as ruTitle & tjTitle & enTitle
+            $title = App::currentLocale() . 'Title';
 
-            return view('dashboard.knowledge.videos', compact('videos'));
+            $allVideos = DB::table('videos')
+                            ->orderBy($title, 'asc')
+                            ->select('videos.id', 'videos.' . $title . ' as title')
+                            ->get();
+
+            $videos = DB::table('videos')
+                            ->latest()
+                            ->select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
+                            ->paginate(30);
+
+            return view('dashboard.knowledge.videos', compact('videos', 'allVideos'));
         }
 
         public function knowledge_videos_single($id) 
@@ -433,6 +452,60 @@ class AdminController extends Controller
             $video = Video::find($id);
 
             return view('dashboard.knowledge.videos_single', compact('video'));
+        }
+
+        public function knowledge_videos_create(Material $material) 
+        {
+            $subjectcat = Subjectcat::find($material->subjectcat_id);
+            $subject = Subject::find($subjectcat->subject_id);
+
+            return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject'));
+        }
+
+        public function knowledge_videos_store(Request $request)
+        {
+            $video = Video::create([
+                'filename' => 'error',
+                'material_id' => $request->material_id,
+                'category' => $request->category,
+                'ruCategory' => $request->ruCategory,
+                'ruTitle' => $request->ruTitle,
+                'tjTitle' => $request->tjTitle,
+                'enTitle' => $request->enTitle
+            ]);
+    
+            // save subtitles
+            $subtitle = $request->file('subtitles');
+            if($subtitle) {
+                $filename = uniqid() . '.' . $subtitle->getClientOriginalExtension();
+    
+                $video->subtitles = $filename;
+                $video->save();
+        
+                $subtitle->move(public_path('videos/knowledge/subtitles'), $filename);
+            }
+    
+            // save poster
+            $poster = $request->file('poster');
+            if($poster) {
+                $filename = uniqid() . '.' . $poster->getClientOriginalExtension();
+    
+                $video->poster = $filename;
+                $video->save();
+        
+                $poster->move(public_path('videos/knowledge/posters'), $filename);
+            }
+    
+            // save video file
+            $file = $request->file('file');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+    
+            $video->filename = $filename;
+            $video->save();
+    
+            $file->move(public_path('videos/knowledge'), $filename);
+    
+            return 'success';
         }
         // -----------------------------------Knowledge end-------------------------------------------
 

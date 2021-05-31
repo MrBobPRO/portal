@@ -36,4 +36,8 @@
     <script src="{{ asset('js/dashboard/entertainment/galleries/scripts.js') }}"></script>
 @break
 
+@case('dashboard.knowledge.videos.single') @case('dashboard.knowledge.videos.create') 
+    <script src="{{ asset('js/dashboard/knowledge/scripts.js') }}"></script>
+@break
+
 @endswitch

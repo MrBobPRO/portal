@@ -185,6 +185,8 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
 
       Route::get('/dashboard/knowledge/videos', 'AdminController@knowledge_videos')->name('dashboard.knowledge.videos');
       Route::get('/dashboard/knowledge/videos/{id}', 'AdminController@knowledge_videos_single')->name('dashboard.knowledge.videos.single');
+      Route::get('/dashboard/knowledge/videos_create/{material}', 'AdminController@knowledge_videos_create')->name('dashboard.knowledge.videos.create');
+      Route::post('/knowledge_videos_store', 'AdminController@knowledge_videos_store');
       
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------

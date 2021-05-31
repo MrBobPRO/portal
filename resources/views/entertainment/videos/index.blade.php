@@ -19,14 +19,10 @@
                </video>
                
                <div class="video-description">
-                  
-                  @if(\App::currentLocale() == 'ru')
-                     <p>{{$video->ruTitle}}</p>
-                  @elseif(\App::currentLocale() == 'tj')
-                     <p>{{$video->tjTitle}}</p>
-                  @elseif(\App::currentLocale() == 'en')
-                     <p>{{$video->enTitle}}</p>
-                  @endif
+                  <?php 
+                     $title = App::currentLocale() . 'Title';   
+                  ?>
+                     <p>{{$video[$title]}}</p>
 
                   <span>
                      <?php

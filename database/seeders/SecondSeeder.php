@@ -127,7 +127,9 @@ class SecondSeeder extends Seeder
                     $videos->category = $videoCategory[$k];
                     $videos->ruCategory = $videoRuCategory[$k];
                     $videos->filename = 'video.mp4';
-                    $videos->title = 'Видеоурок ' . $k;
+                    $videos->ruTitle = 'Видеоурок ' . $k;
+                    $videos->tjTitle = 'Видео ' . $k;
+                    $videos->enTitle = 'Video ' . $k;
                     $videos->save();
                 }
             } 

@@ -11,7 +11,7 @@
       <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'show'}}"></div>
 
       <div class="profile-ava">
-         <a href="#"><img src="{{ asset('img/users/' . $appUser->avatar) }}">{{$appUser->name}}</a>
+         <a href="{{ route('dashboard.profile.index') }}"><img src="{{ asset('img/users/' . $appUser->avatar) }}">{{$appUser->name}}</a>
       </div>
 
       {{-- Dashboard links start --}}
@@ -62,6 +62,7 @@
                         || $route == 'dashboard.knowledge.books.create'
                         || $route == 'dashboard.knowledge.videos'
                         || $route == 'dashboard.knowledge.videos.single'
+                        || $route == 'dashboard.knowledge.videos.create'
                         || $route == 'dashboard.knowledge.create') active @endif"
             href="{{ route('dashboard.knowledge.index') }}"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
 
