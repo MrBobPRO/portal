@@ -56,7 +56,13 @@
             <a class="@if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single' || $route == 'dashboard.projects.create') active @endif"
             href="{{ route('dashboard.projects.index') }}"><span class="material-icons-outlined">equalizer</span>{{ __('Проекты') }}</a>
 
-            <a class="@if($route == 'dashboard.knowledge.index' || $route == 'dashboard.knowledge.single') active @endif"
+            <a class="@if($route == 'dashboard.knowledge.index' 
+                        || $route == 'dashboard.knowledge.books'
+                        || $route == 'dashboard.knowledge.books.single'
+                        || $route == 'dashboard.knowledge.books.create'
+                        || $route == 'dashboard.knowledge.videos'
+                        || $route == 'dashboard.knowledge.videos.single'
+                        || $route == 'dashboard.knowledge.create') active @endif"
             href="{{ route('dashboard.knowledge.index') }}"><span class="material-icons-outlined">auto_stories</span>{{ __('Центр знаний') }}</a>
 
          @endif {{-- Admin links end --}}

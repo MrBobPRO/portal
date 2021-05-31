@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->integer('material_id')->default(0);
             $table->string('category')->default('null');
+            $table->string('ruCategory');
             $table->string('name');
             $table->string('filename');
             $table->timestamps();

@@ -17,6 +17,7 @@ class CreateVideosTable extends Migration
             $table->id();
             $table->integer('material_id')->default(0);
             $table->string('category');
+            $table->string('ruCategory');
             $table->string('filename');
             $table->string('title');
             $table->string('subtitles')->nullable();
