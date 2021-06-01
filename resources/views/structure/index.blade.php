@@ -1,7 +1,7 @@
-@extends('dashboard.templates.no_sidebar_master')
+@extends('templates.no_sidebar_master')
 @section('content')
 
-@include('dashboard.templates.breadcrumbs')
+@include('templates.breadcrumbs')
 
    <section class="structure-page">
       {{-- Department list start --}}
