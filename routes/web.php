@@ -107,8 +107,8 @@ Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.u
 //Ideas
 Route::get('/dashboard/ideas', 'IdeaController@index')->name('dashboard.ideas.index');
 Route::get('/dashboard/ideas/{id}', 'IdeaController@single')->name('dashboard.ideas.single');
-      //Comment
-      Route::post('/ideas/comment', 'CommentController@ideas');
+Route::post('/ideas/comment', 'CommentController@ideas');
+Route::post('/ideas/download', 'IdeaController@download');
 
 //Dashboard visibility change
 Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');

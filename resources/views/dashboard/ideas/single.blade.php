@@ -19,6 +19,7 @@
             {{$formatted}}
          </div>
 
+
          {{-- used in ajax requests --}}
          <input id="idea_id" type="hidden" value="{{$idea->id}}">
 
@@ -38,6 +39,16 @@
             <span id="dislikes_count" class="grades-count" data-bs-toggle="modal" data-bs-target="#dislikedModal" title="Посмотреть кто дислайкнул">{{count($dislikes)}}</span>
          </div>
       </div>
+
+      {{-- Download attached file if exists --}}
+      @if($idea->file)
+         <form action="/ideas/download" method="POST">
+            @csrf
+            <input type="hidden" name="file" value="{{$idea->file}}">
+            <button type="submit">Скачать прикреплённый файл</button>
+         </form>
+      @endif
+
    </div>
    {{-- Idea content end --}}
 

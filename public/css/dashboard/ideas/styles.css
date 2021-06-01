@@ -24,6 +24,17 @@
 .ideas-content .ideas-content-text b {
    font-weight: bold;
 }
+.ideas-content form {
+   padding: 0 25px 25px;
+}
+.ideas-content form button {
+   border: none;
+   padding: 0;
+   color: var(--color-scheme);
+   background: transparent;
+   font-weight: bold;
+   font-style: italic;
+}
 .grades-container {
    padding: 0 25px 25px;
    display: flex;
