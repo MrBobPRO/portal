@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+
 class ProjectsController extends Controller
 {
     public function index()
     {  
-        $projects = Project::paginate(10);
-
-        return view('projects.index', compact('projects'));
+        return view('projects.index');
     }
 
     public function completed()
@@ -31,11 +31,9 @@ class ProjectsController extends Controller
     {  
         $project = Project::find($id);
 
-        //generate titile for breadcrumb
-        if(mb_strlen($project->ruTitle) > 23)
-            $crumbsTitle = mb_substr($project->ruTitle, 0, 20) . '...';
-        else
-            $crumbsTitle = $project->ruTitle;
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $project[$title];
 
         //comments
         $comments = $project->comments()->oldest()->get();

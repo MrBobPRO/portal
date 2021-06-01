@@ -12,9 +12,7 @@ class EntertainmentController extends Controller
 {
     public function index()
     {
-        $videos = Entertainment::latest()->paginate(16);
-
-        return view('entertainment.index', compact('videos'));
+        return view('entertainment.index');
     }
 
     public function videos()

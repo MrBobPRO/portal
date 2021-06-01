@@ -7,43 +7,26 @@
 
       {{-- News content start --}}
       <div class="news-content">
-         @switch(\App::currentLocale())
-            @case('ru')
-               <h3>{{$news->ruTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
-               <div class="news-content-text">{!!$news->ruText!!}</div>
-            @break
 
-            @case('tj')
-               <h3>{{$news->tjTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
-               <div class="news-content-text">{!!$news->tjText!!}</div>
-            @break
+         <?php 
+            $appLocale = \App::currentLocale(); 
+            //genereate translation column names
+            $n_title = $appLocale . 'Title';
+            $n_text = $appLocale . 'Text';
+            //Generate News Date Locale from appLocale
+            if($appLocale == 'en') $n_date_locale = 'en';
+            else $n_date_locale = 'ru';
+         ?>
 
-            @case('en')
-               <h3>{{$news->enTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
-               <div class="news-content-text">{!!$news->enText!!}</div>
-            @break
-         @endswitch
+         <h3>{{ $news[$n_title] }}</h3>
+         <img src="{{ asset('img/news/'. $news->image) }}">
+         <div class="news-content-text">{!! $news[$n_text] !!}</div>
 
          <div class="grades-container">
             <div class="news-content-date">
-               <?php
-                  if(\App::currentLocale() == 'ru') {
-                     $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-                     $formatted = $date->isoFormat('DD MMMM YYYY');
-                  }
-                     
-                  elseif(\App::currentLocale() == 'tj') {
-                     $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-                     $formatted = $date->isoFormat('DD.MM.YYYY');
-                  }
-
-                  elseif(\App::currentLocale() == 'en') {
-                     $date = \Carbon\Carbon::parse($news->created_at)->locale('en');
-                     $formatted = $date->isoFormat('DD MMMM YYYY');
-                  }
+               <?php 
+                  $date = \Carbon\Carbon::parse($news->created_at)->locale($n_date_locale);
+                  $formatted = $date->isoFormat('DD MMMM YYYY');
                ?>
                {{$formatted}}
             </div>

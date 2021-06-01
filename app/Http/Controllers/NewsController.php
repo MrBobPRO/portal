@@ -33,30 +33,12 @@ class NewsController extends Controller
     public function single($id)
     { 
         $news = News::find($id);
-        //generate titile for breadcrumb
-        $locale = App::currentLocale();
 
-        if($locale == 'ru') {
-            if(mb_strlen($news->ruTitle) > 23)
-                $crumbsTitle = mb_substr($news->ruTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->ruTitle;
-        }
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $news[$title];
 
-        else if($locale == 'tj') {
-            if(mb_strlen($news->tjTitle) > 23)
-                $crumbsTitle = mb_substr($news->tjTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->tjTitle;
-        }
-
-        else if($locale == 'en') {
-            if(mb_strlen($news->enTitle) > 23)
-                $crumbsTitle = mb_substr($news->enTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->enTitle;
-        }
-
+        //likes and dislikes
         $likes = $news->grades->where('like', true);
         $dislikes = $news->grades->where('like', false);
 

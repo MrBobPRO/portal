@@ -3,11 +3,6 @@
 
    <section class="home-page">
 
-      {{-- <form action="/send_credentials" method="POST">
-         @csrf
-         <button type="submit">Отправить</button>
-      </form> --}}
-
       {{-- Owl Carousel --}}
       <div class="owl-carousel-container">
          <div class="owl-carousel owl-theme">

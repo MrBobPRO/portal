@@ -7,50 +7,28 @@
 
       {{-- Projects content start --}}
       <div class="projects-content">
-         @switch(\App::currentLocale())
-            @case('ru')
-            <h3>{{$project->ruTitle}}</h3>
-            <img src="{{ asset('img/projects/' . $project->image) }}">
-            <div class="projects-content-text">{!!$project->ruText!!}</div>
-            <div class="project-date">
-               <span class="material-icons-outlined">event</span>
-               <?php 
-                  $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                  $formatted = $date->isoFormat('DD MMMM YYYY');
-               ?>
-               {{$formatted}}
-            </div>
-            @break
 
-            @case('tj')
-               <h3>{{$project->tjTitle}}</h3>
-               <img src="{{ asset('img/projects/' . $project->image) }}">
-               <div class="projects-content-text">{!!$project->tjText!!}</div>
-               <div class="project-date">
-                  <span class="material-icons-outlined">event</span>
-                  <?php 
-                     $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                     $formatted = $date->isoFormat('DD.MM.YYYY');
-                  ?>
-                  {{$formatted}}
-               </div>
-            @break
-
-            @case('en')
-               <h3>{{$project->enTitle}}</h3>
-               <img src="{{ asset('img/projects/' . $project->image) }}">
-               <div class="projects-content-text">{!!$project->enText!!}</div>
-               <div class="project-date">
-                  <span class="material-icons-outlined">event</span>
-                  <?php 
-                     $date = \Carbon\Carbon::parse($project->created_at)->locale('en');
-                     $formatted = $date->isoFormat('DD MMMM YYYY');
-                  ?>
-                  {{$formatted}}
-               </div>
-            @break
-
-         @endswitch
+         <?php 
+            $appLocale = \App::currentLocale(); 
+            //genereate translation column names
+            $n_title = $appLocale . 'Title';
+            $n_text = $appLocale . 'Text';
+            //Generate News Date Locale from appLocale
+            if($appLocale == 'en') $n_date_locale = 'en';
+            else $n_date_locale = 'ru';
+         ?>
+         
+         <h3>{{ $project[$n_title] }}</h3>
+         <img src="{{ asset('img/projects/' . $project->image) }}">
+         <div class="projects-content-text">{!! $project[$n_text] !!}</div>
+         <div class="project-date">
+            <span class="material-icons-outlined">event</span>
+            <?php 
+               $date = \Carbon\Carbon::parse($project->created_at)->locale($n_date_locale);
+               $formatted = $date->isoFormat('DD MMMM YYYY');
+            ?>
+            {{$formatted}}
+         </div>
 
       </div>
       {{-- Projects content end --}}

@@ -5,6 +5,7 @@
 
    <section class="videos-page">
       <div class="videos-list">
+         {{-- used for custom id --}}
          <?php $count = 0; ?>
          @foreach ($videos as $video)
             <div class="single-video">
@@ -19,10 +20,17 @@
                </video>
                
                <div class="video-description">
-                  <p>{{$video->ruTitle}}</p>
+
+                  <?php 
+                     $appLocale = \App::currentLocale(); 
+                     //genereate translation column names
+                     $v_title = $appLocale . 'Title';   
+                  ?>
+
+                  <p>{{$video[$v_title]}}</p>
                   <span>
                      <?php 
-                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $date = \Carbon\Carbon::parse($video->created_at);
                         $formatted = $date->isoFormat('DD.MM.YYYY');
                      ?>
                      {{$formatted}}
@@ -31,7 +39,7 @@
                
             </div>
             <?php $count++ ?>
-      @endforeach
+         @endforeach
       </div>
 
       {{$videos->links()}}

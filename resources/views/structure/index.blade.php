@@ -12,6 +12,7 @@
                {{-- Users list item start --}}
                <div class="users-list">
                   
+                  {{-- Get departments users ordered by designation priority --}}
                   <?php 
                      $users = DB::table('users')
                      ->where('users.department_id', $department->id)

@@ -10,44 +10,26 @@
             <a href="{{ route('entertainment.gallery.single', $gallery->id) }}">
                <img src="{{ asset('img/entertainment/galleries/' . $gallery->image) }}">
 
+               <?php 
+                  $appLocale = \App::currentLocale(); 
+                  //genereate translation column names
+                  $n_title = $appLocale . 'Title';
+                  //Generate News Date Locale from appLocale
+                  if($appLocale == 'en') $n_date_locale = 'en';
+                  else $n_date_locale = 'ru';
+               ?>
+
                <div>
-
-                  @switch(\App::currentLocale())
-                     @case('ru')
-                        <p>{{$gallery->ruTitle}}</p>
-                        <span>
-                           <?php 
-                              $date = \Carbon\Carbon::parse($gallery->date)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}
-                        </span>
-                     @break
-
-                     @case('tj')
-                        <p>{{$gallery->tjTitle}}</p>
-                        <span>
-                           <?php 
-                              $date = \Carbon\Carbon::parse($gallery->date)->locale('ru');
-                              $formatted = $date->isoFormat('DD.MM.YYYY');
-                           ?>
-                           {{$formatted}}
-                        </span>
-                     @break
-
-                     @case('en')
-                        <p>{{$gallery->enTitle}}</p>
-                        <span>
-                           <?php 
-                              $date = \Carbon\Carbon::parse($gallery->date)->locale('en');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}
-                        </span>
-                     @break
-                  @endswitch   
-
+                  <p>{{$gallery[$n_title]}}</p>
+                  <span>
+                     <?php 
+                        $date = \Carbon\Carbon::parse($gallery->date)->locale($n_date_locale);
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}
+                  </span>
                </div>
+
             </a>
          @endforeach
       </div>

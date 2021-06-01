@@ -20,6 +20,7 @@ class KnowledgeController extends Controller
     }
 
     public function books(Material $material) {
+
         $books = Book::where('material_id', $material->id)
                         ->where('category', $material->category)
                         ->paginate(30);
@@ -47,6 +48,7 @@ class KnowledgeController extends Controller
     }
 
     public function videos($id) {
+
         $material = Material::find($id);
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)

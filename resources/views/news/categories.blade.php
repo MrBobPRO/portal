@@ -8,34 +8,27 @@
       {{-- Latest news start --}}
       <div class="latest-news">
 
-         <?php $appLocale = \App::currentLocale(); ?>
+         <?php 
+            $appLocale = \App::currentLocale(); 
+            //genereate translation column names
+            $n_title = $appLocale . 'Title';
+            $n_text = $appLocale . 'Text';
+            //Generate News Date Locale from appLocale
+            if($appLocale == 'en') $n_date_locale = 'en';
+            else $n_date_locale = 'ru';
+         ?>
 
          @foreach ($news as $new)
             <div class="single-news">
                <img src="{{ asset('img/news/'. $new->image) }}">
                <a href="{{route('news.single', $new->id)}}">
 
-                  <?php
-                     // Generate News title from appLocale
-                     $newsTitle = $new[$appLocale . 'Title'];
-
-                     //Generate News Date Locale from appLocale
-                     if($appLocale == 'en') 
-                        $newsDateLocale = 'en';
-                     else
-                        $newsDateLocale = 'ru';
-
-                     // Generate News text from appLocale
-                     $newsText = $new[$appLocale . 'Text'];
-                     //Replace all tags by space
-                     $newsText = preg_replace('#<[^>]+>#', ' ', $newsText);
-                  ?>
-
-                  <h3>{{ $newsTitle }}</h3>
-                  <p>{!! $newsText !!}</p> 
+                  <h3>{{ $new[$n_title] }}</h3>
+                  {{-- Replace all news text tags by space --}}
+                  <p>{!! preg_replace('#<[^>]+>#', ' ', $new[$n_text]) !!}</p> 
                   <span class="news-date">
                      <?php 
-                        $date = \Carbon\Carbon::parse($new->created_at)->locale($newsDateLocale);
+                        $date = \Carbon\Carbon::parse($new->created_at)->locale($n_date_locale);
                         $formatted = $date->isoFormat('DD MMMM YYYY');
                      ?>
                      {{$formatted}}

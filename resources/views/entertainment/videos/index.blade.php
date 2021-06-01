@@ -19,14 +19,17 @@
                </video>
                
                <div class="video-description">
-                  <?php 
-                     $title = App::currentLocale() . 'Title';   
-                  ?>
-                     <p>{{$video[$title]}}</p>
 
+                  <?php 
+                     $appLocale = \App::currentLocale(); 
+                     //genereate translation column names
+                     $v_title = $appLocale . 'Title';   
+                  ?>
+
+                  <p>{{$video[$v_title]}}</p>
                   <span>
                      <?php
-                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $date = \Carbon\Carbon::parse($video->created_at);
                         $formatted = $date->isoFormat('DD.MM.YYYY');
                      ?>
                      {{$formatted}}

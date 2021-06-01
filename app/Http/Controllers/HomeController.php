@@ -17,6 +17,13 @@ class HomeController extends Controller
         $this->middleware('auth')->except('email');
     }
 
+    public function index()
+    {
+        $items = Slider::orderBy('priority', 'asc')->get();
+
+        return view('home.index', compact('items'));
+    }
+
     public function store_dashboard_visibility(Request $request)
     {   
         session([
@@ -24,13 +31,6 @@ class HomeController extends Controller
         ]);
 
         return 'success';
-    }
-
-    public function index()
-    {
-        $items = Slider::orderBy('priority', 'asc')->get();
-
-        return view('home.index', compact('items'));
     }
 
     public function send_credentials()
