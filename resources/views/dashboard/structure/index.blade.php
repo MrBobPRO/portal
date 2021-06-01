@@ -18,7 +18,7 @@
             <a href="#">Позиции</a>
             <a href="#">Должности</a>
          </div>
-         <a class="add-button" href="{{route('dashboard.knowledge.create')}}"><span class="material-icons-outlined">add</span></a>
+         <a class="add-button" href="{{route('dashboard.structure.users.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
       {{-- Department list start --}}
       <div class="departments-list">

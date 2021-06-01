@@ -45,7 +45,8 @@
             href="{{ route('dashboard.slider.index') }}"><span class="material-icons-outlined">slideshow</span>{{ __('Слайдер') }}</a>
 
             <a class="@if($route == 'dashboard.structure.index'
-                        || $route == 'dashboard.structure.users.update') active @endif" 
+                        || $route == 'dashboard.structure.users.update'
+                        || $route == 'dashboard.structure.users.create') active @endif" 
                href="{{ route('dashboard.structure.index') }}"><span class="material-icons-outlined">groups</span>{{ __('Структура') }}</a>
             
             <a class="@if($route == 'dashboard.knowledge.index' 

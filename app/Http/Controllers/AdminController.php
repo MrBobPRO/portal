@@ -609,6 +609,49 @@ class AdminController extends Controller
 
         return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages'));
     }
+
+    public function users_create() 
+    {
+        $departments = Department::get();
+        $designations = Designation::get();
+        $positions = Position::get();
+        $languages = Language::get();
+
+        return view('dashboard.structure.users_create', compact('departments', 'designations', 'positions', 'languages'));
+    }
+
+    public function users_store(Request $request)
+    {
+        $user = new User;
+        $password = Str::random(6);
+        //Validation start
+        $request->validate([
+            'nickname' => 'unique:users',
+            'email' => 'unique:users',
+        ]);//Validation end 
+        //Save user start
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->password = bcrypt($password);
+        $user->description = $request->description;
+        $user->department_id = $request->department_id;
+        $user->position_id = $request->position_id;
+        $user->designation_id = $request->designation_id;
+        $user->save();// Save user end
+        //Detach languages and attach new ones
+        $user->languages()->detach();
+        foreach ($request->languages as $lang) 
+        {       
+            $user->languages()->attach($lang);
+        }
+            
+        // \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
+
+        return redirect()->back();
+    }
     // -----------------------------------Structure start-------------------------------------------
 
 }
