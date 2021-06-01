@@ -27,6 +27,16 @@
          </div>
 
          <div class="input-container-inline">
+            <label for="nickname">Ник</label>
+            <div class="value-replacer" @error('nickname')style="border-color: red"@enderror>
+               <input id="nickname" name="nickname" type="text" value="{{ old('nickname') ? old('nickname') : $user->nickname }}" required>
+            </div>
+            @error('nickname')
+               <p style="display: block" class="input-error password-error">Пользователь с таким ником уже существует</p>
+            @enderror
+         </div>
+
+         <div class="input-container-inline">
             <label for="birth_date">День рождения</label>
             <div class="value-replacer">
                <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>

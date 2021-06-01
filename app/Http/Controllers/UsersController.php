@@ -22,20 +22,8 @@ class UsersController extends Controller
     public function single($id)
     {
         $user = User::find($id);
-
-        if (\Auth::user()->role === 'admin') 
-        {
-            $languages = Language::get();
-            $departments = Department::get();
-            $designations = Designation::get();
-            $positions = Position::get();
-            return view('dashboard.users.admin_single', compact('user', 'languages', 'departments', 'designations', 'positions'));
-        } 
-        else 
-        {
-            return view('dashboard.users.single', compact('user'));
-        }
-
+        
+        return view('dashboard.users.single', compact('user'));
     }
 
 }

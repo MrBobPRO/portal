@@ -1,0 +1,67 @@
+
+/* Structure page start */
+.departments-list-item {
+   margin-bottom: 40px;
+}
+.departments-list-item h2 {
+   background: var(--color-scheme);
+   color: white;
+   padding: 12px 20px;
+   font-weight: 400;
+   font-size: 17px;
+   margin-bottom: 0;
+   display: flex;
+    align-items: center;
+}
+.departments-list-item h2 span {
+   font-size: 20px;
+   margin-right: 5px;
+}
+.departments-list-item .users-list {
+   display: flex;
+   flex-wrap: wrap;
+}
+.users-list  .users-list-item {
+   width: 33.3%;
+   display: flex;
+   background: white;
+   text-decoration: none;
+   box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
+}
+.users-list-item img {
+   width: 35%;
+   object-fit: cover;
+}
+.users-list-item div {
+   width: 65%;
+   padding-left: 15px;
+   height: 100%;
+   padding: 10px;
+   text-decoration: none;
+}
+.users-list-item h6 {
+   color: var(--color-scheme);
+   margin-bottom: 8px;
+}
+.users-list-item p {
+   margin-bottom: 8px;
+   line-height: normal;
+   font-weight: 400;
+   color: #212529;
+}
+.users-list-item span {
+   font-weight: 300;
+   color: #212529;
+}
+.dash-search-container {
+   margin-bottom: 10px;
+}
+.structure-links {
+   display: flex;
+}
+.structure-links a {
+   margin: 1px;
+   border-radius: 0px;
+   padding: 10px 30px;
+}
+/* Structure page end */

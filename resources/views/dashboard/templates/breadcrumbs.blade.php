@@ -158,8 +158,6 @@
          <a href="{{ route('dashboard.galleries.create') }}"><span>Добавить</span></a>
       @break
 
-      
-
       @case('dashboard.knowledge.index')
          <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
       @break
@@ -202,6 +200,15 @@
                <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
                <a href="{{ route('dashboard.knowledge.videos.create', $material->id) }}"><span>{{$subject->name}}/{{$subjectcat->name}}/{{$material->name}}</span></a>
             @break
+         
+            @case('dashboard.structure.index')
+               <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+            @break
+
+               @case('dashboard.structure.users.update')
+                  <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+                  <a href="{{ route('dashboard.structure.users.update', $user->id) }}"><span>{{ $user->name }} {{ $user->surname }}</span></a>
+               @break
 
       @endswitch
    </div>
