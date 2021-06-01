@@ -38,8 +38,6 @@
          <a href="{{ route('dashboard.ads.create') }}"><span>Добавить</span></a>
       @break
 
-
-
       @case('dashboard.questionnaire.index')
          <a href="{{ route('dashboard.questionnaire.index') }}"><span>{{ __('Опросник') }}</span></a>
       @break
@@ -53,8 +51,6 @@
          <a href="{{ route('dashboard.questionnaire.index') }}"><span>{{ __('Опросник') }}</span></a>
          <a href="{{ route('dashboard.questionnaire.create') }}"><span>Добавить</span></a>
       @break
-
-
 
       @case('dashboard.news.index')
          <a href="{{ route('dashboard.news.index') }}"><span>{{ __('Новости') }}</span></a>
@@ -86,9 +82,6 @@
          <a href="{{ route('dashboard.slider.create') }}"><span>Добавить</span></a>
       @break
 
-
-
-
       @case('dashboard.ideas.index')
          <a href="{{ route('dashboard.ideas.index') }}"><span>{{ __('Идеи') }}</span></a>
       @break
@@ -98,9 +91,6 @@
          <a href="{{ route('dashboard.ideas.index') }}"><span>{{$crumbsTitle}}</span></a>
       @break
 
-
-
-
       @case('dashboard.complaints.index')
          <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
       @break
@@ -109,8 +99,6 @@
          <a href="{{ route('dashboard.complaints.index') }}"><span>{{ __('Жалобы') }}</span></a>
          <a href="{{ route('dashboard.complaints.index') }}"><span>{{$crumbsTitle}}</span></a>
       @break
-
-
 
       @case('dashboard.videos.index')
          <a href="{{ route('dashboard.videos.index') }}"><span>{{ __('Видео') }}</span></a>
@@ -158,8 +146,6 @@
          <a href="{{ route('dashboard.galleries.create') }}"><span>Добавить</span></a>
       @break
 
-      
-
       @case('dashboard.knowledge.index')
          <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
       @break
@@ -202,6 +188,20 @@
                <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
                <a href="{{ route('dashboard.knowledge.videos.create', $material->id) }}"><span>{{$subject->name}}/{{$subjectcat->name}}/{{$material->name}}</span></a>
             @break
+         
+            @case('dashboard.structure.index')
+               <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+            @break
+
+               @case('dashboard.structure.users.update')
+                  <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+                  <a href="{{ route('dashboard.structure.users.update', $user->id) }}"><span>{{ $user->name }} {{ $user->surname }}</span></a>
+               @break
+
+               @case('dashboard.structure.users.create')
+                  <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+                  <a href="{{ route('dashboard.structure.users.create') }}"><span>Добавить сотрудника</span></a>
+               @break
 
       @endswitch
    </div>

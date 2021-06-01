@@ -110,10 +110,15 @@ class ProfileController extends Controller
             $request->validate([
                 'email' => 'unique:users',
             ]);
+        } else if ($request->nickname != $user->nickname) {
+            $request->validate([
+                'nickname' => 'unique:users',
+            ]);
         }//Validation end 
         //Edit user start
         $user->name = $request->name;
         $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
         $user->birth_date = $request->birth_date;
         $user->email = $request->email;
         $user->department_id = $request->department_id;

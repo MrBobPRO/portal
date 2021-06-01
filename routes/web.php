@@ -175,7 +175,6 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_galleries', 'EntertainmentController@galleries_update');
       Route::post('/store_galleries', 'EntertainmentController@galleries_store');
       Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
-
       //Knowledge
       Route::view('/dashboard/knowledge', 'dashboard.knowledge.index')->name('dashboard.knowledge.index');
       Route::get('/dashboard/knowledge_create', 'AdminController@knowledge_create')->name('dashboard.knowledge.create');
@@ -193,7 +192,12 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/knowledge_videos_store', 'AdminController@knowledge_videos_store');
       Route::post('/knowledge_videos_update', 'AdminController@knowledge_videos_update');
       Route::post('/knowledge_videos_remove', 'AdminController@knowledge_videos_remove');
-      
+      //Structure
+      Route::get('/dashboard/structure', 'AdminController@structure_index')->name('dashboard.structure.index'); 
+      Route::get('/dashboard/users_update/{id}', 'AdminController@users_update')->name('dashboard.structure.users.update');
+      Route::get('/dashboard/users_create', 'AdminController@users_create')->name('dashboard.structure.users.create');
+      Route::post('/dashboard/users_create', 'AdminController@users_store');      
+
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 
