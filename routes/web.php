@@ -194,7 +194,7 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/knowledge_videos_remove', 'AdminController@knowledge_videos_remove');
       //Structure
       Route::get('/dashboard/structure', 'AdminController@structure_index')->name('dashboard.structure.index'); 
-      Route::get('/dashboard/user_single/{id}', 'AdminController@user_update')->name('dashboard.structure.users.update');      
+      Route::get('/dashboard/users_update/{id}', 'AdminController@users_update')->name('dashboard.structure.users.update');      
 
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------

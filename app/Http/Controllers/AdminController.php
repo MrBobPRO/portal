@@ -599,7 +599,7 @@ class AdminController extends Controller
         return view('dashboard.structure.index', compact('departments', 'allUsers'));
     }
 
-    public function user_update($id) 
+    public function users_update($id) 
     {
         $user = User::find($id);
         $departments = Department::get();

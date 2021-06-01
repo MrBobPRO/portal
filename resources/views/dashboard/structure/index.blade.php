@@ -8,7 +8,7 @@
             <select class="select2_single select2_single_linked" data-placeholder="Поиск сотрудников..." data-dropdown-css-class="select2_single_dropdown">
                <option></option>
                @foreach($allUsers as $user)
-                  <option value="{{ route('dashboard.structure.users.single', $user->id)}}">{{$user->name}} {{$user->surname}}</option>   
+                  <option value="{{ route('dashboard.structure.users.update', $user->id)}}">{{$user->name}} {{$user->surname}}</option>   
                @endforeach
             </select>
          </div>
@@ -39,7 +39,7 @@
                   ?>
 
                   @foreach ($users as $u)
-                     <a href="{{route('dashboard.structure.users.single', $u->userId)}}" class="users-list-item">
+                     <a href="{{route('dashboard.structure.users.update', $u->userId)}}" class="users-list-item">
                         <img src="{{ asset('img/users/' . $u->avatar) }}">
                         <div>
                            <h6>{{$u->userName . ' ' . $u->surname}}</h6>
