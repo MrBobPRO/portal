@@ -40,7 +40,8 @@
     <link href="{{ asset('css/dashboard/knowledge/media.css') }}" rel="stylesheet">
 @break
 
-@case('dashboard.structure.index') @case('dashboard.structure.users.update') @case('dashboard.structure.users.create')
+@case('dashboard.structure.index') @case('dashboard.structure.users.update') @case('dashboard.structure.users.create') @case('dashboard.structure.departments.index')
+@case('dashboard.structure.designations.index') @case('dashboard.structure.positions.index')
     <link href="{{ asset('css/dashboard/structure/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard/structure/media.css') }}" rel="stylesheet">
 @break

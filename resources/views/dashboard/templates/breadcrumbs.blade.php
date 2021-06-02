@@ -203,5 +203,20 @@
                   <a href="{{ route('dashboard.structure.users.create') }}"><span>Добавить сотрудника</span></a>
                @break
 
+         @case('dashboard.structure.departments.index')
+            <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+            <a href="{{ route('dashboard.structure.departments.index') }}"><span>Отделы</span></a>
+         @break
+
+         @case('dashboard.structure.designations.index')
+            <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+            <a href="{{ route('dashboard.structure.designations.index') }}"><span>Позиции</span></a>
+         @break
+
+         @case('dashboard.structure.positions.index')
+            <a href="{{ route('dashboard.structure.index') }}"><span>{{ __('Структура') }}</span></a>
+            <a href="{{ route('dashboard.structure.positions.index') }}"><span>Должности</span></a>
+         @break
+
       @endswitch
    </div>

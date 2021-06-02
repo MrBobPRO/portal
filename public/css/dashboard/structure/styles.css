@@ -69,3 +69,59 @@
 .structure-user-update h2, .structure-user-create h2 {
    margin: 30px 0 35px;
 }
+/* Departments/Designation start */
+.primary-items {
+   position: relative;
+}
+.buttons .delete-btn {
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   padding: 4px 8px;
+}
+.buttons .update-btn {
+   position: absolute;
+   top: 5px;
+   right: 120px;
+   padding: 4px 8px;
+}
+.dash-search-container {
+   margin: 0;
+}
+.primary-items .modal-footer .form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+}
+.primary-items .modal-footer label {
+   display: flex;
+   justify-content: space-between;
+   width: 90%;
+   margin: 10px;
+}
+.primary-items .modal-footer label input {
+   width: 70%;
+}
+.primary-items .modal-footer .d-btn {
+   display: flex;
+   margin-right: -200px;
+   margin-top: 10px;
+}
+.primary-items .modal-footer .d-btn button {
+   margin: 5px;
+}
+/* Departments/Designation end */
+/* Positions start */
+.select2_single_container {
+   margin: 0;
+   width: 70%;
+   border: 1px solid #d2d2d2;
+   border-radius: 5px;
+   overflow: hidden;
+}
+.select2_single_container .select2-container--default {
+   width: 100% !important;
+}
+/* Positions end */
+

@@ -14,9 +14,9 @@
          </div>
          {{-- Users search end --}}
          <div class="structure-links">
-            <a href="#">Отделы</a>
-            <a href="#">Позиции</a>
-            <a href="#">Должности</a>
+            <a href="{{ route('dashboard.structure.departments.index') }}">Отделы</a>
+            <a href="{{ route('dashboard.structure.designations.index') }}">Позиции</a>
+            <a href="{{ route('dashboard.structure.positions.index') }}">Должности</a>
          </div>
          <a class="add-button" href="{{route('dashboard.structure.users.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>

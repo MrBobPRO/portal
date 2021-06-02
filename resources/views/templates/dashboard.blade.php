@@ -46,7 +46,10 @@
 
             <a class="@if($route == 'dashboard.structure.index'
                         || $route == 'dashboard.structure.users.update'
-                        || $route == 'dashboard.structure.users.create') active @endif" 
+                        || $route == 'dashboard.structure.users.create'
+                        || $route == 'dashboard.structure.departments.index'
+                        || $route == 'dashboard.structure.designations.index'
+                        || $route == 'dashboard.structure.positions.index') active @endif" 
                href="{{ route('dashboard.structure.index') }}"><span class="material-icons-outlined">groups</span>{{ __('Структура') }}</a>
             
             <a class="@if($route == 'dashboard.knowledge.index' 

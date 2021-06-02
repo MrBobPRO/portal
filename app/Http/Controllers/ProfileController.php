@@ -128,11 +128,14 @@ class ProfileController extends Controller
         $user->save();//Edit user end
         //Detach languages and attach new ones
         $user->languages()->detach();
-        foreach ($request->languages as $lang) 
-        {       
-            $user->languages()->attach($lang);
-        }
-        
+        if ($request->languages) 
+        {
+            foreach ($request->languages as $lang) 
+            {       
+                $user->languages()->attach($lang);
+            }
+        } 
+
         return redirect()->back();
             
     }

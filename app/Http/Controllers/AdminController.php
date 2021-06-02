@@ -643,15 +643,156 @@ class AdminController extends Controller
         $user->save();// Save user end
         //Detach languages and attach new ones
         $user->languages()->detach();
-        foreach ($request->languages as $lang) 
-        {       
-            $user->languages()->attach($lang);
+        if ($request->languages) {
+            foreach ($request->languages as $lang) 
+            {       
+                $user->languages()->attach($lang);
+            }
+             
         }
-            
+   
         // \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
+
+        return redirect()->back();
+    }
+
+    public function users_remove(Request $request)
+    {
+        $user = User::find($request->id);
+        
+        $user->delete();
+
+        return redirect()->route('dashboard.structure.index');
+    }
+
+    public function departments_index()
+    {
+        $departments = Department::orderBy('priority', 'asc')
+                            ->get();
+
+        return view('dashboard.structure.departments.index', compact('departments'));
+    }
+
+    public function departments_update(Request $request)
+    {
+        $department = Department::find($request->id);
+        
+        $department->name = $request->name;
+        $department->priority = $request->priority;
+        $department->save();
+
+        return redirect()->back();
+    }
+
+    public function departments_remove(Request $request)
+    {
+        Department::find($request->id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function departments_store(Request $request)
+    {
+        $department = new Department;
+        
+        $department->name = $request->name;
+        $department->priority = $request->priority;
+        $department->save();
+
+        return redirect()->back();
+    }
+
+    public function designations_index()
+    {
+        $designations = Designation::orderBy('priority', 'asc')
+                            ->get();
+                            
+        return view('dashboard.structure.designations.index', compact('designations'));
+    }
+
+    public function designations_update(Request $request)
+    {
+        $designation = Designation::find($request->id);
+        
+        $designation->name = $request->name;
+        $designation->priority = $request->priority;
+        $designation->save();
+
+        return redirect()->back();
+    }
+
+    public function designations_remove(Request $request)
+    {
+        Designation::find($request->id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function designations_store(Request $request)
+    {
+        $designation = new Designation;
+        
+        $designation->name = $request->name;
+        $designation->priority = $request->priority;
+        $designation->save();
+
+        return redirect()->back();
+    }
+
+    public function positions_index()
+    {
+        $positions = Position::orderBy('department_id', 'asc')
+                            ->get();
+        $departments = Department::get();
+
+        return view('dashboard.structure.positions.index', compact('positions', 'departments'));
+    }    
+
+    public function positions_update(Request $request)
+    {
+        $position = Position::find($request->id);
+        
+        $position->name = $request->name;
+        $position->department_id = $request->department_id;
+        $position->save();
+
+        return redirect()->back();
+    }
+
+    public function positions_remove(Request $request)
+    {
+        Position::find($request->id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function positions_store(Request $request)
+    {
+        $position = new Position;
+        
+        $position->name = $request->name;
+        $position->department_id = $request->department_id;
+        $position->save();
 
         return redirect()->back();
     }
     // -----------------------------------Structure start-------------------------------------------
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

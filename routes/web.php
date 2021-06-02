@@ -196,7 +196,25 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::get('/dashboard/structure', 'AdminController@structure_index')->name('dashboard.structure.index'); 
       Route::get('/dashboard/users_update/{id}', 'AdminController@users_update')->name('dashboard.structure.users.update');
       Route::get('/dashboard/users_create', 'AdminController@users_create')->name('dashboard.structure.users.create');
-      Route::post('/dashboard/users_create', 'AdminController@users_store');      
+      Route::post('/dashboard/users_create', 'AdminController@users_store');  
+      Route::post('/dashboard/users_remove', 'AdminController@users_remove');
+      
+      Route::get('/dashboard/departments', 'AdminController@departments_index')->name('dashboard.structure.departments.index');
+      Route::post('/departments_update', 'AdminController@departments_update');
+      Route::post('/departments_remove', 'AdminController@departments_remove');
+      Route::post('/departments_store', 'AdminController@departments_store');
+
+      Route::get('/dashboard/designations', 'AdminController@designations_index')->name('dashboard.structure.designations.index');
+      Route::post('/designations_update', 'AdminController@designations_update');
+      Route::post('/designations_remove', 'AdminController@designations_remove');
+      Route::post('/designations_store', 'AdminController@designations_store');
+
+      Route::get('/dashboard/positions', 'AdminController@positions_index')->name('dashboard.structure.positions.index');
+      Route::post('/positions_update', 'AdminController@positions_update');
+      Route::post('/positions_remove', 'AdminController@positions_remove');
+      Route::post('/positions_store', 'AdminController@positions_store');
+
+
 
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
