@@ -352,7 +352,7 @@ input:read-only {
 }
 .select2_single_dropdown .select2-results__options {
   padding: 0;
-  max-height: 282px !important;
+  max-height: 266px !important;
 }
 .select2_single_dropdown .select2-results__option {
   padding: 8px 15px;
