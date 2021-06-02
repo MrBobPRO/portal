@@ -43,10 +43,10 @@
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $department->id }}" name="id"/>
                            <label>Отдел
-                              <input type="text" value="{{ $department->name }}" name="name"/>
+                              <input type="text" value="{{ $department->name }}" name="name" required>
                            </label>
                            <label>Приоритет
-                              <input type="number" value="{{ $department->priority }}" name="priority"/>
+                              <input type="number" value="{{ $department->priority }}" name="priority" required>
                            </label>
                            <div class="d-btn">
                               <button type="submit" class="main-btn update-btn">Изменить</button>
@@ -92,10 +92,10 @@
                         <form class="form" action="/departments_store" method="POST">
                            {{ csrf_field() }}
                            <label>Отдел
-                              <input type="text" name="name"/>
+                              <input type="text" name="name" required>
                            </label>
                            <label>Приоритет
-                              <input type="number" name="priority"/>
+                              <input type="number" name="priority" required>
                            </label>
                            <div class="d-btn">
                               <button type="submit" class="main-btn update-btn">Добавить</button>

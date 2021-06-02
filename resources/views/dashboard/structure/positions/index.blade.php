@@ -43,7 +43,7 @@
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $position->id }}" name="id"/>
                            <label>Должность
-                              <input type="text" value="{{ $position->name }}" name="name"/>
+                              <input type="text" value="{{ $position->name }}" name="name" required>
                            </label>
                            <label>Отделы
                               {{-- Department start --}}
@@ -81,7 +81,7 @@
 
                         <form action="/positions_remove" method="POST">
                            {{ csrf_field() }}
-                           <input type="hidden" value="{{ $position->id }}" name="id"/>
+                           <input type="hidden" value="{{ $position->id }}" name="id" required>
                            <button type="submit" class="main-btn delete-btn">Удалить</button>
                         </form>
                      </div>
@@ -100,7 +100,7 @@
                         <form class="form" action="/positions_store" method="POST">
                            {{ csrf_field() }}
                            <label>Должность
-                              <input type="text" name="name"/>
+                              <input type="text" name="name" required>
                            </label>
                            <label>Отделы
                               {{-- Department start --}}

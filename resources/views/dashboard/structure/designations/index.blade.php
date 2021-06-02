@@ -43,7 +43,7 @@
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $designation->id }}" name="id"/>
                            <label>Отдел
-                              <input type="text" value="{{ $designation->name }}" name="name"/>
+                              <input type="text" value="{{ $designation->name }}" name="name" required>
                            </label>
                            <label>Приоритет
                               <input type="number" value="{{ $designation->priority }}" name="priority"/>
@@ -73,7 +73,7 @@
 
                         <form action="/designations_remove" method="POST">
                            {{ csrf_field() }}
-                           <input type="hidden" value="{{ $designation->id }}" name="id"/>
+                           <input type="hidden" value="{{ $designation->id }}" name="id" required>
                            <button type="submit" class="main-btn delete-btn">Удалить</button>
                         </form>
                      </div>
@@ -92,10 +92,10 @@
                         <form class="form" action="/designations_store" method="POST">
                            {{ csrf_field() }}
                            <label>Позиция
-                              <input type="text" name="name"/>
+                              <input type="text" name="name" required>
                            </label>
                            <label>Приоритет
-                              <input type="number" name="priority"/>
+                              <input type="number" name="priority">
                            </label>
                            <div class="d-btn">
                               <button type="submit" class="main-btn update-btn">Добавить</button>

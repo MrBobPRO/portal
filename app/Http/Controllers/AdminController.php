@@ -687,6 +687,7 @@ class AdminController extends Controller
     public function departments_remove(Request $request)
     {
         Department::find($request->id)->delete();
+        Position::where('department_id', $request->id)->delete();
 
         return redirect()->back();
     }
