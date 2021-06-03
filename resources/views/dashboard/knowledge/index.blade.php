@@ -4,9 +4,7 @@
 
     <section class="knowledge-page">
 
-        <div class="dash-search-container flex-row-reverse">
-            <a class="add-button" href="{{route('dashboard.knowledge.create')}}"><span class="material-icons-outlined">add</span></a>
-        </div>
+        <a class="add-button" href="{{route('dashboard.knowledge.create')}}"><span class="material-icons-outlined">add</span></a>
         
         <div class="primary-list-titles">
             <div class="width-50">{{ __('Заголовок') }}</div>

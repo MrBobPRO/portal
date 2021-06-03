@@ -4,6 +4,8 @@
 
    <section class="news-page">
       
+      <a class="add-button" href="{{route('dashboard.news.create')}}"><span class="material-icons-outlined">add</span></a>
+
       <div class="dash-search-container">
          {{-- news seach start --}}
          <div class="select2_single_container">
@@ -15,8 +17,6 @@
             </select>
          </div>
          {{-- news seach end --}}
-
-         <a class="add-button" href="{{route('dashboard.news.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

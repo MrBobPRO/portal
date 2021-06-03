@@ -3,6 +3,8 @@
 @section('content')
 
    <section class="news-page">
+
+      <a class="add-button" href="{{route('dashboard.videos.create')}}"><span class="material-icons-outlined">add</span></a>
       
       <div class="dash-search-container">
          {{-- videos seach start --}}
@@ -15,8 +17,6 @@
             </select>
          </div>
          {{-- videos seach end --}}
-
-         <a class="add-button" href="{{route('dashboard.videos.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

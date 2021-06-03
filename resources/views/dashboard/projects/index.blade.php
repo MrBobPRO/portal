@@ -3,6 +3,8 @@
 @section('content')
 
    <section class="projects-page">
+
+      <a class="add-button" href="{{route('dashboard.projects.create')}}"><span class="material-icons-outlined">add</span></a>
       
       <div class="dash-search-container">
          {{-- projects seach start --}}
@@ -15,8 +17,6 @@
             </select>
          </div>
          {{-- projects seach end --}}
-
-         <a class="add-button" href="{{route('dashboard.projects.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       
