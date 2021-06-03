@@ -3,11 +3,11 @@
 @section('content')
 @include('templates.breadcrumbs')
 
-<section class="single-ideas-page formed-page">
+<section class="single-ideas-page">
    <div class="question-container">
       {{-- Show private text if its private questionnaire --}}
       @if($question->private)
-         <p>Приватное логосование. Никто не увидет кто за что проголосовал!</p>
+         <p class="private-text"><span class="material-icons">lock</span> Приватное логосование !</p>
       @endif
 
       <p class="question-text">{{$question->text}}</p>
@@ -65,12 +65,14 @@
                <div class="modal fade qs-modal" id="qsModal{{$counterrr}}" tabindex="-1" aria-labelledby="#qsModal{{$counterrr}}Label" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
+
                       <div class="modal-header">
                         <h5 class="modal-title" id="qsModal{{$counterrr}}Label">
                            <span class="material-icons-outlined">favorite</span> Проголосовали {{$choicesCount}} / {{$total_choices_count}}
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
+
                       <div class="modal-body">
                         @foreach ($option->choices as $choice)
                            <div class="modal-user-item">
@@ -78,9 +80,11 @@
                            </div>
                         @endforeach
                       </div>
+                      
                       <div class="modal-footer">
                         <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
                       </div>
+
                     </div>
                   </div>
                </div>

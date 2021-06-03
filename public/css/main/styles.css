@@ -99,6 +99,9 @@ section {
 .primary-color {
    color: var(--color-scheme) !important;
 }
+.modal-body {
+   min-height: 62px;
+}
 /* Focus start */
 *:focus {
    outline: none;
@@ -439,7 +442,7 @@ button:focus {
 }
 .sidebar .single-birthday span {
    background: var(--color-scheme);
-   font-weight: bold;
+   font-weight: 500;
    font-size: 14px;
    color: white;
    padding: 2px 8px 5px;
@@ -508,7 +511,7 @@ button:focus {
 }
 .sidebar-single-news span {
    background: var(--color-scheme);
-   font-weight: bold;
+   font-weight: 500;
    font-size: 14px;
    color: white;
    padding: 2px 8px 5px;

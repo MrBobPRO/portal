@@ -4,6 +4,8 @@
 
    <section class="gallery-page">
       
+      <a class="add-button" href="{{route('dashboard.galleries.create')}}"><span class="material-icons-outlined">add</span></a>
+
       <div class="dash-search-container">
          {{-- Galleries seach start --}}
          <div class="select2_single_container">
@@ -15,8 +17,6 @@
             </select>
          </div>
          {{-- Galleries seach end --}}
-
-         <a class="add-button" href="{{route('dashboard.galleries.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
 
       

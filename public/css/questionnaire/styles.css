@@ -1,18 +1,40 @@
 .formed-page{
    padding: 35px 40px 40px;
 }
+.private-text {
+   background: var(--color-scheme);
+   display: flex;
+   width: -moz-fit-content;
+   width: fit-content;
+   color: white;
+   padding: 3px 10px;
+   margin-bottom: 15px;
+   border-radius: 10px;
+   font-size: 14px;
+   align-items: center;
+}
+.private-text span {
+   font-size: 17px;
+   margin-right: 5px;
+}
 .question-text {
    font-weight: 500;
    margin-bottom: 20px;
+   display: flex;
+   background: white;
+   padding: 20px;
+   border-radius: 10px;
+   width: -moz-fit-content;
+   width: fit-content;
 }
 .options-list {
    max-width: 750px;
 }
 .single-option {
-   box-shadow: 0px 0px 5px 10px rgb(0 0 0 / 2%);
-   padding: 12px 15px;  
+   background: white;
+   padding: 6px 20px;
    border-radius: 10px;
-   margin-bottom: 15px;
+   margin-bottom: 8px;
    display: flex;
    align-items: center;
 }
@@ -25,6 +47,7 @@
 }
 .single-option p {
    margin: 0;
+   font-weight: 400;
 }
 .single-option form {
    display: flex;
@@ -52,6 +75,7 @@
 .single-option .choice-percentage-numeric {
    margin-top: 5px;
    font-size: 14px;
+   font-weight: 300;
 }
 .qs-modal .modal-title {
    display: flex;
