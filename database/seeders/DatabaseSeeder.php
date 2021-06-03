@@ -217,7 +217,7 @@ class DatabaseSeeder extends Seeder
         
         $s = new Slider;
         $s->image = '1.jpg';
-        $s->url = 'https://tgem.magnispey.com/dashboard/ideas/1';
+        $s->url = 'https://portal.tgem.tj/dashboard/ideas/1';
         $s->title = 'Очень важная новость, голосуй !';
         $s->priority = 1;
         $s->save();

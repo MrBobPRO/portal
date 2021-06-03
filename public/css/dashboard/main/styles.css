@@ -3,15 +3,6 @@ h2 {
   color: var(--color-scheme);
   font-size: 22px;
 }
-.main-btn {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-}
-.main-btn span {
-  margin-right: 5px;
-  font-size: 20px;
-}
 .title-seperator {
   border-top: 2px solid var(--color-scheme);
   padding-top: 35px;
@@ -93,18 +84,6 @@ input:read-only {
   width: 500px;
   margin: 0 0 10px;
 }
-.dash-search-container a {
-  display: flex;
-  align-items: center;
-  padding: 8px 20px;
-  background: var(--color-scheme);
-  color: white;
-  text-decoration: none;
-  border: 1px solid var(--color-scheme);
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 15px;
-}
 .form-flashed {
   background: var(--color-scheme);
   color: white;
@@ -120,11 +99,6 @@ input:read-only {
 .spaced-btw-btns button {
   margin: 0 !important;
 }
-.delete-btn {
-  background: #9e0505;
-  color: white;
-  border-color: #9e0505;
-}
 .checkbox-container {
   width: 60%;
   display: flex;
@@ -136,6 +110,26 @@ input:read-only {
 }
 .checkbox-container label {
   font-weight: 300 !important;
+}
+.add-button {
+  position: fixed;
+  bottom: 40px;
+  right: 45px;
+  background: var(--color-scheme);
+  color: white;
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+  padding: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.add-button:hover {
+  color: white;
+}
+.add-button span {
+  font-size: 30px;
 }
 /* Password input styles start */
 .input-password-container {
@@ -458,20 +452,5 @@ input:read-only {
 .sp-dd {
   display: none !important;
 }
-.add-button {
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  margin: 0;
-  border-radius: 50% !important;
-  position: fixed;
-  right: 40px;
-  top: 100vh;
-  margin-top: -80px;
-  align-items: center;
-  justify-content: center;
-}
-.add-button span {
-  font-size: 30px;
-}
 /* Spectrum Colorpicker end */
+

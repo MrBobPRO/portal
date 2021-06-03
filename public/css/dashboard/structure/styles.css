@@ -1,5 +1,5 @@
 
-/* Structure page start */
+/* Main page styles start */
 .departments-list-item {
    margin-bottom: 40px;
 }
@@ -53,67 +53,53 @@
    font-weight: 300;
    color: #212529;
 }
+
+
+
+.primary-list-item {
+   align-items: center;
+}
 .dash-search-container {
-   margin-bottom: 10px;
+   margin-bottom: 15px;
 }
 .structure-links {
    display: flex;
 }
 .structure-links a {
    margin: 0 5px;
-   border-radius: 0px;
-   padding: 10px 30px;
 }
-/* Structure page end */
+/* Main page styles start */
 
+
+/* Inner pages styles start */
 .structure-user-update h2, .structure-user-create h2 {
    margin: 30px 0 35px;
 }
-/* Departments/Designation start */
-.primary-items {
-   position: relative;
-}
-.buttons .delete-btn {
-   position: absolute;
-   top: 5px;
-   right: 10px;
-   padding: 4px 8px;
-}
-.buttons .update-btn {
-   position: absolute;
-   top: 5px;
-   right: 120px;
-   padding: 4px 8px;
-}
-.dash-search-container {
-   margin: 0;
-}
-.primary-items .modal-footer .form {
+.btns-edit-container {
    display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 100%;
 }
-.primary-items .modal-footer label {
+.btns-edit-container button {
+   padding: 9px 20px;
+}
+.btns-edit-container .delete-btn {
+   margin-left: 20px;
+}
+.edit-modals form label {
    display: flex;
    justify-content: space-between;
-   width: 90%;
-   margin: 10px;
+   margin-bottom: 15px;
 }
-.primary-items .modal-footer label input {
-   width: 70%;
+.edit-modals form label:last-child {
+   margin-bottom: 0;
 }
-.primary-items .modal-footer .d-btn {
-   display: flex;
-   margin-right: -200px;
-   margin-top: 10px;
+.edit-modals form label input {
+   min-width: 70%;
 }
-.primary-items .modal-footer .d-btn button {
-   margin: 5px;
-}
-/* Departments/Designation end */
+/* Inner pages styles end */
+
+
 /* Positions start */
-.select2_single_container {
+/* .select2_single_container {
    margin: 0;
    width: 70%;
    border: 1px solid #d2d2d2;
@@ -122,6 +108,6 @@
 }
 .select2_single_container .select2-container--default {
    width: 100% !important;
-}
+} */
 /* Positions end */
 

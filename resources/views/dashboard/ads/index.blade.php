@@ -4,12 +4,8 @@
 
    <section class="ads-page">
       
-      {{-- Search is unavailable in sliders page --}}
-      <div class="dash-search-container">
-         <a class="add-button" href="{{route('dashboard.ads.create')}}"><span class="material-icons-outlined">add</span></a>
-      </div>
+      <a class="add-button" href="{{route('dashboard.ads.create')}}"><span class="material-icons-outlined">add</span></a>
 
-      
       <div class="primary-list-titles">
          <div class="width-50">Текст</div>
          <div class="width-50">Дата добавления</div>

@@ -4,11 +4,7 @@
 
    <section class="slider-page">
       
-      {{-- Search is unavailable in sliders page --}}
-      <div class="dash-search-container">
-         <a class="add-button" href="{{route('dashboard.slider.create')}}"><span class="material-icons-outlined">add</span></a>
-      </div>
-
+      <a class="add-button" href="{{route('dashboard.slider.create')}}"><span class="material-icons-outlined">add</span></a>
       
       <div class="primary-list-titles">
          <div class="width-33">Приоритет</div>

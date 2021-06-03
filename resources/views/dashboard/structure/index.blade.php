@@ -2,6 +2,9 @@
 @section('content')
 
    <section class="structure-page">
+
+      <a class="add-button" href="{{route('dashboard.structure.users.create')}}"><span class="material-icons-outlined">person_add_alt</span></a>
+
       <div class="dash-search-container">
          {{-- Users search start --}}
          <div class="select2_single_container">
@@ -14,11 +17,13 @@
          </div>
          {{-- Users search end --}}
          <div class="structure-links">
-            <a href="{{ route('dashboard.structure.departments.index') }}">Отделы</a>
-            <a href="{{ route('dashboard.structure.designations.index') }}">Позиции</a>
-            <a href="{{ route('dashboard.structure.positions.index') }}">Должности</a>
+            <a class="main-btn" href="{{ route('dashboard.structure.departments.index') }}">
+               <span class="material-icons-outlined">workspaces</span> Отделы</a>
+            <a class="main-btn" href="{{ route('dashboard.structure.designations.index') }}">
+               <span class="material-icons-outlined">north_east</span> Позиции</a>
+            <a class="main-btn" href="{{ route('dashboard.structure.positions.index') }}">
+               <span class="material-icons-outlined">work_outline</span> Должности</a>
          </div>
-         <a class="add-button" href="{{route('dashboard.structure.users.create')}}"><span class="material-icons-outlined">add</span></a>
       </div>
       {{-- Department list start --}}
       <div class="departments-list">

@@ -4,12 +4,8 @@
 
    <section class="questionnaire-page">
       
-      {{-- Search is unavailable in questionnaires page --}}
-      <div class="dash-search-container">
-         <a class="add-button" href="{{route('dashboard.questionnaire.create')}}"><span class="material-icons-outlined">add</span></a>
-      </div>
+      <a class="add-button" href="{{route('dashboard.questionnaire.create')}}"><span class="material-icons-outlined">add</span></a>
 
-      
       <div class="primary-list-titles">
          <div class="width-33">Текст</div>
          <div class="width-33">Дата добавления</div>

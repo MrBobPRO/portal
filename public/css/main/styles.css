@@ -42,15 +42,45 @@ section {
 .text-block p:last-child {
    margin-bottom: 0;
 }
+/* Buttons styles start */
 .main-btn {
    background: var(--color-scheme);
    color: white;
-   padding: 8px 20px;
    border: 1px solid var(--color-scheme);
    border-radius: 4px;
-   font-weight: 500;
+   font-weight: 400;
    font-size: 15px;
+   display: flex;
+   align-items: center;
+   padding: 11px 20px;
+   transition: 0.3s;
+   text-decoration: none;
+   cursor: pointer;
 }
+.main-btn span {
+   margin-right: 5px;
+   font-size: 20px;
+ }
+.main-btn .inner-right-icon {
+   margin: 0 0 0 5px;
+   transition: 0.3s;
+}
+.main-btn:hover {
+   color: white;
+}
+.main-btn:hover .inner-right-icon {
+    transform: translateX(4px);
+}
+.delete-btn {
+   background: #f44336;
+   border-color: #f44336;
+}
+.cancel-btn {
+   background: #c1c1c1;
+   border-color: #c1c1c1;
+}
+/* Buttons styles end */
+
 .dropdown-item.active, .dropdown-item:active {
    background-color: var(--color-scheme);
 }
