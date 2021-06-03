@@ -39,6 +39,8 @@ Route::post('/options/remove_like', 'OptionController@remove_like');
 
 Route::get('/notifications', 'NotificationController@index')->name('notifications.index');
 Route::get('/notifications/{id}', 'NotificationController@single')->name('notifications.single');
+
+Route::get('/search', 'HomeController@search')->name('search');
 //--------------Toolbar routes-------------------
 
 
@@ -213,7 +215,6 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/positions_update', 'AdminController@positions_update');
       Route::post('/positions_remove', 'AdminController@positions_remove');
       Route::post('/positions_store', 'AdminController@positions_store');
-
 
 
       //-----------Admins routes end-------------

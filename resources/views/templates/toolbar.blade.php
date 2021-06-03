@@ -23,7 +23,7 @@
       {{-- Toolbar Search start --}}
       <form  class="search-form" action="/search" method="GET">
          <input type="text" name="keyword" minlength="3" required placeholder="{{ __('Поиск...') }}"/>
-         <button type="submit"> <span class="material-icons-outlined">search</span> </button>
+         <button type="submit"> <span class="material-icons-outlined">search</span></button>
       </form>
       {{-- Toolbar Search end --}}
 
