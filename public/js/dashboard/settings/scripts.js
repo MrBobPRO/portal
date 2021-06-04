@@ -34,9 +34,9 @@ function changeMode() {
    const overlay = document.getElementById('dashOverlay');
 
    if (emojiInput.checked == true) {
-      overlay.classList.add('show');
+      overlay.classList.add('hidden');
    } else {
-      overlay.classList.remove('show');
+      overlay.classList.remove('hidden');
    }
 }
 

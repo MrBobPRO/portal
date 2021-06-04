@@ -8,7 +8,7 @@
    <div id="dashboard" class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
       style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})">
 
-      <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'show'}}"></div>
+      <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'hidden'}}"></div>
 
       <div class="profile-ava">
          <a href="{{ route('dashboard.profile.index') }}"><img src="{{ asset('img/users/' . $appUser->avatar) }}">{{$appUser->name}}</a>
