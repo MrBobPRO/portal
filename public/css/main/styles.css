@@ -202,7 +202,8 @@ button:focus {
    transition-duration: .2s,.2s,.35s;
    transition-timing-function: linear,linear,ease;
    -webkit-overflow-scrolling: touch;
-   overflow: hidden !important;
+   overflow-x: hidden;
+   overflow-y: auto;
    overflow-anchor: none;
    -ms-overflow-style: none;
    touch-action: auto;
@@ -210,10 +211,21 @@ button:focus {
    background-size: cover;
    background-position-x: center;
 }
+.dashboard::-webkit-scrollbar {
+   width: 7px;
+ }
+ .dashboard::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px #46445C;
+   box-shadow: inset 0 0 6px #46445C;
+ }
+ .dashboard::-webkit-scrollbar-thumb {
+ background-color: white;
+ outline: 1px solid white;
+ }
 .dashboard .overlay {
-   position: absolute;
+   position: fixed;
    height: 100%;
-   width: 100%;
+   width: 220px;
    background-color: black;
    opacity: 0.7;
 }

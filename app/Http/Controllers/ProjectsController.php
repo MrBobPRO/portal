@@ -38,7 +38,7 @@ class ProjectsController extends Controller
             $crumbsTitle = $project->ruTitle;
 
         //comments
-        $comments = $project->comments()->oldest()->get();
+        $comments = $project->comments()->latest()->get();
         $commentsCount = count($comments);
 
         return view('projects.single', compact('project', 'crumbsTitle', 'comments', 'commentsCount'));

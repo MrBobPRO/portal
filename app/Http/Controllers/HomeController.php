@@ -38,7 +38,7 @@ class HomeController extends Controller
     public function send_credentials()
     {
         $users = User::all();
-        \Mail::to('boburjon_n@mail.ru')->send(new ForgotPassword('Botir', '12345'));
+        \Mail::to('boburjon_n@mail.ru')->send(new SendCredentials('Botir', '12345'));
 
         return redirect()->back();
     }
