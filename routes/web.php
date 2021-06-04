@@ -6,6 +6,21 @@ Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::post('/send_credentials', 'HomeController@send_credentials');
 
+//--------------Global routes start-------------------
+      //--------------Language-change's routes--------------
+      Route::post('/setLangRu', 'LanguageController@setLangRu');
+      Route::post('/setLangEn', 'LanguageController@setLangEn');
+      Route::post('/setLangTj', 'LanguageController@setLangTj');
+      //--------------Language-change's routes--------------
+
+      //Dashboard visibility store
+      Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
+      //Simditor upload photo route
+      Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
+      //Dropzone upload photo route
+      Route::post('/upload/dropzone_photo', 'AdminController@upload_dropzone_photo');
+//--------------Global routes end-------------------
+
 
 //--------------forgot password routes-------------------
 Route::get('/forgot_password', 'AuthController@forgotPassword')->name('login.forgot_password');
@@ -16,21 +31,12 @@ Route::post('/reset_password', 'AuthController@resetPasswordPost');
 //--------------forgot password routes---------------
 
 
-//--------------Language-change's routes--------------
-Route::post('/setLangRu', 'LanguageController@setLangRu');
-Route::post('/setLangEn', 'LanguageController@setLangEn');
-Route::post('/setLangTj', 'LanguageController@setLangTj');
-//--------------Language-change's routes--------------
-
-
 //--------------Toolbar routes-------------------
 Route::get('/ideas/create', 'IdeaController@create')->name('ideas.create');
 Route::post('/ideas/store', 'IdeaController@store');
 
 Route::get('/complaints/create', 'ComplaintController@create')->name('complaints.create');
 Route::post('/complaints/store', 'ComplaintController@store');
-Route::post('/complaints/download', 'ComplaintController@download');
-Route::post('/complaints/response', 'ComplaintController@response');
 
 Route::get('/questionnaire', 'QuestionnaireController@index')->name('questionnaire.index');
 Route::get('/questionnaire/{id}', 'QuestionnaireController@single')->name('questionnaire.single');
@@ -68,7 +74,6 @@ Route::get('/entertainment', 'EntertainmentController@index')->name('entertainme
 Route::get('/entertainment/videos', 'EntertainmentController@videos')->name('entertainment.videos.index');
 Route::get('/entertainment/gallery', 'EntertainmentController@gallery')->name('entertainment.gallery.index');
 Route::get('/entertainment/gallery/{id}', 'EntertainmentController@gallery_single')->name('entertainment.gallery.single');
-
 //------------Entertainment-page's route--------------
 
 
@@ -112,14 +117,7 @@ Route::get('/dashboard/ideas/{id}', 'IdeaController@single')->name('dashboard.id
 Route::post('/ideas/comment', 'CommentController@ideas');
 Route::post('/ideas/download', 'IdeaController@download');
 
-//Dashboard visibility change
-Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
-
       //-----------Admins routes start-------------
-      //Simditor upload photo route
-      Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
-      //Dropzone upload photo route
-      Route::post('/upload/dropzone_photo', 'AdminController@upload_dropzone_photo');
       //Ads
       Route::get('/dashboard/ads', 'AdminController@ads')->name('dashboard.ads.index');
       Route::get('/dashboard/ads_create', 'AdminController@ads_create')->name('dashboard.ads.create');
@@ -155,6 +153,8 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       //Complaints
       Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
       Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
+      Route::post('/complaints/download', 'ComplaintController@download');
+      Route::post('/complaints/response', 'ComplaintController@response');
       //Videos
       Route::get('/dashboard/videos', 'AdminController@videos')->name('dashboard.videos.index');
       Route::get('/dashboard/videos_create', 'AdminController@videos_create')->name('dashboard.videos.create');
@@ -162,7 +162,6 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/update_video', 'EntertainmentController@videos_update');
       Route::post('/store_video', 'EntertainmentController@videos_store');
       Route::post('/remove_video', 'EntertainmentController@videos_remove');
-      Route::post('/entertainmet/check_uploading_video_size', 'EntertainmentController@check_uploading_video_size');
       //Projects
       Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
       Route::get('/dashboard/projects_create', 'AdminController@projects_create')->name('dashboard.projects.create');
@@ -215,7 +214,6 @@ Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visib
       Route::post('/positions_update', 'AdminController@positions_update');
       Route::post('/positions_remove', 'AdminController@positions_remove');
       Route::post('/positions_store', 'AdminController@positions_store');
-
 
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
