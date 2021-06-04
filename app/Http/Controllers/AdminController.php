@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendCredentials;
 use App\Models\Ads;
 use App\Models\Complaint;
 use App\Models\Entertainment;
@@ -623,35 +624,30 @@ class AdminController extends Controller
     public function users_store(Request $request)
     {
         $user = new User;
+        //generate new password for user
         $password = Str::random(6);
-        //Validation start
+
+        //Validation
         $request->validate([
             'nickname' => 'unique:users',
             'email' => 'unique:users',
-        ]);//Validation end 
-        //Save user start
+        ]);
+
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->nickname = $request->nickname;
+        $user->avatar = 'default.png';
         $user->birth_date = $request->birth_date;
         $user->email = $request->email;
         $user->password = bcrypt($password);
-        $user->description = $request->description;
+        $user->description = 'Описание';
         $user->department_id = $request->department_id;
         $user->position_id = $request->position_id;
         $user->designation_id = $request->designation_id;
-        $user->save();// Save user end
-        //Detach languages and attach new ones
-        $user->languages()->detach();
-        if ($request->languages) {
-            foreach ($request->languages as $lang) 
-            {       
-                $user->languages()->attach($lang);
-            }
+        $user->save();
              
-        }
-   
-        // \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
+        //send email credentials
+        \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
 
         return redirect()->back();
     }

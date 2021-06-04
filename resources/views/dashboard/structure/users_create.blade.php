@@ -5,7 +5,7 @@
 
     <section class="structure-user-create formed-page">
 
-      <img src="{{ asset('img/users/default.jpg') }}">
+      <img src="{{ asset('img/users/default.png') }}">
 
       <h2>Персональная информация</h2>
       {{-- Personal data form start --}}
@@ -36,7 +36,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="nickname">Ник</label>
+            <label for="nickname">Ник. Вступает в качестве логина!</label>
             <input 
                id="nickname" 
                name="nickname" 
@@ -63,7 +63,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="email">E-mail</label>
+            <label for="email">E-mail. На эту почту будет отправлено<br> письмо с логином и паролем пользователя!</label>
             <input 
                id="email" 
                name="email" 
@@ -136,40 +136,6 @@
                </select>
             </div>
             {{-- position end --}}
-         </div>
-
-         <div class="input-container-inline">
-            <label for="languages">Языки</label>
-            <div class="select2_multiple_container">
-               <select 
-                  name="languages[]" 
-                  id="languages" 
-                  class="select2_multiple" 
-                  data-dropdown-css-class="select2_multiple_dropdown" 
-                  multiple
-               >
-                  <?php 
-                     if(old('languages')) $oldLang = old('languages'); 
-                     else $oldLang = ['-1,0'];
-                  ?>
-                  @foreach ($languages as $language)
-                     <option value="{{$language->id}}"
-                        @if(in_array($language->id, $oldLang)) selected @endif
-                        >{{$language->name}}</option>
-                  @endforeach
-               </select>
-            </div>
-         </div>
-
-         <div class="input-container-inline">
-            <label for="description">Описание</label>
-            <textarea 
-               id="description" 
-               name="description" 
-               rows="5" 
-               placeholder="Описание"
-               required
-            >{{ old('description') ? old('description') : '' }}</textarea>
          </div>
 
          <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить сотрудника</button>

@@ -99,14 +99,14 @@
 
 
 /* Positions start */
-.select2_single_container {
+.edit-modals .select2_single_container {
    margin: 0;
    width: 70%;
    border: 1px solid #d2d2d2;
    border-radius: 5px;
    overflow: hidden;
 }
-.select2_single_container .select2-container--default {
+.edit-modals .select2_single_container .select2-container--default {
    width: 100% !important;
 }
 /* Positions end */
