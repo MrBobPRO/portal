@@ -147,51 +147,6 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/update_slider_item', 'SliderController@update_item');
       Route::post('/store_slider_item', 'SliderController@store_item');
       Route::post('/remove_slider_item', 'SliderController@remove_item');
-      //News
-      Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
-      Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
-      Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
-      Route::post('/update_news', 'NewsController@update');
-      Route::post('/store_news', 'NewsController@store');
-      Route::post('/remove_news', 'NewsController@remove');
-      //Videos
-      Route::get('/dashboard/videos', 'AdminController@videos')->name('dashboard.videos.index');
-      Route::get('/dashboard/videos_create', 'AdminController@videos_create')->name('dashboard.videos.create');
-      Route::get('/dashboard/videos/{id}', 'AdminController@videos_single')->name('dashboard.videos.single');
-      Route::post('/update_video', 'EntertainmentController@videos_update');
-      Route::post('/store_video', 'EntertainmentController@videos_store');
-      Route::post('/remove_video', 'EntertainmentController@videos_remove');
-      //Projects
-      Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
-      Route::get('/dashboard/projects_create', 'AdminController@projects_create')->name('dashboard.projects.create');
-      Route::get('/dashboard/projects/{id}', 'AdminController@projects_single')->name('dashboard.projects.single');
-      Route::post('/update_projects', 'ProjectsController@update');
-      Route::post('/store_projects', 'ProjectsController@store');
-      Route::post('/remove_projects', 'ProjectsController@remove');
-      //Galleries
-      Route::get('/dashboard/galleries', 'AdminController@galleries')->name('dashboard.galleries.index');
-      Route::get('/dashboard/galleries_create', 'AdminController@galleries_create')->name('dashboard.galleries.create');
-      Route::get('/dashboard/galleries/{id}', 'AdminController@galleries_single')->name('dashboard.galleries.single');
-      Route::post('/update_galleries', 'EntertainmentController@galleries_update');
-      Route::post('/store_galleries', 'EntertainmentController@galleries_store');
-      Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
-      //Knowledge
-      Route::view('/dashboard/knowledge', 'dashboard.knowledge.index')->name('dashboard.knowledge.index');
-      Route::get('/dashboard/knowledge_create', 'AdminController@knowledge_create')->name('dashboard.knowledge.create');
-
-      Route::get('/dashboard/knowledge/books', 'AdminController@knowledge_books')->name('dashboard.knowledge.books');
-      Route::get('/dashboard/knowledge/books/{id}', 'AdminController@knowledge_books_single')->name('dashboard.knowledge.books.single');
-      Route::get('/dashboard/knowledge/books_create/{material}', 'AdminController@knowledge_books_create')->name('dashboard.knowledge.books.create');
-      Route::post('/knowledge_books_store', 'AdminController@knowledge_books_store');
-      Route::post('/knowledge_books_update', 'AdminController@knowledge_books_update');
-      Route::post('/knowledge_books_remove', 'AdminController@knowledge_books_remove');
-
-      Route::get('/dashboard/knowledge/videos', 'AdminController@knowledge_videos')->name('dashboard.knowledge.videos');
-      Route::get('/dashboard/knowledge/videos/{id}', 'AdminController@knowledge_videos_single')->name('dashboard.knowledge.videos.single');
-      Route::get('/dashboard/knowledge/videos_create/{material}', 'AdminController@knowledge_videos_create')->name('dashboard.knowledge.videos.create');
-      Route::post('/knowledge_videos_store', 'AdminController@knowledge_videos_store');
-      Route::post('/knowledge_videos_update', 'AdminController@knowledge_videos_update');
-      Route::post('/knowledge_videos_remove', 'AdminController@knowledge_videos_remove');
       //Structure
       Route::get('/dashboard/structure', 'AdminController@structure_index')->name('dashboard.structure.index'); 
       Route::get('/dashboard/users_update/{id}', 'AdminController@users_update')->name('dashboard.structure.users.update');
@@ -214,6 +169,51 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/positions_update', 'AdminController@positions_update');
       Route::post('/positions_remove', 'AdminController@positions_remove');
       Route::post('/positions_store', 'AdminController@positions_store');
+      //Knowledge
+      Route::view('/dashboard/knowledge', 'dashboard.knowledge.index')->name('dashboard.knowledge.index');
+      Route::get('/dashboard/knowledge_create', 'AdminController@knowledge_create')->name('dashboard.knowledge.create');
+
+      Route::get('/dashboard/knowledge/books', 'AdminController@knowledge_books')->name('dashboard.knowledge.books');
+      Route::get('/dashboard/knowledge/books/{id}', 'AdminController@knowledge_books_single')->name('dashboard.knowledge.books.single');
+      Route::get('/dashboard/knowledge/books_create/{material}', 'AdminController@knowledge_books_create')->name('dashboard.knowledge.books.create');
+      Route::post('/knowledge_books_store', 'AdminController@knowledge_books_store');
+      Route::post('/knowledge_books_update', 'AdminController@knowledge_books_update');
+      Route::post('/knowledge_books_remove', 'AdminController@knowledge_books_remove');
+
+      Route::get('/dashboard/knowledge/videos', 'AdminController@knowledge_videos')->name('dashboard.knowledge.videos');
+      Route::get('/dashboard/knowledge/videos/{id}', 'AdminController@knowledge_videos_single')->name('dashboard.knowledge.videos.single');
+      Route::get('/dashboard/knowledge/videos_create/{material}', 'AdminController@knowledge_videos_create')->name('dashboard.knowledge.videos.create');
+      Route::post('/knowledge_videos_store', 'AdminController@knowledge_videos_store');
+      Route::post('/knowledge_videos_update', 'AdminController@knowledge_videos_update');
+      Route::post('/knowledge_videos_remove', 'AdminController@knowledge_videos_remove');
+      //News
+      Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
+      Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
+      Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+      Route::post('/update_news', 'NewsController@update');
+      Route::post('/store_news', 'NewsController@store');
+      Route::post('/remove_news', 'NewsController@remove');
+      //Projects
+      Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
+      Route::get('/dashboard/projects_create', 'AdminController@projects_create')->name('dashboard.projects.create');
+      Route::get('/dashboard/projects/{id}', 'AdminController@projects_single')->name('dashboard.projects.single');
+      Route::post('/update_projects', 'ProjectsController@update');
+      Route::post('/store_projects', 'ProjectsController@store');
+      Route::post('/remove_projects', 'ProjectsController@remove');
+      //Videos
+      Route::get('/dashboard/videos', 'AdminController@videos')->name('dashboard.videos.index');
+      Route::get('/dashboard/videos_create', 'AdminController@videos_create')->name('dashboard.videos.create');
+      Route::get('/dashboard/videos/{id}', 'AdminController@videos_single')->name('dashboard.videos.single');
+      Route::post('/update_video', 'EntertainmentController@videos_update');
+      Route::post('/store_video', 'EntertainmentController@videos_store');
+      Route::post('/remove_video', 'EntertainmentController@videos_remove');
+      //Galleries
+      Route::get('/dashboard/galleries', 'AdminController@galleries')->name('dashboard.galleries.index');
+      Route::get('/dashboard/galleries_create', 'AdminController@galleries_create')->name('dashboard.galleries.create');
+      Route::get('/dashboard/galleries/{id}', 'AdminController@galleries_single')->name('dashboard.galleries.single');
+      Route::post('/update_galleries', 'EntertainmentController@galleries_update');
+      Route::post('/store_galleries', 'EntertainmentController@galleries_store');
+      Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
 
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
