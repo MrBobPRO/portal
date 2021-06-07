@@ -79,7 +79,7 @@ class IdeaController extends Controller
         return view('dashboard.ideas.single', compact('idea', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
-    public function download(Request $request)
+    public function download_file(Request $request)
     {
         $path = public_path('files/ideas/' . $request->file);
 

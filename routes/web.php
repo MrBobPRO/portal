@@ -80,8 +80,8 @@ Route::get('/entertainment/gallery/{id}', 'EntertainmentController@gallery_singl
 //------------Project page's route--------------
 Route::get('/projects', 'ProjectsController@index')->name('projects.index');
 Route::get('/projects/{id}', 'ProjectsController@single')->name('projects.single');
-Route::get('/projects_completed', 'ProjectsController@completed')->name('projects.completed');
-Route::get('/projects_ongoing', 'ProjectsController@ongoing')->name('projects.ongoing');
+Route::get('/completed_projects', 'ProjectsController@completed')->name('projects.completed');
+Route::get('/ongoing_projects', 'ProjectsController@ongoing')->name('projects.ongoing');
 
 Route::post('/projects/comment', 'CommentController@projects');
 //------------Poject page's route--------------
@@ -102,7 +102,6 @@ Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard.pro
 Route::post('/update_avatar', 'ProfileController@update_avatar');
 Route::post('/update_profile', 'ProfileController@update_profile');
 Route::post('/update_password', 'ProfileController@update_password');
-Route::post('/update_employee_profile', 'ProfileController@update_employee_profile');
 //Settings-page's routes
 Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.settings.index');
 Route::post('/update_color', 'SettingsController@changeColor');
@@ -115,7 +114,7 @@ Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.u
 Route::get('/dashboard/ideas', 'IdeaController@index')->name('dashboard.ideas.index');
 Route::get('/dashboard/ideas/{id}', 'IdeaController@single')->name('dashboard.ideas.single');
 Route::post('/ideas/comment', 'CommentController@ideas');
-Route::post('/ideas/download', 'IdeaController@download');
+Route::post('/ideas/download_file', 'IdeaController@download_file');
 
       //-----------Admins routes start-------------
       //Ads
@@ -199,6 +198,7 @@ Route::post('/ideas/download', 'IdeaController@download');
       Route::get('/dashboard/users_create', 'AdminController@users_create')->name('dashboard.structure.users.create');
       Route::post('/dashboard/users_create', 'AdminController@users_store');  
       Route::post('/dashboard/users_remove', 'AdminController@users_remove');
+      Route::post('/update_employee_profile', 'ProfileController@update_employee_profile');
       
       Route::get('/dashboard/departments', 'AdminController@departments_index')->name('dashboard.structure.departments.index');
       Route::post('/departments_update', 'AdminController@departments_update');

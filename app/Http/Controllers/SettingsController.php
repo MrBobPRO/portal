@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\DB;
+
 class SettingsController extends Controller
 {
     public function index() 
@@ -22,7 +23,7 @@ class SettingsController extends Controller
         $user->colorScheme = $request->colorscheme;
         $user->save();
         
-        return redirect('/dashboard/settings'); 
+        return redirect()->back(); 
     }
 
     public function changeBackground(Request $request) 

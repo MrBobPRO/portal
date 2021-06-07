@@ -91,41 +91,7 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->description = $request->description;
         $user->save();//Edit user end
-        //Detach languages and attach new ones
-        $user->languages()->detach();
-        foreach ($request->languages as $lang) 
-        {       
-            $user->languages()->attach($lang);
-        }
-            
-        return redirect()->back();
-            
-    }
-    public function update_employee_profile(Request $request) 
-    {
-        //Find emloyee by id
-        $user = User::find($request->user_id);
-        //Validation start
-        if ($request->email != $user->email) {
-            $request->validate([
-                'email' => 'unique:users',
-            ]);
-        } else if ($request->nickname != $user->nickname) {
-            $request->validate([
-                'nickname' => 'unique:users',
-            ]);
-        }//Validation end 
-        //Edit user start
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->nickname = $request->nickname;
-        $user->birth_date = $request->birth_date;
-        $user->email = $request->email;
-        $user->department_id = $request->department_id;
-        $user->designation_id = $request->designation_id;
-        $user->position_id = $request->position_id;
-        $user->description = $request->description;
-        $user->save();//Edit user end
+
         //Detach languages and attach new ones
         $user->languages()->detach();
         if ($request->languages) 
@@ -134,8 +100,8 @@ class ProfileController extends Controller
             {       
                 $user->languages()->attach($lang);
             }
-        } 
-
+        }
+            
         return redirect()->back();
             
     }
@@ -153,6 +119,47 @@ class ProfileController extends Controller
             return 'newPasswordDoesntMatch';
         }
         return 'passwordNotMatched';
+    }
+
+    public function update_employee_profile(Request $request) 
+    {
+        //Find emloyee by id
+        $user = User::find($request->user_id);
+        //Validation start
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => 'unique:users',
+            ]);
+        } else if ($request->nickname != $user->nickname) {
+            $request->validate([
+                'nickname' => 'unique:users',
+            ]);
+        }//Validation end 
+
+        //Edit user start
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->department_id = $request->department_id;
+        $user->designation_id = $request->designation_id;
+        $user->position_id = $request->position_id;
+        $user->description = $request->description;
+        $user->save();
+        
+        //Detach languages and attach new ones
+        $user->languages()->detach();
+        if ($request->languages) 
+        {
+            foreach ($request->languages as $lang) 
+            {       
+                $user->languages()->attach($lang);
+            }
+        } 
+
+        return redirect()->back();
+            
     }
 
 }

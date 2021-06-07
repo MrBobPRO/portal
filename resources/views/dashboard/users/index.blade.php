@@ -1,4 +1,4 @@
-
+   
 @extends('dashboard.templates.no_sidebar_master')
 
 @section('content')

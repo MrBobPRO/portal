@@ -42,7 +42,7 @@
 
       {{-- Download attached file if exists --}}
       @if($idea->file)
-         <form action="/ideas/download" method="POST">
+         <form action="/ideas/download_file" method="POST">
             @csrf
             <input type="hidden" name="file" value="{{$idea->file}}">
             <button type="submit">Скачать прикреплённый файл</button>
@@ -88,57 +88,57 @@
 
 <!-- Liked Modal -->
 <div class="modal fade grades-modal" id="likedModal" tabindex="-1" aria-labelledby="likedModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="likedModalLabel"><span class="material-icons">thumb_up</span> Лайки</h5>
-    </div>
-    <div class="modal-body" id="liked_modal_body">
-      @foreach ($likes as $like)
-      <?php $u = App\Models\User::find($like->user_id); 
-            $current_users_id = \Auth::user()->id;
-      ?>
-         <div class="modal-item
-            {{-- Highlite users grade. Used for deleting on grade change --}}
-            {{$current_users_id == $u->id ? 'users-choice' : ''}} 
-         ">
-            <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="likedModalLabel"><span class="material-icons">thumb_up</span> Лайки</h5>
          </div>
-      @endforeach
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
-    </div>
-  </div>
-</div>
+         <div class="modal-body" id="liked_modal_body">
+            @foreach ($likes as $like)
+            <?php $u = App\Models\User::find($like->user_id); 
+                  $current_users_id = \Auth::user()->id;
+            ?>
+               <div class="modal-item
+                  {{-- Highlite users grade. Used for deleting on grade change --}}
+                  {{$current_users_id == $u->id ? 'users-choice' : ''}} 
+               ">
+                  <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+               </div>
+            @endforeach
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+         </div>
+      </div>
+   </div>
 </div>
 
 
 <!-- Disliked Modal -->
 <div class="modal fade grades-modal" id="dislikedModal" tabindex="-1" aria-labelledby="dislikedModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="dislikedModalLabel"><span class="material-icons">thumb_down</span> Дислайки</h5>
-    </div>
-    <div class="modal-body" id="disliked_modal_body">
-      @foreach ($dislikes as $like)
-      <?php $u = App\Models\User::find($like->user_id); 
-            $current_users_id = \Auth::user()->id;
-      ?>
-         <div class="modal-item
-            {{-- Highlite users grade. Used for deleting on grade change --}}
-            {{$current_users_id == $u->id ? 'users-choice' : ''}} 
-         ">
-            <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="dislikedModalLabel"><span class="material-icons">thumb_down</span> Дислайки</h5>
          </div>
-      @endforeach
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
-    </div>
-  </div>
-</div>
+         <div class="modal-body" id="disliked_modal_body">
+            @foreach ($dislikes as $like)
+            <?php $u = App\Models\User::find($like->user_id); 
+                  $current_users_id = \Auth::user()->id;
+            ?>
+               <div class="modal-item
+                  {{-- Highlite users grade. Used for deleting on grade change --}}
+                  {{$current_users_id == $u->id ? 'users-choice' : ''}} 
+               ">
+                  <img src="{{ asset('img/users/' . $u->avatar)}}"> {{$u->name}} {{$u->surname}}
+               </div>
+            @endforeach
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+         </div>
+      </div>
+   </div>
 </div>
 
 @endsection
