@@ -4,11 +4,12 @@
 @include('templates.breadcrumbs')
 
    <section class="books-page">
+      
       <div class="books-list">
 
          @foreach ($books as $book)
             <div class="books-list-item">
-               <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank"> {{ $book->name }} </a>
+               <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank"> {{ $book->ruTitle }} </a>
    
                <form action="/books/download" method="POST">
                   @csrf

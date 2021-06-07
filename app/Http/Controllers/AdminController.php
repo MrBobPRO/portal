@@ -353,13 +353,13 @@ class AdminController extends Controller
     public function knowledge_books() 
     {
         $allBooks = DB::table('books')
-                        ->orderBy('name', 'asc')
-                        ->select('books.id', 'books.name')
+                        ->orderBy('ruTitle', 'asc')
+                        ->select('books.id', 'books.ruTitle')
                         ->get();
 
         $books = DB::table('books')
                         ->latest()
-                        ->select('books.id', 'books.name', 'books.ruCategory', 'books.created_at')
+                        ->select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
                         ->paginate(30);
 
         return view('dashboard.knowledge.books', compact('books', 'allBooks'));
@@ -391,7 +391,9 @@ class AdminController extends Controller
         $book->material_id = $request->material_id;
         $book->category = $request->category;
         $book->ruCategory = $request->ruCategory;
-        $book->name = $request->name;
+        $book->ruTitle = $request->ruTitle;
+        $book->tjTitle = $request->tjTitle;
+        $book->enTitle = $request->enTitle;
         $book->filename = $fileName;
         $book->save();
 
@@ -403,10 +405,20 @@ class AdminController extends Controller
         //Get book by id
         $book = Book::find($request->book_id);
 
-        if ($request->name != $book->name) 
+        if ($request->ruTitle != $book->ruTitle) 
         {   
             //Edit books name
-            $book->name = $request->name;
+            $book->ruTitle = $request->ruTitle;
+            $book->save();
+        } else if ($request->tjTitle != $book->tjTitle) 
+        {   
+            //Edit books name
+            $book->tjTitle = $request->tjTitle;
+            $book->save();
+        } else if ($request->enTitle != $book->enTitle) 
+        {   
+            //Edit books name
+            $book->enTitle = $request->enTitle;
             $book->save();
         }
         else if ($request->file != null) {

@@ -35,7 +35,7 @@
                
             </div>
             <?php $count++ ?>
-      @endforeach
+         @endforeach
       </div>
 
       {{$videos->links()}}

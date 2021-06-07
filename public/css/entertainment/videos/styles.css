@@ -31,3 +31,6 @@
 .pagination {
    margin-top: 0;
 }
+.entertainment-videos-single-page video {
+   width: 100%;
+}

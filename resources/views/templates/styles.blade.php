@@ -25,7 +25,7 @@
         <link href="{{ asset('css/entertainment/media.css') }}" rel="stylesheet">
     @break
 
-    @case('entertainment.videos.index') 
+    @case('entertainment.videos.index') @case('entertainment.videos.single')  
         {{-- Plyr video player --}}
         <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
 
@@ -48,12 +48,12 @@
         <link href="{{ asset('css/projects/media.css') }}" rel="stylesheet">
     @break
 
-    @case('knowledge.index') @case('knowledge.books.index')
+    @case('knowledge.index') @case('knowledge.books.index')  
         <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/knowledge/media.css') }}" rel="stylesheet">
     @break
 
-    @case('knowledge.videos.index')
+    @case('knowledge.videos.index') @case('knowledge.videos.single')
         {{-- Plyr video player --}}
         <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
         <link href="{{ asset('css/knowledge/styles.css') }}" rel="stylesheet">
@@ -82,6 +82,11 @@
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
 
         <link href="{{ asset('css/questionnaire/styles.css') }}" rel="stylesheet">
+    @break
+
+    @case('search') 
+        <link href="{{ asset('css/search/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/search/media.css') }}" rel="stylesheet">
     @break
 
 @endswitch

@@ -133,3 +133,6 @@ li {
    color: var(--color-scheme);
 }
 /* Books page end*/
+.videos-single-page video {
+   width: 100%;
+}

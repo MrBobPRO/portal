@@ -66,6 +66,7 @@ Route::get('/news/{id}', 'NewsController@single')->name('news.single');
 //------------Entertainment-page's route--------------
 Route::get('/entertainment', 'EntertainmentController@index')->name('entertainment.index');
 Route::get('/entertainment/videos', 'EntertainmentController@videos')->name('entertainment.videos.index');
+Route::get('/entertainment/videos/{id}', 'EntertainmentController@videos_single')->name('entertainment.videos.single');
 Route::get('/entertainment/gallery', 'EntertainmentController@gallery')->name('entertainment.gallery.index');
 Route::get('/entertainment/gallery/{id}', 'EntertainmentController@gallery_single')->name('entertainment.gallery.single');
 
@@ -87,6 +88,7 @@ Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge.index');
 Route::get('/knowledge/books/{material}', 'KnowledgeController@books')->name('knowledge.books.index');
 Route::get('/read_book_{book}', 'KnowledgeController@books_single')->name('knowledge.books.single');
 Route::get('/knowledge/videos/{id}', 'KnowledgeController@videos')->name('knowledge.videos.index');
+Route::get('/knowledge/videos_single/{id}', 'KnowledgeController@videos_single')->name('knowledge.videos.single');
 Route::post('/books/download', 'KnowledgeController@books_download');
 //------------Knowledge-page's route--------------
  
