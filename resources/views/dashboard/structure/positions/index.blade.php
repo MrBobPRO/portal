@@ -8,7 +8,7 @@
 
    <div class="primary-list-titles">
       <div class="width-33">Должности</div>
-      <div class="width-33">Отделы</div>
+      <div class="width-33"></div>
       <div class="width-33">Редактирование</div>
    </div>
 
@@ -17,7 +17,7 @@
          <div class="primary-items">
             <a class="primary-list-item @if($position->id == 1) visually-hidden @endif">
                <div class="width-33">{{$position->name}}</div>
-               <div class="width-33">{{ App\Models\Department::find($position->department_id)->name }}</div>
+               <div class="width-33"></div>
                <div class="width-33">
                   <div class="btns-edit-container">
                      <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$position->id}}">
@@ -46,17 +46,6 @@
                            <input type="hidden" value="{{ $position->id }}" name="id"/>
                            <label>Должность
                               <input type="text" value="{{ $position->name }}" name="name" required>
-                           </label>
-                           <label>Отделы
-                              {{-- Department start --}}
-                              <div class="select2_single_container">
-                                 <select name="department_id" class="select2_single" data-dropdown-css-class="select2_single_dropdown">
-                                    @foreach($departments as $department)
-                                       <option value="{{ $department->id }}" {{$position->department_id == $department->id ? 'selected' : ''}}>{{ $department->name }}</option>   
-                                    @endforeach
-                                 </select>
-                              </div>
-                              {{-- Department end --}}
                            </label>
                         </div>
 
@@ -116,18 +105,6 @@
                   {{ csrf_field() }}
                   <label>Должность
                      <input type="text" name="name" required>
-                  </label>
-                  <label>Отдел
-                     {{-- Department start --}}
-                     <div class="select2_single_container">
-                        <select name="department_id" class="select2_single" data-dropdown-css-class="select2_single_dropdown">
-                           <option>Отдел</option>
-                           @foreach($departments as $department)
-                              <option value="{{ $department->id }}">{{ $department->name }}</option>   
-                           @endforeach
-                        </select>
-                     </div>
-                     {{-- Department end --}}
                   </label>
                </div>
 

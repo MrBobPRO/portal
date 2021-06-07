@@ -704,11 +704,6 @@ class AdminController extends Controller
             }
         }
         Department::find($request->id)->delete();
-        $positions = Position::where('department_id', $request->id)->get();
-        foreach ($positions as $position) {
-            $position->department_id = 1;
-            $position->save();
-        }
         return redirect()->back();
     }
 
@@ -748,7 +743,7 @@ class AdminController extends Controller
         if ($users) 
         {
             foreach ($users as $user) {
-                $user->designation = 1;
+                $user->designation_id = 1;
                 $user->save();
             }
         }
@@ -770,11 +765,10 @@ class AdminController extends Controller
 
     public function positions_index()
     {
-        $positions = Position::orderBy('department_id', 'asc')
+        $positions = Position::orderBy('name', 'asc')
                             ->get();
-        $departments = Department::get();
 
-        return view('dashboard.structure.positions.index', compact('positions', 'departments'));
+        return view('dashboard.structure.positions.index', compact('positions'));
     }    
 
     public function positions_update(Request $request)
@@ -782,7 +776,6 @@ class AdminController extends Controller
         $position = Position::find($request->id);
         
         $position->name = $request->name;
-        $position->department_id = $request->department_id;
         $position->save();
 
         return redirect()->back();
@@ -808,7 +801,6 @@ class AdminController extends Controller
         $position = new Position;
         
         $position->name = $request->name;
-        $position->department_id = $request->department_id;
         $position->save();
 
         return redirect()->back();

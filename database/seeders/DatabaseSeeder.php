@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
 
         //Departments
         $departaments = ['Не выбрано', 'Руководство', 'Отдел управление персоналом', 'Отдел юридических аспектов', 'Отдел финансов', 'Отдел разработки программного обеспечения', 'Отдел ИТ', 'Отдел маркетинга'];
-        $dep_priority = [999,1,2,3,4,5,6,7,];
+        $dep_priority = [0,1,2,3,4,5,6,7,];
 
         for ($i = 0; $i<count($departaments); $i++) {
             $dep = new Department;
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
 
         //Designations
         $designations = ['Не выбрано', 'Генеральный директор', 'Заместитель генерального директора', 'Руководитель', 'Заместитель руководителя', 'Главный специалист', 'Ведущий специалист', 'Младший специалист', 'Стажёр'];
-        $desPriority = [999,1,2,3,4,5,6,7,8];
+        $desPriority = [0,1,2,3,4,5,6,7,8];
 
         for ($i = 0; $i<count($designations); $i++) {
             $des = new Designation;
@@ -84,12 +84,10 @@ class DatabaseSeeder extends Seeder
         //Positions
         $positions = ['Не выбрано', 'Руководитель высшего звена', 'Менеджер по работе с персоналом', 'Специалист по работе с персоналом', 'Специалист по юриспруденции', 'Специалист по регистрации товарных знаков', 'Переводчик', 'Senior разработчик', 'Middle разработчик', 'Junior разработчик',
         'Дизайнер', 'Научный редактор', 'Аналитик'];
-        $dep_id = [1,2,3,3,4,4,8,6,6,6,8,8,8];
 
         for ($i = 0; $i<count($positions); $i++) {
             $pos = new Position;
             $pos->name = $positions[$i];
-            $pos->department_id = $dep_id[$i];
             $pos->save();
         }
 
