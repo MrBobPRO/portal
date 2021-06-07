@@ -694,9 +694,20 @@ class AdminController extends Controller
 
     public function departments_remove(Request $request)
     {
+        $users = User::where('department_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->department_id = 1;
+                $user->save();
+            }
+        }
         Department::find($request->id)->delete();
-        Position::where('department_id', $request->id)->delete();
-
+        $positions = Position::where('department_id', $request->id)->get();
+        foreach ($positions as $position) {
+            $position->department_id = 1;
+            $position->save();
+        }
         return redirect()->back();
     }
 
@@ -732,6 +743,14 @@ class AdminController extends Controller
 
     public function designations_remove(Request $request)
     {
+        $users = User::where('designation_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->designation = 1;
+                $user->save();
+            }
+        }
         Designation::find($request->id)->delete();
 
         return redirect()->back();
@@ -770,6 +789,14 @@ class AdminController extends Controller
 
     public function positions_remove(Request $request)
     {
+        $users = User::where('position_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->position_id = 1;
+                $user->save();
+            }
+        }
         Position::find($request->id)->delete();
 
         return redirect()->back();

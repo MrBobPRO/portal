@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->string('password');
             $table->string('description');
-            $table->integer('department_id');
-            $table->integer('position_id');
-            $table->integer('designation_id');
+            $table->integer('department_id')->default(1);
+            $table->integer('position_id')->default(1);
+            $table->integer('designation_id')->default(1);
             $table->string('colorScheme')->default('#00bcd4');
             $table->string('dashBg')->default('dash1.jpg');
             $table->boolean('darkMode')->default(true);
