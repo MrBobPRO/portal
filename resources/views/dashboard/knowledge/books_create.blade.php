@@ -11,8 +11,12 @@
          <input type="hidden" name="ruCategory" value="{{ $material->name }}">
 
          <div class="input-container-blocked">
-            <label>Название книги</label>
-            <input type="text" name="name" required>
+            <label>Название книги на русском</label>
+            <input type="text" name="ruTitle" required> 
+            <label> <br> Название книги на таджикском</label>
+            <input type="text" name="tjTitle" required> 
+            <label> <br> Название книги на английском</label>
+            <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">

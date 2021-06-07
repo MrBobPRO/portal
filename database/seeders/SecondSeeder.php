@@ -144,7 +144,9 @@ class SecondSeeder extends Seeder
             for ($j=0; $j < 13; $j++) {
                 for ($k=0; $k < count($bookCategory); $k++) {
                     $books = new Book;
-                    $books->name = 'Название книги ' . $k;
+                    $books->ruTitle = 'Название книги ' . $k;
+                    $books->tjTitle = 'Номи китоб ' . $k;
+                    $books->enTitle = 'Book name ' . $k;
                     $books->filename = '1.pdf';
                     $books->material_id = $matIDs[$i];
                     $books->category = $bookCategory[$k];

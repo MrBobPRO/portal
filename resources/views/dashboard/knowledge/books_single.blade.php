@@ -8,8 +8,14 @@
       @csrf
       <input type="hidden" name="book_id" value="{{ $book->id }}">
       <div class="input-container-blocked">
-         <label>Название книги</label>
-         <input type="text" name="name" value="{{ $book->name }}" required>
+         <label>Название книги на русском</label>
+         <input type="text" name="ruTitle" value="{{ $book->ruTitle }}" required>
+
+         <label> <br> Название книги на таджикском</label>
+         <input type="text" name="tjTitle" value="{{ $book->tjTitle }}" required>
+
+         <label> <br> Название книги на английском</label>
+         <input type="text" name="enTitle" value="{{ $book->enTitle }}" required>
       </div>
 
       <div class="input-container-blocked">
@@ -20,7 +26,7 @@
       <div class="spaced-btw-btns">
          <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> Удалить</button>
          <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
-      </div>
+      </div>   
    </form>
 
 </section>

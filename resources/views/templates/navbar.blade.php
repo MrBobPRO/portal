@@ -11,7 +11,8 @@
       <li class="{{ $route == 'knowledge.index' 
                               || $route == 'knowledge.books.index'
                               || $route == 'knowledge.books.showbook'
-                              || $route == 'knowledge.videos.index' ? 'active' : ''}}">
+                              || $route == 'knowledge.videos.index'
+                              || $route == 'knowledge.videos.single' ? 'active' : ''}}">
          <a href=" {{ route('knowledge.index') }} ">{{ __('Центр знаний') }}</a>
       </li>
 
@@ -32,6 +33,7 @@
 
       <li class="{{ $route == 'entertainment.index'
                               || $route == 'entertainment.videos.index'
+                              || $route == 'entertainment.videos.single'
                               || $route == 'entertainment.gallery.index'
                               || $route == 'entertainment.gallery.single' ? 'active' : ''}}">
          <a href=" {{ route('entertainment.index') }} ">{{ __('Развлечения') }}</a>

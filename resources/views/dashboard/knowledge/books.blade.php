@@ -12,7 +12,7 @@
             <select class="select2_single select2_single_linked" data-placeholder="Поиск новостей..." data-dropdown-css-class="select2_single_dropdown">
                <option></option>
                @foreach($allBooks as $allBook)
-                  <option value="{{ route('dashboard.knowledge.books.single', $allBook->id)}}">{{$allBook->name}}</option>   
+                  <option value="{{ route('dashboard.knowledge.books.single', $allBook->id)}}">{{$allBook->ruTitle}}</option>   
                @endforeach
             </select>
          </div>
@@ -29,7 +29,7 @@
       <div class="primary-list">
          @foreach($books as $book)
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.books.single', $book->id)}}">
-               <div class="width-33">{{ $book->name }}</div>
+               <div class="width-33">{{ $book->ruTitle }}</div>
                <div class="width-33">{{ $book->ruCategory }}</div>
                <div class="width-33">
                   <?php 

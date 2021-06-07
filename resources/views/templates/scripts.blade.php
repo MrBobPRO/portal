@@ -21,7 +21,7 @@
         <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break
 
-    @case('entertainment.videos.index')
+    @case('entertainment.videos.index') @case('entertainment.videos.single') 
         {{-- Plyr video player --}}
         <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
         <script src="{{ asset('js/entertainment/videos/scripts.js') }}"></script>
@@ -34,10 +34,11 @@
         <script src="{{ asset('js/entertainment/gallery/scripts.js') }}"></script>
     @break
 
-    @case('knowledge.videos.index')
+    @case('knowledge.videos.index') @case('knowledge.videos.single')
         {{-- Plyr video player --}}
         <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
         <script src="{{ asset('js/knowledge/scripts.js') }}"></script>
     @break
+  
 
 @endswitch
