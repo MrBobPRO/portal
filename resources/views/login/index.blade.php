@@ -6,12 +6,10 @@
    <div class="container">
       <div class="row align-items-center top-row">
          <div class="col-6">
-            @if(\App::currentLocale() == 'ru')
+            @if(\App::currentLocale() == 'ru' || \App::currentLocale() == 'tj')
                <a href="/"><img class="logo" src="{{asset('img/main/logo-nav.png')}}"></a>
             @elseif(\App::currentLocale() == 'en')
                <a href="/"><img class="logo" src="{{asset('img/main/logo-eng.png')}}"></a>
-            @else
-               <a href="/"><img class="logo" src="{{asset('img/main/logo-nav.png')}}"></a>
             @endif
          </div>
          <div class="col-6">
