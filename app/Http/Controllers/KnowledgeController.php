@@ -59,4 +59,11 @@ class KnowledgeController extends Controller
         return view('knowledge.videos.index', compact('videos', 'material', 'subjectcat', 'subject'));
     }
 
+    public function videos_single($id)
+    {
+        $video = Video::find($id);
+
+        return view('knowledge.videos.single', compact('video'));
+    }
+
 }

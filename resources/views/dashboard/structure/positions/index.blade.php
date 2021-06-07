@@ -15,7 +15,7 @@
    <div class="primary-list">
       @foreach($positions as $position)
          <div class="primary-items">
-            <a class="primary-list-item">
+            <a class="primary-list-item @if($position->id == 1) visually-hidden @endif">
                <div class="width-33">{{$position->name}}</div>
                <div class="width-33">{{ App\Models\Department::find($position->department_id)->name }}</div>
                <div class="width-33">

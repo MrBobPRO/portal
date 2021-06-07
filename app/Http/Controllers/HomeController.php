@@ -8,6 +8,13 @@ use App\Mail\SendCredentials;
 use App\Models\News;
 use App\Models\Slider;
 use App\Models\User;
+use App\MOdels\Book;
+use App\MOdels\Entertainment;
+use App\MOdels\Gallery;
+use App\MOdels\Project;
+use App\MOdels\Subject;
+use App\MOdels\Subjectcat;
+use App\MOdels\Video;
 use Illuminate\Support\Facades\DB;
 use stdClass;
 
@@ -48,6 +55,21 @@ class HomeController extends Controller
         $keyword = $request->keyword;
         
         $result = new stdClass;
+        
+        $result->books = Book::where('ruTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('enTitle', 'like', '%' . $keyword . '%')
+                    ->get();
+
+        $result->entertainments = Entertainment::where('ruTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('enTitle', 'like', '%' . $keyword . '%')
+                    ->get();
+
+        $result->galleries = Gallery::where('ruTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('enTitle', 'like', '%' . $keyword . '%')
+                    ->get();
 
         $result->news = News::where('ruTitle', 'like', '%' . $keyword . '%')
                     ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
@@ -56,17 +78,33 @@ class HomeController extends Controller
                     ->orWhere('tjText', 'like', '%' . $keyword . '%')
                     ->orWhere('enText', 'like', '%' . $keyword . '%')
                     ->get();
-
-        $result->users = DB::table('users')->
-                    where('name', 'like', '%' . $keyword . '%')
+                    
+        $result->projects = Project::where('ruTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('enTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('ruText', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjText', 'like', '%' . $keyword . '%')
+                    ->orWhere('enText', 'like', '%' . $keyword . '%')
+                    ->get();
+            
+        $result->users = User::where('name', 'like', '%' . $keyword . '%')
                     ->orWhere('nickname', 'like', '%' . $keyword . '%')
                     ->orWhere('surname', 'like', '%' . $keyword . '%')
                     ->orWhere('description', 'like', '%' . $keyword . '%')
-                    ->select('users.id', 'users.name', 'users.surname')
+                    ->get();
+                    
+        $result->videos = Video::where('ruTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('tjTitle', 'like', '%' . $keyword . '%')
+                    ->orWhere('enTitle', 'like', '%' . $keyword . '%')
                     ->get();
 
-
-        $resultsCount = $result->news->count() +  $result->users->count();
+        $resultsCount = $result->books->count()
+                    + $result->entertainments->count() 
+                    + $result->galleries->count()
+                    + $result->news->count()
+                    + $result->projects->count()
+                    + $result->users->count()
+                    + $result->videos->count();
 
         return view('search.index', compact('result', 'resultsCount'));
 

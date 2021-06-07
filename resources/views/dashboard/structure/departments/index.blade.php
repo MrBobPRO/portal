@@ -13,7 +13,7 @@
 
    <div class="primary-list">
       @foreach($departments as $department)
-         <a class="primary-list-item">
+         <a class="primary-list-item @if($department->id == 1) visually-hidden @endif">
             <div class="width-33">{{$department->name}}</div>
             <div class="width-33">{{$department->priority}}</div>
             <div class="width-33">

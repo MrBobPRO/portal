@@ -44,6 +44,12 @@
          <a href="{{ route('entertainment.videos.index') }}"><span>{{ __('Видео') }}</span></a>
       @break
 
+      @case('entertainment.videos.single')
+         <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
+         <a href="{{ route('entertainment.videos.index') }}"><span>{{ __('Видео') }}</span></a>
+         <a href="{{ route('entertainment.videos.single', $entertainment->id) }}"><span>{{ $entertainment->ruTitle }}</span></a>
+      @break
+
       @case('entertainment.gallery.index')
          <a href="{{ route('entertainment.index') }}"><span>{{ __('Развлечения') }}</span></a>
          <a href="{{ route('entertainment.gallery.index') }}"><span>{{ __('Галерея') }}</span></a>
@@ -90,6 +96,11 @@
       @case('knowledge.videos.index')
          <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
          <a href="{{ route('knowledge.videos.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
+      @break
+
+      @case('knowledge.videos.single')
+         <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+         <a href="{{ route('knowledge.videos.single', $video->id) }}"><span>{{$video->ruTitle}}</span></a>
       @break
 
       @case('knowledge.books.index')

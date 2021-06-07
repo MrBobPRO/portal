@@ -133,6 +133,13 @@ class EntertainmentController extends Controller
         return 'success';
     }
 
+    public function videos_single($id)
+    {
+        $entertainment = Entertainment::find($id);
+
+        return view('entertainment.videos.single', compact('entertainment'));
+    }
+
     public function videos_remove(Request $request)
     {
         $video = Entertainment::find($request->id);

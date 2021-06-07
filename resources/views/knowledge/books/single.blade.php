@@ -10,7 +10,7 @@
    <meta name="googlebot" content="noindex, nofollow"/>
    <meta name="yandex" content="none"/>
    
-   <title>{{$book->name}}</title>
+   <title>{{$book->ruTitle}}</title>
 
     <style>
       body {

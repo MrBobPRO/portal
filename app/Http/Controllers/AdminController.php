@@ -355,13 +355,13 @@ class AdminController extends Controller
     public function knowledge_books() 
     {
         $allBooks = DB::table('books')
-                        ->orderBy('name', 'asc')
-                        ->select('books.id', 'books.name')
+                        ->orderBy('ruTitle', 'asc')
+                        ->select('books.id', 'books.ruTitle')
                         ->get();
 
         $books = DB::table('books')
                         ->latest()
-                        ->select('books.id', 'books.name', 'books.ruCategory', 'books.created_at')
+                        ->select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
                         ->paginate(30);
 
         return view('dashboard.knowledge.books', compact('books', 'allBooks'));
@@ -393,7 +393,9 @@ class AdminController extends Controller
         $book->material_id = $request->material_id;
         $book->category = $request->category;
         $book->ruCategory = $request->ruCategory;
-        $book->name = $request->name;
+        $book->ruTitle = $request->ruTitle;
+        $book->tjTitle = $request->tjTitle;
+        $book->enTitle = $request->enTitle;
         $book->filename = $fileName;
         $book->save();
 
@@ -405,10 +407,20 @@ class AdminController extends Controller
         //Get book by id
         $book = Book::find($request->book_id);
 
-        if ($request->name != $book->name) 
+        if ($request->ruTitle != $book->ruTitle) 
         {   
             //Edit books name
-            $book->name = $request->name;
+            $book->ruTitle = $request->ruTitle;
+            $book->save();
+        } else if ($request->tjTitle != $book->tjTitle) 
+        {   
+            //Edit books name
+            $book->tjTitle = $request->tjTitle;
+            $book->save();
+        } else if ($request->enTitle != $book->enTitle) 
+        {   
+            //Edit books name
+            $book->enTitle = $request->enTitle;
             $book->save();
         }
         else if ($request->file != null) {
@@ -683,9 +695,20 @@ class AdminController extends Controller
 
     public function departments_remove(Request $request)
     {
+        $users = User::where('department_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->department_id = 1;
+                $user->save();
+            }
+        }
         Department::find($request->id)->delete();
-        Position::where('department_id', $request->id)->delete();
-
+        $positions = Position::where('department_id', $request->id)->get();
+        foreach ($positions as $position) {
+            $position->department_id = 1;
+            $position->save();
+        }
         return redirect()->back();
     }
 
@@ -721,6 +744,14 @@ class AdminController extends Controller
 
     public function designations_remove(Request $request)
     {
+        $users = User::where('designation_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->designation = 1;
+                $user->save();
+            }
+        }
         Designation::find($request->id)->delete();
 
         return redirect()->back();
@@ -759,6 +790,14 @@ class AdminController extends Controller
 
     public function positions_remove(Request $request)
     {
+        $users = User::where('position_id', $request->id)->get();
+        if ($users) 
+        {
+            foreach ($users as $user) {
+                $user->position_id = 1;
+                $user->save();
+            }
+        }
         Position::find($request->id)->delete();
 
         return redirect()->back();
