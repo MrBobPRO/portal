@@ -28,7 +28,7 @@
    @if($complaint->file != '')
       <div class="input-container-inline">
          <label>
-            <form action="/complaints/download" method="POST" class="inlined-form-inside-label">
+            <form action="/complaints/download_file" method="POST" class="inlined-form-inside-label">
                @csrf
                <input type="hidden" name="file" value="{{$complaint->file}}">
                <button type="submit">Скачать прикреплённый файл</button>

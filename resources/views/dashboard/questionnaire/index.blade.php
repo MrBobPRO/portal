@@ -23,7 +23,7 @@
                   ?>
                   {{$formatted}}
                </div>
-               <div class="width-33">{{$qs->private ? 'private' : ''}}</div>
+               <div class="width-33">{{$qs->private ? 'Приватный' : 'Публичный'}}</div>
             </a>
          @endforeach
       </div>

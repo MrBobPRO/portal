@@ -104,6 +104,37 @@ class AdminController extends Controller
     }
     // -----------------------------------Ads end-------------------------------------------
 
+
+    // -----------------------------------Complaints start-------------------------------------------
+    public function complaints()
+    {
+        $allComplaints = DB::table('complaints')
+                        ->orderBy('title', 'asc')
+                        ->select('complaints.id', 'complaints.title')
+                        ->get();
+
+        $complaints = Complaint::latest()->paginate(30);
+
+        return view('dashboard.complaints.index', compact('allComplaints', 'complaints'));
+    }
+
+    public function complaints_single($id)
+    {
+        $complaint  = Complaint::find($id);
+        //change ideas status
+        $complaint->new = false;
+        $complaint->save();
+        //genereate title for breadcrumbs
+        if(mb_strlen($complaint->title) > 55)
+            $crumbsTitle = mb_substr($complaint->title, 0, 52) . '...';
+        else
+            $crumbsTitle = $complaint->title;
+
+        return view('dashboard.complaints.single', compact('complaint', 'crumbsTitle'));
+    }
+    // -----------------------------------Complaints end-------------------------------------------
+
+
     // -----------------------------------Questionnaire start-------------------------------------------
     public function questionnaire()
     {
@@ -131,6 +162,28 @@ class AdminController extends Controller
     // -----------------------------------Questionnaire end-------------------------------------------
 
 
+    // -----------------------------------Slider start-------------------------------------------
+    public function slider()
+    {
+        $items = Slider::orderBy('priority', 'asc')->get();
+
+        return view('dashboard.slider.index', compact('items'));
+    }
+
+    public function slider_create()
+    {
+        return view('dashboard.slider.create');
+    }
+
+    public function slider_single($id)
+    {
+        $item = Slider::find($id);
+
+        return view('dashboard.slider.single', compact('item'));
+    }
+    // -----------------------------------Slider end-------------------------------------------
+
+    
     // -----------------------------------News start-------------------------------------------
     public function news()
     {
@@ -169,58 +222,6 @@ class AdminController extends Controller
         return view('dashboard.news.single', compact('news', 'crumbsTitle'));
     }
     // -----------------------------------News end-------------------------------------------
-
-
-    // -----------------------------------Slider start-------------------------------------------
-    public function slider()
-    {
-        $items = Slider::orderBy('priority', 'asc')->get();
-
-        return view('dashboard.slider.index', compact('items'));
-    }
-
-    public function slider_create()
-    {
-        return view('dashboard.slider.create');
-    }
-
-    public function slider_single($id)
-    {
-        $item = Slider::find($id);
-
-        return view('dashboard.slider.single', compact('item'));
-    }
-    // -----------------------------------Slider end-------------------------------------------
-
-
-    // -----------------------------------Complaints start-------------------------------------------
-    public function complaints()
-    {
-        $allComplaints = DB::table('complaints')
-                        ->orderBy('title', 'asc')
-                        ->select('complaints.id', 'complaints.title')
-                        ->get();
-
-        $complaints = Complaint::latest()->paginate(30);
-
-        return view('dashboard.complaints.index', compact('allComplaints', 'complaints'));
-    }
-
-    public function complaints_single($id)
-    {
-        $complaint  = Complaint::find($id);
-        //change ideas status
-        $complaint->new = false;
-        $complaint->save();
-        //genereate title for breadcrumbs
-        if(mb_strlen($complaint->title) > 55)
-            $crumbsTitle = mb_substr($complaint->title, 0, 52) . '...';
-        else
-            $crumbsTitle = $complaint->title;
-
-        return view('dashboard.complaints.single', compact('complaint', 'crumbsTitle'));
-    }
-    // -----------------------------------Complaints end-------------------------------------------
 
 
     // -----------------------------------Videos start-------------------------------------------

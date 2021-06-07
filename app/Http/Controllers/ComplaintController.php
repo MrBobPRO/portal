@@ -39,7 +39,7 @@ class ComplaintController extends Controller
         return redirect()->back();
     }
 
-    public function download(Request $request)
+    public function download_file(Request $request)
     {
         $path = public_path('files/complaints/' . $request->file);
 
