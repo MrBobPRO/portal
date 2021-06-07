@@ -93,9 +93,9 @@ class DatabaseSeeder extends Seeder
             $pos->save();
         }
 
-        $dep_id = [1,1,2,2,2,3,3,3,3,3];
-        $des_id = [1,2,3,6,6,3,4,6,7,8];
-        $pos_id = [1,1,2,3,3,4,4,4,6,11];
+        $dep_id = [2,2,3,3,3,4,4,4,4,4];
+        $des_id = [2,3,4,7,7,4,5,7,8,9];
+        $pos_id = [2,2,3,4,4,5,5,5,7,12];
 
         //Create Users
         $avatars = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
