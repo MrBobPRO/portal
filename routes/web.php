@@ -126,6 +126,11 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/update_ads', 'AdsController@update');
       Route::post('/store_ads', 'AdsController@store');
       Route::post('/remove_ads', 'AdsController@remove');
+      //Complaints
+      Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
+      Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
+      Route::post('/complaints/download_file', 'ComplaintController@download_file');
+      Route::post('/complaints/response', 'ComplaintController@response');
       //Questionnaire
       Route::get('/dashboard/questionnaire', 'AdminController@questionnaire')->name('dashboard.questionnaire.index');
       Route::get('/dashboard/questionnaire_create', 'AdminController@questionnaire_create')->name('dashboard.questionnaire.create');
@@ -137,13 +142,6 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/store_options', 'OptionController@store');
       Route::post('/update_options', 'OptionController@update');
       Route::post('/remove_options', 'OptionController@remove');
-      //News
-      Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
-      Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
-      Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
-      Route::post('/update_news', 'NewsController@update');
-      Route::post('/store_news', 'NewsController@store');
-      Route::post('/remove_news', 'NewsController@remove');
       //Slider
       Route::get('/dashboard/slider', 'AdminController@slider')->name('dashboard.slider.index');
       Route::get('/dashboard/slider_create', 'AdminController@slider_create')->name('dashboard.slider.create');
@@ -151,11 +149,13 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/update_slider_item', 'SliderController@update_item');
       Route::post('/store_slider_item', 'SliderController@store_item');
       Route::post('/remove_slider_item', 'SliderController@remove_item');
-      //Complaints
-      Route::get('/dashboard/complaints', 'AdminController@complaints')->name('dashboard.complaints.index');
-      Route::get('/dashboard/complaints/{id}', 'AdminController@complaints_single')->name('dashboard.complaints.single');
-      Route::post('/complaints/download', 'ComplaintController@download');
-      Route::post('/complaints/response', 'ComplaintController@response');
+      //News
+      Route::get('/dashboard/news', 'AdminController@news')->name('dashboard.news.index');
+      Route::get('/dashboard/news_create', 'AdminController@news_create')->name('dashboard.news.create');
+      Route::get('/dashboard/news/{id}', 'AdminController@news_single')->name('dashboard.news.single');
+      Route::post('/update_news', 'NewsController@update');
+      Route::post('/store_news', 'NewsController@store');
+      Route::post('/remove_news', 'NewsController@remove');
       //Videos
       Route::get('/dashboard/videos', 'AdminController@videos')->name('dashboard.videos.index');
       Route::get('/dashboard/videos_create', 'AdminController@videos_create')->name('dashboard.videos.create');

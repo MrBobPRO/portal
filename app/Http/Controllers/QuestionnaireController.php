@@ -64,7 +64,7 @@ class QuestionnaireController extends Controller
          'private' => $request->private ? true : false
      ]);
 
-         return redirect()->route('dashboard.questionnaire.single', $question->id);
+      return redirect()->route('dashboard.questionnaire.single', $question->id);
    }
 
    public function update(Request $request)

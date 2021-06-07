@@ -82,7 +82,7 @@ class OptionController extends Controller
         //also delete all choices (Because calculation errors may occur)
         Choice::where('option_id', $request->id)->delete();
 
-        return redirect()->route('dashboard.questionnaire.index');
+        return redirect()->back();
     }
 
 }
