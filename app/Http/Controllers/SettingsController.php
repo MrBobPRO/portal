@@ -30,6 +30,19 @@ class SettingsController extends Controller
     {
         $user = User::find(Auth::user()->id);
 
+        // $custom_img = $request->custom_img;
+
+        // if($custom_img) {
+        //     $temp_path = public_path('img/dashboards/temp/' . $request->dashbg);
+        //     $original_path = public_path('img/dashboards/' . $request->dashbg);
+        //     copy($temp_path, $original_path);
+
+        //     $fileName = $user->id . '.' . $custom_img->getClientOriginalExtension();
+        //     $custom_img->move(public_path('img/dashboards/'), $fileName);
+
+        //     $user->dashBg = $fileName;
+        // }
+
         if($request->custom_img) {
             $temp_path = public_path('img/dashboards/temp/' . $request->dashbg);
             $original_path = public_path('img/dashboards/' . $request->dashbg);

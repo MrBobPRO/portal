@@ -17,6 +17,7 @@ class EntertainmentController extends Controller
         return view('entertainment.index', compact('videos'));
     }
 
+    //-----------------------------------Videos start----------------------------------------
     public function videos()
     {
         $videos = Entertainment::latest()->paginate(16);
@@ -24,25 +25,11 @@ class EntertainmentController extends Controller
         return view('entertainment.videos.index', compact('videos'));
     }
 
-    public function gallery() 
+    public function videos_single($id)
     {
-        $galleries = Gallery::latest()->paginate(12);
+        $entertainment = Entertainment::find($id);
 
-        return view('entertainment.gallery.index', compact('galleries'));
-    }
-
-    public function gallery_single($id) 
-    {
-        $gallery = Gallery::find($id);
-
-        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
-        $title = App::currentLocale() . 'Title';
-        $crumbsTitle = $gallery[$title];
-
-        if(mb_strlen($crumbsTitle) > 23)
-            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
-
-        return view('entertainment.gallery.single', compact('gallery', 'crumbsTitle'));
+        return view('entertainment.videos.single', compact('entertainment'));
     }
 
     public function videos_update(Request $request)
@@ -133,13 +120,6 @@ class EntertainmentController extends Controller
         return 'success';
     }
 
-    public function videos_single($id)
-    {
-        $entertainment = Entertainment::find($id);
-
-        return view('entertainment.videos.single', compact('entertainment'));
-    }
-
     public function videos_remove(Request $request)
     {
         $video = Entertainment::find($request->id);
@@ -150,6 +130,30 @@ class EntertainmentController extends Controller
         unlink($path);
 
         return redirect()->route('dashboard.videos.index');
+    }
+    //-----------------------------------Videos end----------------------------------------
+
+
+    //-----------------------------------Gallery start----------------------------------------
+    public function gallery() 
+    {
+        $galleries = Gallery::latest()->paginate(12);
+
+        return view('entertainment.gallery.index', compact('galleries'));
+    }
+
+    public function gallery_single($id) 
+    {
+        $gallery = Gallery::find($id);
+
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $gallery[$title];
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('entertainment.gallery.single', compact('gallery', 'crumbsTitle'));
     }
 
     public function delete_gallery_image(Request $request)
@@ -205,8 +209,8 @@ class EntertainmentController extends Controller
             $gallery->save();
         }
 
-
         return redirect()->route('dashboard.galleries.single', $gallery->id);
     }
+    //-----------------------------------Gallery end----------------------------------------
 
 }

@@ -7,7 +7,7 @@
       
       <div class="single-video">
          {{-- Custom id used in js --}}
-         <video class="plyr" playsinline controls id="player" onplay="pauseInactivePlayers({{$entertainment->id}})" 
+         <video class="plyr" playsinline controls id="player0"
             data-poster="/videos/entertainment/posters/{{$entertainment->poster}}">
             <source src="/videos/entertainment/{{$entertainment->filename}}"/>
          
