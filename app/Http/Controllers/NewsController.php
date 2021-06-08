@@ -11,21 +11,21 @@ class NewsController extends Controller
 {
     public function index()
     { 
-        $news = News::latest()->paginate(6);
+        $news = News::latest()->paginate(10);
 
         return view('news.index', compact('news'));
     }
 
     public function inner()
     { 
-        $news = News::where('global', false)->paginate(6);
+        $news = News::where('global', false)->latest()->paginate(10);
 
         return view('news.categories', compact('news'));
     }
 
     public function global()
     { 
-        $news = News::where('global', true)->paginate(6);
+        $news = News::where('global', true)->latest()->paginate(10);
 
         return view('news.categories', compact('news'));
     }

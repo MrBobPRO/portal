@@ -8,21 +8,19 @@ class ProjectsController extends Controller
 {
     public function index()
     {  
-        $projects = Project::paginate(10);
-
-        return view('projects.index', compact('projects'));
+        return view('projects.index');
     }
 
     public function completed()
     {  
-        $projects = Project::where('completed', true)->paginate(10);
+        $projects = Project::where('completed', true)->latest()->paginate(10);
 
         return view('projects.categories', compact('projects'));
     }
 
     public function ongoing()
     {  
-        $projects = Project::where('completed', false)->paginate(10);
+        $projects = Project::where('completed', false)->latest()->paginate(10);
 
         return view('projects.categories', compact('projects'));
     }

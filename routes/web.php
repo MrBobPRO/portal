@@ -220,7 +220,5 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------
 
-
-
 require __DIR__.'/auth.php';
  

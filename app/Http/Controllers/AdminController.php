@@ -224,45 +224,6 @@ class AdminController extends Controller
     // -----------------------------------News end-------------------------------------------
 
 
-    // -----------------------------------Videos start-------------------------------------------
-    public function videos()
-    {
-        //generate title as ruTitle & tjTitle & enTitle
-        $title = App::currentLocale() . 'Title';
-
-        $allVideos = DB::table('entertainments')
-                        ->orderBy($title, 'asc')
-                        ->select('entertainments.id', 'entertainments.' . $title . ' as title')
-                        ->get();
-
-        $videos = DB::table('entertainments')
-                        ->latest()
-                        ->select('entertainments.id', 'entertainments.' . $title . ' as title', 'entertainments.created_at')
-                        ->paginate(30);
-
-        return view('dashboard.entertainment.videos.index', compact('videos', 'allVideos'));
-    }
-
-    public function videos_create()
-    {
-        return view('dashboard.entertainment.videos.create');
-    }
-
-    public function videos_single($id)
-    {
-        $video = Entertainment::find($id);
-
-        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
-        $title = App::currentLocale() . 'Title';
-        $crumbsTitle = $video[$title];
-
-        if(mb_strlen($crumbsTitle) > 23)
-            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
-
-        return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle'));
-    }
-    // -----------------------------------Videos end-------------------------------------------
-
     // -----------------------------------Projects start-------------------------------------------
     public function projects()
     {
@@ -303,6 +264,46 @@ class AdminController extends Controller
     // -----------------------------------Projects end-------------------------------------------
 
 
+    // -----------------------------------Videos start-------------------------------------------
+    public function videos()
+    {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
+        $allVideos = DB::table('entertainments')
+                        ->orderBy($title, 'asc')
+                        ->select('entertainments.id', 'entertainments.' . $title . ' as title')
+                        ->get();
+
+        $videos = DB::table('entertainments')
+                        ->latest()
+                        ->select('entertainments.id', 'entertainments.' . $title . ' as title', 'entertainments.created_at')
+                        ->paginate(30);
+
+        return view('dashboard.entertainment.videos.index', compact('videos', 'allVideos'));
+    }
+
+    public function videos_create()
+    {
+        return view('dashboard.entertainment.videos.create');
+    }
+
+    public function videos_single($id)
+    {
+        $video = Entertainment::find($id);
+
+        //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $crumbsTitle = $video[$title];
+
+        if(mb_strlen($crumbsTitle) > 23)
+            $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
+
+        return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle'));
+    }
+    // -----------------------------------Videos end-------------------------------------------
+
+
     // -----------------------------------Gallery start-------------------------------------------
     public function galleries()
     {
@@ -341,6 +342,7 @@ class AdminController extends Controller
         return view('dashboard.entertainment.galleries.single', compact('gallery', 'crumbsTitle'));
     }
     // -----------------------------------Gallery end-------------------------------------------
+
 
     // -----------------------------------Knowledge start-------------------------------------------
     public function knowledge_create()
@@ -602,6 +604,7 @@ class AdminController extends Controller
     }
     // -----------------------------------Knowledge end-------------------------------------------
 
+    
     // -----------------------------------Structure start-------------------------------------------
     public function structure_index() 
     {
