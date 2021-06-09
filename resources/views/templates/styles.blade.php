@@ -45,7 +45,6 @@
     
     @case('structure.index')  
         <link href="{{ asset('css/structure/styles.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/about/media.css') }}" rel="stylesheet">
     @break
     
     @case('knowledge.index') @case('knowledge.books.index')  

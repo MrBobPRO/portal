@@ -4,212 +4,163 @@
 
    <section class="search-page">
 
+      {{-- Results count start--}}
       @if ($resultsCount > 0)
-         <b class="result">Найдено {{ $resultsCount }} результатов</b>          
+         <p class="results_count">
+            По ключевому слову&nbsp;<b>"{{$keyword}}"</b>&nbsp;. Найдено {{ $resultsCount }} результатов !</p>          
       @else
          <div class="no_result">
             <span class="material-icons-outlined">sentiment_dissatisfied</span>  
-            <b>Извините, ничего не найдено.</b>
+            <b>Упс... По вашему запросу ничего не найдено.</b>
          </div>
       @endif 
+      {{-- Results count end--}}
 
-      @if (count($result->books))
+      {{-- Search results list start--}}
+      <div class="results-list">
+         {{-- Books start --}}
+         @foreach ($result->books as $book)  
+            <a class="items" href="{{ route('knowledge.books.single', $book->id) }}">
+               <div class="info">
+                  <span class="title">{{ $book->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($book->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Книги</span>
+               </div>
 
-         <ul>
-            @foreach ($result->books as $book)  
-               <li>
-                  <a class="items" href="{{ route('knowledge.books.single', $book->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $book->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($book->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Книги</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('img/main/book.jpeg') }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
-         
-      @endif
+               <img class="result-image" src="{{ asset('img/main/book.jpeg') }}">
+            </a>
+         @endforeach {{-- Books end --}}
 
-      @if (count($result->entertainments))
+         {{-- Entertainments start --}}
+         @foreach ($result->entertainments as $video)  
+            <a class="items" href="{{ route('entertainment.videos.single', $video->id) }}">
+               <div class="info">
+                  <span class="title">{{ $video->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Развлечение</span>
+               </div>
 
-         <ul>
-            @foreach ($result->entertainments as $video)  
-               <li>
-                  <a class="items" href="{{ route('entertainment.videos.single', $video->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $video->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Развлечение</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('videos/entertainment/posters/' . $video->poster) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
-
-      @endif
+               <img class="result-image" src="{{ asset('videos/entertainment/posters/' . $video->poster) }}">
+            </a>
+         @endforeach {{-- Entertainments end --}}
       
-      @if (count($result->videos))
+         {{-- Videos start --}}
+         @foreach ($result->videos as $video)  
+            <a class="items" href="{{ route('knowledge.videos.single', $video->id) }}">
+               <div class="info">
+                  <span class="title">{{ $video->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Видео / {{ $video->ruCategory }}</span>
+               </div>
 
-         <ul>
-            @foreach ($result->videos as $video)  
-               <li>
-                  <a class="items" href="{{ route('knowledge.videos.single', $video->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $video->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Видео / {{ $video->ruCategory }}</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('videos/knowledge/posters/' . $video->poster) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
+               <img class="result-image" src="{{ asset('videos/knowledge/posters/' . $video->poster) }}">
+            </a>
+         @endforeach {{-- Videos end --}}
 
-      @endif
+         {{-- Galleries start --}}
+         @foreach ($result->galleries as $gallery)  
+            <a class="items" href="{{ route('entertainment.gallery.single', $gallery->id) }}">
+               <div class="info">
+                  <span class="title">{{ $gallery->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($gallery->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Галерея</span>
+               </div>
 
-      @if (count($result->galleries))
- 
-         <ul>
-            @foreach ($result->galleries as $gallery)  
-               <li>
-                  <a class="items" href="{{ route('entertainment.gallery.single', $gallery->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $gallery->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($gallery->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Галерея</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('img/entertainment/galleries/' . $gallery->image) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
+               <img class="result-image" src="{{ asset('img/entertainment/galleries/' . $gallery->image) }}">
+            </a>
+         @endforeach  {{-- Galleries end --}}
 
-      @endif
+         {{-- News end --}}
+         @foreach ($result->news as $news)  
+            <a class="items" href="{{ route('news.single', $news->id) }}">
+               <div class="info">
+                  <span class="title">{{ $news->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Новости / @if ($news->global)
+                     {{ __('Мировые новости') }}
+                  @else
+                     {{ __('Новости компании') }}
+                  @endif</span>
+               </div>
 
-      @if (count($result->news))
+               <img class="result-image" src="{{ asset('img/news/' . $news->image) }}">
+            </a>
+         @endforeach  {{-- News end --}}
 
-         <ul>
-            @foreach ($result->news as $news)  
-               <li>
-                  <a class="items" href="{{ route('news.single', $news->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $news->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Новости / @if ($news->global)
-                           {{ __('Мировые новости') }}
-                        @else
-                           {{ __('Новости компании') }}
-                        @endif</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('img/news/' . $news->image) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
+         {{-- Projects start --}}
+         @foreach ($result->projects as $project)  
+            <a class="items" href="{{ route('projects.single', $project->id) }}">
+               <div class="info">
+                  <span class="title">{{ $project->ruTitle }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">Проекты / @if ($project->completed)
+                     {{ __('Выполненные проекты') }}
+                  @else
+                     {{ __('Действующие проекты') }}
+                  @endif</span>
+               </div>
 
-      @endif
+               <img class="result-image" src="{{ asset('img/projects/' . $project->image) }}">
+            </a>
+         @endforeach {{-- Projects end --}}
 
-      @if (count($result->projects))
-        
-         <ul>
-            @foreach ($result->projects as $project)  
-               <li>
-                  <a class="items" href="{{ route('projects.single', $project->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $project->ruTitle }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">Проекты / @if ($project->completed)
-                           {{ __('Выполненные проекты') }}
-                        @else
-                           {{ __('Действующие проекты') }}
-                        @endif</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('img/projects/' . $project->image) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
+         {{-- Users start --}}
+         @foreach ($result->users as $user)  
+            <a class="items" href="{{ route('dashboard.users.single', $user->id) }}">
+               <div class="info">
+                  <span class="title">{{ $user->name }} {{ $user->surname }}</span>
+                  <span class="date">
+                     <?php
+                        $date = \Carbon\Carbon::parse($user->birth_date)->locale('ru');
+                        $formatted = $date->isoFormat('DD MMMM YYYY');
+                     ?>
+                     {{$formatted}}   
+                  </span>
+                  <span class="category">{{ App\Models\Designation::find($user->designation_id)->name }}</span>
+               </div>
 
-      @endif
+               <img class="result-image" src="{{ asset('img/users/' . $user->avatar) }}">
+            </a>
+         @endforeach  
+         {{-- Users end --}}
 
-      @if (count($result->users))
-
-         <ul>
-            @foreach ($result->users as $user)  
-               <li>
-                  <a class="items" href="{{ route('dashboard.users.single', $user->id) }}">
-                     <div class="info">
-                        <span class="title">{{ $user->name }} {{ $user->surname }}</span>
-                        <span class="date">
-                           <?php
-                              $date = \Carbon\Carbon::parse($user->birth_date)->locale('ru');
-                              $formatted = $date->isoFormat('DD MMMM YYYY');
-                           ?>
-                           {{$formatted}}   
-                        </span>
-                        <span class="category">{{ App\Models\Designation::find($user->designation_id)->name }}</span>
-                     </div>
-                     <div class="image">
-                        <img src="{{ asset('img/users/' . $user->avatar) }}">
-                     </div>
-                  </a>
-               </li>
-            @endforeach  
-         </ul>
-
-      @endif
-
+      </div> {{-- Search results list end--}}
    </section>
    
 @endsection 

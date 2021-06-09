@@ -106,7 +106,7 @@ class HomeController extends Controller
                     + $result->users->count()
                     + $result->videos->count();
 
-        return view('search.index', compact('result', 'resultsCount'));
+        return view('search.index', compact('result', 'resultsCount', 'keyword'));
 
     }
 
