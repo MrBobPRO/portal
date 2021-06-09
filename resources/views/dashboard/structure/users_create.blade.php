@@ -9,7 +9,7 @@
 
       <h2>Персональная информация</h2>
       {{-- Personal data form start --}}
-      <form id="update_profile" action="/dashboard/users_create" method="POST" enctype="multipart/form-data">
+      <form id="update_profile" action="/store_user" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="input-container-inline">
             <label for="name">Имя</label>
@@ -87,6 +87,7 @@
                   class="select2_single" 
                   data-placeholder="Отдел" 
                   data-dropdown-css-class="select2_single_dropdown"
+                  required
                >
                   <option></option>
                   <?php $oldDep = old('department_id'); ?>
@@ -107,6 +108,7 @@
                   class="select2_single" 
                   data-placeholder="Позиция" 
                   data-dropdown-css-class="select2_single_dropdown"
+                  required
                >
                <?php $oldDes = old('designation_id'); ?>
                   <option></option>
@@ -127,6 +129,7 @@
                   class="select2_single" 
                   data-placeholder="Должность" 
                   data-dropdown-css-class="select2_single_dropdown"
+                  required
                >
                <?php $oldPos = old('position_id'); ?>
                   <option></option>
@@ -140,9 +143,7 @@
 
          <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить сотрудника</button>
 
-      </form>
-            
-            {{-- Personal data form end --}}
+      </form> {{-- Personal data form end --}}
 
     </section>
 

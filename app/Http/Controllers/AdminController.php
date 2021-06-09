@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendCredentials;
 use App\Models\Ads;
 use App\Models\Complaint;
 use App\Models\Entertainment;
 use App\Models\Gallery;
-use App\Models\Idea;
 use App\Models\Image;
 use App\Models\News;
 use App\Models\Project;
@@ -23,7 +21,6 @@ use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Position;
 use App\Models\Language;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -183,7 +180,148 @@ class AdminController extends Controller
     }
     // -----------------------------------Slider end-------------------------------------------
 
+
+    // -----------------------------------Structure start-------------------------------------------
+    public function structure_index() 
+    {
+        $departments = Department::orderBy('priority', 'asc')->get();
+        $allUsers = DB::table('users')
+                        ->orderBy('name', 'asc')
+                        ->select('users.id', 'users.name', 'users.surname')
+                        ->get();
+        return view('dashboard.structure.index', compact('departments', 'allUsers'));
+    }
+
+    public function users_update($id) 
+    {
+        $user = User::find($id);
+        $departments = Department::orderBy('name', 'asc')->get();
+        $designations = Designation::orderBy('priority', 'asc')->get();
+        $positions = Position::orderBy('name', 'asc')->get();
+        $languages = Language::get();
+
+        return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages'));
+    }
+
+    public function users_create() 
+    {
+        $departments = Department::orderBy('name', 'asc')->get();
+        $designations = Designation::orderBy('priority', 'asc')->get();
+        $positions = Position::orderBy('name', 'asc')->get();
+        $languages = Language::get();
+
+        return view('dashboard.structure.users_create', compact('departments', 'designations', 'positions', 'languages'));
+    }
+
+    public function departments_index()
+    {
+        $departments = Department::orderBy('priority', 'asc')
+                            ->get();
+
+        return view('dashboard.structure.departments.index', compact('departments'));
+    }
+
+    public function designations_index()
+    {
+        $designations = Designation::orderBy('priority', 'asc')
+                            ->get();
+                            
+        return view('dashboard.structure.designations.index', compact('designations'));
+    }
+
+    public function positions_index()
+    {
+        $positions = Position::orderBy('name', 'asc')
+                            ->get();
+
+        return view('dashboard.structure.positions.index', compact('positions'));
+    }    
+    // -----------------------------------Structure end-------------------------------------------
+
     
+    // -----------------------------------Knowledge start-------------------------------------------
+    public function knowledge_index()
+    {
+        $booksCount = Book::count();
+        $videosCount = Video::count();
+
+        return view('dashboard.knowledge.index', compact('booksCount', 'videosCount'));
+    }
+
+    public function knowledge_create()
+    { 
+        $subjects = Subject::get();
+        $subjectcats = Subjectcat::get();
+        $materials = Material::get();
+        
+        return view('dashboard.knowledge.create', compact('subjects', 'subjectcats', 'materials'));
+    }
+
+    public function knowledge_books() 
+    {
+        $allBooks = DB::table('books')
+                        ->orderBy('ruTitle', 'asc')
+                        ->select('books.id', 'books.ruTitle')
+                        ->get();
+
+        $books = DB::table('books')
+                        ->select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
+                        ->latest()
+                        ->paginate(30);
+
+        return view('dashboard.knowledge.books', compact('books', 'allBooks'));
+    }
+
+    public function knowledge_books_single($id) 
+    {
+        $book = Book::find($id);
+
+        return view('dashboard.knowledge.books_single', compact('book'));
+    }
+
+    public function knowledge_books_create(Material $material) 
+    {
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.books_create', compact('material', 'subjectcat', 'subject'));
+    }
+
+    public function knowledge_videos() 
+    {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
+        $allVideos = DB::table('videos')
+                        ->orderBy($title, 'asc')
+                        ->select('videos.id', 'videos.' . $title . ' as title')
+                        ->get();
+
+        $videos = DB::table('videos')
+                        ->select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
+                        ->latest() 
+                        ->paginate(30);
+
+        return view('dashboard.knowledge.videos', compact('videos', 'allVideos'));
+    }
+
+    public function knowledge_videos_single($id) 
+    {
+        $video = Video::find($id);
+
+        return view('dashboard.knowledge.videos_single', compact('video'));
+    }
+
+    public function knowledge_videos_create(Material $material) 
+    {
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject'));
+    }
+    // -----------------------------------Knowledge end-------------------------------------------
+
+
     // -----------------------------------News start-------------------------------------------
     public function news()
     {
@@ -342,473 +480,6 @@ class AdminController extends Controller
         return view('dashboard.entertainment.galleries.single', compact('gallery', 'crumbsTitle'));
     }
     // -----------------------------------Gallery end-------------------------------------------
-
-
-    // -----------------------------------Knowledge start-------------------------------------------
-    public function knowledge_create()
-    { 
-        $subjects = Subject::get();
-        $subjectcats = Subjectcat::get();
-        $materials = Material::get();
-        
-        return view('dashboard.knowledge.create', compact('subjects', 'subjectcats', 'materials'));
-    }
-
-    public function knowledge_books() 
-    {
-        $allBooks = DB::table('books')
-                        ->orderBy('ruTitle', 'asc')
-                        ->select('books.id', 'books.ruTitle')
-                        ->get();
-
-        $books = DB::table('books')
-                        ->latest()
-                        ->select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
-                        ->paginate(30);
-
-        return view('dashboard.knowledge.books', compact('books', 'allBooks'));
-    }
-
-    public function knowledge_books_single($id) 
-    {
-        $book = Book::find($id);
-
-        return view('dashboard.knowledge.books_single', compact('book'));
-    }
-
-    public function knowledge_books_create(Material $material) 
-    {
-        $subjectcat = Subjectcat::find($material->subjectcat_id);
-        $subject = Subject::find($subjectcat->subject_id);
-
-        return view('dashboard.knowledge.books_create', compact('material', 'subjectcat', 'subject'));
-    }
-
-    public function knowledge_books_store(Request $request) 
-    {
-        $file = $request->file('upload_file');
-
-        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('books'), $fileName);
-
-        $book = new Book;
-        $book->material_id = $request->material_id;
-        $book->category = $request->category;
-        $book->ruCategory = $request->ruCategory;
-        $book->ruTitle = $request->ruTitle;
-        $book->tjTitle = $request->tjTitle;
-        $book->enTitle = $request->enTitle;
-        $book->filename = $fileName;
-        $book->save();
-
-        return redirect('/dashboard/knowledge/books');
-    }
-
-    public function knowledge_books_update(Request $request)
-    {
-        //Get book by id
-        $book = Book::find($request->book_id);
-
-        if ($request->ruTitle != $book->ruTitle) 
-        {   
-            //Edit books name
-            $book->ruTitle = $request->ruTitle;
-            $book->save();
-        } else if ($request->tjTitle != $book->tjTitle) 
-        {   
-            //Edit books name
-            $book->tjTitle = $request->tjTitle;
-            $book->save();
-        } else if ($request->enTitle != $book->enTitle) 
-        {   
-            //Edit books name
-            $book->enTitle = $request->enTitle;
-            $book->save();
-        }
-        else if ($request->file != null) {
-            //Delete previous file
-            unlink(public_path('books/' . $book->filename));
-            //Save file
-            $file = $request->file('file');
-            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('books'), $fileName);
-            //Edit books filename
-            $book->filename = $fileName;
-            $book->save(); 
-        }
-
-        return redirect('/dashboard/knowledge/books');
-    } 
-
-    public function knowledge_books_remove(Request $request)
-    {
-        $book = Book::find($request->id);
-        unlink(public_path('books/' . $book->filename));
-        $book->delete();
-
-        return redirect('/dashboard/knowledge/books');
-    } 
-
-    public function knowledge_videos() 
-    {
-        //generate title as ruTitle & tjTitle & enTitle
-        $title = App::currentLocale() . 'Title';
-
-        $allVideos = DB::table('videos')
-                        ->orderBy($title, 'asc')
-                        ->select('videos.id', 'videos.' . $title . ' as title')
-                        ->get();
-
-        $videos = DB::table('videos')
-                        ->latest()
-                        ->select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
-                        ->paginate(30);
-
-        return view('dashboard.knowledge.videos', compact('videos', 'allVideos'));
-    }
-
-    public function knowledge_videos_single($id) 
-    {
-        $video = Video::find($id);
-
-        return view('dashboard.knowledge.videos_single', compact('video'));
-    }
-
-    public function knowledge_videos_create(Material $material) 
-    {
-        $subjectcat = Subjectcat::find($material->subjectcat_id);
-        $subject = Subject::find($subjectcat->subject_id);
-
-        return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject'));
-    }
-
-    public function knowledge_videos_store(Request $request)
-    {
-        $video = Video::create([
-            'filename' => 'error',
-            'material_id' => $request->material_id,
-            'category' => $request->category,
-            'ruCategory' => $request->ruCategory,
-            'ruTitle' => $request->ruTitle,
-            'tjTitle' => $request->tjTitle,
-            'enTitle' => $request->enTitle
-        ]);
-
-        // save subtitles
-        $subtitle = $request->file('subtitles');
-        if($subtitle) {
-            $filename = uniqid() . '.' . $subtitle->getClientOriginalExtension();
-
-            $video->subtitles = $filename;
-            $video->save();
-    
-            $subtitle->move(public_path('videos/knowledge/subtitles'), $filename);
-        }
-
-        // save poster
-        $poster = $request->file('poster');
-        if($poster) {
-            $filename = uniqid() . '.' . $poster->getClientOriginalExtension();
-
-            $video->poster = $filename;
-            $video->save();
-    
-            $poster->move(public_path('videos/knowledge/posters'), $filename);
-        }
-
-        // save video file
-        $file = $request->file('file');
-        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-
-        $video->filename = $filename;
-        $video->save();
-
-        $file->move(public_path('videos/knowledge'), $filename);
-
-        return route('dashboard.knowledge.videos');
-
-    }
-
-    public function knowledge_videos_update(Request $request)
-    {
-        // Find video by id
-        $video = Video::find($request->id);
-        
-        $video->ruTitle = $request->ruTitle;
-        $video->tjTitle = $request->tjTitle;
-        $video->enTitle = $request->enTitle;
-        $video->save();
-
-        // Change subtitles
-        $sub = $request->file('subtitles');
-        if($sub) {
-            if ($video->subtitles) {
-                // Delete previous subtitles
-                unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
-            }
-
-            $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
-            $video->subtitles = $filename;
-            $video->save();
-    
-            $sub->move(public_path('videos/knowledge/subtitles'), $filename);
-        }
-
-        // Change poster
-        $pos = $request->file('poster');
-        if($pos) {
-            if ($video->poster != 'default.jpg') {
-                // Delete previous poster
-                unlink(public_path('videos/knowledge/posters/' . $video->poster));
-            }
-            $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
-
-            $video->poster = $filename;
-            $video->save();
-    
-            $pos->move(public_path('videos/knowledge/posters'), $filename);
-        }
-
-        // Change video file
-        $file = $request->file('file');
-        if($file) {
-            if ($video->filename) {
-                // Delete previous video
-                unlink(public_path('videos/knowledge/' . $video->filename));
-            }
-
-            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-
-            $video->filename = $filename;
-            $video->save();
-    
-            $file->move(public_path('videos/knowledge'), $filename);
-        }
-
-        return 'success';
-    }
-
-    public function knowledge_videos_remove(Request $request)
-    {
-        $video = Video::find($request->id);
-        // Delete video
-        unlink(public_path('videos/knowledge/' . $video->filename));
-        // Delete subtitles
-        unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
-        // Delete poster 
-        unlink(public_path('videos/knowledge/posters/' . $video->poster));
-        
-        $video->delete();
-
-        return redirect()->route('dashboard.knowledge.videos');
-    }
-    // -----------------------------------Knowledge end-------------------------------------------
-
-    
-    // -----------------------------------Structure start-------------------------------------------
-    public function structure_index() 
-    {
-        $departments = Department::orderBy('priority', 'asc')->get();
-        $allUsers = DB::table('users')
-                        ->orderBy('name', 'asc')
-                        ->select('users.id', 'users.name', 'users.surname')
-                        ->get();
-        return view('dashboard.structure.index', compact('departments', 'allUsers'));
-    }
-
-    public function users_update($id) 
-    {
-        $user = User::find($id);
-        $departments = Department::get();
-        $designations = Designation::get();
-        $positions = Position::get();
-        $languages = Language::get();
-
-        return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages'));
-    }
-
-    public function users_create() 
-    {
-        $departments = Department::get();
-        $designations = Designation::get();
-        $positions = Position::get();
-        $languages = Language::get();
-
-        return view('dashboard.structure.users_create', compact('departments', 'designations', 'positions', 'languages'));
-    }
-
-    public function users_store(Request $request)
-    {
-        $user = new User;
-        //generate new password for user
-        $password = Str::random(6);
-
-        //Validation
-        $request->validate([
-            'nickname' => 'unique:users',
-            'email' => 'unique:users',
-        ]);
-
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->nickname = $request->nickname;
-        $user->avatar = 'default.png';
-        $user->birth_date = $request->birth_date;
-        $user->email = $request->email;
-        $user->password = bcrypt($password);
-        $user->description = 'Описание';
-        $user->department_id = $request->department_id;
-        $user->position_id = $request->position_id;
-        $user->designation_id = $request->designation_id;
-        $user->save();
-             
-        //send email credentials
-        \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
-
-        return redirect()->back();
-    }
-
-    public function users_remove(Request $request)
-    {
-        $user = User::find($request->id);
-        
-        $user->delete();
-
-        return redirect()->route('dashboard.structure.index');
-    }
-
-    public function departments_index()
-    {
-        $departments = Department::orderBy('priority', 'asc')
-                            ->get();
-
-        return view('dashboard.structure.departments.index', compact('departments'));
-    }
-
-    public function departments_update(Request $request)
-    {
-        $department = Department::find($request->id);
-        
-        $department->name = $request->name;
-        $department->priority = $request->priority;
-        $department->save();
-
-        return redirect()->back();
-    }
-
-    public function departments_remove(Request $request)
-    {
-        $users = User::where('department_id', $request->id)->get();
-        if ($users) 
-        {
-            foreach ($users as $user) {
-                $user->department_id = 1;
-                $user->save();
-            }
-        }
-        Department::find($request->id)->delete();
-        return redirect()->back();
-    }
-
-    public function departments_store(Request $request)
-    {
-        $department = new Department;
-        
-        $department->name = $request->name;
-        $department->priority = $request->priority;
-        $department->save();
-
-        return redirect()->back();
-    }
-
-    public function designations_index()
-    {
-        $designations = Designation::orderBy('priority', 'asc')
-                            ->get();
-                            
-        return view('dashboard.structure.designations.index', compact('designations'));
-    }
-
-    public function designations_update(Request $request)
-    {
-        $designation = Designation::find($request->id);
-        
-        $designation->name = $request->name;
-        $designation->priority = $request->priority;
-        $designation->save();
-
-        return redirect()->back();
-    }
-
-    public function designations_remove(Request $request)
-    {
-        $users = User::where('designation_id', $request->id)->get();
-        if ($users) 
-        {
-            foreach ($users as $user) {
-                $user->designation_id = 1;
-                $user->save();
-            }
-        }
-        Designation::find($request->id)->delete();
-
-        return redirect()->back();
-    }
-
-    public function designations_store(Request $request)
-    {
-        $designation = new Designation;
-        
-        $designation->name = $request->name;
-        $designation->priority = $request->priority;
-        $designation->save();
-
-        return redirect()->back();
-    }
-
-    public function positions_index()
-    {
-        $positions = Position::orderBy('name', 'asc')
-                            ->get();
-
-        return view('dashboard.structure.positions.index', compact('positions'));
-    }    
-
-    public function positions_update(Request $request)
-    {
-        $position = Position::find($request->id);
-        
-        $position->name = $request->name;
-        $position->save();
-
-        return redirect()->back();
-    }
-
-    public function positions_remove(Request $request)
-    {
-        $users = User::where('position_id', $request->id)->get();
-        if ($users) 
-        {
-            foreach ($users as $user) {
-                $user->position_id = 1;
-                $user->save();
-            }
-        }
-        Position::find($request->id)->delete();
-
-        return redirect()->back();
-    }
-
-    public function positions_store(Request $request)
-    {
-        $position = new Position;
-        
-        $position->name = $request->name;
-        $position->save();
-
-        return redirect()->back();
-    }
-    // -----------------------------------Structure start-------------------------------------------
 
 }
 

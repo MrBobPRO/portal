@@ -38,7 +38,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                      </div>
 
-                     <form class="form" action="/positions_update" method="POST">
+                     <form class="form" action="/update_positions" method="POST">
                         <div class="modal-body">
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $position->id }}" name="id"/>
@@ -71,7 +71,7 @@
                         Вы уверены что хотите удалить?
                      </div>
 
-                     <form action="/positions_remove" method="POST">
+                     <form action="/remove_positions" method="POST">
                         <div class="modal-footer">
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $position->id }}" name="id"/>
@@ -98,7 +98,7 @@
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form class="form" action="/positions_store" method="POST">
+            <form class="form" action="/store_positions" method="POST">
                <div class="modal-body">
                   {{ csrf_field() }}
                   <label>Должность

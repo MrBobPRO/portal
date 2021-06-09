@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
-use App\Models\Designation;
-use App\Models\Position;
-use App\Models\Language;
+use App\Mail\SendCredentials;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
@@ -24,6 +21,90 @@ class UsersController extends Controller
         $user = User::find($id);
         
         return view('dashboard.users.single', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        $user = new User;
+        //generate new password for user
+        $password = Str::random(6);
+
+        //Validation
+        $request->validate([
+            'nickname' => 'unique:users',
+            'email' => 'unique:users',
+        ]);
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
+        $user->avatar = 'default.png';
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->password = bcrypt($password);
+        $user->description = 'Описание';
+        $user->department_id = $request->department_id;
+        $user->position_id = $request->position_id;
+        $user->designation_id = $request->designation_id;
+        $user->save();
+                
+        //send email credentials
+        \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
+
+        return redirect()->back();
+    }
+
+    public function remove(Request $request)
+    {
+        $user = User::find($request->id);
+
+        // delete users languages from db
+        $user->languages()->detach();
+        
+        $user->delete();
+
+        return redirect()->route('dashboard.structure.index');
+    }
+
+    public function update(Request $request) 
+    {
+        //Find emloyee by id
+        $user = User::find($request->user_id);
+        //Validation start
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => 'unique:users',
+            ]);
+        } else if ($request->nickname != $user->nickname) {
+            $request->validate([
+                'nickname' => 'unique:users',
+            ]);
+        }//Validation end 
+
+        //Edit user start
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->nickname = $request->nickname;
+        $user->birth_date = $request->birth_date;
+        $user->email = $request->email;
+        $user->department_id = $request->department_id;
+        $user->designation_id = $request->designation_id;
+        $user->position_id = $request->position_id;
+        $user->description = $request->description;
+        $user->save();
+        
+        //Detach languages and attach new ones
+        $user->languages()->detach();
+        if ($request->languages) 
+        {
+            foreach ($request->languages as $lang) 
+            {       
+                $user->languages()->attach($lang);
+            }
+        } 
+
+        return redirect()->back();
+            
     }
 
 }

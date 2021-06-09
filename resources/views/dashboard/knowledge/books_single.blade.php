@@ -4,7 +4,7 @@
 
 <section class="knowledge-page formed-page">
 
-   <form action="/knowledge_books_update" method="POST" enctype="multipart/form-data">
+   <form action="/update_books" method="POST" enctype="multipart/form-data">
       @csrf
       <input type="hidden" name="book_id" value="{{ $book->id }}">
       <div class="input-container-blocked">
@@ -45,7 +45,7 @@
          <div class="modal-footer">
             <button type="button" class="main-btn" data-bs-dismiss="modal">Отмена</button>
 
-            <form action="/knowledge_books_remove" method="POST">
+            <form action="/remove_books" method="POST">
                {{ csrf_field() }}
                <input type="hidden" value="{{$book->id}}" name="id"/>
                <button type="submit" class="main-btn delete-btn">Удалить</button>

@@ -4,7 +4,7 @@
 
    <section class="knowledge-page formed-page">
 
-      <form action="/knowledge_books_store" method="POST" enctype="multipart/form-data">
+      <form action="/store_books" method="POST" enctype="multipart/form-data">
          @csrf
          <input type="hidden" name="material_id" value="{{ $material->id }}">
          <input type="hidden" name="category" value="{{ $material->category }}">

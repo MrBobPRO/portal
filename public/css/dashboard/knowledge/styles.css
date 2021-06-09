@@ -1,8 +1,8 @@
-ul, h3, h4 {
+.knowledge-create-page ul, h3, h4 {
    margin: 0px;
    padding: 0px;
 }
-li {
+.knowledge-create-page li {
    display: block;
 }
 /* Accordion */

@@ -38,7 +38,7 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
 
-                  <form class="form" action="/designations_update" method="POST">
+                  <form class="form" action="/update_designations" method="POST">
                      <div class="modal-body">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{ $designation->id }}" name="id"/>
@@ -74,7 +74,7 @@
                      Вы уверены что хотите удалить?
                   </div>
 
-                  <form action="/designations_remove" method="POST">
+                  <form action="/remove_designations" method="POST">
                      <div class="modal-footer">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{ $designation->id }}" name="id"/>
@@ -101,7 +101,7 @@
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form class="form" action="/designations_store" method="POST">
+            <form class="form" action="/store_designations" method="POST">
                <div class="modal-body">
                   {{ csrf_field() }}
                   <label>Позиция

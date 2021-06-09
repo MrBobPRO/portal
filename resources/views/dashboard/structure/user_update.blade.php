@@ -9,7 +9,7 @@
 
    <h2>Персональная информация</h2>
    {{-- Personal data form start --}}
-   <form id="update_profile" action="/update_employee_profile" method="POST" enctype="multipart/form-data">
+   <form id="update_profile" action="/update_user" method="POST" enctype="multipart/form-data">
       @csrf
       <input name="user_id" type="hidden" value="{{ $user->id }}">
       <div class="input-container-inline">
@@ -127,7 +127,7 @@
          <div class="modal-footer">
             <button type="button" class="main-btn" data-bs-dismiss="modal">Отмена</button>
 
-            <form action="/dashboard/users_remove" method="POST">
+            <form action="/remove_user" method="POST">
                {{ csrf_field() }}
                <input type="hidden" value="{{ $user->id }}" name="id"/>
                <button type="submit" class="main-btn delete-btn">Удалить</button>

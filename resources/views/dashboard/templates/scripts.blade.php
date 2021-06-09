@@ -24,7 +24,7 @@
         <script src="{{ asset('js/dashboard/slider/scripts.js') }}"></script>
     @break
 
-    @case('dashboard.knowledge.videos.single') @case('dashboard.knowledge.videos.create') 
+    @case('dashboard.knowledge.videos.create') @case('dashboard.knowledge.videos.single')
         <script src="{{ asset('js/dashboard/knowledge/scripts.js') }}"></script>
     @break
 

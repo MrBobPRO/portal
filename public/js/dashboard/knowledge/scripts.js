@@ -16,7 +16,7 @@ function knowledge_videos_create() {
    $.ajax({
       type: 'POST',
       enctype: 'multipart/form-data',
-      url: '/knowledge_videos_store',
+      url: '/store_knowledge_videos',
       data: data,
       processData: false,
       contentType: false,
@@ -55,6 +55,9 @@ function knowledge_videos_create() {
 }
 
 // -------------------------Knowledge videos create end--------------------------------
+
+
+// -------------------------Knowledge videos update start--------------------------------
 function knowledge_videos_update() {
    event.preventDefault();
 
@@ -75,7 +78,7 @@ function knowledge_videos_update() {
    $.ajax({
       type: 'POST',
       enctype: 'multipart/form-data',
-      url: '/knowledge_videos_update',
+      url: '/update_knowledge_videos',
       data: data,
       processData: false,
       contentType: false,
@@ -119,3 +122,5 @@ function knowledge_videos_update() {
       
    });
 }
+
+// -------------------------Knowledge videos update end--------------------------------

@@ -14,11 +14,11 @@
          <div class="primary-list">
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.books') }}">
                 <div class="width-50">{{ __('Книги') }}</div>
-                <div class="width-50">{{ App\Models\Book::count() }}</div>
+                <div class="width-50">{{ $booksCount }}</div>
             </a>
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.videos') }}">
                 <div class="width-50">{{ __('Видео') }}</div>
-                <div class="width-50">{{ App\Models\Video::count() }}</div>
+                <div class="width-50">{{ $videosCount }}</div>
             </a>
             <a class="primary-list-item" href="#">
                 <div class="width-50">{{ __('Тесты') }}</div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-   <section class="knowledge-page">
+   <section class="knowledge-create-page">
 
       <div class="main-container" id="accordionSubject">
 
