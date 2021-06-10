@@ -36,7 +36,10 @@ class ProfileController extends Controller
 
         if($file) 
         {
-            $fileName = $user->id . '.' . $file->getClientOriginalExtension();
+            if($user->avatar != 'default.png') {
+                unlink(public_path('img/users/' . $user->avatar));
+            }
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/users/original'), $fileName);
             
             //Create new img from original

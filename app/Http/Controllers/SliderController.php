@@ -22,7 +22,10 @@ class SliderController extends Controller
 
         if($file) 
         {
-            $fileName = $item->id . '.' . $file->getClientOriginalExtension();
+            // delete previous poster
+            unlink(public_path('img/slider/' . $item->image));
+
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/slider'), $fileName);
 
             $item->image = $fileName;
