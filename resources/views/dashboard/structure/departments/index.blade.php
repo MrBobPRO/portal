@@ -6,17 +6,19 @@
    <a class="add-button" data-bs-toggle="modal" data-bs-target="#storeModal"><span class="material-icons-outlined">add</span></a>
 
    <div class="primary-list-titles">
-      <div class="width-33">Отделы</div>
-      <div class="width-33">Приоритет</div>
-      <div class="width-33">Редактирование</div>
+      <div class="width-25">Отделы</div>
+      <div class="width-25">Приоритет</div>
+      <div class="width-25">Количество сотрудников</div>
+      <div class="width-25">Редактирование</div>
    </div>
 
    <div class="primary-list">
       @foreach($departments as $department)
          <a class="primary-list-item @if($department->id == 1) visually-hidden @endif">
-            <div class="width-33">{{$department->name}}</div>
-            <div class="width-33">{{$department->priority}}</div>
-            <div class="width-33">
+            <div class="width-25">{{$department->name}}</div>
+            <div class="width-25">{{$department->priority}}</div>
+            <div class="width-25">{{count(App\Models\User::where('department_id', $department->id)->get())}}</div>
+            <div class="width-25">
                <div class="btns-edit-container">
                   <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$department->id}}">
                      <span class="material-icons-outlined">edit</span> Изменить

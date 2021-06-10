@@ -48,4 +48,14 @@
     @break
     {{--------------- Admin routes end ---------------}}
 
+@case('dashboard.translate.index') 
+    <script src="{{ asset('js/dashboard/translate/scripts.js') }}"></script>
+@break
+
+@case('dashboard.translate.single')
+    <script src="{{ asset('js/dashboard/translate/jquery.json-viewer.js') }}"></script>
+    <script src="{{ asset('js/dashboard/translate/jquery.json-editor.js') }}"></script>
+    <script src="{{ asset('js/dashboard/translate/scripts.js') }}"></script>
+@break
+
 @endswitch

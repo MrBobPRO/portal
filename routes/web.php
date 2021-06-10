@@ -215,7 +215,12 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::get('/dashboard/galleries/{id}', 'AdminController@galleries_single')->name('dashboard.galleries.single');
       Route::post('/update_galleries', 'EntertainmentController@galleries_update');
       Route::post('/store_galleries', 'EntertainmentController@galleries_store');
+      Route::post('/remove_galleries', 'EntertainmentController@galleries_remove');
       Route::post('/delete_gallery_image', 'EntertainmentController@delete_gallery_image');
+      // Translate
+      Route::view('/dashboard/translate', 'dashboard.translate.index')->name('dashboard.translate.index');
+      Route::get('/dashboard/translate/{id}', 'AdminController@translate_single')->name('dashboard.translate.single');
+      Route::post('/dashboard/translate', 'AdminController@translate_update');
 
       //-----------Admins routes end-------------
 //-----------------Dashboard routes-------------------

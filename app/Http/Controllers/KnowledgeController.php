@@ -21,8 +21,8 @@ class KnowledgeController extends Controller
 
     public function books(Material $material) {
         $books = Book::where('material_id', $material->id)
-                        ->where('category', $material->category)
-                        ->paginate(30);
+                    ->where('category', $material->category)
+                    ->paginate(30);
 
         //used in breadcrumbs       
         $subjectcat = Subjectcat::where('id', $material->subjectcat_id)->first();

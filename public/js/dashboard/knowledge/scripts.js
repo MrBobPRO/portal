@@ -49,7 +49,7 @@ function knowledge_videos_create() {
          window.location.href = response;
       },
       error: function () {
-         alert('Error!');
+         console.log('Error!');
       }
    });
 }
@@ -117,7 +117,7 @@ function knowledge_videos_update() {
          
       },
       error: function () {
-         alert('Error!');
+         console.log('Error!');
       }
       
    });

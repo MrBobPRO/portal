@@ -58,7 +58,7 @@ function videos_update() {
          location.reload();
       },
       error: function () {
-         alert('Error!');
+         console.log('Error!');
       }
       
    });
@@ -120,7 +120,7 @@ function videos_create() {
          location.reload();
       },
       error: function () {
-         alert('Error!');
+         console.log('Error!');
       }
    });
 }

@@ -110,7 +110,6 @@
 
 
 
-
       @case('ideas.create')
          <a href="{{ route('ideas.create') }}"><span>Подать идею</span></a>
       @break

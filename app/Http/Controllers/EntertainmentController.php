@@ -211,6 +211,25 @@ class EntertainmentController extends Controller
 
         return redirect()->route('dashboard.galleries.single', $gallery->id);
     }
+
+    public function galleries_remove(Request $request)
+    {
+        // delete gallery from db
+        $gallery = Gallery::find($request->id);
+        $gallery->delete();
+        // delete gallery's poster from storage
+        unlink(public_path('img/entertainment/galleries/' . $gallery->image));
+        // find gallery's images
+        $images = Image::where('gallery_id', $gallery->id)->get();
+        // delete all images of gallery
+        foreach ($images as $image) {
+            // delete image from db
+            $image->delete();
+            // delete image from storage
+            unlink(public_path('img/entertainment/images/' . $image->filename));
+        }
+        return redirect('/dashboard/galleries');
+    }
     //-----------------------------------Gallery end----------------------------------------
 
 }
