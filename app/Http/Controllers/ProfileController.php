@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Image;
@@ -17,7 +18,13 @@ class ProfileController extends Controller
     {
 
         $user = Auth::user();
-        $languages = Language::all();
+        // get needed column from app locale
+        $name = App::currentLocale() . 'Name';
+        
+        $languages = DB::table('languages')
+                ->select('languages.id', 'languages.' . $name . ' as name')
+                ->orderBy($name, 'asc')
+                ->get();
 
         return view('dashboard.profile.index', compact('user', 'languages'));
     }

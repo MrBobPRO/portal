@@ -196,7 +196,14 @@ class AdminController extends Controller
         $departments = Department::orderBy('name', 'asc')->get();
         $designations = Designation::orderBy('priority', 'asc')->get();
         $positions = Position::orderBy('name', 'asc')->get();
-        $languages = Language::get();
+
+        // get needed column from app locale
+        $name = App::currentLocale() . 'Name';
+        
+        $languages = DB::table('languages')
+                ->select('languages.id', 'languages.' . $name . ' as name')
+                ->orderBy($name, 'asc')
+                ->get();
 
         return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages'));
     }
@@ -206,9 +213,8 @@ class AdminController extends Controller
         $departments = Department::orderBy('name', 'asc')->get();
         $designations = Designation::orderBy('priority', 'asc')->get();
         $positions = Position::orderBy('name', 'asc')->get();
-        $languages = Language::get();
 
-        return view('dashboard.structure.users_create', compact('departments', 'designations', 'positions', 'languages'));
+        return view('dashboard.structure.users_create', compact('departments', 'designations', 'positions'));
     }
 
     public function departments_index()

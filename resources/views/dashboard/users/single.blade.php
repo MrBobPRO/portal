@@ -61,10 +61,11 @@
    </div>
 
    <div class="input-container-inline">
-      <label>Языки</label>
+      <label>Знание языков</label>
       <div class="value-replacer">
+         <?php $langName = App::currentLocale() . 'Name'; ?>
          @foreach ($user->languages as $lang)
-         {{$lang->name}}
+            {{$lang[$langName]}}
          @endforeach
       </div>
    </div>
