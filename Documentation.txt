@@ -15,6 +15,7 @@ JQuery 3dflipbook -> used for reading books. More at https://3dflipbook.net/ (li
 Simditor v2.3.28 -> used as WYSIWYG text editor. More at https://simditor.tower.im/
 Dropzone v5.7.0 -> used for Drag & drop files. More at https://www.dropzonejs.com/
 Spectrum ColorPicker2 -> used as colorpicker. More at: https://seballot.github.io/spectrum/
+Json formatter -> https://www.jqueryscript.net/other/Beautiful-JSON-Viewer-Editor.html
 
 ----------JQuery 3dflipbook--------
 Free version is almost same as licensed. Right now used free version
