@@ -202,7 +202,10 @@ class EntertainmentController extends Controller
         //save image
         $file = $request->file('image');
         if($request->image) {
-            $fileName = $gallery->id . '.' . $file->getClientOriginalExtension();
+            // delete previous gallery->image
+            unlink(public_path('img/entertainment/galleries/' . $gallery->image));
+
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/entertainment/galleries'), $fileName);
     
             $gallery->image = $fileName;

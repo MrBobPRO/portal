@@ -85,7 +85,10 @@ class ProjectsController extends Controller
 
         if($file) 
         {
-            $fileName = $project->id . '.' . $file->getClientOriginalExtension();
+            // delete previous project->image
+            unlink(public_path('img/projects/' . $project->image));
+
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/projects'), $fileName);
 
             $project->image = $fileName;

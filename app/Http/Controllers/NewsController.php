@@ -116,7 +116,10 @@ class NewsController extends Controller
 
         if($file) 
         {
-            $fileName = $news->id . '.' . $file->getClientOriginalExtension();
+            // delete previous news->image 
+            unlink(public_path('img/news/' . $news->image));
+
+            $fileName =uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/news'), $fileName);
 
             $news->image = $fileName;
