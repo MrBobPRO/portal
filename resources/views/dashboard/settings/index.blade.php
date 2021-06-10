@@ -26,47 +26,62 @@
    </form>
    {{-- Change color scheme end --}}
 
-   {{-- Change background start --}}
+
+   {{-- background change preview start --}}
    <h2 class="title-seperator">Фон админки</h2>
    
    <ul class="theme-list">
-      <li class="theme-items {{$user->dashBg == 'dash1.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash1.jpg', '0')">
+      <li class="theme-items {{$user->dashBg == 'dash1.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash1.jpg', '0')">
          <img src="{{ asset('img/dashboards/dash1.jpg') }}" alt="img">
       </li>
-      <li class="theme-items {{$user->dashBg == 'dash2.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash2.jpg', '1')">
+      <li class="theme-items {{$user->dashBg == 'dash2.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash2.jpg', '1')">
          <img src="{{ asset('img/dashboards/dash2.jpg') }}" alt="img">
       </li>
-      <li class="theme-items {{$user->dashBg == 'dash3.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash3.jpg', '2')">
+      <li class="theme-items {{$user->dashBg == 'dash3.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash3.jpg', '2')">
          <img src="{{ asset('img/dashboards/dash3.jpg') }}" alt="img">
       </li>
-      <li class="theme-items {{$user->dashBg == 'dash4.jpg' ? 'active' : ''}}" onclick="changeDashBg('dash4.jpg', '3')">
+      <li class="theme-items {{$user->dashBg == 'dash4.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash4.jpg', '3')">
          <img src="{{ asset('img/dashboards/dash4.jpg') }}" alt="img">
       </li>
+
+      {{-- custom background start --}}
       <li class="theme-items">
-         <form id="dashbg_update_form" method="POST">
-            <label class="dashbg-label" for="dashbg-input">
+         <form id="update_custom_background_form">
+            <label class="dashbg-label" for="custom-background-input">
                <div class="own-theme">
                   <span class="material-icons-outlined">add_circle_outline</span>
                   <p>Добавить фон</p>
                </div>
             </label> 
-            <input class="visually-hidden" id="dashbg-input" type="file" name="dashbg" accept=".jpg, .png, .jpeg" required>   
+            <input class="visually-hidden" id="custom-background-input" type="file" name="background" accept=".jpg, .png, .jpeg" required>   
          </form>
-        </li>
+      </li>
+      {{-- custom background end --}}
    </ul>
+   {{-- background change preview end --}}
 
+
+   {{-- Update background form start --}}
    <form action="/update_background" method="POST">
       @csrf
+      
+      {{-- Dark mode start --}}
       <div class="inputBox">
          <span class="title">Тёмный режим:</span>
-         <input type="hidden" name="custom_img" value="0" id="custom_img">
          <input class="visually-hidden" type="checkbox" name="darkbg" id="darkbg" {{\Auth::user()->darkMode == '1' ? 'checked' : ''}}>
          <label for="darkbg" id="emoji" onclick="changeMode()">{{\Auth::user()->darkMode == '1' ? '😊' : '😡'}}</label>
       </div>
-      <input class="visually-hidden" type="text" name="dashbg" id="dashbg" value="{{$user->dashBg}}">
-      <button class="main-btn"><span class="material-icons-outlined">image</span> Изменить фон</button>
+      {{-- Dark mode end --}}
+
+      <input type="hidden" name="custom_img" value="0" id="custom_img">
+      <input class="visually-hidden" type="text" name="background" id="background-hidden-input" value="{{$user->dashBg}}">
+      <button class="main-btn" id="form_submit_btn">
+         <span class="material-icons-outlined" id="form_btn_ico">image</span>
+         <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true" id="form_btn_spinner"></span>
+         <div id="form_btn_text">Изменить фон</div>
+      </button>
    </form>
-   {{-- Change background end --}}
+   {{-- Update background form start --}}
 
 </section>
 

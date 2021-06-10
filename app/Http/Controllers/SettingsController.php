@@ -17,7 +17,7 @@ class SettingsController extends Controller
         return view('dashboard.settings.index', compact('user'));
     }
 
-    public function changeColor(Request $request) 
+    public function updateColor(Request $request) 
     {
         $user = User::find(Auth::user()->id);
         $user->colorScheme = $request->colorscheme;
@@ -26,63 +26,47 @@ class SettingsController extends Controller
         return redirect()->back(); 
     }
 
-    public function changeBackground(Request $request) 
-    {
-        $user = User::find(Auth::user()->id);
-
-        // $custom_img = $request->custom_img;
-
-        // if($custom_img) {
-        //     $temp_path = public_path('img/dashboards/temp/' . $request->dashbg);
-        //     $original_path = public_path('img/dashboards/' . $request->dashbg);
-        //     copy($temp_path, $original_path);
-
-        //     $fileName = $user->id . '.' . $custom_img->getClientOriginalExtension();
-        //     $custom_img->move(public_path('img/dashboards/'), $fileName);
-
-        //     $user->dashBg = $fileName;
-        // }
-
-        if($request->custom_img) {
-            $temp_path = public_path('img/dashboards/temp/' . $request->dashbg);
-            $original_path = public_path('img/dashboards/' . $request->dashbg);
-            copy($temp_path, $original_path);
-            $user->dashBg = $request->dashbg;
-
-        } 
-        else {
-            $user->dashBg = $request->dashbg;
-        }
-
-        if ($request->darkbg == 'on') {
-            $user->darkMode = true;
-        } else {
-            $user->darkMode = false;
-        }
-        $user->save();
-        
-        return redirect()->back();        
-    }
-
-    public function update_dashbg(Request $request)
+    public function update_background_temporarily(Request $request)
     {
 
-        $user = User::find(Auth::user()->id);
-        $file = $request->file('dashbg');
+        $user = Auth::user();
+        $file = $request->file('background');
 
         if($file) 
         {
             $fileName = $user->id . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/dashboards/temp'), $fileName);
-            
-            //Create new img from original
-            $img = Image::make(public_path('img/dashboards/temp/' . $fileName));
-            //save img
-            $img->save(public_path('img/dashboards/temp/' . $fileName));
 
             return $fileName;
         }
 
+    }
+
+    public function update_background(Request $request) 
+    {
+        $user = User::find(Auth::user()->id);
+
+        //Move temp image from temp folder if its custom image
+        if($request->custom_img) {
+            $temp_path = public_path('img/dashboards/temp/' . $request->background);
+            $original_path = public_path('img/dashboards/' . $request->background);
+            rename($temp_path, $original_path);
+            $user->dashBg = $request->background;
+        } 
+        //else if its one of the background templates
+        else {
+            $user->dashBg = $request->background;
+        }
+
+        //check dark or light mode
+        if ($request->darkbg == 'on') 
+            $user->darkMode = true;
+        else 
+            $user->darkMode = false;
+        
+        $user->save();
+        
+        return redirect()->back();        
     }
 
 }

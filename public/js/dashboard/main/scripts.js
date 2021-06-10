@@ -47,23 +47,24 @@ $.fn.select2.amd.define('select2/i18n/ru',[],function () {
 $(document).ready(function () {
    //Select2
    $('.select2_single').select2(
-      {
-         // allowClear: true,
-         language: 'ru'
-      }
+        {
+            // allowClear: true,
+            language: 'ru'
+        }
    );  
 
    //MultiSelect2
    $('.select2_multiple').select2(
-      {
-         closeOnSelect: false,
-         language: 'ru',
-         width: '100%'
-         // tags: true, means that user can create new option
-         // tokenSeparators: [',', ' '], Automatic tokenization into tags
-      }
-   );   
+        {
+            closeOnSelect: false,
+            language: 'ru',
+            width: '100%'
+            // tags: true, means that user can create new option
+            // tokenSeparators: [',', ' '], Automatic tokenization into tags
+        }
+    );
 });
+
 
 //Chaange search placeholder on select2 show and focus on it
 $('.select2_single').on('select2:open', function (e) {

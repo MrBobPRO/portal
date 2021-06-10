@@ -138,10 +138,15 @@ class DatabaseSeeder extends Seeder
         }
 
         //Create languages
-        $langs = ['Английский', 'Русский', 'Турецкий', 'Таджикский', 'Узбекский', 'Арабский'];
-        foreach ($langs as $lan) {
+        $ruName = ['Английский', 'Арабский', 'Испанский', 'Итальянский', 'Французский', 'Китайский', 'Индийский', 'Японский', 'Русский', 'Таджикский', 'Турецкий', 'Узбекский'];
+        $enName = ['English', 'Arab', 'Spanish', 'Italian', 'French', 'Chinese', 'Indian', 'Japanese', 'Russian', 'Tajik', 'Turkish', 'Uzbek'];
+        $tjName = ['Англисӣ', 'Арабӣ', 'Испанӣ', 'Итолёвӣ', 'Фаронсавӣ', 'Хитоӣ', 'Ҳиндӣ', 'Ҷопонӣ', 'Русӣ', 'Тоҷикӣ', 'Туркӣ', 'Узбекӣ'];
+
+        for ($i = 0; $i < count($ruName); $i++) {
             $lang = new Language;
-            $lang->name = $lan;
+            $lang->ruName = $ruName[$i];
+            $lang->enName = $enName[$i];
+            $lang->tjName = $tjName[$i];
             $lang->save();
         }
 

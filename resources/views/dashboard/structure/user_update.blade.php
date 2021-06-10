@@ -83,7 +83,7 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="languages">Языки</label>
+         <label for="languages">Знание языков</label>
          <div class="select2_multiple_container">
             <select name="languages[]" id="languages" class="select2_multiple" data-dropdown-css-class="select2_multiple_dropdown" multiple>
                @foreach ($languages as $language)
