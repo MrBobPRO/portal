@@ -43,9 +43,8 @@ class IdeaController extends Controller
     
     public function index()
     {
-        $allIdeas = DB::table('ideas')
+        $allIdeas = Idea::select('ideas.id', 'ideas.title') 
                         ->orderBy('title', 'asc')
-                        ->select('ideas.id', 'ideas.title')
                         ->get();
 
         $ideas = Idea::latest()->paginate(30);

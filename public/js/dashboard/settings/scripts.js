@@ -81,7 +81,7 @@ $.ajax({
       input.value = fileName;
    },
    error: function () {
-      alert('ERROR!');
+      console.log('ERROR!');
    }
    });
    //Ajax request end

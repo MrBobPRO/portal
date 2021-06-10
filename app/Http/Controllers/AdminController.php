@@ -105,9 +105,8 @@ class AdminController extends Controller
     // -----------------------------------Complaints start-------------------------------------------
     public function complaints()
     {
-        $allComplaints = DB::table('complaints')
+        $allComplaints = Complaint::select('complaints.id', 'complaints.title')
                         ->orderBy('title', 'asc')
-                        ->select('complaints.id', 'complaints.title')
                         ->get();
 
         $complaints = Complaint::latest()->paginate(30);
@@ -185,9 +184,8 @@ class AdminController extends Controller
     public function structure_index() 
     {
         $departments = Department::orderBy('priority', 'asc')->get();
-        $allUsers = DB::table('users')
+        $allUsers = User::select('users.id', 'users.name', 'users.surname')
                         ->orderBy('name', 'asc')
-                        ->select('users.id', 'users.name', 'users.surname')
                         ->get();
         return view('dashboard.structure.index', compact('departments', 'allUsers'));
     }
@@ -259,15 +257,13 @@ class AdminController extends Controller
 
     public function knowledge_books() 
     {
-        $allBooks = DB::table('books')
+        $allBooks = Book::select('books.id', 'books.ruTitle') 
                         ->orderBy('ruTitle', 'asc')
-                        ->select('books.id', 'books.ruTitle')
                         ->get();
 
-        $books = DB::table('books')
-                        ->select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
-                        ->latest()
-                        ->paginate(30);
+        $books = Book::select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
+                    ->latest()
+                    ->paginate(30);
 
         return view('dashboard.knowledge.books', compact('books', 'allBooks'));
     }
@@ -292,13 +288,11 @@ class AdminController extends Controller
         //generate title as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
 
-        $allVideos = DB::table('videos')
+        $allVideos = Video::select('videos.id', 'videos.' . $title . ' as title') 
                         ->orderBy($title, 'asc')
-                        ->select('videos.id', 'videos.' . $title . ' as title')
                         ->get();
 
-        $videos = DB::table('videos')
-                        ->select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
+        $videos = Video::select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
                         ->latest() 
                         ->paginate(30);
 
@@ -328,15 +322,13 @@ class AdminController extends Controller
         //generate title as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
 
-        $allNews = DB::table('news')
+        $allNews = News::select('news.id', 'news.' . $title . ' as title') 
                         ->orderBy($title, 'asc')
-                        ->select('news.id', 'news.' . $title . ' as title')
                         ->get();
 
-        $news = DB::table('news')
-                        ->latest()
-                        ->select('news.id', 'news.' . $title . ' as title', 'news.created_at', 'news.global')
-                        ->paginate(30);
+        $news = News::select('news.id', 'news.' . $title . ' as title', 'news.created_at', 'news.global') 
+                    ->latest()
+                    ->paginate(30);
 
         return view('dashboard.news.index', compact('news', 'allNews'));
     }
@@ -368,14 +360,12 @@ class AdminController extends Controller
         //generate title as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
 
-        $allProjects = DB::table('projects')
-                        ->orderBy($title, 'asc')
-                        ->select('projects.id', 'projects.' . $title . ' as title')
-                        ->get();
+        $allProjects = Project::select('projects.id', 'projects.' . $title . ' as title') 
+                                ->orderBy($title, 'asc')
+                                ->get();
 
-        $projects = DB::table('projects')
+        $projects = Project::select('projects.id', 'projects.' . $title . ' as title', 'projects.created_at', 'projects.completed') 
                         ->latest()
-                        ->select('projects.id', 'projects.' . $title . ' as title', 'projects.created_at', 'projects.completed')
                         ->paginate(30);
 
         return view('dashboard.projects.index', compact('projects', 'allProjects'));
@@ -408,15 +398,13 @@ class AdminController extends Controller
         //generate title as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
 
-        $allVideos = DB::table('entertainments')
-                        ->orderBy($title, 'asc')
-                        ->select('entertainments.id', 'entertainments.' . $title . ' as title')
-                        ->get();
+        $allVideos = Entertainment::select('entertainments.id', 'entertainments.' . $title . ' as title')
+                                ->orderBy($title, 'asc')
+                                ->get();
 
-        $videos = DB::table('entertainments')
-                        ->latest()
-                        ->select('entertainments.id', 'entertainments.' . $title . ' as title', 'entertainments.created_at')
-                        ->paginate(30);
+        $videos = Entertainment::select('entertainments.id', 'entertainments.' . $title . ' as title', 'entertainments.created_at')
+                            ->latest()
+                            ->paginate(30);
 
         return view('dashboard.entertainment.videos.index', compact('videos', 'allVideos'));
     }
@@ -448,14 +436,12 @@ class AdminController extends Controller
         //generate title as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
 
-        $allGalleries = DB::table('galleries')
+        $allGalleries = Gallery::select('galleries.id', 'galleries.' . $title . ' as title')
                         ->orderBy($title, 'asc')
-                        ->select('galleries.id', 'galleries.' . $title . ' as title')
                         ->get();
 
-        $galleries = DB::table('galleries')
+        $galleries = Gallery::select('galleries.id', 'galleries.' . $title . ' as title', 'galleries.date')
                         ->latest()
-                        ->select('galleries.id', 'galleries.' . $title . ' as title', 'galleries.date')
                         ->paginate(30);
 
         return view('dashboard.entertainment.galleries.index', compact('galleries', 'allGalleries'));

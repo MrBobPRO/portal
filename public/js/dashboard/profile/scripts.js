@@ -71,7 +71,7 @@ function ajax_edit_password() {
 
          },
          error: function () {
-            alert('ERROR!');
+            console.log('ERROR!');
          }
       });
 }//Ajax request setup end

@@ -7,16 +7,18 @@
 
 
    <div class="primary-list-titles">
-      <div class="width-50">Должности</div>
-      <div class="width-50">Редактирование</div>
+      <div class="width-33">Должности</div>
+      <div class="width-33">Количество сотрудников</div>
+      <div class="width-33">Редактирование</div>
    </div>
 
    <div class="primary-list">
       @foreach($positions as $position)
          <div class="primary-items">
             <a class="primary-list-item @if($position->id == 1) visually-hidden @endif">
-               <div class="width-50">{{$position->name}}</div>
-               <div class="width-50">
+               <div class="width-33">{{$position->name}}</div>
+               <div class="width-33">{{count(App\Models\User::where('department_id', $position->id)->get())}}</div>
+               <div class="width-33">
                   <div class="btns-edit-container">
                      <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$position->id}}">
                         <span class="material-icons-outlined">edit</span> Изменить

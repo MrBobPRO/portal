@@ -72,7 +72,7 @@ function ajax_forgot_password() {
 
          },
          error: function () {
-            alert('Could not send ajax request!');
+            console.log('Could not send ajax request!');
          }
       });
 }
@@ -125,7 +125,7 @@ function ajax_reset_password() {
          }
       },
       error: function () {
-         alert('Could not send ajax request!');
+         console.log('Could not send ajax request!');
       }
    });
 }

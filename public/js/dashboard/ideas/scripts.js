@@ -78,7 +78,7 @@ function ajaxLike(action) {
       },
 
       error: function () {
-         alert('Could not send request!');
+         console.log('Could not send request!');
       }
    });
 }
