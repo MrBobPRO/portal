@@ -474,8 +474,13 @@ class AdminController extends Controller
     // -----------------------------------Gallery end-------------------------------------------
 
 
+    // -----------------------------------Translations start-------------------------------------------
+    public function translations_index()
+    {
+        return view('dashboard.translations.index');
+    }
 
-    public function translate_single($id)
+    public function translations_single($id)
     {
         $lang = '';
         
@@ -486,10 +491,10 @@ class AdminController extends Controller
         }
 
         $file = file_get_contents(base_path('resources/lang/' . $lang . '.json'));
-        return view('dashboard.translate.single', compact('file', 'lang'));
+        return view('dashboard.translations.single', compact('file', 'lang'));
     }
 
-    public function translate_update(Request $request)
+    public function translations_update(Request $request)
     {
         $file = base_path('resources/lang/' . $request->lang . '.json');
         $translations = $request->translations;
@@ -498,7 +503,7 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
-
+    // -----------------------------------Translations end-------------------------------------------
 
 }
 

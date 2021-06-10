@@ -74,8 +74,8 @@
             <a class="@if($route == 'dashboard.galleries.index' || $route == 'dashboard.galleries.single' || $route == 'dashboard.galleries.create') active @endif"
             href="{{ route('dashboard.galleries.index') }}"><span class="material-icons-outlined">image</span>Галерея</a>
 
-            <a class="@if($route == 'dashboard.translate.index' || $route == 'dashboard.translate.single') active @endif"
-            href="{{ route('dashboard.translate.index') }}"><span class="material-icons-outlined">translate</span>Языки</a>
+            <a class="@if($route == 'dashboard.translations.index' || $route == 'dashboard.translations.single') active @endif"
+            href="{{ route('dashboard.translations.index') }}"><span class="material-icons-outlined">translate</span>Переводы</a>
 
          @endif {{-- Admin links end --}}
 

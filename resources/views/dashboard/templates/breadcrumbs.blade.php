@@ -218,13 +218,12 @@
             <a href="{{ route('dashboard.structure.positions.index') }}"><span>Должности</span></a>
          @break
 
-      @case('dashboard.translate.index')
-         <a href="{{ route('dashboard.translate.index') }}"><span>{{ __('Языки') }}</span></a>
+      @case('dashboard.translations.index')
+         <a href="{{ route('dashboard.translations.index') }}"><span>{{ __('Переводы') }}</span></a>
       @break
 
-      @case('dashboard.translate.single')
-         <a href="{{ route('dashboard.translate.index') }}"><span>{{ __('Языки') }}</span></a>
-         <a style="cursor: pointer;"><span>{{ __('Переводы') }}</span></a>
+      @case('dashboard.translations.single')
+         <a href="{{ route('dashboard.translations.index') }}"><span>{{ __('Переводы') }}</span></a>
       @break
 
       @endswitch

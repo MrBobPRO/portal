@@ -295,9 +295,9 @@ button:focus {
    font-weight: 300;
    font-size: 15px;
    display: flex;
-   padding: 10px 14px;
+   padding: 9px 14px;
    border-radius: 3px;
-   margin-bottom: 5px;
+   margin-bottom: 4px;
    align-items: center;
    transition: 0.3s;
    position: relative;

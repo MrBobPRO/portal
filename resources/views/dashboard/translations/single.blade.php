@@ -4,7 +4,7 @@
 <section class="translate-single-page">
     <pre id="json-display"></pre>
 
-    <form id="translate_form" method="POST" action="/dashboard/translate">
+    <form id="translate_form" method="POST" action="/dashboard/update_translations">
         @csrf
         <input name="lang" type="hidden" value="{{$lang}}">
         <textarea name="translations" class="visually-hidden" id="json-input" autocomplete="off">{{$file}}</textarea>

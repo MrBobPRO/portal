@@ -49,11 +49,11 @@
         <link href="{{ asset('css/dashboard/entertainment/galleries/styles.css') }}" rel="stylesheet">
     @break
 
-    @case('dashboard.translate.index') @case('dashboard.translate.single')
-        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/styles.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/media.css') }}">
+    @case('dashboard.translations.single')
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translations/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translations/media.css') }}">
         {{-- Json-viewer --}}
-        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/jquery.json-viewer.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translations/jquery.json-viewer.css') }}">
     @break
     {{--------------- Admin routes end ---------------}}
 

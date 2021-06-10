@@ -46,16 +46,14 @@
         
         <script src="{{ asset('js/dashboard/entertainment/galleries/scripts.js') }}"></script>
     @break
+
+    @case('dashboard.translations.single')
+        {{-- JSON formatter --}}
+        <script src="{{ asset('js/dashboard/translations/jquery.json-viewer.js') }}"></script>
+        <script src="{{ asset('js/dashboard/translations/jquery.json-editor.js') }}"></script>
+
+        <script src="{{ asset('js/dashboard/translations/scripts.js') }}"></script>
+    @break
     {{--------------- Admin routes end ---------------}}
-
-@case('dashboard.translate.index') 
-    <script src="{{ asset('js/dashboard/translate/scripts.js') }}"></script>
-@break
-
-@case('dashboard.translate.single')
-    <script src="{{ asset('js/dashboard/translate/jquery.json-viewer.js') }}"></script>
-    <script src="{{ asset('js/dashboard/translate/jquery.json-editor.js') }}"></script>
-    <script src="{{ asset('js/dashboard/translate/scripts.js') }}"></script>
-@break
 
 @endswitch
