@@ -1,0 +1,10 @@
+.text {
+   width: 100%;
+   height: 600px;
+}
+.text::-webkit-scrollbar {
+   display: none;
+}
+.main-btn {
+   margin: 10px 0 0 auto;
+}

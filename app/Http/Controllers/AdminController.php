@@ -481,6 +481,33 @@ class AdminController extends Controller
     }
     // -----------------------------------Gallery end-------------------------------------------
 
+
+
+    public function translate_single($id)
+    {
+        $lang = '';
+        
+        if ($id == 1) {
+            $lang = 'en';
+        } else {
+            $lang = 'tj';    
+        }
+
+        $file = file_get_contents(base_path('resources/lang/' . $lang . '.json'));
+        return view('dashboard.translate.single', compact('file', 'lang'));
+    }
+
+    public function translate_update(Request $request)
+    {
+        $file = base_path('resources/lang/' . $request->lang . '.json');
+        $translations = $request->translations;
+
+        file_put_contents($file, $translations);
+
+        return redirect()->back();
+    }
+
+
 }
 
 

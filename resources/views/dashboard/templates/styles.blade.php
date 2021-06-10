@@ -48,6 +48,14 @@
 
         <link href="{{ asset('css/dashboard/entertainment/galleries/styles.css') }}" rel="stylesheet">
     @break
+
+    @case('dashboard.translate.index') @case('dashboard.translate.single')
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/media.css') }}">
+        {{-- Json-viewer --}}
+        <link rel="stylesheet" href="{{ asset('css/dashboard/translate/jquery.json-viewer.css') }}">
+    @break
     {{--------------- Admin routes end ---------------}}
+
 
 @endswitch
