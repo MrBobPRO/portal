@@ -90,9 +90,18 @@ class SecondSeeder extends Seeder
             $ent->tjTitle = 'Номи филми ' . ($i+1);
             $ent->enTitle = 'Movie name ' . ($i+1);
             if($i == 0 || $i == 3 || $i == 5)
-            $ent->subtitles = ($i+1) . '.vtt';
+                $ent->subtitles = ($i+1) . '.vtt';
+            $ent->from_catalog = false;
             $ent->save();
         }
+        
+        $ent = new Entertainment;
+        $ent->filename = 'Собачка.mp4';
+        $ent->ruTitle = 'Собачка';
+        $ent->tjTitle = 'Сагча';
+        $ent->enTitle = 'The Snoopy Dogg';
+        $ent->from_catalog = true;
+        $ent->save();
         
 
         //Projects

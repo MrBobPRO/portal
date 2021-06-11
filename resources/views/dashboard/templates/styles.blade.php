@@ -41,6 +41,10 @@
         <link href="{{ asset('css/dashboard/knowledge/media.css') }}" rel="stylesheet">
     @break
 
+    @case('dashboard.videos.create') @case('dashboard.videos.single') 
+        <link href="{{ asset('css/dashboard/entertainment/videos/styles.css') }}" rel="stylesheet">
+    @break
+
     @case('dashboard.galleries.create') @case('dashboard.galleries.single') 
         {{-- Dropzone 5.7.0 --}}
         <link href="{{ asset('js/dropzone-5.7.0/dist/min/basic.min.css') }}" rel="stylesheet">

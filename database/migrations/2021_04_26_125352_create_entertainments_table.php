@@ -19,6 +19,7 @@ class CreateEntertainmentsTable extends Migration
             $table->string('ruTitle');
             $table->string('tjTitle');
             $table->string('enTitle');
+            $table->boolean('from_catalog');
             $table->string('subtitles')->nullable();
             $table->string('poster')->default('default.jpg');
             $table->timestamps();

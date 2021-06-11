@@ -19,11 +19,20 @@
          @csrf
 
          <div class="input-container-blocked">
-            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
-            <input type="file" name="file" id="file" accept=".mp4, .webm, .ogg">
+            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)@if($video->from_catalog). Видео выбрано из каталога: {{$video->filename}}@endif</label>
+            <input type="file" onchange="clear_catalog_input()" name="file" id="file" accept=".mp4, .webm, .ogg">
             <video width="400" height="240" controls>
-               <source src="{{asset('videos/entertainment/'. $video->filename)}}">
+               @if($video->from_catalog)
+                  <source src="{{asset('catalog/videos/' . $video->filename)}}">
+               @else
+                  <source src="{{asset('videos/entertainment/' . $video->filename)}}">
+               @endif
             </video>
+         </div>
+
+         <div class="input-container-blocked">
+            <label><a href="#" data-bs-toggle="modal" data-bs-target="#catalogModal">Выбрать видео из каталога !</a></label>
+            <input type="text" name="catalog" id="catalog" readonly> 
          </div>
 
          <div class="input-container-blocked">
@@ -85,6 +94,37 @@
    </div>
 </div>
 <!-- Delete Modal end-->
+
+
+<!-- Catalog Modal start-->
+<div class="modal fade catalog-modal" id="catalogModal" tabindex="-1" aria-labelledby="catalogModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+
+         <div class="modal-header">
+            <h5 class="modal-title" id="catalogModalLabel">
+               <span class="material-icons-outlined">videocam</span> Выбрать видео из каталога
+            </h5>
+            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+               <span class="material-icons-outlined">close</span>
+            </button>
+         </div>
+
+         <div class="modal-body">
+            <div class="catalog-list">
+               @foreach ($files as $file)
+                  <div class="catalog-item">
+                     <video controls src="/catalog/videos/{{$file}}"></video>
+                     <p onclick="catalog_video_selected('{{$file}}')">{{$file}}</p>
+                  </div>
+               @endforeach
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>
+<!-- Catalog Modal end-->
 
 
 @endsection

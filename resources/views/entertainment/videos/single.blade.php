@@ -9,7 +9,11 @@
          {{-- Custom id used in js --}}
          <video class="plyr" playsinline controls id="player0"
             data-poster="/videos/entertainment/posters/{{$entertainment->poster}}">
-            <source src="/videos/entertainment/{{$entertainment->filename}}"/>
+            @if($video->from_catalog)
+               <source src="{{asset('catalog/videos/' . $video->filename)}}">
+            @else
+               <source src="{{asset('videos/entertainment/' . $video->filename)}}">
+            @endif
          
             @if($entertainment->subtitles != '')
                <track kind="captions" label="English" src="/videos/entertainment/subtitles/{{$entertainment->subtitles}}" srclang="en" default />
