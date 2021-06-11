@@ -44,7 +44,10 @@ class EntertainmentController extends Controller
         // change subtitles
         $sub = $request->file('subtitles');
         if($sub) {
-            $filename = $video->id . '.' . $sub->getClientOriginalExtension();
+            // delete previous subtitles
+            unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+
+            $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
 
             $video->subtitles = $filename;
             $video->save();
@@ -55,7 +58,11 @@ class EntertainmentController extends Controller
         // change poster
         $pos = $request->file('poster');
         if($pos) {
-            $filename = $video->id . '.' . $pos->getClientOriginalExtension();
+            // delete previous poster if its not default poster
+            if ($video->poster != 'default.jpg') {
+                unlink(public_path('videos/entertainment/posters/' . $video->poster));
+            }
+            $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
 
             $video->poster = $filename;
             $video->save();
@@ -66,7 +73,10 @@ class EntertainmentController extends Controller
         // change video file
         $file = $request->file('file');
         if($file) {
-            $filename = $video->id . '.' . $file->getClientOriginalExtension();
+            // delete previous videofile
+            unlink(public_path('videos/entertainment/' . $video->filename));
+
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
             $video->filename = $filename;
             $video->save();
@@ -89,7 +99,7 @@ class EntertainmentController extends Controller
         // save subtitles
         $sub = $request->file('subtitles');
         if($sub) {
-            $filename = $video->id . '.' . $sub->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
 
             $video->subtitles = $filename;
             $video->save();
@@ -100,7 +110,7 @@ class EntertainmentController extends Controller
         // save poster
         $pos = $request->file('poster');
         if($pos) {
-            $filename = $video->id . '.' . $pos->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
 
             $video->poster = $filename;
             $video->save();
@@ -110,7 +120,7 @@ class EntertainmentController extends Controller
 
         // save video file
         $file = $request->file('file');
-        $filename = $video->id . '.' . $file->getClientOriginalExtension();
+        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
         $video->filename = $filename;
         $video->save();
@@ -123,11 +133,16 @@ class EntertainmentController extends Controller
     public function videos_remove(Request $request)
     {
         $video = Entertainment::find($request->id);
-        $path = public_path('videos/entertainment/' . $video->filename);
+        // delete video->poster
+        if ($video->poster != 'default.jpg') {
+            unlink(public_path('videos/entertainment/posters/' . $video->poster));
+        }
+        // delete video->subtitles
+        unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+        // delete videofile
+        unlink(public_path('videos/entertainment/' . $video->filename));
+        // delete video table from db
         $video->delete();
-
-        //delete video
-        unlink($path);
 
         return redirect()->route('dashboard.videos.index');
     }
@@ -181,7 +196,7 @@ class EntertainmentController extends Controller
         //save image
         $file = $request->file('image');
 
-        $fileName = $gallery->id . '.' . $file->getClientOriginalExtension();
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('img/entertainment/galleries'), $fileName);
 
         $gallery->image = $fileName;

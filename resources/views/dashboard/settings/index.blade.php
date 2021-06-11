@@ -53,7 +53,7 @@
                   <p>Добавить фон</p>
                </div>
             </label> 
-            <input class="visually-hidden" id="custom-background-input" type="file" name="background" accept=".jpg, .png, .jpeg" required>   
+            <input class="visually-hidden" id="custom-background-input" type="file" name="background" accept="image/*" required>   
          </form>
       </li>
       {{-- custom background end --}}

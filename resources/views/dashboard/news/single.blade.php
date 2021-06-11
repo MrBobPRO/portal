@@ -35,7 +35,7 @@
 
          <div class="input-container-blocked">
             <label>Картинка</label>
-            <input type="file" name="image" accept=".jpg, .png, .jpeg">
+            <input type="file" name="image" accept="image/*">
             <img class="form-image" src="{{asset('img/news/' . $news->image)}}">
          </div>
 

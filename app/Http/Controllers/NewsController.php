@@ -86,10 +86,10 @@ class NewsController extends Controller
             'image' => 'image.jpg'
         ]);
 
-        //change image
+        // change image
         $file = $request->file('image');
 
-        $fileName = $news->id . '.' . $file->getClientOriginalExtension();
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('img/news'), $fileName);
 
         $news->image = $fileName;
@@ -131,8 +131,11 @@ class NewsController extends Controller
 
     public function remove(Request $request)
     {
-        News::find($request->id)->delete();
-
+        $news = News::find($request->id);
+        // delete news->image
+        unlink(public_path('img/news/' . $news->image));
+        // delete news from db
+        $news->delete();
         return redirect()->route('dashboard.news.index');
     }
 
