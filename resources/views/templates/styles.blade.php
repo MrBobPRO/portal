@@ -60,6 +60,9 @@
     @break
 
     @case('news.index') @case('news.single') @case('news.inner') @case('news.global')
+        {{-- Plyr video player --}}
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css" />
+        
         <link href="{{ asset('css/news/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/news/media.css') }}" rel="stylesheet">
     @break

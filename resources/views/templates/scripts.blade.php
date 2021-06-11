@@ -24,6 +24,8 @@
     @break
 
     @case('news.single')
+        {{-- Plyr video player --}}
+        <script src="https://cdn.plyr.io/3.6.7/plyr.polyfilled.js"></script>
         <script src="{{ asset('js/news/scripts.js') }}"></script>
     @break
 

@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->text('tjText');
             $table->text('enText');
             $table->string('image');
+            $table->string('video')->default('null');
             $table->boolean('global');
             $table->timestamps();
         });

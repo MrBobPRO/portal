@@ -91,6 +91,16 @@ class NewsController extends Controller
 
         $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('img/news'), $fileName);
+        // store video if exists
+        $video = $request->file('video');
+
+        if ($video) {
+            $videoName = uniqid() . '.' . $video->getClientOriginalExtension();
+            $video->move(public_path('videos/news'), $videoName);
+            
+            $news->video = $videoName;
+            $news->save();
+        }
 
         $news->image = $fileName;
         $news->save();
@@ -126,6 +136,22 @@ class NewsController extends Controller
             $news->save();
         }
 
+        // change video if exists
+        $video = $request->file('video');
+
+        if ($video) {
+            if ($news->video != 'null') {
+                // delete previous video
+                unlink(public_path('videos/news/' . $news->video));
+            }
+
+            $videoName = uniqid() . '.' . $video->getClientOriginalExtension();
+            $video->move(public_path('videos/news'), $videoName);
+            
+            $news->video = $videoName;
+            $news->save();
+        }
+
         return redirect()->back();
     }
 
@@ -134,6 +160,10 @@ class NewsController extends Controller
         $news = News::find($request->id);
         // delete news->image
         unlink(public_path('img/news/' . $news->image));
+        // delete news video
+        if ($news->video != 'null') {
+            unlink(public_path('videos/news/' . $news->video));
+        }
         // delete news from db
         $news->delete();
         return redirect()->route('dashboard.news.index');

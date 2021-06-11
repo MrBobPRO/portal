@@ -29,7 +29,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label>Картинка</label>
+            <label>Картинка (Размер картинки: 960x450)</label>
             <input type="file" name="image" accept="image/*">
             <img class="form-image" src="{{asset('img/slider/' . $item->image)}}">
          </div>

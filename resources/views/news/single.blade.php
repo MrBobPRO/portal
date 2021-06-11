@@ -10,19 +10,49 @@
          @switch(\App::currentLocale())
             @case('ru')
                <h3>{{$news->ruTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
+               @if ($news->video != 'null')
+                  <div class="single-video">
+                     {{-- Custom id used in js --}}
+                     <video class="plyr" playsinline controls id="player0"
+                        data-poster="/img/news/{{$news->image}}">
+                        <source src="/videos/news/{{$news->video}}"/>
+                     </video>
+                  </div>
+               @else
+                  <img src="{{ asset('img/news/'. $news->image) }}">
+               @endif
                <div class="news-content-text">{!!$news->ruText!!}</div>
             @break
 
             @case('tj')
                <h3>{{$news->tjTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
+               @if ($news->video != 'null')
+                  <div class="single-video">
+                     {{-- Custom id used in js --}}
+                     <video class="plyr" playsinline controls id="player0"
+                        data-poster="/img/news/{{$news->image}}">
+                        <source src="/videos/news/{{$news->video}}"/>
+                     </video>
+                  </div>
+               @else
+                  <img src="{{ asset('img/news/'. $news->image) }}">
+               @endif
                <div class="news-content-text">{!!$news->tjText!!}</div>
             @break
 
             @case('en')
                <h3>{{$news->enTitle}}</h3>
-               <img src="{{ asset('img/news/'. $news->image) }}">
+               @if ($news->video != 'null')
+                  <div class="single-video">
+                     {{-- Custom id used in js --}}
+                     <video class="plyr" playsinline controls id="player0"
+                        data-poster="/img/news/{{$news->image}}">
+                        <source src="/videos/news/{{$news->video}}"/>
+                     </video>
+                  </div>
+               @else
+                  <img src="{{ asset('img/news/'. $news->image) }}">
+               @endif
                <div class="news-content-text">{!!$news->enText!!}</div>
             @break
          @endswitch

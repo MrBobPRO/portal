@@ -37,6 +37,11 @@
          </div>
 
          <div class="input-container-blocked">
+            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
+            <input type="file" name="video" id="file" accept=".mp4, .webm, .ogg">
+         </div>
+
+         <div class="input-container-blocked">
             <label>Текст на русском</label>
             <div class="simditor_container">
                <textarea class="simditor-wysiwyg" name="ruText" rows="8" required></textarea>

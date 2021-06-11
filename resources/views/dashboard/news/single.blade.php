@@ -40,6 +40,14 @@
          </div>
 
          <div class="input-container-blocked">
+            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
+            <input type="file" name="video" id="file" accept=".mp4, .webm, .ogg">
+            <video width="400" height="240" controls>
+               <source src="{{asset('videos/news/'. $news->video)}}">
+            </video>
+         </div>
+
+         <div class="input-container-blocked">
             <label>Текст на русском</label>
             <div class="simditor_container">
                <textarea class="simditor-wysiwyg" name="ruText" rows="8" required>{{ $news->ruText }}</textarea>
