@@ -47,7 +47,7 @@ class SliderController extends Controller
 
         $file = $request->file('image');
 
-        $fileName = $item->id . '.' . $file->getClientOriginalExtension();
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('img/slider'), $fileName);
 
         $item->image = $fileName;
@@ -58,7 +58,11 @@ class SliderController extends Controller
     
     public function remove_item(Request $request)
     {
-        Slider::find($request->id)->delete();
+        $slider = Slider::find($request->id);
+        // delete image
+        unlink(public_path('img/slider/' . $slider->image));
+        // delete slider_table from db
+        $slider->delete();
 
         return redirect()->route('dashboard.slider.index');
     }

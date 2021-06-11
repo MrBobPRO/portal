@@ -33,7 +33,7 @@
 
          <div class="input-container-blocked">
             <label>Картинка</label>
-            <input type="file" name="image" accept=".jpg, .png, .jpeg">
+            <input type="file" name="image" accept="image/*">
          </div>
 
          <div class="input-container-blocked">

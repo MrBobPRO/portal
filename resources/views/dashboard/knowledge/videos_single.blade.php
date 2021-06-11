@@ -47,7 +47,7 @@
 
          <div class="input-container-blocked">
             <label>Постер</label>
-            <input type="file" name="poster" accept=".jpg, .png, .jpeg">
+            <input type="file" name="poster" accept="image/*">
             <img class="form-image" src="{{asset('videos/knowledge/posters/' . $video->poster)}}">
          </div>
 

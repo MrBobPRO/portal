@@ -58,7 +58,7 @@ class ProjectsController extends Controller
         //change image
         $file = $request->file('image');
 
-        $fileName = $project->id . '.' . $file->getClientOriginalExtension();
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('img/projects'), $fileName);
 
         $project->image = $fileName;
@@ -100,8 +100,11 @@ class ProjectsController extends Controller
 
     public function remove(Request $request)
     {
-        Project::find($request->id)->delete();
-
+        $project = Project::find($request->id);
+        // delete project->image
+        unlink(public_path('img/projects/' . $project->image));
+        // delete project from db
+        $project->delete();
         return redirect()->route('dashboard.projects.index');
     }
 

@@ -28,7 +28,7 @@
 
          <div class="input-container-blocked">
             <label>Изображение</label>
-            <input type="file" name="image" accept=".jpg, .png, .jpeg">
+            <input type="file" name="image" accept="image/*">
          </div>
 
          <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить</button>

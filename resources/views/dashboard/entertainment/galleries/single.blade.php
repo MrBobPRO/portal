@@ -30,7 +30,7 @@
 
          <div class="input-container-blocked">
             <label>Изображение</label>
-            <input type="file" name="image" accept=".jpg, .png, .jpeg">
+            <input type="file" name="image" accept="image/*">
             <img class="form-image" src="{{asset('img/entertainment/galleries/' . $gallery->image)}}">
          </div>
 
@@ -62,7 +62,7 @@
          <div class="dropzone" id="dropzone">
             <div class="fallback">
                @csrf
-               <input name="file" type="file" multiple accept=".jpg, .jpeg, .png"/>
+               <input name="file" type="file" multiple accept="image/*"/>
              </div>
          </div>
       </div>
