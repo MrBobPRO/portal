@@ -11,10 +11,13 @@
       @else
          <div class="no_result">
             <span class="material-icons-outlined">sentiment_dissatisfied</span>  
-            <b>Упс... По вашему запросу ничего не найдено.</b>
+            <p>Упс... По вашему запросу ничего не найдено.</p>
          </div>
       @endif 
       {{-- Results count end--}}
+
+      {{-- Generate needed column name from app locale --}}
+      <?php $localedTitle = \App::currentLocale() . 'Title'; ?>
 
       {{-- Search results list start--}}
       <div class="results-list">
@@ -22,7 +25,7 @@
          @foreach ($result->books as $book)  
             <a class="items" href="{{ route('knowledge.books.single', $book->id) }}">
                <div class="info">
-                  <span class="title">{{ $book->ruTitle }}</span>
+                  <span class="title">{{ $book[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($book->created_at)->locale('ru');
@@ -33,7 +36,7 @@
                   <span class="category">Книги</span>
                </div>
 
-               <img class="result-image" src="{{ asset('img/main/book.jpeg') }}">
+               <img class="result-image" src="{{ asset('img/search/books.jpg') }}">
             </a>
          @endforeach {{-- Books end --}}
 
@@ -41,7 +44,7 @@
          @foreach ($result->entertainments as $video)  
             <a class="items" href="{{ route('entertainment.videos.single', $video->id) }}">
                <div class="info">
-                  <span class="title">{{ $video->ruTitle }}</span>
+                  <span class="title">{{ $video[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
@@ -60,7 +63,7 @@
          @foreach ($result->videos as $video)  
             <a class="items" href="{{ route('knowledge.videos.single', $video->id) }}">
                <div class="info">
-                  <span class="title">{{ $video->ruTitle }}</span>
+                  <span class="title">{{ $video[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
@@ -79,7 +82,7 @@
          @foreach ($result->galleries as $gallery)  
             <a class="items" href="{{ route('entertainment.gallery.single', $gallery->id) }}">
                <div class="info">
-                  <span class="title">{{ $gallery->ruTitle }}</span>
+                  <span class="title">{{ $gallery[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($gallery->created_at)->locale('ru');
@@ -98,7 +101,7 @@
          @foreach ($result->news as $news)  
             <a class="items" href="{{ route('news.single', $news->id) }}">
                <div class="info">
-                  <span class="title">{{ $news->ruTitle }}</span>
+                  <span class="title">{{ $news[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
@@ -121,7 +124,7 @@
          @foreach ($result->projects as $project)  
             <a class="items" href="{{ route('projects.single', $project->id) }}">
                <div class="info">
-                  <span class="title">{{ $project->ruTitle }}</span>
+                  <span class="title">{{ $project[$localedTitle] }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
