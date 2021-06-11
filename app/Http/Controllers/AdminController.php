@@ -417,7 +417,16 @@ class AdminController extends Controller
 
     public function videos_create()
     {
-        return view('dashboard.entertainment.videos.create');
+        //get array of all files in catalog folder
+        $path = public_path('catalog/videos');
+        $files = scandir($path);
+
+        // remove . & .. from array
+        $files = array_diff($files, array('.', '..'));
+        //sort by name
+        sort($files);
+
+        return view('dashboard.entertainment.videos.create', compact('files'));
     }
 
     public function videos_single($id)
@@ -431,7 +440,16 @@ class AdminController extends Controller
         if(mb_strlen($crumbsTitle) > 23)
             $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
 
-        return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle'));
+        //get array of all files in catalog folder
+        $path = public_path('catalog/videos');
+        $files = scandir($path);
+
+        // remove . & .. from array
+        $files = array_diff($files, array('.', '..'));
+        //sort by name
+        sort($files);
+
+        return view('dashboard.entertainment.videos.single', compact('video', 'crumbsTitle', 'files'));
     }
     // -----------------------------------Videos end-------------------------------------------
 

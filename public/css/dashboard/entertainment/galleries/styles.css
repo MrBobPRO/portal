@@ -4,7 +4,7 @@
    margin-top: 30px;
  }
  #dropzone {
-   border: 2px dashed var(--color-scheme);;
+   border: 2px dashed var(--color-scheme);
    border-radius: 5px;
    min-height: 180px;
    margin-top: 20px;

@@ -11,7 +11,11 @@
                {{-- Custom id used in js --}}
                <video class="plyr" playsinline controls id="player{{$count}}" onplay="pauseInactivePlayers({{$count}})" 
                   data-poster="/videos/entertainment/posters/{{$video->poster}}">
-                  <source src="/videos/entertainment/{{$video->filename}}"/>
+                  @if($video->from_catalog)
+                     <source src="{{asset('catalog/videos/' . $video->filename)}}">
+                  @else
+                     <source src="{{asset('videos/entertainment/' . $video->filename)}}">
+                  @endif
                
                   @if($video->subtitles != '')
                      <track kind="captions" label="English" src="/videos/entertainment/subtitles/{{$video->subtitles}}" srclang="en" default />

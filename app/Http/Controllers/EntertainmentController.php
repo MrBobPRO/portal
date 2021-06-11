@@ -39,6 +39,13 @@ class EntertainmentController extends Controller
         $video->ruTitle = $request->ruTitle;
         $video->tjTitle = $request->tjTitle;
         $video->enTitle = $request->enTitle;
+
+        //check if video file selected from catalog
+        if($request->catalog != '') {
+            $video->from_catalog = true;
+            $video->filename = $request->catalog;
+        }
+
         $video->save();
 
         // change subtitles
@@ -78,6 +85,7 @@ class EntertainmentController extends Controller
 
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
+            $video->from_catalog = false;
             $video->filename = $filename;
             $video->save();
     
@@ -88,12 +96,23 @@ class EntertainmentController extends Controller
     }
 
     public function videos_store(Request $request)
-    {
+    {   
+        // check if its video from catalog or uploading new file
+        if($request->catalog == '') {
+            $from_catalog = false;
+            $filename = 'error';
+        } 
+        else {
+            $from_catalog = true;
+            $filename = $request->catalog;
+        }
+
         $video = Entertainment::create([
-            'filename' => 'error',
+            'filename' => $filename,
             'ruTitle' => $request->ruTitle,
             'tjTitle' => $request->tjTitle,
-            'enTitle' => $request->enTitle
+            'enTitle' => $request->enTitle,
+            'from_catalog' => $from_catalog
         ]);
 
         // save subtitles
@@ -118,16 +137,19 @@ class EntertainmentController extends Controller
             $pos->move(public_path('videos/entertainment/posters'), $filename);
         }
 
-        // save video file
-        $file = $request->file('file');
-        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+        //if its not video from catalog
+        if($request->file) {
+            $file = $request->file('file');
+            $filename = $video->id . '.' . $file->getClientOriginalExtension();
+    
+            $video->filename = $filename;
+            $video->save();
+    
+            $file->move(public_path('videos/entertainment'), $filename);
+        }
 
-        $video->filename = $filename;
-        $video->save();
+        return route('dashboard.videos.index');
 
-        $file->move(public_path('videos/entertainment'), $filename);
-
-        return 'success';
     }
 
     public function videos_remove(Request $request)
