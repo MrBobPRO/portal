@@ -136,14 +136,25 @@ class KnowledgeController extends Controller
 
     public function videos_store(Request $request)
     {
+        // check if its video from catalog or uploading new file
+        if($request->catalog == '') {
+            $from_catalog = false;
+            $filename = 'error';
+        } 
+        else {
+            $from_catalog = true;
+            $filename = $request->catalog;
+        }
+
         $video = Video::create([
-            'filename' => 'error',
+            'filename' => $filename,
             'material_id' => $request->material_id,
             'category' => $request->category,
             'ruCategory' => $request->ruCategory,
             'ruTitle' => $request->ruTitle,
             'tjTitle' => $request->tjTitle,
-            'enTitle' => $request->enTitle
+            'enTitle' => $request->enTitle,
+            'from_catalog' => $from_catalog
         ]);
 
         // save subtitles
@@ -168,14 +179,17 @@ class KnowledgeController extends Controller
             $poster->move(public_path('videos/knowledge/posters'), $filename);
         }
 
-        // save video file
-        $file = $request->file('file');
-        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+        // if video is not  from catalog
+        if ($request->file) {
+            $file = $request->file('file');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
-        $video->filename = $filename;
-        $video->save();
+            $video->filename = $filename;
+            $video->save();
 
-        $file->move(public_path('videos/knowledge'), $filename);
+            $file->move(public_path('videos/knowledge'), $filename);
+        }
+        
 
         return route('dashboard.knowledge.videos');
 
@@ -189,6 +203,13 @@ class KnowledgeController extends Controller
         $video->ruTitle = $request->ruTitle;
         $video->tjTitle = $request->tjTitle;
         $video->enTitle = $request->enTitle;
+
+        //check if video file selected from catalog
+        if($request->catalog != '') {
+            $video->from_catalog = true;
+            $video->filename = $request->catalog;
+        }
+
         $video->save();
 
         // Change subtitles
@@ -224,13 +245,14 @@ class KnowledgeController extends Controller
         // Change video file
         $file = $request->file('file');
         if($file) {
-            if ($video->filename) {
+            if ($video->filename && !$video->from_catalog) {
                 // Delete previous video
                 unlink(public_path('videos/knowledge/' . $video->filename));
             }
 
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
+            $video->from_catalog = false;
             $video->filename = $filename;
             $video->save();
     
@@ -243,13 +265,19 @@ class KnowledgeController extends Controller
     public function videos_remove(Request $request)
     {
         $video = Video::find($request->id);
-        // Delete video
-        unlink(public_path('videos/knowledge/' . $video->filename));
-        // Delete subtitles
-        unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
-        // Delete poster 
-        unlink(public_path('videos/knowledge/posters/' . $video->poster));
-        
+        // delete video->poster
+        if ($video->poster != 'default.jpg') {
+            unlink(public_path('videos/knowledge/posters/' . $video->poster));
+        }
+        // delete video->subtitles
+        if ($video->subtitles) {
+            unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
+        }
+        // delete videofile
+        if (!$video->from_catalog) {
+            unlink(public_path('videos/knowledge/' . $video->filename));
+        }
+        // delete video table from db
         $video->delete();
 
         return redirect()->route('dashboard.knowledge.videos');

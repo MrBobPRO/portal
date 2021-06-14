@@ -18,7 +18,13 @@
 
          <div class="input-container-blocked">
             <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
-            <input type="file" onchange="clear_catalog_input()" name="file" id="file" accept=".mp4, .webm, .ogg">
+            <input 
+               type="file" 
+               onchange="clear_catalog_input()" 
+               name="file" 
+               id="file" 
+               accept=".mp4, .webm, .ogg"
+            >
          </div>
 
          <div class="input-container-blocked">

@@ -290,7 +290,16 @@ class AdminController extends Controller
     {
         $video = Video::find($id);
 
-        return view('dashboard.knowledge.videos_single', compact('video'));
+        //get array of all files in catalog folder
+        $path = public_path('catalog/videos');
+        $files = scandir($path);
+
+        // remove . & .. from array
+        $files = array_diff($files, array('.', '..'));
+        //sort by name
+        sort($files);
+
+        return view('dashboard.knowledge.videos_single', compact('video', 'files'));
     }
 
     public function knowledge_videos_create(Material $material) 
@@ -298,7 +307,16 @@ class AdminController extends Controller
         $subjectcat = Subjectcat::find($material->subjectcat_id);
         $subject = Subject::find($subjectcat->subject_id);
 
-        return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject'));
+        //get array of all files in catalog folder
+        $path = public_path('catalog/videos');
+        $files = scandir($path);
+
+        // remove . & .. from array
+        $files = array_diff($files, array('.', '..'));
+        //sort by name
+        sort($files);
+
+        return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject', 'files'));
     }
     // -----------------------------------Knowledge end-------------------------------------------
 
