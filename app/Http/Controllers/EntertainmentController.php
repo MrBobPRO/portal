@@ -80,8 +80,10 @@ class EntertainmentController extends Controller
         // change video file
         $file = $request->file('file');
         if($file) {
-            // delete previous videofile
-            unlink(public_path('videos/entertainment/' . $video->filename));
+            if ($video->filename && !$video->from_catalog) {
+                // Delete previous video
+                unlink(public_path('videos/entertainment/' . $video->filename));
+            }
 
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 

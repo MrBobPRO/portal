@@ -238,7 +238,7 @@ class KnowledgeController extends Controller
         // Change video file
         $file = $request->file('file');
         if($file) {
-            if ($video->filename) {
+            if ($video->filename && !$video->from_catalog) {
                 // Delete previous video
                 unlink(public_path('videos/knowledge/' . $video->filename));
             }
