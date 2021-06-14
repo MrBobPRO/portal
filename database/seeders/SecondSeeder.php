@@ -139,6 +139,7 @@ class SecondSeeder extends Seeder
                     $videos->ruTitle = 'Видеоурок ' . $k;
                     $videos->tjTitle = 'Видео ' . $k;
                     $videos->enTitle = 'Video ' . $k;
+                    $videos->from_catalog = 0;
                     $videos->save();
                 }
             } 

@@ -1,25 +1,4 @@
-// ---------------------Entertainment select video from catalog start-------------------------
-var catalog_input = document.getElementById('catalog');
-var file_input = document.getElementById('file');
 
-function catalog_video_selected(filename) {
-   // change input value
-   catalog_input.value = filename;
-   // set file input value to null
-   file_input.value = null;
-
-   //get catalog modal as bootstrap modal instance & hide it
-   var modal1 = document.getElementById('catalogModal');
-   var catalog_modal = bootstrap.Modal.getInstance(modal1);
-   catalog_modal.hide();
-}
-// ---------------------Entertainment select video from catalog end-------------------------
-
-//clear catalog input value on file input change
-function clear_catalog_input() {
-   if(file_input.value != null)
-      catalog_input.value = null;
-}
 
 // -------------------------Entertainment videos update start--------------------------------
 function videos_update() {

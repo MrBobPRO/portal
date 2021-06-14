@@ -137,10 +137,10 @@ class EntertainmentController extends Controller
             $pos->move(public_path('videos/entertainment/posters'), $filename);
         }
 
-        //if its not video from catalog
+        // if video is not  from catalog
         if($request->file) {
             $file = $request->file('file');
-            $filename = $video->id . '.' . $file->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
     
             $video->filename = $filename;
             $video->save();
@@ -160,9 +160,13 @@ class EntertainmentController extends Controller
             unlink(public_path('videos/entertainment/posters/' . $video->poster));
         }
         // delete video->subtitles
-        unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+        if ($video->subtitles) {
+            unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+        }
         // delete videofile
-        unlink(public_path('videos/entertainment/' . $video->filename));
+        if (!$video->from_catalog) {
+            unlink(public_path('videos/entertainment/' . $video->filename));
+        }
         // delete video table from db
         $video->delete();
 
