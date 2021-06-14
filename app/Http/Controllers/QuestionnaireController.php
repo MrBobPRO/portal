@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Option;
 use App\Models\Questionnaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionnaireController extends Controller
 {
+
+   public function __construct()
+   {
+       $this->middleware('auth');
+       $this->middleware('admin')->only(['store', 'update', 'remove']);
+   }
+
    public function index()
    {  
       //get only questionnaires which are younger than users created at date

@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 class ProjectsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['store', 'update', 'remove']);
+    }
+
     public function index()
     {  
         return view('projects.index');

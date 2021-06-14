@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class OptionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['store', 'update', 'remove']);
+    }
+
     public function like(Request $request)
     {
         //check if admin hasnt deleted option while user was voting

@@ -20,11 +20,9 @@ use App\Models\User;
 use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Position;
-use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -32,23 +30,6 @@ class AdminController extends Controller
     {
         $this->middleware('admin');
     }
-
-    // -----------------------------------Simditor start-------------------------------------------
-    public function upload_simditor_photo(Request $request)
-    {
-        $file = $request->file('simditor_photo');
-        $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
-
-        $file->move(public_path('img/' . $request->folder . '/simditor'), $filename);
-
-        return [
-            "success" => true,
-            "msg" => "success", 
-            "file_path" => '/img/' . $request->folder . '/simditor/' . $filename
-        ];
-    }
-    // -----------------------------------Simditor end-------------------------------------------
-
 
     // -----------------------------------Dropzone start-------------------------------------------
     public function upload_dropzone_photo(Request $request)

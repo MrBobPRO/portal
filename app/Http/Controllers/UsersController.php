@@ -9,6 +9,13 @@ use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['store', 'update', 'remove']);
+    }
+
     public function index()
     {
         $users = User::orderBy('name', 'asc')->get();

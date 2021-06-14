@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['store', 'update', 'remove']);
+    }
+
     public function index()
     { 
         $news = News::latest()->paginate(10);

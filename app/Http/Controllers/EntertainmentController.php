@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\App;
 
 class EntertainmentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->except(['index', 'videos', 'videos_single', 'gallery', 'gallery_single']);
+    }
+
     public function index()
     {
         $videos = Entertainment::latest()->paginate(16);

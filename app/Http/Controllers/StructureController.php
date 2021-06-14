@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class StructureController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() 
     {
         $departments = Department::orderBy('priority', 'asc')->get();

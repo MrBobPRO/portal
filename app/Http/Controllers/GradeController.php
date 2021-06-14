@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class GradeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function like(Request $request)
     {
         //check if user has already graded current news

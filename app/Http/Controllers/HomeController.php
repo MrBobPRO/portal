@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ForgotPassword;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentials;
 use App\Models\News;
@@ -12,10 +11,7 @@ use App\MOdels\Book;
 use App\MOdels\Entertainment;
 use App\MOdels\Gallery;
 use App\MOdels\Project;
-use App\MOdels\Subject;
-use App\MOdels\Subjectcat;
 use App\MOdels\Video;
-use Illuminate\Support\Facades\DB;
 use stdClass;
 
 class HomeController extends Controller
@@ -23,7 +19,15 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('email');
+        $this->middleware('auth');
+        $this->middleware('admin')->only('send_credentials');
+    }
+
+    public function index()
+    {
+        $items = Slider::orderBy('priority', 'asc')->get();
+
+        return view('home.index', compact('items'));
     }
 
     public function store_dashboard_visibility(Request $request)
@@ -35,13 +39,6 @@ class HomeController extends Controller
         return 'success';
     }
 
-    public function index()
-    {
-        $items = Slider::orderBy('priority', 'asc')->get();
-
-        return view('home.index', compact('items'));
-    }
-
     public function send_credentials()
     {
         $users = User::all();
@@ -49,6 +46,22 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
+    // -----------------------------------Simditor start-------------------------------------------
+    public function upload_simditor_photo(Request $request)
+    {
+        $file = $request->file('simditor_photo');
+        $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
+
+        $file->move(public_path('img/' . $request->folder . '/simditor'), $filename);
+
+        return [
+            "success" => true,
+            "msg" => "success", 
+            "file_path" => '/img/' . $request->folder . '/simditor/' . $filename
+        ];
+    }
+    // -----------------------------------Simditor end-------------------------------------------
 
     public function search(Request $request)
     {

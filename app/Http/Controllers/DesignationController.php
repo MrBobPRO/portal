@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DesignationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function update(Request $request)
     {
         $designation = Designation::find($request->id);

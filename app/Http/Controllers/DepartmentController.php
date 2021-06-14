@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function update(Request $request)
     {
         $department = Department::find($request->id);

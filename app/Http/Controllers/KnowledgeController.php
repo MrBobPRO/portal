@@ -10,6 +10,13 @@ use App\Models\Material;
 use App\Models\Video;
 class KnowledgeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->except(['index', 'books', 'books_single', 'books_download', 'videos', 'videos_single']);
+    }
+
     public function index()
     { 
         $subjects = Subject::get();

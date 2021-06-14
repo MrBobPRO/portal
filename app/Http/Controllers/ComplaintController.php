@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ComplaintController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['download_file', 'response']);
+    }
+
     public function create()
     {
         return view('complaints.create');

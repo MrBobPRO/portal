@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class PositionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+    
     public function update(Request $request)
     {
         $position = Position::find($request->id);

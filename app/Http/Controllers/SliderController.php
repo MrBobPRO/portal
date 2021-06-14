@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function update_item(Request $request)
     {
         $item = Slider::find($request->id);

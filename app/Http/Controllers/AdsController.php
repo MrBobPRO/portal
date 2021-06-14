@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class AdsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function update(Request $request)
     {
         $ad = Ads::find($request->id);

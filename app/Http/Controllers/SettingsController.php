@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() 
     {
         $user = Auth::user();
@@ -28,7 +34,6 @@ class SettingsController extends Controller
 
     public function update_background_temporarily(Request $request)
     {
-
         $user = Auth::user();
         $file = $request->file('background');
 

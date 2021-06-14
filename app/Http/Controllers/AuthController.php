@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function forgotPassword()
     {
         return view('login.forgot_password');

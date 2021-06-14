@@ -16,7 +16,7 @@ Route::post('/send_credentials', 'HomeController@send_credentials');
       //Dashboard visibility store
       Route::post('/store_dashboard_visibility', 'HomeController@store_dashboard_visibility');
       //Simditor upload photo route
-      Route::post('/upload/simditor_photo', 'AdminController@upload_simditor_photo');
+      Route::post('/upload/simditor_photo', 'HomeController@upload_simditor_photo');
       //Dropzone upload photo route
       Route::post('/upload/dropzone_photo', 'AdminController@upload_dropzone_photo');
 //--------------Global routes end-------------------
