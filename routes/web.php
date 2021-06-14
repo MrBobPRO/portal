@@ -195,6 +195,7 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::post('/update_news', 'NewsController@update');
       Route::post('/store_news', 'NewsController@store');
       Route::post('/remove_news', 'NewsController@remove');
+      Route::post('/news/remove_video', 'NewsController@remove_video');
       //Projects
       Route::get('/dashboard/projects', 'AdminController@projects')->name('dashboard.projects.index');
       Route::get('/dashboard/projects_create', 'AdminController@projects_create')->name('dashboard.projects.create');

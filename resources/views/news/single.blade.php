@@ -10,7 +10,7 @@
          @switch(\App::currentLocale())
             @case('ru')
                <h3>{{$news->ruTitle}}</h3>
-               @if ($news->video != 'null')
+               @if ($news->video != '')
                   <div class="single-video">
                      {{-- Custom id used in js --}}
                      <video class="plyr" playsinline controls id="player0"

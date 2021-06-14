@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Framework\Constraint\FileExists;
 
 class NewsController extends Controller
 {
@@ -148,8 +149,9 @@ class NewsController extends Controller
 
         if ($video) {
             if ($news->video != '') {
-                // delete previous video
-                unlink(public_path('videos/news/' . $news->video));
+                $filepath = public_path('videos/news/' . $news->video);
+                if(file_exists($filepath)) 
+                    unlink($filepath);
             }
 
             $videoName = uniqid() . '.' . $video->getClientOriginalExtension();
@@ -168,12 +170,28 @@ class NewsController extends Controller
         // delete news->image
         unlink(public_path('img/news/' . $news->image));
         // delete news video
-        if ($news->video != 'null') {
-            unlink(public_path('videos/news/' . $news->video));
+        if ($news->video != '') {
+            $filepath = public_path('videos/news/' . $news->video);
+            if(file_exists($filepath)) 
+                unlink($filepath);
         }
         // delete news from db
         $news->delete();
         return redirect()->route('dashboard.news.index');
+    }
+
+    public function remove_video(Request $request)
+    {
+        $news = News::find($request->id);
+
+        $filepath = public_path('videos/news/' . $news->video);
+        if(file_exists($filepath)) 
+            unlink($filepath);
+
+        $news->video = '';
+        $news->save();
+        
+        return redirect()->back();
     }
 
 }

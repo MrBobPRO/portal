@@ -40,7 +40,11 @@
          </div>
 
          <div class="input-container-blocked">
-            <label>Видео. Поддерживаемые форматы (mp4, webm, ogg)</label>
+            <label>Видео. Поддерживаемые форматы (mp4, webm, ogg).
+               @if($news->video != '')
+                  <a href="javascript:void(0)" onclick="document.getElementById('delete_news_video').submit()"> Удалить видео</a>
+               @endif
+            </label>
             <input type="file" name="video" id="file" accept=".mp4, .webm, .ogg">
             @if($news->video != '')
                <video width="400" height="240" controls>
@@ -102,5 +106,14 @@
    </div>
 </div>
 <!-- Delete Modal end-->
+
+{{-- Delete news video form --}}
+@if($news->video != '')
+   <form action="/news/remove_video" method="POST" class="visually-hidden" id="delete_news_video">
+      @csrf
+      <input type="hidden" name="id" value="{{$news->id}}">
+      <button type="submit"></button>
+   </form>
+@endif
 
 @endsection
