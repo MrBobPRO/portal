@@ -147,7 +147,7 @@ class NewsController extends Controller
         $video = $request->file('video');
 
         if ($video) {
-            if ($news->video != 'null') {
+            if ($news->video != '') {
                 // delete previous video
                 unlink(public_path('videos/news/' . $news->video));
             }

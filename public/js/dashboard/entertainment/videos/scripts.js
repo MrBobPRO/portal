@@ -51,9 +51,8 @@ function videos_update() {
          
       },
 
-      success: function () {
-         window.scrollTo(0, 0);
-         location.reload();
+      success: function (url) {
+         window.location.href = url;
       },
       error: function () {
          console.log('Error!');

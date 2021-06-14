@@ -13,6 +13,7 @@ use App\MOdels\Gallery;
 use App\MOdels\Project;
 use App\MOdels\Video;
 use stdClass;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {

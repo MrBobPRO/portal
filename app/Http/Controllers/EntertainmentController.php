@@ -101,7 +101,7 @@ class EntertainmentController extends Controller
             $file->move(public_path('videos/entertainment'), $filename);
         }
 
-        return 'success';
+        return route('dashboard.videos.index');
     }
 
     public function videos_store(Request $request)

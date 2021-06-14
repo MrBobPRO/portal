@@ -40,11 +40,13 @@
          </div>
 
          <div class="input-container-blocked">
-            <label>Файл. Поддерживаемые форматы (mp4, webm, ogg)</label>
+            <label>Видео. Поддерживаемые форматы (mp4, webm, ogg)</label>
             <input type="file" name="video" id="file" accept=".mp4, .webm, .ogg">
-            <video width="400" height="240" controls>
-               <source src="{{asset('videos/news/'. $news->video)}}">
-            </video>
+            @if($news->video != '')
+               <video width="400" height="240" controls>
+                  <source src="{{asset('videos/news/'. $news->video)}}">
+               </video>
+            @endif
          </div>
 
          <div class="input-container-blocked">

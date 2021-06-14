@@ -17,7 +17,7 @@
          <a class="primary-list-item @if($designation->id == 1) visually-hidden @endif">
             <div class="width-25">{{$designation->name}}</div>
             <div class="width-25">{{$designation->priority}}</div>
-            <div class="width-25">{{count(App\Models\User::where('department_id', $designation->id)->get())}}</div>
+            <div class="width-25">{{count(App\Models\User::where('designation_id', $designation->id)->get())}}</div>
             <div class="width-25">
                <div class="btns-edit-container">
                   <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$designation->id}}">
