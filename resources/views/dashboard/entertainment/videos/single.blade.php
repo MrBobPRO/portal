@@ -41,17 +41,17 @@
          </div>
 
          <div class="input-container-blocked">
-             <label>Заголовок на русском</label>
+             <label>Заголовок на русском<span class="required">*</span></label>
              <input type="text" name="ruTitle" value="{{ $video->ruTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на таджикском</label>
+               <label>Заголовок на таджикском<span class="required">*</span></label>
                <input type="text" name="tjTitle" value="{{ $video->tjTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на английском</label>
+               <label>Заголовок на английском<span class="required">*</span></label>
                <input type="text" name="enTitle" value="{{ $video->enTitle }}" required>
          </div>
 

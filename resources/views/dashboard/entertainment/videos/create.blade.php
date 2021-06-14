@@ -33,27 +33,27 @@
          </div>
 
          <div class="input-container-blocked">
-            <label>Субтитры. Поддерживаемые форматы (vtt). (Необъязательно заполнять)</label>
+            <label>Субтитры. Поддерживаемые форматы (vtt)</label>
             <input type="file" name="subtitles" accept=".vtt">
          </div>
 
          <div class="input-container-blocked">
-             <label>Заголовок на русском</label>
+             <label>Заголовок на русском<span class="required">*</span></label>
              <input type="text" name="ruTitle" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на таджикском</label>
+               <label>Заголовок на таджикском<span class="required">*</span></label>
                <input type="text" name="tjTitle" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на английском</label>
+               <label>Заголовок на английском<span class="required">*</span></label>
                <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Постер. По умолчанию постером будет нижняя картинка. (Необъязательно заполнять)</label>
+            <label>Постер. По умолчанию постером будет нижняя картинка</label>
             <input type="file" name="poster" accept=".jpg, .png, .jpeg">
             <img class="form-image" src="{{asset('videos/entertainment/posters/default.jpg')}}">
          </div>

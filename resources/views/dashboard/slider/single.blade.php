@@ -9,7 +9,7 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Приоритет</label>
+            <label>Приоритет<span class="required">*</span></label>
             <input type="number" name="priority" value="{{ $item->priority }}" required>
          </div>
 
@@ -19,7 +19,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label>Цвет текста</label>
+            <label>Цвет текста<span class="required">*</span></label>
             <input class="color-picker" type="color" name="color" value="{{ $item->color }}" required>
          </div>
 
@@ -29,7 +29,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label>Картинка (Размер картинки: 960x450)</label>
+            <label>Картинка. Рекомендуемый размер картинки: 960x450</label>
             <input type="file" name="image" accept="image/*">
             <img class="form-image" src="{{asset('img/slider/' . $item->image)}}">
          </div>

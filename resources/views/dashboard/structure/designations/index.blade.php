@@ -44,10 +44,10 @@
                      <div class="modal-body">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{ $designation->id }}" name="id"/>
-                        <label>Позиция
+                        <label>Позиция*
                            <input type="text" value="{{ $designation->name }}" name="name" required>
                         </label>
-                        <label>Приоритет
+                        <label>Приоритет*
                            <input type="number" value="{{ $designation->priority }}" name="priority" required>
                         </label>
                      </div>
@@ -106,10 +106,10 @@
             <form class="form" action="/store_designations" method="POST">
                <div class="modal-body">
                   {{ csrf_field() }}
-                  <label>Позиция
+                  <label>Позиция*
                      <input type="text" name="name" required>
                   </label>
-                  <label>Приоритет
+                  <label>Приоритет*
                      <input type="number" name="priority" required>
                   </label>
                </div>

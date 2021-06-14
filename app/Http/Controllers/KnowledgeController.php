@@ -136,6 +136,10 @@ class KnowledgeController extends Controller
 
     public function videos_store(Request $request)
     {
+        // Return error if user hasnt selected video file
+        if(!$request->file && $request->catalog == '')
+            return 'error';
+
         // check if its video from catalog or uploading new file
         if($request->catalog == '') {
             $from_catalog = false;

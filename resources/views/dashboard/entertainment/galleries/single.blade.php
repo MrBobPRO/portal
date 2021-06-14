@@ -9,22 +9,22 @@
 
          @csrf
          <div class="input-container-blocked">
-            <label>Заголовок на русском</label>
+            <label>Заголовок на русском<span class="required">*</span></label>
             <input type="text" name="ruTitle" value="{{ $gallery->ruTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Заголовок на таджикском</label>
+            <label>Заголовок на таджикском<span class="required">*</span></label>
             <input type="text" name="tjTitle" value="{{ $gallery->tjTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Заголовок на английском</label>
+            <label>Заголовок на английском<span class="required">*</span></label>
             <input type="text" name="enTitle" value="{{ $gallery->enTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Дата</label>
+            <label>Дата<span class="required">*</span></label>
             <input type="date" name="date" value="{{ $gallery->date }}" required>
          </div>
 

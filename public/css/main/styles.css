@@ -102,6 +102,9 @@ section {
 .modal-body {
    min-height: 62px;
 }
+label .required {
+   color:red;
+}
 /* Focus start */
 *:focus {
    outline: none;

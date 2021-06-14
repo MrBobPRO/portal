@@ -19,17 +19,17 @@
         <form id="update_profile" action="/update_profile" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="input-container-inline">
-                <label>Имя</label>
+                <label>Имя<span class="required">*</span></label>
                 <input type="text" name="name" value="{{ $user->name }}" required>
             </div>
 
             <div class="input-container-inline">
-                <label>Фамилия</label>
+                <label>Фамилия<span class="required">*</span></label>
                 <input type="text" name="surname" value="{{ $user->surname }}" required>
             </div>
 
             <div class="input-container-inline">
-                <label>Ник</label>
+                <label>Ник<span class="required">*</span></label>
                 <input type="text"  
                     name="nickname" 
                     value="{{ old('nickname') ? old('nickname') : $user->nickname }}" 
@@ -44,12 +44,12 @@
             </div>
 
             <div class="input-container-inline">
-                <label>День рождения</label>
+                <label>День рождения<span class="required">*</span></label>
                 <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>
             </div>
 
             <div class="input-container-inline">
-                <label>E-mail</label>
+                <label>E-mail<span class="required">*</span></label>
                 <input type="email" ''
                     name="email" 
                     value="{{ old('email') ? old('email') : $user->email }}" 
@@ -96,7 +96,7 @@
             </div>
 
             <div class="input-container-inline">
-                <label>Описание</label>
+                <label>Описание<span class="required">*</span></label>
                 <textarea name="description" rows="5" required>{{ $user->description }}</textarea>
             </div>
 
@@ -108,7 +108,7 @@
         <form id="update_password" onsubmit="ajax_edit_password()">
             @csrf
             <div class="input-container-inline">
-                <label>Старый пароль</label>
+                <label>Старый пароль<span class="required">*</span></label>
                 <div class="input-password-container">
                     <input type="password" name="password" id="password" required>
                     <span class="material-icons-outlined no-selection" id="password-btn" onclick="showHidePassword('password', 'password-btn')">visibility</span>
@@ -117,7 +117,7 @@
             </div>
 
             <div class="input-container-inline">
-                <label>Новый пароль</label>
+                <label>Новый пароль<span class="required">*</span></label>
                 <div class="input-password-container">
                     <input type="password" name="new-password" id="new-password" required>
                     <span class="material-icons-outlined no-selection" id="new-password-btn" onclick="showHidePassword('new-password', 'new-password-btn')">visibility</span>
@@ -126,7 +126,7 @@
             </div>
 
             <div class="input-container-inline">
-                <label>Подтвердите новый пароль</label>
+                <label>Подтвердите новый пароль<span class="required">*</span></label>
                 <div class="input-password-container">
                     <input type="password" name="confirm-password" id="confirm-password" required>
                     <span class="material-icons-outlined no-selection" id="confirm-password-btn" onclick="showHidePassword('confirm-password', 'confirm-password-btn')">visibility</span>

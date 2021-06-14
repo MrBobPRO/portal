@@ -252,14 +252,14 @@ class AdminController extends Controller
                     ->latest()
                     ->paginate(30);
 
-        return view('dashboard.knowledge.books', compact('books', 'allBooks'));
+        return view('dashboard.knowledge.books.index', compact('books', 'allBooks'));
     }
 
     public function knowledge_books_single($id) 
     {
         $book = Book::find($id);
 
-        return view('dashboard.knowledge.books_single', compact('book'));
+        return view('dashboard.knowledge.books.single', compact('book'));
     }
 
     public function knowledge_books_create(Material $material) 
@@ -267,7 +267,7 @@ class AdminController extends Controller
         $subjectcat = Subjectcat::find($material->subjectcat_id);
         $subject = Subject::find($subjectcat->subject_id);
 
-        return view('dashboard.knowledge.books_create', compact('material', 'subjectcat', 'subject'));
+        return view('dashboard.knowledge.books.create', compact('material', 'subjectcat', 'subject'));
     }
 
     public function knowledge_videos() 
@@ -283,7 +283,7 @@ class AdminController extends Controller
                         ->latest() 
                         ->paginate(30);
 
-        return view('dashboard.knowledge.videos', compact('videos', 'allVideos'));
+        return view('dashboard.knowledge.videos.index', compact('videos', 'allVideos'));
     }
 
     public function knowledge_videos_single($id) 
@@ -299,7 +299,7 @@ class AdminController extends Controller
         //sort by name
         sort($files);
 
-        return view('dashboard.knowledge.videos_single', compact('video', 'files'));
+        return view('dashboard.knowledge.videos.single', compact('video', 'files'));
     }
 
     public function knowledge_videos_create(Material $material) 
@@ -316,7 +316,7 @@ class AdminController extends Controller
         //sort by name
         sort($files);
 
-        return view('dashboard.knowledge.videos_create', compact('material', 'subjectcat', 'subject', 'files'));
+        return view('dashboard.knowledge.videos.create', compact('material', 'subjectcat', 'subject', 'files'));
     }
     // -----------------------------------Knowledge end-------------------------------------------
 

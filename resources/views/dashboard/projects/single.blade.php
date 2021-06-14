@@ -9,22 +9,22 @@
 
          @csrf
          <div class="input-container-blocked">
-             <label>Заголовок на русском</label>
+             <label>Заголовок на русском<span class="required">*</span></label>
              <input type="text" name="ruTitle" value="{{ $project->ruTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на таджикском</label>
+               <label>Заголовок на таджикском<span class="required">*</span></label>
                <input type="text" name="tjTitle" value="{{ $project->tjTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-               <label>Заголовок на английском</label>
+               <label>Заголовок на английском<span class="required">*</span></label>
                <input type="text" name="enTitle" value="{{ $project->enTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Статус</label>
+            <label>Статус<span class="required">*</span></label>
             <div class="select2_single_container">
                <select class="select2_single" name="completed" required data-dropdown-css-class="select2_single_dropdown">
                   <option value="1" {{$project->completed ? 'selected' : ''}}>Выполненный проект</option>
@@ -40,21 +40,21 @@
          </div>
 
          <div class="input-container-blocked">
-            <label>Текст на русском</label>
+            <label>Текст на русском<span class="required">*</span></label>
             <div class="simditor_container">
                <textarea class="simditor-wysiwyg" name="ruText" rows="8" required>{{ $project->ruText }}</textarea>
             </div>
          </div>
 
          <div class="input-container-blocked">
-            <label>Текст на таджикском</label>
+            <label>Текст на таджикском<span class="required">*</span></label>
             <div class="simditor_container">
                <textarea class="simditor-wysiwyg" name="tjText" rows="8" required>{{ $project->tjText }}</textarea>
             </div>
          </div>
 
          <div class="input-container-blocked">
-            <label>Текст на английском</label>
+            <label>Текст на английском<span class="required">*</span></label>
             <div class="simditor_container">
                <textarea class="simditor-wysiwyg" name="enText" rows="8" required>{{ $project->enText }}</textarea>
             </div>

@@ -12,7 +12,7 @@
       <form id="update_profile" action="/store_user" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="input-container-inline">
-            <label for="name">Имя</label>
+            <label for="name">Имя<span class="required">*</span></label>
             <input 
                id="name" 
                name="name" 
@@ -24,7 +24,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="surname">Фамилия</label>
+            <label for="surname">Фамилия<span class="required">*</span></label>
             <input 
                id="surname" 
                name="surname" 
@@ -36,7 +36,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="nickname">Ник. Вступает в качестве логина!</label>
+            <label for="nickname">Ник<span class="required">*</span>. Вступает в качестве логина!</label>
             <input 
                id="nickname" 
                name="nickname" 
@@ -52,7 +52,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="birth_date">День рождения</label>
+            <label for="birth_date">День рождения<span class="required">*</span></label>
             <input 
                id="birth_date" 
                type="date" 
@@ -63,7 +63,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="email">E-mail. На эту почту будет отправлено<br> письмо с логином и паролем пользователя!</label>
+            <label for="email">E-mail<span class="required">*</span>. На эту почту будет отправлено<br> письмо с логином и паролем пользователя!</label>
             <input 
                id="email" 
                name="email" 
@@ -79,7 +79,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="dep-name">Отдел</label>
+            <label for="dep-name">Отдел<span class="required">*</span></label>
             {{-- department start --}}
             <div class="department select2_single_container">
                <select 
@@ -100,7 +100,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="designation">Позиция</label>
+            <label for="designation">Позиция<span class="required">*</span></label>
             {{-- designation start --}}
             <div class="designation select2_single_container">
                <select 
@@ -121,7 +121,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="position">Должность</label>
+            <label for="position">Должность<span class="required">*</span></label>
             {{-- position start --}}
             <div class="position select2_single_container">
                <select 

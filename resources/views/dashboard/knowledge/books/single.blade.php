@@ -7,15 +7,20 @@
    <form action="/update_books" method="POST" enctype="multipart/form-data">
       @csrf
       <input type="hidden" name="book_id" value="{{ $book->id }}">
+
       <div class="input-container-blocked">
-         <label>Название книги на русском</label>
-         <input type="text" name="ruTitle" value="{{ $book->ruTitle }}" required>
+         <label>Название книги на русском<span class="required">*</span></label>
+         <input type="text" name="ruTitle" required value="{{ $book->ruTitle }}"> 
+      </div>
 
-         <label> <br> Название книги на таджикском</label>
-         <input type="text" name="tjTitle" value="{{ $book->tjTitle }}" required>
+      <div class="input-container-blocked">
+         <label>Название книги на таджикском<span class="required">*</span></label>
+         <input type="text" name="tjTitle" required value="{{ $book->tjTitle }}"> 
+      </div>
 
-         <label> <br> Название книги на английском</label>
-         <input type="text" name="enTitle" value="{{ $book->enTitle }}" required>
+      <div class="input-container-blocked">
+         <label>Название книги на английском<span class="required">*</span></label>
+         <input type="text" name="enTitle" required value="{{ $book->enTitle }}">
       </div>
 
       <div class="input-container-blocked">

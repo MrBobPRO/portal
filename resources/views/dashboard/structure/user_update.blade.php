@@ -13,17 +13,17 @@
       @csrf
       <input name="user_id" type="hidden" value="{{ $user->id }}">
       <div class="input-container-inline">
-         <label for="name">Имя</label>
+         <label for="name">Имя<span class="required">*</span></label>
          <input id="name" name="name" type="text" value="{{ $user->name }}" required>
       </div>
 
       <div class="input-container-inline">
-         <label for="surname">Фамилия</label>
+         <label for="surname">Фамилия<span class="required">*</span></label>
          <input id="surname" name="surname" type="text" value="{{ $user->surname }}" required>
       </div>
 
       <div class="input-container-inline">
-         <label for="nickname">Ник</label>
+         <label for="nickname">Ник<span class="required">*</span></label>
          <input id="nickname" @error('nickname')style="border-color: red"@enderror name="nickname" type="text" value="{{ old('nickname') ? old('nickname') : $user->nickname }}" required>
          @error('nickname')
             <p style="display: block" class="input-error password-error">Пользователь с таким ником уже существует</p>
@@ -31,12 +31,12 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="birth_date">День рождения</label>
+         <label for="birth_date">День рождения<span class="required">*</span></label>
          <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>
       </div>
 
       <div class="input-container-inline">
-         <label for="email">E-mail</label>
+         <label for="email">E-mail<span class="required">*</span></label>
          <input id="email" @error('email')style="border-color: red"@enderror name="email" type="text" value="{{ old('email') ? old('email') : $user->email }}" required>
          @error('email')
             <p style="display: block" class="input-error password-error">Пользователь с таким email-ом уже существует</p>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="dep-name">Отдел</label>
+         <label for="dep-name">Отдел<span class="required">*</span></label>
          {{-- department start --}}
          <div class="select2_single_container">
             <select name="department_id" class="select2_single" data-dropdown-css-class="select2_single_dropdown">
@@ -57,7 +57,7 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="designation">Позиция</label>
+         <label for="designation">Позиция<span class="required">*</span></label>
          {{-- designation start --}}
          <div class="designation select2_single_container">
             <select name="designation_id" class="select2_single" data-dropdown-css-class="select2_single_dropdown">
@@ -70,7 +70,7 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="position">Должность</label>
+         <label for="position">Должность<span class="required">*</span></label>
          {{-- position start --}}
          <div class="position select2_single_container">
             <select name="position_id" class="select2_single" data-dropdown-css-class="select2_single_dropdown">
@@ -100,7 +100,7 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="description">Описание</label>
+         <label for="description">Описание<span class="required">*</span></label>
          <textarea id="description" name="description" rows="5" required>{{ $user->description }}</textarea>
       </div>
 

@@ -7,7 +7,7 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Приоритет</label>
+            <label>Приоритет<span class="required">*</span></label>
             <input type="number" name="priority" required>
          </div>
 
@@ -17,7 +17,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label>Цвет текста</label>
+            <label>Цвет текста<span class="required">*</span></label>
             <input class="color-picker" type="color" name="color" required>
          </div>
 
@@ -27,7 +27,7 @@
          </div>
 
          <div class="input-container-inline">
-            <label>Картинка</label>
+            <label>Картинка. Рекомендуемый размер картинки: 960x450</label>
             <input type="file" name="image" accept="image/*">
          </div>
 

@@ -7,7 +7,7 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Текст</label>
+            <label>Текст<span class="required">*</span></label>
             <textarea name="text" rows="5" required></textarea>
          </div>
 

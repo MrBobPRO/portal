@@ -33,9 +33,10 @@
             <a class="@if($route == 'dashboard.ads.index' || $route == 'dashboard.ads.single' || $route == 'dashboard.ads.create') active @endif"
             href="{{ route('dashboard.ads.index') }}"><span class="material-icons-outlined">new_releases</span>{{ __('Объявление') }}</a>
 
+            <?php $newComplaintsCount = App\Models\Complaint::where('new', true)->count(); ?>
             <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
                href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы
-               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif   
+               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif
             </a>
 
             <a class="@if($route == 'dashboard.questionnaire.index' || $route == 'dashboard.questionnaire.single' || $route == 'dashboard.questionnaire.create') active @endif"

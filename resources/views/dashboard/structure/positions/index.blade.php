@@ -44,7 +44,7 @@
                         <div class="modal-body">
                            {{ csrf_field() }}
                            <input type="hidden" value="{{ $position->id }}" name="id"/>
-                           <label>Должность
+                           <label>Должность*
                               <input type="text" value="{{ $position->name }}" name="name" required>
                            </label>
                         </div>
@@ -103,7 +103,7 @@
             <form class="form" action="/store_positions" method="POST">
                <div class="modal-body">
                   {{ csrf_field() }}
-                  <label>Должность
+                  <label>Должность*
                      <input type="text" name="name" required>
                   </label>
                </div>

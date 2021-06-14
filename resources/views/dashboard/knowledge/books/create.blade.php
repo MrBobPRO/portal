@@ -11,16 +11,22 @@
          <input type="hidden" name="ruCategory" value="{{ $material->name }}">
 
          <div class="input-container-blocked">
-            <label>Название книги на русском</label>
+            <label>Название книги на русском<span class="required">*</span></label>
             <input type="text" name="ruTitle" required> 
-            <label> <br> Название книги на таджикском</label>
+         </div>
+
+         <div class="input-container-blocked">
+            <label>Название книги на таджикском<span class="required">*</span></label>
             <input type="text" name="tjTitle" required> 
-            <label> <br> Название книги на английском</label>
+         </div>
+
+         <div class="input-container-blocked">
+            <label>Название книги на английском<span class="required">*</span></label>
             <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Файл</label>
+            <label>Файл<span class="required">*</span></label>
             <input type="file" name="upload_file" accept=".pdf" required>
          </div>
 

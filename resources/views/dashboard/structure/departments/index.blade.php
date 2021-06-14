@@ -44,10 +44,10 @@
                      <div class="modal-body">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{ $department->id }}" name="id"/>
-                        <label>Отдел
+                        <label>Отдел*
                            <input type="text" value="{{ $department->name }}" name="name" required>
                         </label>
-                        <label>Приоритет
+                        <label>Приоритет*
                            <input type="number" value="{{ $department->priority }}" name="priority" required>
                         </label>
                      </div>
@@ -106,10 +106,10 @@
             <form class="form" action="/store_departments" method="POST">
                <div class="modal-body">
                   {{ csrf_field() }}
-                  <label>Отдел
+                  <label>Отдел*
                      <input type="text" name="name" required>
                   </label>
-                  <label>Приоритет
+                  <label>Приоритет*
                      <input type="number" name="priority" required>
                   </label>
                </div>

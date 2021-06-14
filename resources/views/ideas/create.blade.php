@@ -16,12 +16,12 @@
          @csrf
 
          <div class="input-container-blocked">
-            <label>Заголовок</label>
+            <label>Заголовок<span class="required">*</span></label>
             <input type="text" name="title" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Текст</label>
+            <label>Текст<span class="required">*</span></label>
             <textarea class="simditor-wysiwyg" name="text" rows="5" required></textarea>
         </div>
 

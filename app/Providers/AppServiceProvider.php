@@ -40,11 +40,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('route', \Route::currentRouteName());
         });
 
-        //share with dashboard complaints counts
-        view()->composer('templates.dashboard', function ($view) {
-            $view->with('newComplaintsCount', Complaint::where('new', true)->count());
-        });
-
         //share notifications count with toolbar
         view()->composer('templates.toolbar', function ($view) {
             $view->with('notificationsCount', Notification::where('new', true)
