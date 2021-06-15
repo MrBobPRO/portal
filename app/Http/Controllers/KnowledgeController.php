@@ -8,6 +8,8 @@ use App\Models\Subject;
 use App\Models\Subjectcat;
 use App\Models\Material;
 use App\Models\Video;
+use Illuminate\Support\Facades\App;
+
 class KnowledgeController extends Controller
 {
 
@@ -27,8 +29,12 @@ class KnowledgeController extends Controller
     }
 
     public function books(Material $material) {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
         $books = Book::where('material_id', $material->id)
                     ->where('category', $material->category)
+                    ->select('books.id', 'books.' . $title . ' as title')
                     ->paginate(30);
 
         //used in breadcrumbs       
@@ -54,9 +60,13 @@ class KnowledgeController extends Controller
     }
 
     public function videos($id) {
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+
         $material = Material::find($id);
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)
+                        ->select('videos.poster', 'videos.from_catalog', 'videos.filename', 'videos.subtitles', 'videos.' . $title . ' as title')
                         ->paginate(16);
         
         //used in breadcrumbs       

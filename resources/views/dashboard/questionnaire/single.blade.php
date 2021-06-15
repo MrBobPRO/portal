@@ -9,35 +9,35 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Текст<span class="required">*</span></label>
+            <label>{{__('Текст')}}<span class="required">*</span></label>
             <textarea name="text" rows="5" required>{{ $question->text }}</textarea>
          </div>
 
          <div class="input-container-inline">
-            <label>Приватность</label>
+            <label>{{__('Приватность')}}</label>
 
             <div class="checkbox-container">
                <input type="checkbox" id="private" name="private" value="1" {{$question->private ? 'checked' : ''}}>
-               <label class="no-selection" for="private">Приватный опрос</label>
+               <label class="no-selection" for="private">{{__('Приватный опрос')}}</label>
             </div>
          </div>
 
          <div class="spaced-btw-btns">
-            <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> Удалить</button>
-            <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+            <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
+            <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Сохранить изменения')}}</button>
          </div>
 
      </form>
 
      <div class="variants-list">
-         <h2 class="title-seperator">Варианты</h2>
+         <h2 class="title-seperator">{{__('Варианты')}}</h2>
 
          <form action="/store_options" method="POST" class="store-form">
             @csrf
             <input type="hidden" value="{{$question->id}}" name="question_id">
             <input name="text" type="text" placeholder="Добавить новый вариант" required>
 
-            <button class="main-btn" type="submit">Добавить</button>
+            <button class="main-btn" type="submit">{{__('Добавить')}}</button>
          </form>
 
          @foreach ($question->options as $opt)
@@ -47,13 +47,13 @@
                   <input type="hidden" value="{{$opt->id}}" name="id">
                   <input name="text" required value="{{ $opt->text }}">
    
-                  <button class="main-btn" type="submit">Изменить</button>
+                  <button class="main-btn" type="submit">{{__('Изменить')}}</button>
                </form>
 
                <form action="/remove_options" method="POST" class="delete-form">
                   @csrf
                   <input type="hidden" value="{{$opt->id}}" name="id">
-                  <button class="main-btn delete-btn" type="submit">Удалить</button>
+                  <button class="main-btn delete-btn" type="submit">{{__('Удалить')}}</button>
                </form>
             </div>
 

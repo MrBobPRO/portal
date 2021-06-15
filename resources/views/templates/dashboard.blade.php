@@ -21,10 +21,10 @@
          <a class="{{$route == 'dashboard.settings.index' ? 'active' : ''}}" href="{{ route('dashboard.settings.index') }}"><span class="material-icons-outlined">drive_file_rename_outline</span>{{ __('Настройки') }}</a>
 
          <a class="@if($route == 'dashboard.users.index' || $route == 'dashboard.users.single') active @endif"
-          href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>Сотрудники</a>
+          href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>{{__('Сотрудники')}}</a>
 
           <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
-          href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>Идеи</a>
+          href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>{{__('Идеи')}}</a>
 
          {{-- Admin links tart --}}
          @if($appUser->role == 'admin')
@@ -35,7 +35,7 @@
 
             <?php $newComplaintsCount = App\Models\Complaint::where('new', true)->count(); ?>
             <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
-               href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы
+               href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>{{__('Жалобы')}}
                @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif
             </a>
 
@@ -73,10 +73,10 @@
             href="{{ route('dashboard.videos.index') }}"><span class="material-icons-outlined">videocam</span>{{ __('Видео') }}</a>
 
             <a class="@if($route == 'dashboard.galleries.index' || $route == 'dashboard.galleries.single' || $route == 'dashboard.galleries.create') active @endif"
-            href="{{ route('dashboard.galleries.index') }}"><span class="material-icons-outlined">image</span>Галерея</a>
+            href="{{ route('dashboard.galleries.index') }}"><span class="material-icons-outlined">image</span>{{__('Галерея')}}</a>
 
             <a class="@if($route == 'dashboard.translations.index' || $route == 'dashboard.translations.single') active @endif"
-            href="{{ route('dashboard.translations.index') }}"><span class="material-icons-outlined">translate</span>Переводы</a>
+            href="{{ route('dashboard.translations.index') }}"><span class="material-icons-outlined">translate</span>{{__('Переводы')}}</a>
 
          @endif {{-- Admin links end --}}
 

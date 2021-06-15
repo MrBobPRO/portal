@@ -9,7 +9,7 @@
 
          @foreach ($books as $book)
             <div class="books-list-item">
-               <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank"> {{ $book->ruTitle }} </a>
+               <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank"> {{ $book->title }} </a>
    
                <form action="/books/download" method="POST">
                   @csrf

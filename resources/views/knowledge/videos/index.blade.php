@@ -22,7 +22,7 @@
                </video>
                
                <div class="video-description">
-                  <p>{{$video->ruTitle}}</p>
+                  <p>{{$video->title}}</p>
                   <span>
                      <?php 
                         $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');

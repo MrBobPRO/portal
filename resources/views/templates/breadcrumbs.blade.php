@@ -30,7 +30,7 @@
          @else
             <a href="{{ route('news.inner') }}"><span>{{ __('Новости компании') }}</span></a>
          @endif
-         <a href="{{ route('news.single', $news->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         <a href="{{ route('news.single', $news->id) }}"><span>{{ $news->title }}</span></a>
       @break
 
 
@@ -74,7 +74,7 @@
          @else
             <a href="{{ route('projects.ongoing') }}"><span>{{ __('Действующие проекты') }}</span></a>
          @endif
-         <a href="{{ route('projects.single', $project->id) }}"><span>{{ $crumbsTitle }}</span></a>
+         <a href="{{ route('projects.single', $project->id) }}"><span>{{ $project->title }}</span></a>
       @break
          
       @case('projects.completed')
@@ -95,7 +95,7 @@
 
       @case('knowledge.videos.index')
          <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-         <a href="{{ route('knowledge.videos.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
+         <a href="{{ route('knowledge.videos.index', $material->id) }}"><span>{{__($subject->name)}} / {{__($subjectcat->name)}} / {{__($material->name)}}</span></a>
       @break
 
       @case('knowledge.videos.single')
@@ -105,7 +105,7 @@
 
       @case('knowledge.books.index')
          <a href="{{ route('knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-         <a href="{{ route('knowledge.books.index', $material->id) }}"><span>{{$subject->name}} / {{$subjectcat->name}} / {{$material->name}}</span></a>
+         <a href="{{ route('knowledge.books.index', $material->id) }}"><span>{{__($subject->name)}} / {{__($subjectcat->name)}} / {{__($material->name)}}</span></a>
       @break
 
 

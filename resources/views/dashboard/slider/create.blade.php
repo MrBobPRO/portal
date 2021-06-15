@@ -7,31 +7,31 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Приоритет<span class="required">*</span></label>
+            <label>{{__('Приоритет')}}<span class="required">*</span></label>
             <input type="number" name="priority" required>
          </div>
 
          <div class="input-container-inline">
-            <label>Текст</label>
+            <label>{{__('Текст')}}</label>
             <input type="text" name="title">
          </div>
 
          <div class="input-container-inline">
-            <label>Цвет текста<span class="required">*</span></label>
+            <label>{{__('Цвет текста')}}<span class="required">*</span></label>
             <input class="color-picker" type="color" name="color" required>
          </div>
 
          <div class="input-container-inline">
-            <label>Ссылка</label>
+            <label>{{__('Ссылка')}}</label>
             <input type="text" name="url">
          </div>
 
          <div class="input-container-inline">
-            <label>Картинка. Рекомендуемый размер картинки: 960x450</label>
+            <label>{{__('Картинка')}}. {{__('Рекомендуемый размер картинки')}}: 960x450</label>
             <input type="file" name="image" accept="image/*">
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Добавить')}}</button>
      </form>
    </section>
 

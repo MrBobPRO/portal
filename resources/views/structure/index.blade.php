@@ -21,7 +21,7 @@
             {{-- Used to hide departments without users --}}
             @if(count($users) > 0)
                <div class="departments-list-item">
-                  <h2><span class="material-icons-outlined">arrow_right</span> {{$department->name}}</h2>
+                  <h2><span class="material-icons-outlined">arrow_right</span> {{__($department->name)}}</h2>
                   {{-- Users list item start --}}
                   <div class="users-list">
 
@@ -30,8 +30,8 @@
                            <img src="{{ asset('img/users/' . $u->avatar) }}">
                            <div>
                               <h6>{{$u->userName . ' ' . $u->surname}}</h6>
-                              <p>{{$u->designationName}}</p>
-                              <span>{{$u->positionName}}</span>
+                              <p>{{__($u->designationName)}}</p>
+                              <span>{{__($u->positionName)}}</span>
                            </div>
                         </a>
                      @endforeach
