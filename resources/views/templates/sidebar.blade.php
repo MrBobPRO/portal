@@ -4,7 +4,7 @@
    {{-- Sidebar Ads start --}}
    @if(count($ads))
    <div class="sidebar-ads">
-      <h1>Объявление
+      <h1>{{__('Объявление')}}
          <span class="material-icons-outlined">new_releases</span>
       </h1>
       @foreach ($ads as $ad)
@@ -16,7 +16,7 @@
 
    {{-- Sidebar News start --}}
    <div class="sidebar-news">
-      <h1>Последние новости
+      <h1>{{__('Последние новости')}}
          <span class="material-icons-outlined">article</span>
       </h1>
 
@@ -67,14 +67,14 @@
 
    @if($totalBDsCount > 0)
       <div class="birthdays">
-         <h1>День рождении
+         <h1>{{__('День рождении')}}
             <span class="material-icons-outlined">star</span>
          </h1>
          
          @foreach ($todayBDs as $usser)
             <div class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>Сегодня</span>
+               <span>{{__('Сегодня')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
             </div>
          @endforeach
@@ -82,7 +82,7 @@
          @foreach ($tomorrowBDs as $usser)
             <div class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>Завтра</span>
+               <span>{{__('Завтра')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
             </div>
          @endforeach
@@ -90,7 +90,7 @@
          @foreach ($afterTomorrowBDs as $usser)
             <div class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>После завтра</span>
+               <span>{{__('После завтра')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
             </div>
          @endforeach

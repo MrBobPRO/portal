@@ -5,21 +5,21 @@
 <section class="single-complaints-page formed-page">
 
    <div class="input-container-inline">
-      <label>Автор</label>
+      <label>{{__('Автор')}}</label>
       <div class="value-replacer">
          {{$complaint->user->name}} {{$complaint->user->surname}}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Заголовок</label>
+      <label>{{__('Заголовок')}}</label>
       <div class="value-replacer">
          {{ $complaint->title }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Текст</label>
+      <label>{{__('Текст')}}</label>
       <div class="value-replacer">
          {{ $complaint->text }}
       </div>
@@ -31,7 +31,7 @@
             <form action="/complaints/download_file" method="POST" class="inlined-form-inside-label">
                @csrf
                <input type="hidden" name="file" value="{{$complaint->file}}">
-               <button type="submit">Скачать прикреплённый файл</button>
+               <button type="submit">{{__('Скачать прикреплённый файл')}}</button>
             </form>
          </label>
          <div class="value-replacer">
@@ -41,7 +41,7 @@
    @endif
 
    <div class="input-container-inline">
-      <label>Дата</label>
+      <label>{{__('Дата')}}</label>
       <div class="value-replacer">
          <?php 
             $date = \Carbon\Carbon::parse($complaint->created_at)->locale('ru');
@@ -56,11 +56,11 @@
          @csrf
          <input type="hidden" value="{{$complaint->id}}" name="id">
             <div class="input-container-inline">
-               <label>Ответ администрации</label>
+               <label>{{__('Ответ администрации')}}</label>
                <textarea name="response" rows="5" required></textarea>
             </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">send</span> Ответить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">send</span> {{__('Ответить')}}</button>
       </form>
    @else
       <div class="input-container-inline">

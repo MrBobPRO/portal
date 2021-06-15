@@ -244,11 +244,13 @@ class AdminController extends Controller
 
     public function knowledge_books() 
     {
-        $allBooks = Book::select('books.id', 'books.ruTitle') 
-                        ->orderBy('ruTitle', 'asc')
+        $title = App::currentLocale() . 'Title';
+
+        $allBooks = Book::select('books.id', 'books.' . $title . ' as title') 
+                        ->orderBy('title', 'asc')
                         ->get();
 
-        $books = Book::select('books.id', 'books.ruTitle', 'books.ruCategory', 'books.created_at')
+        $books = Book::select('books.id', 'books.' . $title . ' as title', 'books.ruCategory', 'books.created_at')
                     ->latest()
                     ->paginate(30);
 
@@ -257,7 +259,11 @@ class AdminController extends Controller
 
     public function knowledge_books_single($id) 
     {
-        $book = Book::find($id);
+        $title = App::currentLocale() . 'Title';
+
+        $book = Book::where('id', $id)
+                    ->select('books.id', 'books.' . $title . ' as title', 'books.ruTitle', 'books.tjTitle', 'books.enTitle')
+                    ->first();
 
         return view('dashboard.knowledge.books.single', compact('book'));
     }

@@ -7,63 +7,25 @@
 
       {{-- Projects content start --}}
       <div class="projects-content">
-         @switch(\App::currentLocale())
-            @case('ru')
-            <h3>{{$project->ruTitle}}</h3>
-            <img src="{{ asset('img/projects/' . $project->image) }}">
-            <div class="projects-content-text">{!!$project->ruText!!}</div>
-            <div class="project-date">
-               <span class="material-icons-outlined">event</span>
-               <?php 
-                  $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                  $formatted = $date->isoFormat('DD MMMM YYYY');
-               ?>
-               {{$formatted}}
-            </div>
-            @break
-
-            @case('tj')
-               <h3>{{$project->tjTitle}}</h3>
-               <img src="{{ asset('img/projects/' . $project->image) }}">
-               <div class="projects-content-text">{!!$project->tjText!!}</div>
-               <div class="project-date">
-                  <span class="material-icons-outlined">event</span>
-                  <?php 
-                     $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
-                     $formatted = $date->isoFormat('DD.MM.YYYY');
-                  ?>
-                  {{$formatted}}
-               </div>
-            @break
-
-            @case('en')
-               <h3>{{$project->enTitle}}</h3>
-               <img src="{{ asset('img/projects/' . $project->image) }}">
-               <div class="projects-content-text">{!!$project->enText!!}</div>
-               <div class="project-date">
-                  <span class="material-icons-outlined">event</span>
-                  <?php 
-                     $date = \Carbon\Carbon::parse($project->created_at)->locale('en');
-                     $formatted = $date->isoFormat('DD MMMM YYYY');
-                  ?>
-                  {{$formatted}}
-               </div>
-            @break
-
-         @endswitch
-
+         <h3>{{$project->title}}</h3>
+         <img src="{{ asset('img/projects/' . $project->image) }}">
+         <div class="projects-content-text">{!!$project->text!!}</div>
+         <div class="project-date">
+            <span class="material-icons-outlined">event</span>
+            
+         </div>
       </div>
       {{-- Projects content end --}}
 
       {{-- Comments start --}}
       <div class="comments-container">
-         <h3>Коментарии ({{$commentsCount}})</h3>
+         <h3>{{__('Коментарии')}} ({{$commentsCount}})</h3>
 
          <form action="/projects/comment" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$project->id}}">
             <img src="{{ asset('img/users/' . \Auth::user()->avatar) }}">
-            <input type="text" name="body" placeholder="Напишите коментарий..." autocomplete="off" required/>
+            <input type="text" name="body" placeholder="{{__('Напишите коментарий')}} ..." autocomplete="off" required/>
             <button type="submit"><span class="material-icons" title="Отправить">send</span></button>
          </form>
 

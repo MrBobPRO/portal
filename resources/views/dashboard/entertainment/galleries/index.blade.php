@@ -9,7 +9,7 @@
       <div class="dash-search-container">
          {{-- Galleries seach start --}}
          <div class="select2_single_container">
-            <select class="select2_single select2_single_linked" data-placeholder="Поиск галерей..." data-dropdown-css-class="select2_single_dropdown">
+            <select class="select2_single select2_single_linked" data-placeholder="{{__('Поиск галерей')}}..." data-dropdown-css-class="select2_single_dropdown">
                <option></option>
                @foreach($allGalleries as $gal)
                   <option value="{{ route('dashboard.galleries.single', $gal->id)}}">{{$gal->title}}</option>   
@@ -21,8 +21,8 @@
 
       
       <div class="primary-list-titles">
-         <div class="width-50">Заголовок</div>
-         <div class="width-50">Дата</div>
+         <div class="width-50">{{__('Заголовок')}}</div>
+         <div class="width-50">{{__('Дата')}}</div>
       </div>
 
       <div class="primary-list">
@@ -31,7 +31,7 @@
                <div class="width-50">{{$gallery->title}}</div>
                <div class="width-50">
                   <?php 
-                     $d = \Carbon\Carbon::parse($gallery->date)->locale('ru');
+                     $d = \Carbon\Carbon::parse($gallery->date);
                      $formatted = $d->isoFormat('DD MMMM YYYY');
                   ?>
                   {{$formatted}}

@@ -7,9 +7,9 @@
       <a class="add-button" href="{{route('dashboard.questionnaire.create')}}"><span class="material-icons-outlined">add</span></a>
 
       <div class="primary-list-titles">
-         <div class="width-33">Текст</div>
-         <div class="width-33">Дата добавления</div>
-         <div class="width-33">Приватность</div>
+         <div class="width-33">{{__('Текст')}}</div>
+         <div class="width-33">{{__('Дата добавления')}}</div>
+         <div class="width-33">{{__('Приватность')}}</div>
       </div>
 
       <div class="primary-list">
@@ -23,7 +23,13 @@
                   ?>
                   {{$formatted}}
                </div>
-               <div class="width-33">{{$qs->private ? 'Приватный' : 'Публичный'}}</div>
+               <div class="width-33">
+                  @if ($qs->private)
+                     {{__('Приватный')}}
+                  @else
+                     {{__('Публичный')}}
+                  @endif
+               </div>
             </a>
          @endforeach
       </div>

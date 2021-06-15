@@ -7,55 +7,19 @@
 
       {{-- News content start --}}
       <div class="news-content">
-         @switch(\App::currentLocale())
-            @case('ru')
-               <h3>{{$news->ruTitle}}</h3>
-               @if ($news->video != '')
-                  <div class="single-video">
-                     {{-- Custom id used in js --}}
-                     <video class="plyr" playsinline controls id="player0"
-                        data-poster="/img/news/{{$news->image}}">
-                        <source src="/videos/news/{{$news->video}}"/>
-                     </video>
-                  </div>
-               @else
-                  <img src="{{ asset('img/news/'. $news->image) }}">
-               @endif
-               <div class="news-content-text">{!!$news->ruText!!}</div>
-            @break
-
-            @case('tj')
-               <h3>{{$news->tjTitle}}</h3>
-               @if ($news->video != 'null')
-                  <div class="single-video">
-                     {{-- Custom id used in js --}}
-                     <video class="plyr" playsinline controls id="player0"
-                        data-poster="/img/news/{{$news->image}}">
-                        <source src="/videos/news/{{$news->video}}"/>
-                     </video>
-                  </div>
-               @else
-                  <img src="{{ asset('img/news/'. $news->image) }}">
-               @endif
-               <div class="news-content-text">{!!$news->tjText!!}</div>
-            @break
-
-            @case('en')
-               <h3>{{$news->enTitle}}</h3>
-               @if ($news->video != 'null')
-                  <div class="single-video">
-                     {{-- Custom id used in js --}}
-                     <video class="plyr" playsinline controls id="player0"
-                        data-poster="/img/news/{{$news->image}}">
-                        <source src="/videos/news/{{$news->video}}"/>
-                     </video>
-                  </div>
-               @else
-                  <img src="{{ asset('img/news/'. $news->image) }}">
-               @endif
-               <div class="news-content-text">{!!$news->enText!!}</div>
-            @break
-         @endswitch
+         <h3>{{$news->title}}</h3>
+         @if ($news->video != 'null')
+            <div class="single-video">
+               {{-- Custom id used in js --}}
+               <video class="plyr" playsinline controls id="player0"
+                  data-poster="/img/news/{{$news->image}}">
+                  <source src="/videos/news/{{$news->video}}"/>
+               </video>
+            </div>
+         @else
+            <img src="{{ asset('img/news/'. $news->image) }}">
+         @endif
+         <div class="news-content-text">{!!$news->text!!}</div>
 
          <div class="grades-container">
             <div class="news-content-date">
@@ -102,13 +66,13 @@
 
       {{-- Comments start --}}
       <div class="comments-container">
-         <h3>Коментарии ({{$commentsCount}})</h3>
+         <h3>{{__('Коментарии')}} ({{$commentsCount}})</h3>
 
          <form action="/news/comment" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$news->id}}">
             <img src="{{ asset('img/users/' . \Auth::user()->avatar) }}">
-            <input type="text" name="body" placeholder="Напишите коментарий..." autocomplete="off" required/>
+            <input type="text" name="body" placeholder="{{__('Напишите коментарий')}} ..." autocomplete="off" required/>
             <button type="submit"><span class="material-icons" title="Отправить">send</span></button>
          </form>
 

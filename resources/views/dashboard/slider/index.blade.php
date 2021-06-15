@@ -7,9 +7,9 @@
       <a class="add-button" href="{{route('dashboard.slider.create')}}"><span class="material-icons-outlined">add</span></a>
       
       <div class="primary-list-titles">
-         <div class="width-33">Приоритет</div>
-         <div class="width-33">Текст</div>
-         <div class="width-33">Ссылка</div>
+         <div class="width-33">{{__('Приоритет')}}</div>
+         <div class="width-33">{{__('Текст')}}</div>
+         <div class="width-33">{{__('Ссылка')}}</div>
       </div>
 
       <div class="primary-list">
