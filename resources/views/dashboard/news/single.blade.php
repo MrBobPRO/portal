@@ -9,38 +9,22 @@
 
          @csrf
          <div class="input-container-blocked">
-<<<<<<< HEAD
-             <label>Заголовок на русском<span class="required">*</span></label>
-=======
-             <label>{{__('Заголовок на русском')}}</label>
->>>>>>> development
+             <label>{{__('Заголовок на русском')}}<span class="required">*</span></label>
              <input type="text" name="ruTitle" value="{{ $news->ruTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-<<<<<<< HEAD
-               <label>Заголовок на таджикском<span class="required">*</span></label>
-=======
-               <label>{{__('Заголовок на таджикском')}}</label>
->>>>>>> development
+               <label>{{__('Заголовок на таджикском')}}<span class="required">*</span></label>
                <input type="text" name="tjTitle" value="{{ $news->tjTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-<<<<<<< HEAD
-               <label>Заголовок на английском<span class="required">*</span></label>
-=======
-               <label>{{__('Заголовок на английском')}}</label>
->>>>>>> development
+               <label>{{__('Заголовок на английском')}}<span class="required">*</span></label>
                <input type="text" name="enTitle" value="{{ $news->enTitle }}" required>
          </div>
 
          <div class="input-container-blocked">
-<<<<<<< HEAD
-            <label>Тип<span class="required">*</span></label>
-=======
-            <label>{{__('Тип')}}</label>
->>>>>>> development
+            <label>{{__('Тип')}}<span class="required">*</span></label>
             <div class="select2_single_container">
                <select class="select2_single" name="global" required data-dropdown-css-class="select2_single_dropdown">
                   <option value="1" {{$news->global ? 'selected' : ''}}>{{__('Мировые новости')}}</option>
@@ -56,15 +40,12 @@
          </div>
 
          <div class="input-container-blocked">
-<<<<<<< HEAD
-            <label>Видео. Поддерживаемые форматы (mp4, webm, ogg).
+            <label>{{__('Видео')}}. {{__('Поддерживаемые форматы')}} (mp4, webm, ogg)
                @if($news->video != '')
                   <a href="javascript:void(0)" onclick="document.getElementById('delete_news_video').submit()"> Удалить видео</a>
                @endif
             </label>
-=======
-            <label>{{__('Файл')}}. {{__('Поддерживаемые форматы')}} (mp4, webm, ogg)</label>
->>>>>>> development
+
             <input type="file" name="video" id="file" accept=".mp4, .webm, .ogg">
             @if($news->video != '')
                <video width="400" height="240" controls>

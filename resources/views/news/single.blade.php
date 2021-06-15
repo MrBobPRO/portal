@@ -8,7 +8,7 @@
       {{-- News content start --}}
       <div class="news-content">
          <h3>{{$news->title}}</h3>
-         @if ($news->video != 'null')
+         @if ($news->video != '')
             <div class="single-video">
                {{-- Custom id used in js --}}
                <video class="plyr" playsinline controls id="player0"
