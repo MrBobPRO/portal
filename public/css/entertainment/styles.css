@@ -15,6 +15,7 @@ img {
 }
 .wrapper a img {
    transition: 0.3s;
+   width: 100%;
 }
 .wrapper a:hover img {
    transform: scale(1.2);

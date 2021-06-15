@@ -1,0 +1,79 @@
+@media screen and (max-width: 1500px) {
+   body {
+      font-size: 15px;
+   }
+   p {
+      font-size: 15px;
+   }
+   .text-block {
+      margin: 30px 0;
+   }
+   /* Toolbar start */
+   .toolbar {
+      padding: 12px 30px 8px;
+   }
+   .toolbar-right {
+      margin-left: 150px;
+   }
+   .search-form input {
+      width: 450px;
+      font-size: 15px;
+   }
+   .lang-dropdown ul {
+      min-width: 100px;
+   }
+   /* Toolbar end */
+   
+   /* Dashboard start */
+   .dashboard-btn .dash-toogler {
+      margin-left: 25px;
+   }
+   .dashboard .profile-ava {
+      padding: 0 18px 15px;
+      margin-top: 20px;
+   }
+   .dashboard .profile-ava a {
+      font-size: 15px;
+   }
+   .dashboard .dash-links {
+      padding: 15px 15px 0;
+   }
+   .dashboard .dash-links a {
+      font-size: 14px;
+      padding: 8px 14px;
+   }
+   /* Dashboard end */
+
+   /* Navbar start */
+   .navbar li a {
+      font-size: 14px;
+      padding: 21px 20px 16px;
+   }
+   /* Navbar end */
+
+   /* Content start */
+   main {
+      width: calc(100% - 60px);
+      padding: 30px 0;
+   }
+   .content {
+      padding-right: 30px;
+      width: calc(100% - 300px);
+   }
+   section {
+      margin-top: 30px;
+   }
+   /* Content end */
+
+   /* Sidebar start */
+   #sidebar {
+      width: 300px;
+   }
+   .sidebar-news, .sidebar-ads {
+      margin-bottom: 30px;
+   }
+   .sidebar-single-news h4 {
+      font-size: 15px;
+   }
+   /* Sidebar end */
+}

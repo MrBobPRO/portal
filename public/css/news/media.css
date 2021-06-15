@@ -1,0 +1,32 @@
+@media screen and (max-width: 1500px) {
+   /* Main page & categories start */
+   .wrapper {
+      margin-bottom: 30px;
+   }
+   .wrapper a {
+      width: calc(50% - 15px);
+   }
+   .single-news h3 {
+      font-size: 16px;
+   }
+   .single-news {
+      margin-bottom: 30px;
+   }
+   .latest-news {
+      padding: 30px;
+   }
+   /* Main page & categories end */
+
+   /* Single news page start */
+   .news-content h3 {
+      font-size: 17px;
+   }
+   .comments-container h3 {
+      font-size: 17px;
+   }
+   .single-comment h6 {
+      font-size: 15px;
+   }
+   /* Single news page end */
+
+}

@@ -1,0 +1,5 @@
+@media screen and (max-width: 1500px) {
+   .home-page, .owl-carousel-container {
+      margin-top: 10px;
+   }
+}
