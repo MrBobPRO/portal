@@ -35,13 +35,8 @@
 
             <?php $newComplaintsCount = App\Models\Complaint::where('new', true)->count(); ?>
             <a class="@if($route == 'dashboard.complaints.index' || $route == 'dashboard.complaints.single') active @endif"
-<<<<<<< HEAD
-               href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>Жалобы
-               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif
-=======
                href="{{ route('dashboard.complaints.index') }}"><span class="material-icons-outlined">sentiment_dissatisfied</span>{{__('Жалобы')}}
-               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif   
->>>>>>> development
+               @if($newComplaintsCount > 0) ({{$newComplaintsCount}}) @endif
             </a>
 
             <a class="@if($route == 'dashboard.questionnaire.index' || $route == 'dashboard.questionnaire.single' || $route == 'dashboard.questionnaire.create') active @endif"
