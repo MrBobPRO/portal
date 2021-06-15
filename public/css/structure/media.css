@@ -2,6 +2,9 @@
    .departments-list-item h2 {
       font-size: 16px;
    }
+   .departments-list-item {
+      margin-bottom: 30px;
+   }
    .users-list-item h6 {
       font-size: 15px;
    }
