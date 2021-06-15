@@ -7,11 +7,11 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Текст</label>
+            <label>{{__('Текст')}}</label>
             <textarea name="text" rows="5" required></textarea>
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Добавить')}}</button>
      </form>
    </section>
 

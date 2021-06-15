@@ -11,20 +11,20 @@
          <input type="hidden" name="ruCategory" value="{{ $material->name }}">
 
          <div class="input-container-blocked">
-            <label>Название книги на русском</label>
+            <label>{{__('Название книги на русском')}}</label>
             <input type="text" name="ruTitle" required> 
-            <label> <br> Название книги на таджикском</label>
+            <label> <br> {{__('Название книги на таджикском')}}</label>
             <input type="text" name="tjTitle" required> 
-            <label> <br> Название книги на английском</label>
+            <label> <br> {{__('Название книги на английском')}}</label>
             <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Файл</label>
+            <label>{{__('Файл')}}</label>
             <input type="file" name="upload_file" accept=".pdf" required>
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> {{__('Добавить')}}</button>
 
      </form>
 

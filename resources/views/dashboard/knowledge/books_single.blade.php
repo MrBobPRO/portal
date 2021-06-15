@@ -8,24 +8,24 @@
       @csrf
       <input type="hidden" name="book_id" value="{{ $book->id }}">
       <div class="input-container-blocked">
-         <label>Название книги на русском</label>
+         <label>{{__('Название книги на русском')}}</label>
          <input type="text" name="ruTitle" value="{{ $book->ruTitle }}" required>
 
-         <label> <br> Название книги на таджикском</label>
+         <label> <br> {{__('Название книги на таджикском')}}</label>
          <input type="text" name="tjTitle" value="{{ $book->tjTitle }}" required>
 
-         <label> <br> Название книги на английском</label>
+         <label> <br> {{__('Название книги на английском')}}</label>
          <input type="text" name="enTitle" value="{{ $book->enTitle }}" required>
       </div>
 
       <div class="input-container-blocked">
-         <label>Изменить файл / <a href="{{ route('knowledge.books.single', $book->id) }}" target="_blank">Посмотреть книгу</a></label>
+         <label>{{__('Изменить файл')}} / <a href="{{ route('knowledge.books.single', $book->id) }}" target="_blank">{{__('Посмотреть книгу')}}</a></label>
          <input type="file" name="file" accept=".pdf">
       </div>
 
       <div class="spaced-btw-btns">
-         <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> Удалить</button>
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+         <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Сохранить изменения')}}</button>
       </div>   
    </form>
 
@@ -36,19 +36,19 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModal">Удалить</h5>
+            <h5 class="modal-title" id="deleteModal">{{__('Удалить')}}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            Вы уверены что хотите удалить?
+            {{__('Вы уверены что хотите удалить?')}}
          </div>
          <div class="modal-footer">
-            <button type="button" class="main-btn" data-bs-dismiss="modal">Отмена</button>
+            <button type="button" class="main-btn" data-bs-dismiss="modal">{{__('Отмена')}}</button>
 
             <form action="/remove_books" method="POST">
                {{ csrf_field() }}
                <input type="hidden" value="{{$book->id}}" name="id"/>
-               <button type="submit" class="main-btn delete-btn">Удалить</button>
+               <button type="submit" class="main-btn delete-btn">{{__('Удалить')}}</button>
             </form>
          </div>
       </div>

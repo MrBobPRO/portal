@@ -7,31 +7,31 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Приоритет</label>
+            <label>{{__('Приоритет')}}</label>
             <input type="number" name="priority" required>
          </div>
 
          <div class="input-container-inline">
-            <label>Текст</label>
+            <label>{{__('Текст')}}</label>
             <input type="text" name="title">
          </div>
 
          <div class="input-container-inline">
-            <label>Цвет текста</label>
+            <label>{{__('Цвет текста')}}</label>
             <input class="color-picker" type="color" name="color" required>
          </div>
 
          <div class="input-container-inline">
-            <label>Ссылка</label>
+            <label>{{__('Ссылка')}}</label>
             <input type="text" name="url">
          </div>
 
          <div class="input-container-inline">
-            <label>Картинка</label>
+            <label>{{__('Картинка')}}</label>
             <input type="file" name="image" accept="image/*">
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Добавить')}}</button>
      </form>
    </section>
 

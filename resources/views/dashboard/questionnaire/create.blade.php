@@ -7,16 +7,16 @@
 
          @csrf
          <div class="input-container-inline">
-            <label>Текст</label>
+            <label>{{__('Текст')}}</label>
             <textarea name="text" rows="5" required></textarea>
          </div>
 
          <div class="input-container-inline">
-            <label>Приватность</label>
+            <label>{{__('Приватность')}}</label>
 
             <div class="checkbox-container">
                <input type="checkbox" id="private" name="private" value="1">
-               <label class="no-selection" for="private">Приватный опрос</label>
+               <label class="no-selection" for="private">{{__('Приватный опрос')}}</label>
             </div>
          </div>
 

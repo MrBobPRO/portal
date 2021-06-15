@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+
 class ProjectsController extends Controller
 {
     public function index()
@@ -27,19 +29,24 @@ class ProjectsController extends Controller
 
     public function single($id)
     {  
-        $project = Project::find($id);
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $text = App::currentLocale() . 'Text';
 
-        //generate titile for breadcrumb
-        if(mb_strlen($project->ruTitle) > 23)
-            $crumbsTitle = mb_substr($project->ruTitle, 0, 20) . '...';
-        else
-            $crumbsTitle = $project->ruTitle;
+        $project = Project::where('id', $id)
+                        ->select('projects.id',
+                                'projects.' . $title . ' as title',
+                                'projects.' . $text . ' as text',
+                                'projects.image',
+                                'projects.completed',
+                                'projects.created_at')
+                                ->first();
 
         //comments
         $comments = $project->comments()->latest()->get();
         $commentsCount = count($comments);
 
-        return view('projects.single', compact('project', 'crumbsTitle', 'comments', 'commentsCount'));
+        return view('projects.single', compact('project', 'comments', 'commentsCount'));
     }
 
     public function store(Request $request)

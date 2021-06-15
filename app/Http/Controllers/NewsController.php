@@ -32,30 +32,19 @@ class NewsController extends Controller
 
     public function single($id)
     { 
-        $news = News::find($id);
-        //generate titile for breadcrumb
-        $locale = App::currentLocale();
+        //generate title as ruTitle & tjTitle & enTitle
+        $title = App::currentLocale() . 'Title';
+        $text = App::currentLocale() . 'Text';
 
-        if($locale == 'ru') {
-            if(mb_strlen($news->ruTitle) > 23)
-                $crumbsTitle = mb_substr($news->ruTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->ruTitle;
-        }
-
-        else if($locale == 'tj') {
-            if(mb_strlen($news->tjTitle) > 23)
-                $crumbsTitle = mb_substr($news->tjTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->tjTitle;
-        }
-
-        else if($locale == 'en') {
-            if(mb_strlen($news->enTitle) > 23)
-                $crumbsTitle = mb_substr($news->enTitle, 0, 20) . '...';
-            else
-                $crumbsTitle = $news->enTitle;
-        }
+        $news = News::where('id', $id)
+                        ->select('news.id',
+                                'news.' . $title . ' as title',
+                                'news.' . $text . ' as text',
+                                'news.image',
+                                'news.video',
+                                'news.global',
+                                'news.created_at')
+                        ->first();
 
         $likes = $news->grades->where('like', true);
         $dislikes = $news->grades->where('like', false);
@@ -70,7 +59,7 @@ class NewsController extends Controller
         $comments = $news->comments()->latest()->get();
         $commentsCount = count($comments);
 
-        return view('news.single', compact('news', 'crumbsTitle', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
+        return view('news.single', compact('news', 'likes', 'dislikes', 'usersGrade', 'comments', 'commentsCount'));
     }
 
     public function store(Request $request)

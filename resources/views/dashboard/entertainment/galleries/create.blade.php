@@ -7,31 +7,31 @@
 
          @csrf
          <div class="input-container-blocked">
-            <label>Заголовок на русском</label>
+            <label>{{__("Заголовок на русском")}}</label>
             <input type="text" name="ruTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Заголовок на таджикском</label>
+            <label>{{__('Заголовок на таджикском')}}</label>
             <input type="text" name="tjTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Заголовок на английском</label>
+            <label>{{__('Заголовок на английском')}}</label>
             <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Дата</label>
+            <label>{{__('Дата')}}</label>
             <input type="date" name="date" required>
          </div>
 
          <div class="input-container-blocked">
-            <label>Изображение</label>
+            <label>{{__('Изображение')}}</label>
             <input type="file" name="image" accept="image/*">
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">add</span> {{__('Добавить')}}</button>
      </form>
    </section>
 
