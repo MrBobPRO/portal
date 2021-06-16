@@ -5,6 +5,21 @@
 
    <section class="single-news-page">
 
+      {{-- Dropdown links start --}}
+      <div class="dropdown navbar-dropdown">
+         <a class="btn btn-secondary dropdown-toggle" href="{{route('news.index')}}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+         {{__('Новости')}}
+         </a>
+      
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="{{route('home.index')}}">{{__('Главная')}}</a></li>
+            <li><a class="dropdown-item" href="{{route('structure.index')}}">{{__('Структура')}}</a></li>
+            <li><a class="dropdown-item" href="{{route('knowledge.index')}}">{{__('Центр знаний')}}</a></li>
+            <li><a class="dropdown-item" href="{{route('projects.index')}}">{{__('Проекты и инициативы')}}</a></li>
+            <li><a class="dropdown-item" href="{{route('entertainment.index')}}">{{__('Развлечения')}}</a></li>
+         </ul>
+      </div>{{-- Dropdown links start --}}
+
       {{-- News content start --}}
       <div class="news-content">
          <h3>{{$news->title}}</h3>

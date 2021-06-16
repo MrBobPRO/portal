@@ -1,0 +1,14 @@
+@media screen and (max-width: 991px) {
+   .galleries-list a {
+      width: 390px;
+   }
+   .galleries-list {
+      justify-content: space-around;
+   }
+   .gallery {
+      justify-content: space-around;
+   }
+   .elem {
+      width: 390px;
+   }
+}

@@ -3,3 +3,11 @@
       font-size: 15px;
    }
 }
+@media screen and (max-width: 991px) {
+   .videos-list .single-video {
+      width: 390px;
+   }
+   .videos-list {
+      justify-content: space-around;
+   }
+}

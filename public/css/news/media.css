@@ -28,5 +28,25 @@
       font-size: 15px;
    }
    /* Single news page end */
-
+}
+@media screen and (max-width: 991px) {
+   .wrapper a {
+      margin: 5px;
+      width: auto;
+   }
+   .latest-news {
+      padding: 8px;
+   }
+   .single-news {
+      position: relative;
+      margin-bottom: 12px;
+   }
+   .single-news img {
+      display: none;
+   }
+   .single-news a {
+      margin: 0;
+      width: 100%;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+   }
 }

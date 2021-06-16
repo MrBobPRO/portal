@@ -108,28 +108,30 @@
             </div>
          </div>
          <div class="col-12 col-lg-4">
-            <div class="form-box">
-               <div class="login-title">{{ __('Вход на сайт') }}</div>
-               <form action="{{route('login')}}" id="login-form" method="POST">
-                  @csrf
-                  <input type="text" name="nickname" value="{{old('nickname')}}" required placeholder="{{ __('Никнейм') }}">
-                  <div class="password-item">
-                     <input id="password" type="password" name="password" required autocomplete="current-password"
-                        @if(count($errors))
-                           style="border-color: red" placeholder="{{ __('Неверный логин или пароль!') }}" 
-                        @else
-                           placeholder="{{ __('Пароль') }}"
-                        @endif
-                        >
-                     <button onclick="showHidePassword('password', 'password-btn-icon')" id="password-btn" type="button">
-                        <span id="password-btn-icon" class="material-icons-outlined">visibility</span>
-                     </button>
-                  </div>
-                  <div class="submit-container">
-                     <button class="submit-btn" type="submit">{{ __('Войти') }}</button>
-                     <a href="{{route('login.forgot_password')}}">{{ __('Забыли пароль ?') }}</a>
-                  </div>
-               </form>
+            <div class="login-form">
+               <div class="form-box">
+                  <div class="login-title">{{ __('Вход на сайт') }}</div>
+                  <form action="{{route('login')}}" id="login-form" method="POST">
+                     @csrf
+                     <input type="text" name="nickname" value="{{old('nickname')}}" required placeholder="{{ __('Никнейм') }}">
+                     <div class="password-item">
+                        <input id="password" type="password" name="password" required autocomplete="current-password"
+                           @if(count($errors))
+                              style="border-color: red" placeholder="{{ __('Неверный логин или пароль!') }}" 
+                           @else
+                              placeholder="{{ __('Пароль') }}"
+                           @endif
+                           >
+                        <button onclick="showHidePassword('password', 'password-btn-icon')" id="password-btn" type="button">
+                           <span id="password-btn-icon" class="material-icons-outlined">visibility</span>
+                        </button>
+                     </div>
+                     <div class="submit-container">
+                        <button class="submit-btn" type="submit">{{ __('Войти') }}</button>
+                        <a href="{{route('login.forgot_password')}}">{{ __('Забыли пароль ?') }}</a>
+                     </div>
+                  </form>
+               </div>
             </div>
          </div>
       </div>

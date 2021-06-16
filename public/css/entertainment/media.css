@@ -8,3 +8,9 @@
    }
    /* Main page & categories end */
 }
+@media screen and (max-width: 991px) {
+   .wrapper a {
+      margin: 5px;
+      width: auto;
+   }
+}

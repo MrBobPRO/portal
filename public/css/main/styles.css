@@ -412,6 +412,9 @@ button:focus {
 .toolbar-items span {
    color: #ababab;
 }
+.toolbar-search-btn {
+   display: none;
+}
 .search-form {
    position: relative;
 }
@@ -442,6 +445,9 @@ button:focus {
 .lang-dropdown img {
    width: 22px;
    margin-right: 5px;
+}
+.navbar-dropdown {
+   display: none;
 }
 /* TOOLBAR END */
 
