@@ -1,6 +1,9 @@
 .home-page {
    width: 100%;
 }
+.navbar-dropdown {
+   display: none;
+}
 /* Owl carousel start */
 .owl-carousel-container {
    position: relative;
@@ -41,6 +44,9 @@
 }
 .owl-nav-next {
    right: 10px;
+}
+.owl-carousel a p {
+   width: 65%;
 }
 /* Owl carousel end */
 .about-company {

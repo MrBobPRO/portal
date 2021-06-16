@@ -38,3 +38,9 @@ function ajaxStoreDashVisibility(vision) {
       }
    });
 }
+// Media toolbar search button toggle
+const searchEl = document.getElementById('toobar-search-btn');
+const searchFormEl = document.getElementsByClassName('search-form')[0];
+searchEl.onclick = () => {
+   searchFormEl.classList.toggle('show');   
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 991px) {
+
+   .content {
+      width: 95%;
+      margin: 0 auto;
+      padding: 0;
+   }
+   .navbar-dropdown {
+      margin: 70px 0 20px 0;
+   }
+   .users-list .users-list-item {
+      width: 400px;
+   }
+}

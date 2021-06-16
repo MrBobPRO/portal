@@ -17,6 +17,8 @@
          </a>
 
          <a href="{{route('questionnaire.index')}}" title="Опросник" class="toolbar-items"><span class="material-icons-outlined">help_outline</span></a>
+      
+         <a type="button" title="Поиск" id="toobar-search-btn" class="toolbar-items toolbar-search-btn no-selection"><span class="material-icons-outlined">search</span></a>
       </ul>
       {{-- Toolbar icons end --}}
 

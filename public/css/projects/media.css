@@ -1,0 +1,17 @@
+@media screen and (max-width: 991px) {
+   .wrapper a {
+      margin: 5px;
+      width: auto;
+   }
+   .category {
+      padding: 10px;
+   }
+   .category img {
+      display: none;
+   }
+   .category a {
+      margin: 0;
+      padding: 15px;
+      width: 100%;
+   }
+}
