@@ -2,4 +2,7 @@
    .home-page, .owl-carousel-container {
       margin-top: 10px;
    }
+   .navbar-dropdown {
+      margin-top: 40px;
+   }
 }
