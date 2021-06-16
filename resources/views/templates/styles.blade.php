@@ -12,21 +12,25 @@
         <link href="{{ asset('js/simditor/styles/simditor.css') }}" rel="stylesheet">
         {{-- Dashboard styles linked because of list & form styles --}}
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
     @break
 
     @case('complaints.create')
         {{-- Dashboard styles linked because of list & form styles --}}
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
     @break
 
     @case('notifications.index') @case('notifications.single')
         {{-- Dashboard styles linked because of list & form styles --}}
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
     @break
 
     @case('questionnaire.index') @case('questionnaire.single')
         {{-- Dashboard styles linked because of list & form styles --}}
         <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
 
         <link href="{{ asset('css/questionnaire/styles.css') }}" rel="stylesheet">
     @break

@@ -1,0 +1,53 @@
+@media screen and (max-width: 991px) {
+   main {
+      padding-top: 0%;
+   }
+   .content {
+      margin: 0;
+   }
+   .breadcrumbs {
+      display: flex;
+      margin: 50px 0 0 5px;
+      line-height: 0.1;
+      width: 90%;
+      height: 34px;
+   }
+   .breadcrumbs a span::after {
+      width: 24px;
+      height: 24px;
+      top: 4px;
+      right: -12px;
+   }
+   .breadcrumbs .brd-home span {
+      padding: 0 13px;
+  }
+  .breadcrumbs a:last-child span {
+      padding: 15px 15px 15px 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      line-height: 110%;
+      height: 31px;
+      margin: -8px 0;
+   }
+   .formed-page {
+      padding: 10px 15px;
+      margin: 10px auto;
+      width: 100vw;
+   }
+   .formed-page label,
+   .formed-page input,
+   .formed-page textarea,
+   .formed-page .value-replacer {
+      width: 100%;
+   }
+   .input-container-inline .select2_multiple_container {
+      width: 100%;
+   }
+   .input-container-inline .input-password-container {
+      width: 90%;
+   }
+
+}

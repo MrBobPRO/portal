@@ -20,7 +20,7 @@
          <div class="input-container-blocked">
             <label>{{__('Файл')}}. {{__('Поддерживаемые форматы')}} (mp4, webm, ogg)</label>
             <input type="file" name="file" id="file" accept=".mp4, .webm, .ogg">
-            <video width="400" height="240" controls>
+            <video class="video" width="400" height="240" controls>
                @if ($video->from_catalog)
                   <source src="{{asset('catalog/videos/'. $video->filename)}}">
                @else

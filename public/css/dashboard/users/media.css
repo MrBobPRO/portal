@@ -1,0 +1,13 @@
+@media screen and (max-width: 991px) {
+   .users-list {
+      justify-content: center;
+   }
+   .users-list .users-list-item {
+      width: 390px;
+   }
+   .single-users-page img {
+      width: 380px;
+      display: block;
+      margin: 0 auto;
+   }
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 991px) {
+   .breadcrumbs {
+      display: none;
+   }
+   section {
+      margin-top: 60px;
+   }
+   .catalog-modal .catalog-item {
+      width: 390px;
+   }
+   .video {
+      width: 380px;
+   }
+}
