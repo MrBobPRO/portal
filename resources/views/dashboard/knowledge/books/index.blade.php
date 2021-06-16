@@ -21,16 +21,16 @@
 
       
       <div class="primary-list-titles">
-         <div class="width-33">{{__('Заголовок')}}</div>
-         <div class="width-33">{{__('Категория')}}</div>
-         <div class="width-33">{{__('Дата добавления')}}</div>
+         <div class="book-item width-33">{{__('Заголовок')}}</div>
+         <div class="book-item width-33">{{__('Категория')}}</div>
+         <div class="book-item width-33">{{__('Дата добавления')}}</div>
       </div>
 
       <div class="primary-list">
          @foreach($books as $book)
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.books.single', $book->id)}}">
                <div class="width-33">{{ $book->title }}</div>
-               <div class="width-33">{{ __($book->ruCategory) }}</div>
+               <div class="book-list-item width-33">{{ __($book->ruCategory) }}</div>
                <div class="width-33">
                   <?php 
                      $date = \Carbon\Carbon::parse($book->created_at)->locale('ru');

@@ -1,0 +1,12 @@
+@media screen and (max-width: 991px) {
+   .no_result p {
+      font-size: 15px;
+   }
+   .no_result span {
+      font-size: 130px;
+   }
+   .result-image {
+      width: 100px;
+      height: 80px;
+   }
+}

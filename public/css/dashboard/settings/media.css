@@ -1,0 +1,10 @@
+@media screen and (max-width: 991px) {
+   .colors-list {
+      width: 390px;
+      margin-top: 20px;
+      margin-bottom: 0px;
+   }
+   .dashbg-settings {
+      display: none;
+   }
+}

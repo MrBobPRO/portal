@@ -1,0 +1,19 @@
+@media screen and (max-width: 991px) {
+   .change-ava-container img {
+      width: 390px;
+   }
+   .change-ava-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   .change-ava-container div {
+      width: 390px;
+      margin-top: 10px;
+      padding: 0;
+   }
+   .change-ava-container div p {
+      line-height: 1;
+   }
+}

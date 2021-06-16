@@ -7,18 +7,20 @@
 
 
    <div class="primary-list-titles">
-      <div class="width-33">{{__('Должности')}}</div>
-      <div class="width-33">{{__('Количество сотрудников')}}</div>
-      <div class="width-33">{{__('Редактирование')}}</div>
+      <div class="dep-items width-33">{{__('Должности')}}</div>
+      <div class="dep-items width-33">{{__('Количество сотрудников')}}</div>
+      <div class="dep-items"></div>
+      <div class="dep-items width-33">{{__('Редактирование')}}</div>
    </div>
 
    <div class="primary-list">
       @foreach($positions as $position)
          <div class="primary-items">
             <a class="primary-list-item @if($position->id == 1) visually-hidden @endif">
-               <div class="width-33">{{$position->name}}</div>
-               <div class="width-33">{{count(App\Models\User::where('position_id', $position->id)->get())}}</div>
-               <div class="width-33">
+               <div class="dep-list-items width-33">{{$position->name}}</div>
+               <div class="dep-list-items width-33">{{count(App\Models\User::where('position_id', $position->id)->get())}}</div>
+               <div class="dep-list-items"></div>
+               <div class="dep-list-items width-33">
                   <div class="btns-edit-container">
                      <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$position->id}}">
                         <span class="material-icons-outlined">edit</span> {{__('Изменить')}}

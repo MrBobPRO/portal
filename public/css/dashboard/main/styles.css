@@ -124,7 +124,7 @@ input:read-only {
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  z-index: 2;
+  z-index: 9;
 }
 .add-button:hover {
   color: white;

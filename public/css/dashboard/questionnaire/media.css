@@ -1,0 +1,23 @@
+@media screen and (max-width: 991px) {
+   .store-form input {
+      min-width: 50px;
+   }
+   .single-variant {
+      position: relative;
+      width: 380px;
+      margin-bottom: 70px;
+   }
+   .single-variant .update-form input {
+      min-width: 380px;
+   }
+   .single-variant .update-form button {
+      position: absolute;
+      bottom: -53px;
+      right: 110px;
+   }
+   .single-variant .delete-form button {
+      position: absolute;
+      bottom: -53px;
+      right: 0px;
+   }
+}
