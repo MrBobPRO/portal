@@ -59,7 +59,10 @@ class EntertainmentController extends Controller
         $sub = $request->file('subtitles');
         if($sub) {
             // delete previous subtitles
-            unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+            $path = public_path('videos/entertainment/subtitles/' . $video->subtitles);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
 
@@ -74,7 +77,10 @@ class EntertainmentController extends Controller
         if($pos) {
             // delete previous poster if its not default poster
             if ($video->poster != 'default.jpg') {
-                unlink(public_path('videos/entertainment/posters/' . $video->poster));
+                $path = public_path('videos/entertainment/posters/' . $video->poster);
+                if(file_exists($path)) {
+                    unlink($path);
+                }
             }
             $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
 
@@ -89,7 +95,10 @@ class EntertainmentController extends Controller
         if($file) {
             if ($video->filename && !$video->from_catalog) {
                 // Delete previous video
-                unlink(public_path('videos/entertainment/' . $video->filename));
+                $path = public_path('videos/entertainment/' . $video->filename);
+                if (file_exists($path)) {
+                    unlink($path);
+                } 
             }
 
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
@@ -170,15 +179,24 @@ class EntertainmentController extends Controller
         $video = Entertainment::find($request->id);
         // delete video->poster
         if ($video->poster != 'default.jpg') {
-            unlink(public_path('videos/entertainment/posters/' . $video->poster));
+            $path = public_path('videos/entertainment/posters/' . $video->poster);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete video->subtitles
         if ($video->subtitles) {
-            unlink(public_path('videos/entertainment/subtitles/' . $video->subtitles));
+            $path = public_path('videos/entertainment/subtitles/' . $video->subtitles);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete videofile
         if (!$video->from_catalog) {
-            unlink(public_path('videos/entertainment/' . $video->filename));
+            $path = public_path('videos/entertainment/' . $video->filename);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete video table from db
         $video->delete();
@@ -214,7 +232,9 @@ class EntertainmentController extends Controller
     {
         $path = public_path('img/entertainment/images/' . $request->filename);
         //delete image
-        unlink($path);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         
         //delete from DB
         Image::where('filename', $request->filename)->first()->delete();
@@ -257,7 +277,10 @@ class EntertainmentController extends Controller
         $file = $request->file('image');
         if($request->image) {
             // delete previous gallery->image
-            unlink(public_path('img/entertainment/galleries/' . $gallery->image));
+            $path = public_path('img/entertainment/galleries/' . $gallery->image);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/entertainment/galleries'), $fileName);
@@ -275,7 +298,10 @@ class EntertainmentController extends Controller
         $gallery = Gallery::find($request->id);
         $gallery->delete();
         // delete gallery's poster from storage
-        unlink(public_path('img/entertainment/galleries/' . $gallery->image));
+        $path = public_path('img/entertainment/galleries/' . $gallery->image);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         // find gallery's images
         $images = Image::where('gallery_id', $gallery->id)->get();
         // delete all images of gallery
@@ -283,7 +309,10 @@ class EntertainmentController extends Controller
             // delete image from db
             $image->delete();
             // delete image from storage
-            unlink(public_path('img/entertainment/images/' . $image->filename));
+            $path = public_path('img/entertainment/images/' . $image->filename);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         return redirect('/dashboard/galleries');
     }

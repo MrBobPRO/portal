@@ -6,8 +6,6 @@
       width: 390px;
    }
    .single-users-page img {
-      width: 380px;
-      display: block;
-      margin: 0 auto;
+      width: 100%;
    }
 }

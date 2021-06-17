@@ -1,6 +1,6 @@
 @media screen and (max-width: 991px) {
    .change-ava-container img {
-      width: 390px;
+      width: 100%;
    }
    .change-ava-container {
       display: flex;

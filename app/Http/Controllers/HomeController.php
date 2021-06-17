@@ -7,11 +7,11 @@ use App\Mail\SendCredentials;
 use App\Models\News;
 use App\Models\Slider;
 use App\Models\User;
-use App\MOdels\Book;
-use App\MOdels\Entertainment;
-use App\MOdels\Gallery;
-use App\MOdels\Project;
-use App\MOdels\Video;
+use App\Models\Book;
+use App\Models\Entertainment;
+use App\Models\Gallery;
+use App\Models\Project;
+use App\Models\Video;
 use stdClass;
 use Illuminate\Support\Str;
 

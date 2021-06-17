@@ -124,7 +124,10 @@ class NewsController extends Controller
         if($file) 
         {
             // delete previous news->image 
-            unlink(public_path('img/news/' . $news->image));
+            $path = public_path('img/news/' . $news->image);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $fileName =uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/news'), $fileName);
@@ -157,7 +160,10 @@ class NewsController extends Controller
     {
         $news = News::find($request->id);
         // delete news->image
-        unlink(public_path('img/news/' . $news->image));
+        $path = public_path('img/news/' . $news->image);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         // delete news video
         if ($news->video != '') {
             $filepath = public_path('videos/news/' . $news->video);
@@ -174,8 +180,9 @@ class NewsController extends Controller
         $news = News::find($request->id);
 
         $filepath = public_path('videos/news/' . $news->video);
-        if(file_exists($filepath)) 
+        if(file_exists($filepath)) {
             unlink($filepath);
+        }
 
         $news->video = '';
         $news->save();

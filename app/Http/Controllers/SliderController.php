@@ -29,7 +29,10 @@ class SliderController extends Controller
         if($file) 
         {
             // delete previous poster
-            unlink(public_path('img/slider/' . $item->image));
+            $path = public_path('img/slider/' . $item->image);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/slider'), $fileName);
@@ -66,7 +69,10 @@ class SliderController extends Controller
     {
         $slider = Slider::find($request->id);
         // delete image
-        unlink(public_path('img/slider/' . $slider->image));
+        $path = public_path('img/slider/' . $slider->image);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         // delete slider_table from db
         $slider->delete();
 

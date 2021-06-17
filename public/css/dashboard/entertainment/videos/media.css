@@ -1,6 +1,6 @@
 @media screen and (max-width: 991px) {
    .video {
-      width: 380px;
+      width: 100%;
    }
    .catalog-modal .catalog-item {
       width: 380px;

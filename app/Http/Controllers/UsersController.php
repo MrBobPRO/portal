@@ -66,7 +66,10 @@ class UsersController extends Controller
         $user = User::find($request->id);
         // delete user's avatar
         if ($user->avatar != 'default.png') {
-            unlink(public_path('img/users/' . $user->avatar));
+            $path = public_path('img/users/' . $user->avatar);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
 
         // delete users languages from db

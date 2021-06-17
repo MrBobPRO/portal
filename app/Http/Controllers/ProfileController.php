@@ -41,7 +41,10 @@ class ProfileController extends Controller
         if($file) 
         {
             if($user->avatar != 'default.png') {
-                unlink(public_path('img/users/' . $user->avatar));
+                $path = public_path('img/users/' . $user->avatar);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
             }
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/users/original'), $fileName);
@@ -75,7 +78,10 @@ class ProfileController extends Controller
             //save img
             $img->save(public_path('img/users/' . $fileName));
             // delete original img
-            unlink(public_path('img/users/original/' . $fileName));
+            $path = public_path('img/users/original/' . $fileName);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $user->avatar = $fileName;
             $user->save();
