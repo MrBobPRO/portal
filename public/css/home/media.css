@@ -5,4 +5,9 @@
    .navbar-dropdown {
       margin-top: 40px;
    }
+   .owl-carousel a p {
+      width: 80%;
+      left: 10%;
+      font-size: 18px;  
+   }
 }
