@@ -1,3 +1,17 @@
+// show || hide mobile dashboard start
+const menuEl = document.getElementById('menu-btn');
+const menuIconEl = document.getElementById('menu-icon');
+const mobDashEl = document.getElementById('mobile-dashboard');
+menuEl.onclick = () => {
+   mobDashEl.classList.toggle('hidden');
+   if (menuIconEl.textContent == 'menu') {
+      menuIconEl.textContent = 'menu_open';
+   } else {
+      menuIconEl.textContent = 'menu';
+   }
+}
+// show || hide mobile dashboard start
+
 
 //Ajax request setup start
 $.ajaxSetup({

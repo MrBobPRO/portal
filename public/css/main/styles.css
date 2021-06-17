@@ -378,6 +378,12 @@ button:focus {
 /* Navbar end */
 
 /* TOOLBAR START */
+.tgem-logo {
+   display: none;
+}
+.menu-icon {
+   display: none;
+}
 .toolbar {
    position: sticky;
    top: 0;

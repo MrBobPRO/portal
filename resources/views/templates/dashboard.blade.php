@@ -5,8 +5,13 @@
    {{-- Toogle button --}}
    <span class="material-icons-outlined dash-toogler" onclick="toogleDashboard()">menu</span>
    {{-- Dashboard start --}}
-   <div id="dashboard" class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
-      style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})">
+   <div 
+      id="dashboard" 
+      class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
+      @if ($appUser->dashBg != 'null')
+         style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})"
+      @endif
+   >
 
       <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'hidden'}}"></div>
 
