@@ -120,7 +120,10 @@ class KnowledgeController extends Controller
 
         if ($request->file) {
             //Delete previous file
-            unlink(public_path('books/' . $book->filename));
+            $path = public_path('books/' . $book->filename);
+            if (file_exists($path)) {
+                unlink($path);
+            }
             //Save file
             $file = $request->file('file');
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
@@ -136,7 +139,10 @@ class KnowledgeController extends Controller
     public function books_remove(Request $request)
     {
         $book = Book::find($request->id);
-        unlink(public_path('books/' . $book->filename));
+        $path = public_path('books/' . $book->filename);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         $book->delete();
 
         return redirect()->route('dashboard.knowledge.books');
@@ -231,7 +237,10 @@ class KnowledgeController extends Controller
         if($sub) {
             if ($video->subtitles != '') {
                 // Delete previous subtitles
-                unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
+                $path = public_path('videos/knowledge/subtitles/' . $video->subtitles);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
             }
 
             $filename = uniqid() . '.' . $sub->getClientOriginalExtension();
@@ -246,7 +255,10 @@ class KnowledgeController extends Controller
         if($pos) {
             if ($video->poster != 'default.jpg') {
                 // Delete previous poster
-                unlink(public_path('videos/knowledge/posters/' . $video->poster));
+                $path = public_path('videos/knowledge/posters/' . $video->poster);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
             }
             $filename = uniqid() . '.' . $pos->getClientOriginalExtension();
 
@@ -261,7 +273,10 @@ class KnowledgeController extends Controller
         if($file) {
             if ($video->filename && !$video->from_catalog) {
                 // Delete previous video
-                unlink(public_path('videos/knowledge/' . $video->filename));
+                $path = public_path('videos/knowledge/' . $video->filename);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
             }
 
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
@@ -281,15 +296,24 @@ class KnowledgeController extends Controller
         $video = Video::find($request->id);
         // delete video->poster
         if ($video->poster != 'default.jpg') {
-            unlink(public_path('videos/knowledge/posters/' . $video->poster));
+            $path = public_path('videos/knowledge/posters/' . $video->poster);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete video->subtitles
         if ($video->subtitles) {
-            unlink(public_path('videos/knowledge/subtitles/' . $video->subtitles));
+            $path = public_path('videos/knowledge/subtitles/' . $video->subtitles);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete videofile
         if (!$video->from_catalog) {
-            unlink(public_path('videos/knowledge/' . $video->filename));
+            $path = public_path('videos/knowledge/' . $video->filename);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
         // delete video table from db
         $video->delete();

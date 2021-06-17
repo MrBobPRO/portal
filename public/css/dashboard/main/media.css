@@ -4,11 +4,6 @@
    }
 }
 @media screen and (max-width: 991px) {
-   .breadcrumbs {
-      display: flex;
-   }
-}
-@media screen and (max-width: 991px) {
    main {
       padding-top: 0%;
    }
@@ -30,7 +25,7 @@
    }
    .breadcrumbs .brd-home span {
       padding: 0 13px;
-  }
+   }
   .breadcrumbs a:last-child span {
       padding: 15px 15px 15px 20px;
       overflow: hidden;
@@ -58,6 +53,9 @@
    }
    .input-container-inline .input-password-container {
       width: 90%;
+   }
+   .spaced-btw-btns button {
+      padding: 10px;
    }
 
 }

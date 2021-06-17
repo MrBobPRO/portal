@@ -49,7 +49,7 @@
                 <div class="single-comment">
                    <img src="{{ asset('img/users/' . $comment->user->avatar) }}">
                    <div class="comment-body">
-                      <h6>{{$comment->user->name}}</h6>
+                      <h6>{{$comment->user->name}} {{$comment->user->surname}}</h6>
                       <span>
                         <?php 
                            $date = \Carbon\Carbon::parse($comment->created_at)->locale('ru')->diffForHumans();

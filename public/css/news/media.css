@@ -30,9 +30,12 @@
    /* Single news page end */
 }
 @media screen and (max-width: 991px) {
+   .wrapper {
+      flex-wrap: wrap;
+   }
    .wrapper a {
       margin: 5px;
-      width: auto;
+      width: 100%;
    }
    .latest-news {
       padding: 8px;

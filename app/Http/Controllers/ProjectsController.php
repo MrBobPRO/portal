@@ -100,7 +100,10 @@ class ProjectsController extends Controller
         if($file) 
         {
             // delete previous project->image
-            unlink(public_path('img/projects/' . $project->image));
+            $path = public_path('img/projects/' . $project->image);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/projects'), $fileName);
@@ -116,7 +119,10 @@ class ProjectsController extends Controller
     {
         $project = Project::find($request->id);
         // delete project->image
-        unlink(public_path('img/projects/' . $project->image));
+        $path = public_path('img/projects/' . $project->image); 
+        if (file_exists($path)) {
+            unlink($path);
+        }
         // delete project from db
         $project->delete();
         return redirect()->route('dashboard.projects.index');

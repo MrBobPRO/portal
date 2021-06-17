@@ -13,14 +13,17 @@
    .structure-page {
       padding: 10px;
    }
+   .structure-user-update img {
+      width: 100%;
+   }
    .dash-search-container .select2_single_container {
       display: none;
    }
    .structure-links {
-      flex-direction: column;
+      flex-wrap: wrap;
    }
    .structure-links a {
-      width: 390px;
+      width: 100%;
       display: flex;
       justify-content: center;
       margin: 5px 0px;

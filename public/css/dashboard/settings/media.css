@@ -1,8 +1,13 @@
 @media screen and (max-width: 991px) {
    .colors-list {
-      width: 390px;
+      width: 100%;
       margin-top: 20px;
       margin-bottom: 0px;
+      flex-wrap: wrap;
+      padding: 0;
+   }
+   .colors-item {
+      margin: 15px;
    }
    .dashbg-settings {
       display: none;
