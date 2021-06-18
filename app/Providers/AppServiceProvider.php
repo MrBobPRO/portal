@@ -4,10 +4,13 @@ namespace App\Providers;
 
 use App\Models\Ads;
 use App\Models\Complaint;
+use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
 use App\Models\Notification;
+use App\Models\Questionnaire;
 use App\Models\User;
+use App\Models\Viewed;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
@@ -45,6 +48,34 @@ class AppServiceProvider extends ServiceProvider
             $view->with('notificationsCount', Notification::where('new', true)
                  ->where('user_id', Auth::user()->id)
                  ->count());
+        });
+
+        //share new questionnaires count with toolbar
+        view()->composer('templates.toolbar', function ($view) {
+            $user = Auth::user();
+            $userCreatedAt = \Carbon\Carbon::parse($user->created_at);
+            $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
+
+            //get all ideas and minus by already viewed ideas by current user
+            $questionnairesCount = Questionnaire::whereDate('created_at', '>=', $formatted)->count();
+            $viewedCount = Viewed::whereDate('created_at', '>=', $formatted)->where('source', 'questionnaire')->where('user_id', $user->id)->count();
+            $newQuestionnairesCount = $questionnairesCount - $viewedCount;
+
+            $view->with('newQuestionnairesCount', $newQuestionnairesCount);
+        });
+
+        //share new ideas count with dashboard
+        view()->composer('templates.dashboard', function ($view) {
+            $user = Auth::user();
+            $userCreatedAt = \Carbon\Carbon::parse($user->created_at);
+            $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
+
+            //get all ideas and minus by already viewed ideas by current user
+            $ideasCount = Idea::whereDate('created_at', '>=', $formatted)->count();
+            $viewedCount = Viewed::whereDate('created_at', '>=', $formatted)->where('source', 'idea')->where('user_id', $user->id)->count();
+            $newIdeasCount = $ideasCount - $viewedCount;
+
+            $view->with('newIdeasCount', $newIdeasCount);
         });
 
         //sidebar ads

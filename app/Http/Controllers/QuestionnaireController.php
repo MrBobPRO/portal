@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Questionnaire;
+use App\Models\Viewed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,18 +18,31 @@ class QuestionnaireController extends Controller
 
    public function index()
    {  
-      //get only questionnaires which are younger than users created at date
+      //get only questionnaires which were created after user has been created
       $userCreatedAt = \Carbon\Carbon::parse(Auth::user()->created_at);
       $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
 
       $questions = Questionnaire::whereDate('created_at', '>=', $formatted)->latest()->paginate(20);
 
-      return view('questionnaire.index', compact('questions'));
+      $user_id = Auth::user()->id;
+
+      return view('questionnaire.index', compact('questions', 'user_id'));
    }
 
    public function single($id)
    {  
       $question = Questionnaire::find($id);
+      $user_id = Auth::user()->id;
+
+      //set questionnaire as already seen for current user
+      $viewed = Viewed::where('source', 'questionnaire')->where('questionnaire_id', $id)->where('user_id', $user_id)->first();
+      if(!$viewed)
+         Viewed::create([
+               'source' => 'questionnaire',
+               'questionnaire_id' => $id,
+               'user_id' => $user_id
+         ]);
+
 
       $optionsCount = count($question->options);
       //get maximum count of choices of all options

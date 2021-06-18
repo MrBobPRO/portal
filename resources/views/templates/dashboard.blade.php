@@ -24,7 +24,8 @@
           href="{{ route('dashboard.users.index') }}"><span class="material-icons-outlined">face</span>{{__('Сотрудники')}}</a>
 
           <a class="@if($route == 'dashboard.ideas.index' || $route == 'dashboard.ideas.single') active @endif"
-          href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>{{__('Идеи')}}</a>
+          href="{{ route('dashboard.ideas.index') }}"><span class="material-icons-outlined idea-icon">tungsten</span>{{__('Идеи')}} 
+          @if($newIdeasCount > 0)({{($newIdeasCount)}})@endif</a>
 
          {{-- Admin links tart --}}
          @if($appUser->role == 'admin')

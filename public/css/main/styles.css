@@ -405,12 +405,21 @@ button:focus {
 .toolbar-items {
    display: block;
    margin: 4px 8px;
+   text-decoration: none;
+   position: relative;
 }
 .toolbar .idea-icon span{
    transform: rotate(180deg);
 }
 .toolbar-items span {
    color: #ababab;
+}
+.toolbar-items .badge {
+   color: white;
+   position: absolute;
+   bottom: 0;
+   left: 60%;
+   padding: 2px 5px;
 }
 .toolbar-search-btn {
    display: none;

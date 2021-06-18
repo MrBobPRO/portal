@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
+use App\Models\Viewed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,18 +48,35 @@ class IdeaController extends Controller
     
     public function index()
     {
-        $allIdeas = Idea::select('ideas.id', 'ideas.title') 
+        //get only ideas which were created after user has been created
+        $userCreatedAt = \Carbon\Carbon::parse(Auth::user()->created_at);
+        $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
+
+        $allIdeas = Idea::whereDate('created_at', '>=', $formatted)
+                        ->select('ideas.id', 'ideas.title') 
                         ->orderBy('title', 'asc')
                         ->get();
 
-        $ideas = Idea::latest()->paginate(30);
+        $ideas = Idea::whereDate('created_at', '>=', $formatted)->latest()->paginate(30);
 
-        return view('dashboard.ideas.index', compact('allIdeas', 'ideas'));
+        $user_id = Auth::user()->id;
+
+        return view('dashboard.ideas.index', compact('allIdeas', 'ideas', 'user_id'));
     }
 
     public function single($id)
     {
         $idea  = Idea::find($id);
+        $user_id = Auth::user()->id;
+
+        //set idea as already seen for current user
+        $viewed = Viewed::where('source', 'idea')->where('idea_id', $id)->where('user_id', $user_id)->first();
+        if(!$viewed)
+            Viewed::create([
+                'source' => 'idea',
+                'idea_id' => $id,
+                'user_id' => $user_id
+            ]);
 
         //genereate title for breadcrumbs
         if(mb_strlen($idea->title) > 55)
@@ -70,7 +88,7 @@ class IdeaController extends Controller
         $dislikes = $idea->grades->where('like', false);
 
         //used to get users grade for blade template
-        $usersGrade = $idea->grades->where('user_id', Auth::user()->id)->first();
+        $usersGrade = $idea->grades->where('user_id', $user_id)->first();
         if(!$usersGrade) $usersGrade = 'null';
         else if($usersGrade->like) $usersGrade = 'like';
             else $usersGrade = 'dislike';

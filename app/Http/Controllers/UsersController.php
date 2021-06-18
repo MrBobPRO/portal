@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendCredentials;
+use App\Models\Choice;
+use App\Models\Comment;
+use App\Models\Complaint;
+use App\Models\Grade;
+use App\Models\Idea;
+use App\Models\Notification;
 use App\Models\User;
+use App\Models\Viewed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -74,8 +81,18 @@ class UsersController extends Controller
 
         // delete users languages from db
         $user->languages()->detach();
-        
+
         $user->delete();
+        
+        //delete all users data from database tables
+        $user_id = $request->id;
+        Choice::where('user_id', $user_id)->delete();
+        Comment::where('user_id', $user_id)->delete();
+        Complaint::where('user_id', $user_id)->delete();
+        Grade::where('user_id', $user_id)->delete();
+        Idea::where('user_id', $user_id)->delete();
+        Notification::where('user_id', $user_id)->delete();
+        Viewed::where('user_id', $user_id)->delete();
 
         return redirect()->route('dashboard.structure.index');
     }

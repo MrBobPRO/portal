@@ -8,15 +8,20 @@
          <a href="{{route('complaints.create')}}" title="Написать жалобу" class="toolbar-items"><span class="material-icons-outlined">sentiment_dissatisfied</span></a>
 
          <a href="{{route('notifications.index')}}" title="Уведомления" class="toolbar-items">
+            <span class="material-icons-outlined">notifications</span>
             {{-- $notificationsCount declared in AppServiceProvider --}}
             @if($notificationsCount > 0)
-               <span class="material-icons primary-color">notifications</span>
-            @else
-               <span class="material-icons-outlined">notifications</span>
+            <span class="badge bg-danger">{{$notificationsCount}}</span>
             @endif
          </a>
 
-         <a href="{{route('questionnaire.index')}}" title="Опросник" class="toolbar-items"><span class="material-icons-outlined">help_outline</span></a>
+         <a href="{{route('questionnaire.index')}}" title="Опросник" class="toolbar-items">
+            <span class="material-icons-outlined">help_outline</span>
+            {{-- $newQuestionnairesCount declared in AppServiceProvider --}}
+            @if($newQuestionnairesCount > 0)
+            <span class="badge bg-danger">{{$newQuestionnairesCount}}</span>
+            @endif
+         </a>
       
          <a type="button" title="Поиск" id="toobar-search-btn" class="toolbar-items toolbar-search-btn no-selection"><span class="material-icons-outlined">search</span></a>
       </ul>
