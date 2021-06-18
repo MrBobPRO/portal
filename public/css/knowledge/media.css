@@ -4,10 +4,46 @@
    }
 }
 @media screen and (max-width: 991px) {
-   .videos-list .single-video {
-      width: 390px;
-   }
-   .videos-list {
-      justify-content: space-around;
-   }
+    .accordion-button {
+        font-size: 18px;
+        height: 44px;
+        margin-bottom: 1px;
+        padding: 15px;
+    }
+    .subject.accordion-body,
+    .subjectcat.accordion-body {
+        padding: 0 15px;
+    }
+    .subjectcat.accordion-button {
+        font-size: 16px;
+        padding: 15px;
+    }
+    .mat-items a {
+        height: 44px;
+        margin-bottom: 1px;
+        padding: 0 15px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .books-list-item {
+        height: 44px;
+        padding: 0 15px;
+        border: none;
+        margin-bottom: 1px;
+    }
+    .books-list-item span {
+        margin-left: 8px;
+    }
+
+    .videos-list .single-video {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .single-video .video-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        height: 44px;
+    }
 }

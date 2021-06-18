@@ -1,8 +1,16 @@
 @media screen and (max-width: 991px) {
-   .videos-list .single-video {
-      width: 390px;
-   }
-   .videos-list {
-      justify-content: space-around;
-  }
+    .videos-list .single-video {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .single-video .video-description {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44px;
+    }
+    .single-video .video-description p {
+        margin: 0px;
+    }
 }

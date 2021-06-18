@@ -1,14 +1,34 @@
 @media screen and (max-width: 991px) {
-   .galleries-list a {
-      width: 390px;
-   }
-   .galleries-list {
-      justify-content: space-around;
-   }
-   .gallery {
-      justify-content: space-around;
-   }
-   .elem {
-      width: 390px;
-   }
+    section {
+        margin: 0px;
+    }
+    .galleries-list {
+        margin: 0px;
+    }
+    .galleries-list a {
+        margin: 0px;
+        padding: 15px 15px 0px 15px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .galleries-list a img {
+        border-radius: 0;
+    }
+    .galleries-list a div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 44px;
+    }
+    .galleries-list a div p {
+        margin: 0px;
+    }
+    .gallery {
+        margin: 0px;
+    }
+    .elem {
+        width: 100%;
+        margin: 0 0 15px 0 !important;
+        padding: 0;
+    }
 }
