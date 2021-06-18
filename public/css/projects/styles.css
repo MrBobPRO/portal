@@ -2,6 +2,18 @@
    margin-top: 0;
 }
 /* Main page start */
+.projects-desc {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+}
+.projects-view {
+   color: #fff;
+   background-color: var(--color-scheme);
+   padding: 3px 8px;
+   border-radius: 2px;
+}
 .wrapper {
    display: flex;
    justify-content: space-between;

@@ -1,4 +1,16 @@
 /* News main page */
+.news-desc {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+}
+.news-view {
+   color: #fff;
+   background-color: var(--color-scheme);
+   padding: 3px 8px;
+   border-radius: 2px;
+}
 img {
    max-width: 100%;
 }

@@ -23,7 +23,7 @@
             <span class="material-icons-outlined">notifications</span>
             {{-- $notificationsCount declared in AppServiceProvider --}}
             @if($notificationsCount > 0)
-            <span class="badge bg-danger">{{$notificationsCount}}</span>
+               <span class="badge bg-danger">{{$notificationsCount}}</span>
             @endif
          </a>
 
@@ -31,11 +31,9 @@
             <span class="material-icons-outlined">help_outline</span>
             {{-- $newQuestionnairesCount declared in AppServiceProvider --}}
             @if($newQuestionnairesCount > 0)
-            <span class="badge bg-danger">{{$newQuestionnairesCount}}</span>
+               <span class="badge bg-danger">{{$newQuestionnairesCount}}</span>
             @endif
          </a>
-      
-         <a type="button" title="Поиск" id="toobar-search-btn" class="toolbar-items toolbar-search-btn no-selection"><span class="material-icons-outlined">search</span></a>
       </ul>
       {{-- Toolbar icons end --}}
 

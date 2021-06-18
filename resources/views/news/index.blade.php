@@ -47,13 +47,16 @@
 
                   <h3>{{ $newsTitle }}</h3>
                   <p>{!! $newsText !!}</p> 
-                  <span class="news-date">
-                     <?php 
-                        $date = \Carbon\Carbon::parse($new->created_at)->locale($newsDateLocale);
-                        $formatted = $date->isoFormat('DD MMMM YYYY');
-                     ?>
-                     {{$formatted}}
-                  </span>
+                  <div class="news-desc">
+                     <span class="news-date">
+                        <?php 
+                           $date = \Carbon\Carbon::parse($new->created_at)->locale($newsDateLocale);
+                           $formatted = $date->isoFormat('DD MMMM YYYY');
+                        ?>
+                        {{$formatted}}
+                     </span>
+                     <span class="news-view">{{__('Подробнее')}}</span>
+                  </div>
                   
                </a>
             </div>

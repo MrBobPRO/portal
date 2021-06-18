@@ -132,6 +132,9 @@ li {
    line-height: 1;
    color: var(--color-scheme);
 }
+.books-list-item span {
+   margin-left: 15px;
+}
 /* Books page end*/
 .videos-single-page video {
    width: 100%;
