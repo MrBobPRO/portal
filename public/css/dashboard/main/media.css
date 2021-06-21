@@ -5,57 +5,225 @@
 }
 @media screen and (max-width: 991px) {
    main {
-      padding-top: 0%;
+      padding-top: 59px;
    }
-   .content {
-      margin: 0;
-   }
-   .breadcrumbs {
-      display: flex;
-      margin: 50px 0 0 5px;
-      line-height: 0.1;
-      width: 90%;
-      height: 34px;
-   }
-   .breadcrumbs a span::after {
-      width: 24px;
-      height: 24px;
-      top: 4px;
-      right: -12px;
-   }
-   .breadcrumbs .brd-home span {
-      padding: 0 13px;
-   }
-  .breadcrumbs a:last-child span {
-      padding: 15px 15px 15px 20px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-      line-height: 110%;
-      height: 31px;
-      margin: -8px 0;
+   .mobile-dashboard,
+   #mobile-search {
+      display: block;
    }
    .formed-page {
-      padding: 10px 15px;
-      margin: 10px auto;
-      width: 100vw;
+      padding: 0px 0 15px 0;
    }
-   .formed-page label,
-   .formed-page input,
-   .formed-page textarea,
-   .formed-page .value-replacer {
-      width: 100%;
+   .main-btn {
+      padding: 7px 10px;
+      border: none;
+      border-radius: 0px;
    }
-   .input-container-inline .select2_multiple_container {
-      width: 100%;
-   }
-   .input-container-inline .input-password-container {
-      width: 90%;
-   }
-   .spaced-btw-btns button {
-      padding: 10px;
+   .add-button {
+      padding: 8px;
+      bottom: 15px;
+      right: 20px;
    }
 
+   .ideas-create-page,
+   .complaints-create-page {
+      padding: 15px;
+      margin-bottom: 30px;
+   }
+   .ideas-create-page .input-container-blocked label,
+   .complaints-create-page .input-container-inline label {
+      margin: 0px;
+      width: 100%;
+   }
+   .ideas-create-page input,
+   .ideas-create-page textarea,
+   .complaints-create-page input,
+   .complaints-create-page textarea {
+      border-radius: 0px;
+      width: 100%;
+   }
+   .simditor .simditor-toolbar > ul {
+      padding: 0px;
+   }
+   .simditor .simditor-toolbar > ul li {
+      padding: 0px;
+   }
+   .simditor .simditor-toolbar > ul > li > .toolbar-item {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+   }
+   .ideas-create-page .input-container-blocked,
+   .ideas-create-page .input-container-blocked {
+      margin-bottom: 15px;
+   }
+   .ideas-create-page main-btn {
+      margin: 15px 15px 15px auto;
+   }
+   .complaints-create-page .main-btn,
+   .single-complaints-page .main-btn,
+   .questionnaire-page .main-btn {
+      margin: 0 0 0 auto;
+   }
+
+   .notifications-page .width-25:first-child,
+   .complaints-page .width-25:first-child,
+   .questionnaire-page .width-33:first-child {
+      width: 65%;
+   }
+   .notifications-page .width-25:nth-child(2),
+   .notifications-page .width-25:nth-child(3),
+   .complaints-page .width-25:nth-child(2),
+   .complaints-page .width-25:nth-child(3),
+   .questionnaire-page .width-33:nth-child(2) {
+      display: none;
+   }
+   .notifications-page .width-25:last-child,
+   .complaints-page .width-25:last-child,
+   .questionnaire-page .width-33:last-child {
+      width: 35%;
+   }
+   .notifications-page .primary-list-titles,
+   .ads-page .primary-list-titles,
+   .complaints-page .primary-list-titles,
+   .questionnaire-page .primary-list-titles {
+      margin: 0px;
+      margin-bottom: 1px;
+   }
+   .single-ideas-page,
+   .ads-page,
+   .ads-single-page, 
+   .single-complaints-page,
+   .questionnaire-page,
+   .questionnaire-single-page {
+      margin: 0 0 30px 0;
+      padding: 0px;
+   }
+   .single-ideas-page .question-text {
+      border-radius: 0;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+   }
+   .single-ideas-page .single-option {
+      padding: 5px 15px;
+      border-radius: 0px;
+      margin-bottom: 3px;
+   }
+   .dash-links-seperator {
+      margin: 15px 30px;
+      background-color: #fff;
+   }
+
+   .ads-single-page form,
+   .ads-page form,
+   .single-complaints-page,
+   .questionnaire-page form,
+   .questionnaire-single-page {
+      padding: 15px;
+   }
+   .ads-single-page label,
+   .ads-single-page textarea,
+   .ads-page label,
+   .ads-page textarea,
+   .single-complaints-page label,
+   .single-complaints-page textarea,
+   .single-complaints-page .input-container-inline div,
+   .questionnaire-page label,
+   .questionnaire-page textarea,
+   .questionnaire-single-page label,
+   .questionnaire-single-page textarea {
+      border-radius: 0px;
+      width: 100%;
+   }
+   .spaced-btw-btns {
+      margin: 0px;
+   }
+   .ads-page .main-btn {
+      margin: 0 0 0 auto;
+   }
+
+   .complaints-page .select2_single_container {
+      margin: 0px 0 15px 0;
+      width: 100%;
+   }
+   .complaints-page .select2_single_container .select2-selection--single {
+      border-radius: 0;
+   }
+   .checkbox-container {
+      width: 150px;
+      margin: 0 0 0 auto;
+   }
+   .questionnaire-single-page .variants-list h2 {
+      margin: 15px 0 0 0;
+      padding: 15px 0;
+      font-size: 20px;
+   } 
+   .questionnaire-single-page .variants-list form,
+   .questionnaire-single-page .single-variant {
+      margin-bottom: 15px;
+   }
+   .questionnaire-single-page .store-form {
+      position: relative;
+   }
+   .questionnaire-single-page .store-form input {
+      border-radius: 0;
+      min-width: 100%;
+      padding-right: 44px;
+   }
+   .questionnaire-single-page .store-form .main-btn,
+   .questionnaire-single-page .single-variant form:first-child button {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      height: 43px;
+      width: 43px;
+      overflow: hidden;
+   } 
+   .questionnaire-single-page .single-variant {
+      height: 45px;
+      position: relative;
+   }
+   .questionnaire-single-page .single-variant:last-child {
+      margin-bottom: 0px;
+   }
+   .questionnaire-single-page .store-form .main-btn span {
+      font-size: 30px;
+      margin: 0 55px 0 -3px;
+   }
+   .questionnaire-single-page .single-variant form:first-child {
+      margin: 0;
+      position: relative;
+      min-width: 100%;
+   }
+   .questionnaire-single-page .single-variant form:first-child input {
+      min-width: 100%;
+      margin: 0px;
+      border-radius: 0px;
+      padding-right: 88px;
+   }
+   .questionnaire-single-page .single-variant form:first-child button {
+      position: absolute;
+      top: 1px;
+      right: 44px;
+      margin: 0;
+   }
+   .questionnaire-single-page .single-variant form:first-child button span {
+      margin: 0 50px 0 2px;
+   }
+   .questionnaire-single-page .single-variant form:last-child {
+      margin: 0px;
+   }
+   .questionnaire-single-page .single-variant form:last-child span{
+      margin: 0 50px 0 2px;
+   }
+   .questionnaire-single-page .single-variant button {
+      margin: 0px !important;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      height: 43px;
+      width: 43px;
+      overflow: hidden;
+   }
 }

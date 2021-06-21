@@ -1,15 +1,37 @@
 @media screen and (max-width: 991px) {
+   h2 {
+      padding: 15px;
+      font-weight: 20px;
+   }
+   .input-container-inline {
+      margin: 0 15px;
+   }
    .colors-list {
       width: 100%;
-      margin-top: 20px;
-      margin-bottom: 0px;
-      flex-wrap: wrap;
+      height: 44px;
       padding: 0;
+      margin: 0;
+      align-items: center;
    }
    .colors-item {
-      margin: 15px;
+      display: flex;
+      height: 20px;
+      width: 20px;
+      margin-right: 15px;
+      border-radius: 5px;
    }
-   .dashbg-settings {
+   .main-btn {
+      margin: 15px 15px 15px auto !important;
+   }
+   .title-seperator {
+      margin: 0px;
+      padding: 15px;
+   }
+   .theme-list {
+      height: 120px;
+   }
+   .theme-items form,
+   .inputBox {
       display: none;
    }
 }

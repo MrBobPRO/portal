@@ -12,6 +12,10 @@ p {
    line-height: 1.7;
    font-size: 16px;
 }
+.mobile-dashboard,
+#mobile-search {
+   display: none;
+}
 main {
    max-width: 1310px;
    margin: 0 auto;

@@ -1,5 +1,64 @@
 @media screen and (max-width: 991px) {
-   .content {
+   main {
+      padding-top: 59px;
+   }
+   .ideas-page .width-25:first-child {
+      width: 65%;
+   }
+   .ideas-page .width-25:nth-child(2),
+   .ideas-page .width-25:nth-child(3) {
+      display: none;
+   }
+   .ideas-page .width-25:last-child {
+      width: 35%;
+   }
+   .select2_single_container {
+      margin: 0 0 15px 0;
+   }
+   .primary-list-titles {
+      margin: 0 0 1px 0;
+   }
+   .select2_single_container .select2-selection--single {
+      border-radius: 0;
+   }
+   .ideas-content h3 {
+      padding: 15px;
+      font-size: 20px;
+   }
+   .ideas-content .ideas-content-text {
+      padding: 15px;
+      line-height: 1;
+   }
+   .grades-container {
+      padding: 0 15px 15px 15px;
+      flex-wrap: wrap;
+   }
+   .grades-container .ideas-content-date {
       width: 100%;
+   }
+   .grades-container .grade-icons-container {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 15px;
+   }
+   .comments-container {
+      padding: 15px;
+   }
+   .comments-container form {
+      margin: 15px 0;
+      padding: 4px 10px 4px 5px;
+   }
+   .single-comment {
+      margin-bottom: 15px;
+   }
+   .single-comment h6 {
+      font-size: 15px;
+      margin: 0px;
+   }
+   .single-comment span {
+      font-size: 14px;
+   }
+   .single-comment p {
+      margin: 0px;
    }
 }

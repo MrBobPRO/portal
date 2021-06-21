@@ -7,7 +7,7 @@
    <h2>Цветовая схема</h2>
 
    <div class="input-container-inline">
-      <label>Выберите цвет</label>
+      <label>Выберите цвет:</label>
       <ul class="colors-list">
          <li class="colors-item {{$user->colorScheme == '#00bcd4' ? 'active' : ''}} lightblue" onclick="changeColor('#00bcd4','lightblue')"></li>
          <li class="colors-item {{$user->colorScheme == '#9368e9' ? 'active' : ''}} purple" onclick="changeColor('#9368e9','purple')"></li>

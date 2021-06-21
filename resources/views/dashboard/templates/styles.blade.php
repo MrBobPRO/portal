@@ -17,7 +17,7 @@
         <link href="{{ asset('css/dashboard/users/media.css') }}" rel="stylesheet">
     @break
 
-    @case('dashboard.ideas.single')
+    @case('dashboard.ideas.index') @case('dashboard.ideas.single')
         <link href="{{ asset('css/dashboard/ideas/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard/ideas/media.css') }}" rel="stylesheet">
     @break

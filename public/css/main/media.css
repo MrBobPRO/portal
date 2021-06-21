@@ -93,6 +93,10 @@
     main {
         padding: 59px 0 0 0;
     }
+    .mobile-dashboard,
+    #mobile-search {
+        display: block;
+    }
     .content {
         width: 100%;
         padding: 0;
@@ -111,7 +115,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 9;
+        z-index: 88;
         background-color: var(--color-scheme);
     }
     .search-form,
@@ -173,7 +177,7 @@
         font-size: 28px;
     }
     .toolbar-items .badge {
-        bottom: 0px;
+        top: 2px;
         right: 0px;
         font-size: 14px;
         margin: 0;
@@ -250,22 +254,25 @@
     .dash-content {
         position: relative;
     }
-    .navigation {
+    .navigation,
+    .users-dash {
         padding: 0px;
-        margin: 44px 0 0 0;
+        margin: 15px 0 0 0;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         width: 290px;
     }
-    .navigation-items {
+    .navigation-items,
+    .users-dash-items {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
     }
     .navigation-items a,
-    .page-link-btn {
+    .page-link-btn,
+    .users-dash-items a {
         display: flex;
         align-items: center;
         width: 100%;
@@ -277,7 +284,9 @@
     }
     .navigation-items a:hover,
     .navigation-items.active,
-    .page-items.active {
+    .page-items.active,
+    .users-dash-items a:hover,
+    .users-dash-items.active{
         background-color: rgba(0,0,0,0.3);    
     }
     .page-link-btn {
@@ -308,7 +317,6 @@
         font-size: 16px;
     }
 
-
     .mob-search-form {
         display: flex;
         justify-content: space-between;
@@ -328,6 +336,21 @@
     .mob-search-form button {
         border: none;
         color: #767676;
+    }
+
+    .dash-block {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        overflow: scroll;
+        transition-duration: 0.5s;
+    }
+    .dash-block.hidden {
+        height: 0;
+    }
+    .users-dash-items span {
+        margin-right: 6px;
     }
     /* mobile dashboard styles end */
 }

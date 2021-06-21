@@ -1,11 +1,31 @@
 @media screen and (max-width: 991px) {
+   main {
+      padding-top: 59px;
+   }
+   .select2_single_container {
+      margin: 0px;
+   }
+   .select2_single_container .select2-selection--single {
+      border-radius: 0px;
+   }
    .users-list {
-      justify-content: center;
+      margin: 15px 0px;
    }
    .users-list .users-list-item {
-      width: 390px;
+      width: 100%;
    }
    .single-users-page img {
+      width: 100%;
+   }
+   .single-users-page h2 {
+      margin: 0px;
+      padding: 15px;
+      font-size: 20px;
+   }
+   .input-container-inline {
+      margin: 0 15px 15px 15px;
+   }
+   .input-container-inline .value-replacer {
       width: 100%;
    }
 }

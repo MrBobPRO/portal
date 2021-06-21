@@ -45,7 +45,7 @@
          <form action="/ideas/download_file" method="POST">
             @csrf
             <input type="hidden" name="file" value="{{$idea->file}}">
-            <button type="submit">Скачать прикреплённый файл</button>
+            <button type="submit">{{__('Скачать прикреплённый файл')}}</button>
          </form>
       @endif
 
@@ -54,7 +54,7 @@
 
    {{-- Comments start --}}
    <div class="comments-container">
-      <h3>Коментарии ({{$commentsCount}})</h3>
+      <h3>{{__('Коментарии')}} ({{$commentsCount}})</h3>
 
       <form action="/ideas/comment" method="POST">
          @csrf
@@ -69,7 +69,7 @@
              <div class="single-comment">
                 <img src="{{ asset('img/users/' . $comment->user->avatar) }}">
                 <div class="comment-body">
-                   <h6>{{$comment->user->name}}</h6>
+                   <h6>{{$comment->user->name}} {{$comment->user->surname}}</h6>
                    <span>
                      <?php 
                         $date = \Carbon\Carbon::parse($comment->created_at)->locale('ru')->diffForHumans();

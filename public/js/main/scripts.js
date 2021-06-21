@@ -1,19 +1,9 @@
-// MOBILE DASHBOARD SCRIPTS START
+// !MOBILE DASHBOARD SCRIPTS START
 // show || hide dashboard
 const menuEl = document.getElementById('menu-btn');
 const menuIconEl = document.getElementById('menu-icon');
 const mobDashEl = document.getElementById('mobile-dashboard');
 menuEl.onclick = () => {
-   mobDashEl.classList.toggle('hidden');
-   if (menuIconEl.textContent == 'menu') {
-      menuIconEl.textContent = 'menu_open';
-   } else {
-      menuIconEl.textContent = 'menu';
-   }
-}
-// close dashboard
-const closeDashEl = document.getElementById('close-dash-btn');
-closeDashEl.onclick = () => {
    mobDashEl.classList.toggle('hidden');
    if (menuIconEl.textContent == 'menu') {
       menuIconEl.textContent = 'menu_open';
@@ -31,6 +21,28 @@ mobSearchEl.onclick = () => {
 const mobSearchCloseEl = document.getElementById('close-search-btn');
 mobSearchCloseEl.onclick = () => {
    searchBlockEl.classList.toggle('hidden');
+}
+// show || hide dashboard
+const dashBtnEl = document.getElementById('dash-btn');
+const dashEl = document.getElementById('mobile-dash');
+const dashArrowEl = document.getElementById('account-drop-arrow');
+dashBtnEl.onclick = () => {
+   dashEl.classList.toggle('hidden');
+   if (dashArrowEl.textContent == 'arrow_drop_down') {
+      dashArrowEl.textContent = 'arrow_drop_up';
+   } else {
+      dashArrowEl.textContent = 'arrow_drop_down'
+   }
+}
+// close dashboard
+const closeDashEl = document.getElementById('close-dash-btn');
+closeDashEl.onclick = () => {
+   mobDashEl.classList.toggle('hidden');
+   if (menuIconEl.textContent == 'menu') {
+      menuIconEl.textContent = 'menu_open';
+   } else {
+      menuIconEl.textContent = 'menu';
+   }
 }
 // show || hide news categories
 const newsLinkEl = document.getElementById('news-link-btn');
@@ -68,7 +80,7 @@ entertainmentLinkEl.onclick = () => {
       entertainmentArrowEl.textContent = 'arrow_drop_down';
    }
 }
-// MOBILE DASHBOARD SCRIPTS END
+// !MOBILE DASHBOARD SCRIPTS END
 
 
 

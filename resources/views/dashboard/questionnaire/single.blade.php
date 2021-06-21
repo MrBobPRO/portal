@@ -23,8 +23,8 @@
          </div>
 
          <div class="spaced-btw-btns">
-            <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
             <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Сохранить изменения')}}</button>
+            <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
          </div>
 
      </form>
@@ -37,7 +37,10 @@
             <input type="hidden" value="{{$question->id}}" name="question_id">
             <input name="text" type="text" placeholder="Добавить новый вариант" required>
 
-            <button class="main-btn" type="submit">{{__('Добавить')}}</button>
+            <button class="main-btn" type="submit">
+               <span class="material-icons-outlined">add</span>
+               {{__('Добавить')}}
+            </button>
          </form>
 
          @foreach ($question->options as $opt)
@@ -47,13 +50,19 @@
                   <input type="hidden" value="{{$opt->id}}" name="id">
                   <input name="text" required value="{{ $opt->text }}">
    
-                  <button class="main-btn" type="submit">{{__('Изменить')}}</button>
+                  <button class="main-btn" type="submit">
+                     <span class="material-icons-outlined">edit</span>
+                     {{__('Изменить')}}
+                  </button>
                </form>
 
                <form action="/remove_options" method="POST" class="delete-form">
                   @csrf
                   <input type="hidden" value="{{$opt->id}}" name="id">
-                  <button class="main-btn delete-btn" type="submit">{{__('Удалить')}}</button>
+                  <button class="main-btn delete-btn" type="submit">
+                     <span class="material-icons-outlined">delete</span>
+                     {{__('Удалить')}}
+                  </button>
                </form>
             </div>
 
