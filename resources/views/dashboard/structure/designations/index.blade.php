@@ -6,19 +6,19 @@
    <a class="add-button" data-bs-toggle="modal" data-bs-target="#storeModal"><span class="material-icons-outlined">add</span></a>
 
    <div class="primary-list-titles">
-      <div class="dep-items width-25">{{__('Позиции')}}</div>
-      <div class="dep-items width-25">{{__('Приоритет')}}</div>
-      <div class="dep-items width-25">{{__('Количество сотрудников')}}</div>
-      <div class="dep-items width-25">{{__('Редактирование')}}</div>
+      <div class="width-25">{{__('Позиции')}}</div>
+      <div class="width-25">{{__('Приоритет')}}</div>
+      <div class="width-25">{{__('Количество сотрудников')}}</div>
+      <div class="edit width-25">{{__('Редактирование')}}</div>
    </div>
 
    <div class="primary-list">
       @foreach($designations as $designation)
          <a class="primary-list-item @if($designation->id == 1) visually-hidden @endif">
-            <div class="dep-list-items width-25">{{__($designation->name)}}</div>
-            <div class="dep-list-items width-25">{{$designation->priority}}</div>
-            <div class="dep-list-items width-25">{{count(App\Models\User::where('designation_id', $designation->id)->get())}}</div>
-            <div class="dep-list-items width-25">
+            <div class="width-25">{{__($designation->name)}}</div>
+            <div class="width-25">{{$designation->priority}}</div>
+            <div class="width-25">{{count(App\Models\User::where('designation_id', $designation->id)->get())}}</div>
+            <div class="width-25">
                <div class="btns-edit-container">
                   <button class="main-btn" data-bs-toggle="modal" data-bs-target="#updateModal{{$designation->id}}">
                      <span class="material-icons-outlined">edit</span> {{__('Изменить')}}

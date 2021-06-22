@@ -1,0 +1,25 @@
+@media screen and (max-width: 991px) {
+   h2 {
+      margin: 0 !important;
+      padding: 15px !important;
+      font-size: 20px !important;
+   }
+   .gallery-images-container {
+      margin: 0 15px !important;
+      justify-content: space-between;
+   }
+   .gallery-images-container div img {
+      height: 100px !important;
+      max-width: 100px !important;
+      width: 100px;
+   }
+   .gallery-images-container div {
+      width: 100px;
+   }
+   #dropzone {
+      margin: 0 15px 15px 15px;
+   }
+   .formed-page {
+      padding-bottom: 1px;
+   }
+}

@@ -10,58 +10,127 @@
    }
 }
 @media screen and (max-width: 991px) {
-   .structure-page {
-      padding: 10px;
+   section {
+      margin-bottom: 30px;
    }
-   .structure-user-update img {
-      width: 100%;
+   .formed-page form {
+      padding-bottom: 15px !important;
    }
    .dash-search-container .select2_single_container {
       display: none;
    }
    .structure-links {
       flex-wrap: wrap;
-   }
-   .structure-links a {
-      width: 100%;
-      display: flex;
       justify-content: center;
-      margin: 5px 0px;
+      align-items: center;
+      width: 100%;
    }
-   .add-button {
-      bottom: 20px;
-      right: 20px;
+   .structure-links .main-btn {
+      width: 100%;
+      margin: 0px;
+      justify-content: center;
+      align-items: center;
+   }
+   .departments-list-item {
+      margin-bottom: 15px;
    }
    .users-list .users-list-item {
-      width: 390px;
+      width: 100%;
    }
-   .dep-items:nth-child(2),
-   .dep-items:nth-child(3),
-   .dep-list-items:nth-child(2),
-   .dep-list-items:nth-child(3) {
+   .structure-user-create img,
+   .structure-user-update img {
+      width: 100%;
+   }
+   .structure-user-create h2,
+   .structure-user-update h2 {
+      font-size: 20px;
+      margin: 15px;
+   }
+   .structure-user-create form,
+   .structure-user-update form   {
+      padding: 15px 15px 0px 15px;
+   }
+   .input-container-inline label,
+   .input-container-inline input,
+   .input-container-inline textarea,
+   .input-container-inline .select2_single_container .select2-container--default,
+   .input-container-inline .select2_single_container,
+   .input-container-inline .select2_multiple_container,
+   .select2_multiple_container .select2-selection--multiple {
+      width: 100%;
+      border-radius: 0px;
+   } 
+   .structure-user-create .main-btn {
+      margin: 15px 0 0 auto;
+   }
+
+   .department-index-page .width-25:nth-child(2),
+   .department-index-page .width-25:nth-child(3),
+   .designation-index-page .width-25:nth-child(2),
+   .designation-index-page .width-25:nth-child(3),
+   .positions-index-page .width-33:nth-child(2) {
       display: none;
    }
-   .dep-items:first-child,
-   .dep-list-items:first-child {
-      width: 65%;
+   .department-index-page .width-25:first-child,
+   .designation-index-page .width-25:first-child,
+   .positions-index-page .width-33:first-child {
+      width: 70%;
+      padding: 0px;
    }
-   .dep-items:last-child,
-   .dep-list-items:last-child {
-      width: 35%;
+   .department-index-page .width-25:last-child.departments-list-item,
+   .designation-index-page .width-25:last-child,
+   .positions-index-page .width-33:last-child {
+      width: 30%;
+      padding: 0px;
    }
-   .add-button {
-      z-index: 9;
+   .primary-list-titles {
+      margin: 0 0 1px 0;
    }
-   .dep-list-items .btns-edit-container {
-      display: flex;
-      width: 100% !important;
+   .edit.width-25,
+   .edit.width-33 {
+      width: 40% !important;
    }
-   .dep-list-items .btns-edit-container button {
-      width: 25px;
+   .primary-list-item {
+      align-items: center;
+      height: 44px;
+      padding: 0 15px;
+      border-bottom: 0;
+      margin-bottom: 1px;
+      justify-content: space-between;
    }
-   .dep-list-items .main-btn span {
-      font-size: 20px;
-      margin-left: -9px;
-      margin-right: 500px;
+   .primary-list-item div {
+      padding: 0px;
+      overflow: hidden;
+      justify-content: flex-end;
+   }
+   .btns-edit-container button {
+      padding: 9px 20px;
+      width: 40px;
+      height: 40px;
+      padding-left: 11px;
+      overflow: hidden;
+   }
+   .btns-edit-container button span {
+      margin-right: 50px;
+   }
+   .btns-edit-container .delete-btn {
+      margin-left: 5px;
+   }
+   .modal.show .modal-dialog {
+      margin: 0px;
+      align-items: baseline;
+   }
+   .modal-dialog-scrollable .modal-content {
+      border-radius: 0;
+      border: none;
+   }
+   .modal-header {
+      height: 44px;
+   }
+   .edit-modals form label {
+      flex-direction: column;
+   }
+   .edit-modals form label input {
+      border-radius: 0;
    }
 }

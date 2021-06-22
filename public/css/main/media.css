@@ -221,8 +221,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0,0,0,0.8);
         height: 44px;
+        z-index: 99;
     }
     .dashtools button,
     .close-search-btn {
@@ -252,7 +253,14 @@
         margin-left: 4px;
     }
     .dash-content {
-        position: relative;
+        position: absolute;
+        top: 44px;
+        left: 0px;
+        transition-duration: .5s;
+    }
+    .dash-content.hidden {
+        height: 0px;
+        overflow: hidden;
     }
     .navigation,
     .users-dash {
@@ -265,14 +273,16 @@
         width: 290px;
     }
     .navigation-items,
-    .users-dash-items {
+    .users-dash-items,
+    .users-dash-items form {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
     }
     .navigation-items a,
     .page-link-btn,
-    .users-dash-items a {
+    .users-dash-items a,
+    .users-dash-items button {
         display: flex;
         align-items: center;
         width: 100%;
@@ -282,12 +292,17 @@
         padding: 6px 30px;
         height: 44px;
     }
+    .users-dash-items button {
+        background-color: transparent;
+        border: none;
+        margin-bottom: 30px;
+    }
     .navigation-items a:hover,
     .navigation-items.active,
     .page-items.active,
     .users-dash-items a:hover,
     .users-dash-items.active{
-        background-color: rgba(0,0,0,0.3);    
+        background-color: rgba(0,0,0,0.8);    
     }
     .page-link-btn {
         border: none;
@@ -339,12 +354,25 @@
     }
 
     .dash-block {
-        position: relative;
+        position: absolute;
         top: 0;
         left: 0;
         height: 100%;
         overflow: scroll;
-        transition-duration: 0.5s;
+        transition-duration: 1s;
+        z-index: 31;
+        background-size: cover;
+        padding: 44px 0 0 0;
+    }
+    .dash-block .secOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 850px;
+        width: 290px;
+        background-color: black;
+        opacity: 0.7;
+        z-index: -1;
     }
     .dash-block.hidden {
         height: 0;

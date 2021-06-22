@@ -1,0 +1,24 @@
+@media screen and (max-width: 991px) {
+   .form-image {
+      margin: 15px 0 0 0;
+      max-width: 100%;
+   }
+   .primary-list-titles {
+      margin: 0 0 1px 0;
+   }
+   .width-33:first-child,
+   .width-33:last-child {
+      width: 50%;
+   }
+   .width-33:nth-child(2) {
+      display: none;
+   }
+   .select2_single_container .select2-selection--single {
+      border-radius: 0px;
+      width: 100%;
+   }
+   .input-container-blocked .select2_single_container .select2-container--default {
+      border-radius: 0px;
+      width: 100%;
+   }
+}

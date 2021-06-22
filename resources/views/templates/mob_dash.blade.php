@@ -4,9 +4,7 @@
 <div 
     id="mobile-dashboard"
     class="mobile-dashboard hidden" 
-    @if ($appUser->dashBg != 'null')
-        style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})"
-    @endif
+    style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})"
     
 >
 
@@ -26,7 +24,9 @@
     </div>
 
     {{-- dashboard block --}}
-    <div id="mobile-dash" class="dash-block 
+    <div id="mobile-dash" 
+        style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})"
+        class="dash-block 
         {{$route == 'dashboard.profile.index'
         ||$route == 'dashboard.settings.index'
         ||$route == 'dashboard.users.index'
@@ -40,8 +40,40 @@
         ||$route == 'dashboard.complaints.single'
         ||$route == 'dashboard.questionnaire.index'
         ||$route == 'dashboard.questionnaire.single'
-        ||$route == 'dashboard.questionnaire.create' ? '' : 'hidden'}}"
+        ||$route == 'dashboard.questionnaire.create'
+        ||$route == 'dashboard.slider.index'
+        ||$route == 'dashboard.slider.single'
+        ||$route == 'dashboard.slider.create'
+        ||$route == 'dashboard.structure.index'
+        ||$route == 'dashboard.structure.users.update'
+        ||$route == 'dashboard.structure.users.create'
+        ||$route == 'dashboard.structure.departments.index'
+        ||$route == 'dashboard.structure.designations.index'
+        ||$route == 'dashboard.structure.positions.index'
+        ||$route == 'dashboard.knowledge.index' 
+        ||$route == 'dashboard.knowledge.books'
+        ||$route == 'dashboard.knowledge.books.single'
+        ||$route == 'dashboard.knowledge.books.create'
+        ||$route == 'dashboard.knowledge.videos'
+        ||$route == 'dashboard.knowledge.videos.single'
+        ||$route == 'dashboard.knowledge.videos.create'
+        ||$route == 'dashboard.knowledge.create'
+        ||$route == 'dashboard.news.index' 
+        ||$route == 'dashboard.news.single' 
+        ||$route == 'dashboard.news.create'
+        ||$route == 'dashboard.projects.index' 
+        ||$route == 'dashboard.projects.single' 
+        ||$route == 'dashboard.projects.create'
+        ||$route == 'dashboard.videos.index' 
+        ||$route == 'dashboard.videos.single' 
+        ||$route == 'dashboard.videos.create'
+        ||$route == 'dashboard.galleries.index' 
+        ||$route == 'dashboard.galleries.single' 
+        ||$route == 'dashboard.galleries.create'
+        ||$route == 'dashboard.translations.index' 
+        ||$route == 'dashboard.translations.single' ? '' : 'hidden'}}"
     >
+        <div class="secOverlay {{$appUser->darkMode == '1' ? '' : 'hidden'}}"></div>
         <div class="content">
             {{-- User dashboard links --}}
             <ul class="users-dash">
@@ -93,6 +125,88 @@
                             <span class="material-icons-outlined">help_outline</span>
                             {{__('Опросник')}}
                         </a>
+                    </li>
+                    <li class="users-dash-items {{$route == 'dashboard.slider.index' ||$route == 'dashboard.slider.single' ||$route == 'dashboard.slider.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.slider.index')}}">
+                            <span class="material-icons-outlined">slideshow</span>
+                            {{__('Слайдер')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.structure.index' 
+                        ||$route == 'dashboard.structure.users.update' 
+                        ||$route == 'dashboard.structure.users.create'
+                        ||$route == 'dashboard.structure.departments.index'
+                        ||$route == 'dashboard.structure.designations.index'
+                        ||$route == 'dashboard.structure.positions.index' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.structure.index')}}">
+                            <span class="material-icons-outlined">groups</span>
+                            {{__('Структура')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.knowledge.index' 
+                        ||$route == 'dashboard.knowledge.books'
+                        ||$route == 'dashboard.knowledge.books.single'
+                        ||$route == 'dashboard.knowledge.books.create'
+                        ||$route == 'dashboard.knowledge.videos'
+                        ||$route == 'dashboard.knowledge.videos.single'
+                        ||$route == 'dashboard.knowledge.videos.create'
+                        ||$route == 'dashboard.knowledge.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.knowledge.index')}}">
+                            <span class="material-icons-outlined">auto_stories</span>
+                            {{__('Центр знаний')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.news.index' 
+                        || $route == 'dashboard.news.single' 
+                        || $route == 'dashboard.news.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.news.index')}}">
+                            <span class="material-icons-outlined">article</span>
+                            {{__('Новости')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.projects.index' 
+                        ||$route == 'dashboard.projects.single' 
+                        ||$route == 'dashboard.projects.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.projects.index')}}">
+                            <span class="material-icons-outlined">equalizer</span>
+                            {{__('Проекты')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.videos.index' 
+                        ||$route == 'dashboard.videos.single' 
+                        ||$route == 'dashboard.videos.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.videos.index')}}">
+                            <span class="material-icons-outlined">videocam</span>
+                            {{__('Видео')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.galleries.index' 
+                        ||$route == 'dashboard.galleries.single' 
+                        ||$route == 'dashboard.galleries.create' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.galleries.index')}}">
+                            <span class="material-icons-outlined">image</span>
+                            {{__('Галерея')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items 
+                        {{$route == 'dashboard.translations.index' 
+                        || $route == 'dashboard.translations.single' ? 'active' : ''}}">
+                        <a href="{{route('dashboard.translations.index')}}">
+                            <span class="material-icons-outlined">translate</span>
+                            {{__('Переводы')}}
+                        </a>
+                    </li>
+                    <li class="users-dash-items">
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit"><span class="material-icons-outlined">logout</span>{{ __('Выйти') }}</button>
+                        </form>
                     </li>
                 </ul>
             @endif

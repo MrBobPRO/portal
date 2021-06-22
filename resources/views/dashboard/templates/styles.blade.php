@@ -40,13 +40,26 @@
         <link href="{{ asset('css/dashboard/structure/media.css') }}" rel="stylesheet">
     @break
 
+    @case('dashboard.knowledge.index')
     @case('dashboard.knowledge.create')  
+    @case('dashboard.knowledge.books')
     @case('dashboard.knowledge.books.single')  
-    @case('dashboard.knowledge.books.create')  
+    @case('dashboard.knowledge.books.create')
+    @case('dashboard.knowledge.videos')  
     @case('dashboard.knowledge.videos.single')  
     @case('dashboard.knowledge.videos.create')  
         <link href="{{ asset('css/dashboard/knowledge/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard/knowledge/media.css') }}" rel="stylesheet">
+    @break
+
+    @case('dashboard.projects.index') @case('dashboard.projects.single') @case('dashboard.projects.create')  
+        <link href="{{ asset('css/dashboard/projects/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/projects/media.css') }}" rel="stylesheet">
+    @break
+
+    @case('dashboard.news.index') @case('dashboard.news.single') @case('dashboard.news.create')  
+        <link href="{{ asset('css/dashboard/news/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard/news/media.css') }}" rel="stylesheet">
     @break
 
     @case('dashboard.videos.create') @case('dashboard.videos.single') 

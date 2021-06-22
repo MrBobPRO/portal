@@ -26,6 +26,7 @@ mobSearchCloseEl.onclick = () => {
 const dashBtnEl = document.getElementById('dash-btn');
 const dashEl = document.getElementById('mobile-dash');
 const dashArrowEl = document.getElementById('account-drop-arrow');
+const dashContentEl = document.getElementById('dash-content');
 dashBtnEl.onclick = () => {
    dashEl.classList.toggle('hidden');
    if (dashArrowEl.textContent == 'arrow_drop_down') {

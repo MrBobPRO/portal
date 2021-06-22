@@ -2,6 +2,7 @@
    h2 {
       padding: 15px;
       font-weight: 20px;
+      margin: 0px;
    }
    .input-container-inline {
       margin: 0 15px;
@@ -20,8 +21,11 @@
       margin-right: 15px;
       border-radius: 5px;
    }
+   .formed-page form {
+      padding: 0px 0 15px 0;
+   }
    .main-btn {
-      margin: 15px 15px 15px auto !important;
+      margin: 15px 15px 0px auto !important;
    }
    .title-seperator {
       margin: 0px;

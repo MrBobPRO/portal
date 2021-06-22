@@ -105,8 +105,8 @@
       </div>
 
       <div class="spaced-btw-btns">
-         <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
          <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Обновить профиль')}}</button>
+         <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>
       </div>
 
    </form>{{-- Personal data form end --}}
