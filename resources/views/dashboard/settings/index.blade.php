@@ -99,7 +99,7 @@
                <label class="dashbg-label" for="custom-background-input">
                   <div class="own-theme">
                      <span class="material-icons-outlined">add_circle_outline</span>
-                     <p>Добавить фон</p>
+                     <p>{{__('Добавить фон')}}</p>
                   </div>
                </label> 
                <input class="visually-hidden" id="custom-background-input" type="file" name="background" accept="image/*" required>   

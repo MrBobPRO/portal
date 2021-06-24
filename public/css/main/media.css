@@ -358,9 +358,6 @@
         border: none;
         background-color: rgba(0,0,0,0);
     }
-    .page-link-btn span {
-        margin-left: 5px;
-    }
     .page-list {
         padding: 0;
         width: 100%;
