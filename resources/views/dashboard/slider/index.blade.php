@@ -17,7 +17,12 @@
             <a class="primary-list-item" href="{{ route('dashboard.slider.single', $item->id)}}">
                <div class="width-33">{{$item->priority}}</div>
                <div class="width-33">{{$item->title}}</div>
-               <div class="width-33">{{$item->url}}</div>
+               <div class="width-33 admin-edit-btn">
+                  <div>
+                     {{$item->url}}
+                  </div>
+                  <span class="material-icons-outlined">edit</span>
+               </div>
             </a>
          @endforeach
       </div>

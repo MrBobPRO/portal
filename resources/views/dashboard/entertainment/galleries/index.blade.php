@@ -29,12 +29,15 @@
          @foreach($galleries as $gallery)
             <a class="primary-list-item" href="{{ route('dashboard.galleries.single', $gallery->id)}}">
                <div class="width-50">{{$gallery->title}}</div>
-               <div class="width-50">
+               <div class="width-50 admin-edit-btn">
                   <?php 
                      $d = \Carbon\Carbon::parse($gallery->date);
                      $formatted = $d->isoFormat('DD MMMM YYYY');
                   ?>
-                  {{$formatted}}
+                  <div>
+                     {{$formatted}}
+                  </div>
+                  <span class="material-icons-outlined">edit</span>
                </div>
             </a>
          @endforeach

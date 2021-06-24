@@ -1,8 +1,22 @@
-.login-page {
-   height: 100vh;
+body {
+   background: url('/img/login/background.jpg') no-repeat; 
+   background-size: cover;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
-.nav {
-   background-color: white;
+iframe {
+   display: none !important;
+}
+header, footer {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 100px;
+}
+.logo img {
+   height: 60px;
 }
 #langDropdown {
    display: flex;
@@ -22,16 +36,19 @@
 .nav-lang-dropdown button {
    float: right;
 }
-.logo {
-   max-width: 40%;
+main {
+   padding:0 0 150px 0;
 }
 .welcome-note {
    font-size: 33px;
    color: #1A078F;
    font-weight: 300;
-   padding-bottom: 80px;
+   padding-right: 200px;
    line-height: 1.4;
    text-transform: uppercase;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 .welcome-note span {
    display: block;
@@ -45,7 +62,6 @@
    box-shadow: rgb(165 165 165 / 30%) 0px 0px 18px 5px;
    background-color: #fff;
    padding: 40px 45px 50px;
-   margin-bottom: 20px;
    float: right;
 }
 .login-title {

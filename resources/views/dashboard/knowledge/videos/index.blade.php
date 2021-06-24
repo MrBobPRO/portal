@@ -31,12 +31,15 @@
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.videos.single', $video->id)}}">
                <div class="width-33">{{ $video->title }}</div>
                <div class="width-33">{{ __($video->ruCategory) }}</div>
-               <div class="width-33">
+               <div class="width-33 admin-edit-btn">
                   <?php 
                      $date = \Carbon\Carbon::parse($video->created_at);
                      $formatted = $date->isoFormat('DD MMMM YYYY H:mm:s');
                   ?>
-                  {{$formatted}}
+                  <div>
+                     {{$formatted}}
+                  </div>
+                  <span class="material-icons-outlined">edit</span>
                </div>
             </a>
          @endforeach

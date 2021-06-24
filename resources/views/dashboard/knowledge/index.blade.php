@@ -14,15 +14,24 @@
          <div class="primary-list">
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.books') }}">
                 <div class="width-50">{{ __('Книги') }}</div>
-                <div class="width-50">{{ $booksCount }}</div>
+                <div class="width-50 admin-edit-btn">
+                    {{ $booksCount }}
+                    <span class="material-icons-outlined">visibility</span>
+                </div>
             </a>
             <a class="primary-list-item" href="{{ route('dashboard.knowledge.videos') }}">
                 <div class="width-50">{{ __('Видео') }}</div>
-                <div class="width-50">{{ $videosCount }}</div>
+                <div class="width-50 admin-edit-btn">
+                    {{ $videosCount }}
+                    <span class="material-icons-outlined">visibility</span>
+                </div>
             </a>
             <a class="primary-list-item" href="#">
                 <div class="width-50">{{ __('Тесты') }}</div>
-                <div class="width-50">0</div>
+                <div class="width-50 admin-edit-btn">
+                    0
+                    <span class="material-icons-outlined">visibility</span>
+                </div>
             </a>
          </div>
 

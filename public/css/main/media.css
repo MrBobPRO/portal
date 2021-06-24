@@ -473,6 +473,7 @@
         display: block;
         width: 90px;
         height: 60px;
+        object-fit: cover;
     }
     /* search section styles end */
 
