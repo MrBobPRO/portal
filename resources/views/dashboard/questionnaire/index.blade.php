@@ -23,12 +23,13 @@
                   ?>
                   {{$formatted}}
                </div>
-               <div class="width-33">
+               <div class="width-33 admin-edit-btn">
                   @if ($qs->private)
                      {{__('Приватный')}}
                   @else
                      {{__('Публичный')}}
                   @endif
+                  <span class="material-icons-outlined">edit</span>
                </div>
             </a>
          @endforeach

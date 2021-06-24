@@ -15,12 +15,13 @@
          @foreach($ads as $ad)
             <a class="primary-list-item" href="{{ route('dashboard.ads.single', $ad->id)}}">
                <div class="width-50">{{$ad->text}}</div>
-               <div class="width-50">
+               <div class="width-50 admin-edit-btn">
                   <?php 
                      $date = \Carbon\Carbon::parse($ad->created_at);
                      $formatted = $date->isoFormat('DD MMMM YYYY H:mm:ss');
                   ?>
                   {{$formatted}}
+                  <span class="material-icons-outlined">edit</span>
                </div>
             </a>
          @endforeach

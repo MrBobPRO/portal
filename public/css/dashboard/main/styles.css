@@ -93,11 +93,12 @@ input:read-only {
 }
 .spaced-btw-btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 30px;
 }
 .spaced-btw-btns button {
   margin: 0 !important;
+  margin-left: 5px !important;
 }
 .checkbox-container {
   width: 60%;
@@ -508,3 +509,11 @@ input:read-only {
   cursor: pointer;
 }
 /* Catalog styles end */
+.admin-edit-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admin-edit-btn span {
+    color: var(--color-scheme);
+  }

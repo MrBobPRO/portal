@@ -34,12 +34,13 @@
                   ?>
                   {{$formatted}}
                </div>
-               <div class="width-25">
+               <div class="width-25 admin-edit-btn">
                   @if($complaint->new)
                      <span class="list-new-item">{{__('НОВЫЙ')}}</span>
                   @else
                      {{__('Просмотрено')}}
                   @endif
+                  <span class="material-icons-outlined">edit</span>
                </div>
             </a>
          @endforeach
