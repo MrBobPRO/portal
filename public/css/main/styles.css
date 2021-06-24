@@ -13,22 +13,24 @@ p {
    font-size: 16px;
 }
 .mobile-dashboard,
-#mobile-search {
+#mobile-search,
+.mobile-sidebar,
+.mob-set {
    display: none;
 }
 main {
    max-width: 1310px;
    margin: 0 auto;
-   padding: 50px 0;
+   padding: 30px 0;
    display: flex;
    justify-content: space-between;
 }
 .content {
    width: calc(100% - 310px);
-   padding-right: 40px;
+   padding-right: 30px;
 }
 section {
-   margin-top: 25px;
+   margin-top: 30px;
 }
 .banner-block {
    width: 100%;
@@ -39,7 +41,7 @@ section {
    width: 100%;
 }
 .text-block {
-   margin: 25px 0;
+   margin: 30px 0;
    background-color: #fff;
    padding: 30px;
 }
@@ -517,7 +519,7 @@ button:focus {
 }
 .sidebar-news, .sidebar-ads {
    background: white;
-   margin-bottom: 40px;
+   margin-bottom: 30px;
 }
 .sidebar-ads h1 {
    border-bottom: 3px solid var(--color-scheme);
@@ -582,7 +584,7 @@ button:focus {
    width: -moz-fit-content;
    width: fit-content;
    line-height: 1;
-   margin-top: 25px;
+   margin-top: 30px;
 }
 .breadcrumbs a {
    background: white;

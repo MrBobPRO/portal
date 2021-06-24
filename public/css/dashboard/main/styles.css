@@ -64,7 +64,7 @@ input:read-only {
   min-height: 45px;
 }
 .formed-page {
-  padding: 40px 45px;
+  padding: 30px;
   background: white;
 }
 .formed-page .main-btn {
@@ -154,6 +154,9 @@ input:read-only {
   display: flex;
   margin-bottom: 15px;
   flex-wrap: wrap;
+}
+.input-container-inline:last-child {
+  margin-bottom: 0px;
 }
 .input-container-inline label {
   width: 40%;
@@ -305,7 +308,7 @@ input:read-only {
 /* Select2 single styles start*/
 .select2_single_container {
   max-width: 500px;
-  margin: 15px 0 20px;
+  margin: 0 0 30px 0;
 }
 .select2_single_container .select2_single {
   width: 100%;

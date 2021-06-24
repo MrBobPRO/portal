@@ -3,11 +3,59 @@
     
 <section class="settings-page formed-page">
 
+   {{-- Change language start --}}
+   <div class="mob-set">
+      <h2>{{__('Языки')}}</h2>
+
+      <div class="input-container-inline">
+         <label>{{__('Выберите язык')}}:</label>
+         <ul class="colors-list languages-list">
+            <li>
+               <form action="/setLangRu" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                     @if (App::currentLocale() == 'ru')
+                        <span class="material-icons-outlined">radio_button_checked</span>
+                     @endif
+                     ru
+                     <img src="{{asset('img/main/russian.png')}}">
+                  </button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangTj" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                     @if (App::currentLocale() == 'tj')
+                        <span class="material-icons-outlined">radio_button_checked</span>
+                     @endif
+                     tj
+                     <img src="{{asset('img/main/tajik.png')}}">
+                  </button>
+               </form>
+            </li>
+            <li>
+               <form action="/setLangEn" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                     @if (App::currentLocale() == 'en')
+                        <span class="material-icons-outlined">radio_button_checked</span>
+                     @endif
+                     en
+                     <img src="{{asset('img/main/english.png')}}">
+                  </button>
+               </form>
+            </li>
+         </ul>
+      </div>
+   </div>
+   {{-- Change language end --}}
+
    {{-- Change color scheme start --}}
-   <h2>Цветовая схема</h2>
+   <h2>{{__('Цветовая схема')}}</h2>
 
    <div class="input-container-inline">
-      <label>Выберите цвет:</label>
+      <label>{{__('Выберите цвет')}}:</label>
       <ul class="colors-list">
          <li class="colors-item {{$user->colorScheme == '#00bcd4' ? 'active' : ''}} lightblue" onclick="changeColor('#00bcd4','lightblue')"></li>
          <li class="colors-item {{$user->colorScheme == '#9368e9' ? 'active' : ''}} purple" onclick="changeColor('#9368e9','purple')"></li>
@@ -22,14 +70,14 @@
    <form action="/update_color" method="POST">
       @csrf
       <input name="colorscheme" id="color-scheme" class="visually-hidden" type="text" value="{{$user->colorScheme}}">
-      <button class="main-btn" type="submit"><span class="material-icons">palette</span> Изменить цвет</button>
+      <button class="main-btn" type="submit"><span class="material-icons">palette</span> {{__('Изменить цвет')}}</button>
    </form>
    {{-- Change color scheme end --}}
 
 
    {{-- background change preview start --}}
    <div class="dashbg-settings">
-      <h2 class="title-seperator">Фон админки</h2>
+      <h2 class="title-seperator">{{__('Фон админки')}}</h2>
       
       <ul class="theme-list">
          <li class="theme-items {{$user->dashBg == 'dash1.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash1.jpg', '0')">
@@ -68,7 +116,7 @@
          
          {{-- Dark mode start --}}
          <div class="inputBox">
-            <span class="title">Тёмный режим:</span>
+            <span class="title">{{__('Тёмный режим')}}:</span>
             <input class="visually-hidden" type="checkbox" name="darkbg" id="darkbg" {{\Auth::user()->darkMode == '1' ? 'checked' : ''}}>
             <label for="darkbg" id="emoji" onclick="changeMode()">{{\Auth::user()->darkMode == '1' ? '😊' : '😡'}}</label>
          </div>
@@ -79,7 +127,7 @@
          <button class="main-btn" id="form_submit_btn">
             <span class="material-icons-outlined" id="form_btn_ico">image</span>
             <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true" id="form_btn_spinner"></span>
-            <div id="form_btn_text">Изменить фон</div>
+            <div id="form_btn_text">{{('Изменить фон')}}</div>
          </button>
       </form>
       {{-- Update background form start --}}

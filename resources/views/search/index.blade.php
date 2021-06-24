@@ -7,17 +7,18 @@
       {{-- Results count start--}}
       @if ($resultsCount > 0)
          <p class="results_count">
-            По ключевому слову&nbsp;<b>"{{$keyword}}"</b>&nbsp;. Найдено {{ $resultsCount }} результатов !</p>          
+            {{__('По ключевому слову')}}&nbsp;<b>"{{$keyword}}"</b>&nbsp;. {{__('Найдено')}} {{ $resultsCount }} {{__('результатов')}} !</p>          
       @else
          <div class="no_result">
             <span class="material-icons-outlined">sentiment_dissatisfied</span>  
-            <p>Упс... По вашему запросу ничего не найдено.</p>
+            <p>{{__('Упс... По вашему запросу ничего не найдено.')}}</p>
          </div>
       @endif 
       {{-- Results count end--}}
 
       {{-- Generate needed column name from app locale --}}
       <?php $localedTitle = \App::currentLocale() . 'Title'; ?>
+      <?php $localedText = \App::currentLocale() . 'Text'; ?>
 
       {{-- Search results list start--}}
       <div class="results-list">
@@ -33,7 +34,7 @@
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Книги</span>
+                  <span class="category">{{__('Книги')}}</span>
                </div>
 
                <img class="result-image" src="{{ asset('img/search/books.jpg') }}">
@@ -52,7 +53,7 @@
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Развлечение</span>
+                  <span class="category">{{__('Развлечение')}}</span>
                </div>
 
                <img class="result-image" src="{{ asset('videos/entertainment/posters/' . $video->poster) }}">
@@ -71,7 +72,7 @@
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Видео / {{ $video->ruCategory }}</span>
+                  <span class="category">{{__('Видео')}} / {{ $video->ruCategory }}</span>
                </div>
 
                <img class="result-image" src="{{ asset('videos/knowledge/posters/' . $video->poster) }}">
@@ -90,7 +91,7 @@
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Галерея</span>
+                  <span class="category">{{__('Галерея')}}</span>
                </div>
 
                <img class="result-image" src="{{ asset('img/entertainment/galleries/' . $gallery->image) }}">
@@ -99,47 +100,60 @@
 
          {{-- News end --}}
          @foreach ($result->news as $news)  
-            <a class="items" href="{{ route('news.single', $news->id) }}">
+            <a class="items with-text" href="{{ route('news.single', $news->id) }}">
                <div class="info">
                   <span class="title">{{ $news[$localedTitle] }}</span>
                   <span class="date">
                      <?php
-                        $date = \Carbon\Carbon::parse($news->created_at)->locale('ru');
+                        $date = \Carbon\Carbon::parse($news->created_at);
                         $formatted = $date->isoFormat('DD MMMM YYYY');
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Новости / @if ($news->global)
-                     {{ __('Мировые новости') }}
-                  @else
-                     {{ __('Новости компании') }}
-                  @endif</span>
+                  <span class="category">
+                     {{__('Новости')}} / 
+                     @if ($news->global)
+                        {{ __('Мировые новости') }}
+                     @else
+                        {{ __('Новости компании') }}
+                     @endif
+                  </span>
+                  <div class="text">
+                     <span>
+                        {{$news[$localedText]}}
+                     </span>
+                     <img class="result-image" src="{{ asset('img/news/' . $news->image) }}">
+                  </div>
                </div>
-
-               <img class="result-image" src="{{ asset('img/news/' . $news->image) }}">
             </a>
          @endforeach  {{-- News end --}}
 
          {{-- Projects start --}}
          @foreach ($result->projects as $project)  
-            <a class="items" href="{{ route('projects.single', $project->id) }}">
+            <a class="items with-text" href="{{ route('projects.single', $project->id) }}">
                <div class="info">
                   <span class="title">{{ $project[$localedTitle] }}</span>
                   <span class="date">
                      <?php
-                        $date = \Carbon\Carbon::parse($project->created_at)->locale('ru');
+                        $date = \Carbon\Carbon::parse($project->created_at);
                         $formatted = $date->isoFormat('DD MMMM YYYY');
                      ?>
                      {{$formatted}}   
                   </span>
-                  <span class="category">Проекты / @if ($project->completed)
-                     {{ __('Выполненные проекты') }}
-                  @else
-                     {{ __('Действующие проекты') }}
-                  @endif</span>
+                  <span class="category">{{__('Проекты')}} / 
+                     @if ($project->completed)
+                        {{ __('Выполненные проекты') }}
+                     @else
+                        {{ __('Действующие проекты') }}
+                     @endif
+                  </span>
+                  <div class="text">
+                     <span>
+                        {{$project[$localedText]}}
+                     </span>
+                     <img class="result-image" src="{{ asset('img/projects/' . $project->image) }}">
+                  </div>
                </div>
-
-               <img class="result-image" src="{{ asset('img/projects/' . $project->image) }}">
             </a>
          @endforeach {{-- Projects end --}}
 

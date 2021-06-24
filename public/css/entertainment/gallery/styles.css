@@ -5,7 +5,7 @@ section {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
-   margin-top: 25px;
+   margin-top: 30px;
 }
 .galleries-list a {
    width: calc(50% - 10px);

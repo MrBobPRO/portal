@@ -38,4 +38,27 @@
    .inputBox {
       display: none;
    }
+   .languages-list {
+      margin-bottom: 15px;
+   }
+   .languages-list img {
+      width: 25px !important;
+      margin-left: 4px;
+   }
+   .languages-list li {
+      display: block;
+   }
+   .languages-list form {
+      padding-bottom: 0px;
+   }
+   .languages-list form button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   .languages-list form span {
+      font-size: 15px;
+      color: var(--color-scheme);
+      margin-right: 4px;
+   }
 }

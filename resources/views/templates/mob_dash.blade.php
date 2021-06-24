@@ -293,16 +293,12 @@
     <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'hidden'}}"></div>
     
     <div class="dashtools">
-        <form  class="mob-search-form" action="/search" method="GET">
-            <input type="text" name="keyword" minlength="3" required placeholder="{{ __('Поиск...') }}"/>
-            <button type="submit"> <span class="material-icons-outlined">search</span></button>
-        </form>
+        <input id="search_input" type="text" name="keyword" minlength="3" required placeholder="{{ __('Поиск...') }}"/>
         <button id="close-search-btn" class="close-search-btn" type="button">
-            <span class="material-icons-outlined">close</span>
+            <span class="material-icons-outlined">arrow_back</span>
         </button>
     </div>
 
-    <div class="content">
-        {{-- todo:content --}}
-    </div>
+    <div id="mobile_search_result" class="content"></div>
+
 </div>

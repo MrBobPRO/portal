@@ -47,6 +47,7 @@ Route::get('/notifications', 'NotificationController@index')->name('notification
 Route::get('/notifications/{id}', 'NotificationController@single')->name('notifications.single');
 
 Route::get('/search', 'HomeController@search')->name('search');
+Route::post('/search', 'HomeController@ajax_search');
 //--------------Toolbar routes-------------------
 
 
