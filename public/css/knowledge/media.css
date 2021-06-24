@@ -4,6 +4,9 @@
    }
 }
 @media screen and (max-width: 991px) {
+    .books-page {
+        padding-bottom: 30px;
+    }
     .accordion-button {
         font-size: 18px;
         height: 44px;
