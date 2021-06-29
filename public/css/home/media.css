@@ -1,24 +1,13 @@
 @media screen and (max-width: 1500px) {
-    .owl-carousel-container {
-        margin: 0px;
-    }
-    .owl-navs {
-        display: none;
-    }
-    .owl-carousel .item img  {
-        height: 300px;
-    }
-    .owl-theme .owl-dots {
-        bottom: 0px;
-    }
-    .owl-carousel a p {
-        width: 90%;
-        top: 40%;
-        left: 5%;
-        font-size: 18px;
-    }
-    .text-block {
-        margin: 15px 0px;
-        padding: 15px;
-    }
+   .home-page, .owl-carousel-container {
+      margin-top: 10px;
+   }
+   .navbar-dropdown {
+      margin-top: 40px;
+   }
+   .owl-carousel a p {
+      width: 80%;
+      left: 10%;
+      font-size: 18px;  
+   }
 }
