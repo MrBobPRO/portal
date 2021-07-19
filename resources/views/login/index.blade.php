@@ -86,7 +86,7 @@
       <div class="login-title">{{ __('Вход на сайт') }}</div>
       <form action="{{route('login')}}" id="login-form" method="POST">
          @csrf
-         <input type="text" name="nickname" value="{{old('nickname')}}" required placeholder="{{ __('Никнейм') }}">
+         <input type="text" name="email" value="{{old('email')}}" required placeholder="{{ __('Электронная почта') }}">
          <div class="password-item">
             <input id="password" type="password" name="password" required autocomplete="current-password"
                @if(count($errors))

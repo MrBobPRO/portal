@@ -29,24 +29,24 @@
             </div>
 
             <div class="input-container-inline">
-                <label>Ник<span class="required">*</span></label>
-                <input type="text"  
-                    name="nickname" 
-                    value="{{ old('nickname') ? old('nickname') : $user->nickname }}" 
-                    @error('nickname')
-                        style="border-color: red"
-                    @enderror
-                    required
-                >
-                @error('nickname')
-                    <p style="display: block" class="input-error password-error">Пользователь с таким ником уже существует</p>
-                @enderror
-            </div>
+                <label>{{__('Отчество')}}</label>
+                <input type="text" name="patronymic" value="{{ $user->patronymic }}">
+             </div>
+
+             <div class="input-container-inline">
+                <label>Id</label>
+                <input type="text" value="{{ $user->login_id }}" readonly>
+             </div>
 
             <div class="input-container-inline">
                 <label>День рождения<span class="required">*</span></label>
                 <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>
             </div>
+
+            <div class="input-container-inline">
+                <label>{{__('Телефон')}}</label>
+                <input type="text" name="phone" value="{{ $user->phone }}">
+             </div>
 
             <div class="input-container-inline">
                 <label>E-mail<span class="required">*</span></label>

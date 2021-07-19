@@ -94,21 +94,19 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::user()->id);
         //Validation start
-        if ($request->nickname != $user->nickname) {
-            $request->validate([
-                'nickname' => 'unique:users',
-            ]);
-        } else if ($request->email != $user->email) {
+        if ($request->email != $user->email) {
             $request->validate([
                 'email' => 'unique:users',
             ]);
         }//Validation end 
+
         //Edit user start
         $user->name = $request->name;
         $user->surname = $request->surname;
-        $user->nickname = $request->nickname;
+        $user->patronymic = $request->patronymic;
         $user->birth_date = $request->birth_date;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->description = $request->description;
         $user->save();//Edit user end
 

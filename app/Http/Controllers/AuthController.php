@@ -34,7 +34,7 @@ class AuthController extends Controller
                 'token' => $token
             ]);
             //Sending password reset link to user's mail
-            \Mail::to($user->email)->send(new ForgotPassword($user->nickname, route('login.reset_password') . '?token=' . $token));
+            \Mail::to($user->email)->send(new ForgotPassword(route('login.reset_password') . '?token=' . $token));
             return 'success';
         }
         //If user doesn't exist

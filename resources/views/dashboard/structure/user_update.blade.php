@@ -23,16 +23,28 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="nickname">{{__('Ник')}}<span class="required">*</span></label>
-         <input id="nickname" @error('nickname')style="border-color: red"@enderror name="nickname" type="text" value="{{ old('nickname') ? old('nickname') : $user->nickname }}" required>
-         @error('nickname')
-            <p style="display: block" class="input-error password-error">{{__('Пользователь с таким ником уже существует')}}</p>
+         <label>{{__('Отчество')}}</label>
+         <input type="text" name="patronymic" value="{{ $user->patronymic }}">
+      </div>
+
+      <div class="input-container-inline">
+         <label>Id<span class="required">*</span></label>
+         <input type="text" name="login_id" value="{{ old('login_id') ? old('login_id') : $user->login_id }}"  required
+         @error('login_id')style="border-color: red"@enderror
+         >
+         @error('login_id')
+            <p style="display: block" class="input-error password-error">{{_('Пользователь с таким Id уже существует!')}}</p>
          @enderror
       </div>
 
       <div class="input-container-inline">
          <label for="birth_date">{{__('День рождения')}}<span class="required">*</span></label>
          <input type="date" name="birth_date" value="{{ $user->birth_date }}" required>
+      </div>
+
+      <div class="input-container-inline">
+         <label>{{__('Телефон')}}</label>
+         <input type="text" name="phone" value="{{ $user->phone }}">
       </div>
 
       <div class="input-container-inline">
