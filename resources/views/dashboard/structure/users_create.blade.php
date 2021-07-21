@@ -36,20 +36,17 @@
          </div>
 
          <div class="input-container-inline">
-            <label for="nickname">{{__('Ник')}}<span class="required">*</span>. {{__('Вступает в качестве логина')}}!</label>
+            <label for="patronymic">{{__('Отчество')}}</label>
             <input 
-               id="nickname" 
-               name="nickname" 
-               type="text"
-               placeholder="{{__('Ник')}}" 
-               value="{{ old('nickname') ? old('nickname') : '' }}" 
+               id="patronymic" 
+               name="patronymic" 
+               type="text" 
+               placeholder="{{__('Отчество')}}"
+               value="{{ old('patronymic') ? old('patronymic') : '' }}" 
                required
-               @error('nickname')style="border-color: red"@enderror
             >
-            @error('nickname')
-               <p style="display: block" class="input-error password-error">{{__('Пользователь с таким ником уже существует')}}</p>
-            @enderror
          </div>
+
 
          <div class="input-container-inline">
             <label for="birth_date">{{__('День рождения')}}<span class="required">*</span></label>
@@ -58,6 +55,18 @@
                type="date" 
                name="birth_date"
                value="{{ old('birth_date') ? old('birth_date') : '' }}" 
+               required
+            >
+         </div>
+
+         <div class="input-container-inline">
+            <label for="phone">{{__('Телефон')}}</label>
+            <input 
+               id="phone" 
+               name="phone" 
+               type="text" 
+               placeholder="{{__('Телефон')}}"
+               value="{{ old('phone') ? old('phone') : '' }}" 
                required
             >
          </div>
@@ -75,6 +84,22 @@
             >
             @error('email')
                <p style="display: block" class="input-error password-error">{{_('Пользователь с таким email-ом уже существует')}}</p>
+            @enderror
+         </div>
+
+         <div class="input-container-inline">
+            <label for="login_id">Id.<span class="required">*</span> {{__('Будет использовано как пароль для входа')}}!</label>
+            <input 
+               id="login_id" 
+               type="text" 
+               name="login_id"
+               placeholder="Id"
+               value="{{ old('login_id') ? old('login_id') : '' }}" 
+               @error('login_id')style="border-color: red"@enderror
+               required
+            >
+            @error('login_id')
+               <p style="display: block" class="input-error password-error">{{_('Пользователь с таким Id уже существует!')}}</p>
             @enderror
          </div>
 

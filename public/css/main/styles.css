@@ -277,16 +277,20 @@ button:focus {
    background-color: hsla(0,0%,71%,.3);
 }
 .dashboard .profile-ava a {
-   font-size: 16px;
    display: flex;
+   font-size: 16px;
    align-items: center;
    color: white;
    text-decoration: none;
+   overflow: hidden;
+}
+.dashboard .profile-ava a span {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
    -webkit-line-clamp: 1;
    -webkit-box-orient: vertical;
+   padding-top: 4px;
 }
 .dashboard .profile-ava i {
    margin-right: 12px;

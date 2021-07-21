@@ -22,6 +22,11 @@
    </div>
 
    <div class="input-container-inline">
+      <label>{{__('Отчество')}}</label>
+      <input type="text" name="patronymic" value="{{ $user->patronymic }}">
+   </div>
+
+   <div class="input-container-inline">
       <label>День рождения</label>
       <div class="value-replacer">
          <?php 
@@ -30,6 +35,11 @@
             ?>
          {{ $formatted }}
       </div>
+   </div>
+
+   <div class="input-container-inline">
+      <label>{{__('Телефон')}}</label>
+      <input type="text" name="phone" value="{{ $user->phone }}">
    </div>
 
    <div class="input-container-inline">

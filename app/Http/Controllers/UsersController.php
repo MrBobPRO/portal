@@ -40,30 +40,30 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $user = new User;
-        //generate new password for user
-        $password = Str::random(6);
 
         //Validation
         $request->validate([
-            'nickname' => 'unique:users',
             'email' => 'unique:users',
+            'login_id' => 'unique:users'
         ]);
 
         $user->name = $request->name;
         $user->surname = $request->surname;
-        $user->nickname = $request->nickname;
+        $user->patronymic = $request->patronymic;
         $user->avatar = 'default.png';
         $user->birth_date = $request->birth_date;
+        $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = bcrypt($password);
-        $user->description = 'Описание';
+        $user->login_id = $request->login_id;
+        $user->password = bcrypt($request->login_id);
+        $user->description = 'Коротко о себе...';
         $user->department_id = $request->department_id;
         $user->position_id = $request->position_id;
         $user->designation_id = $request->designation_id;
         $user->save();
                 
         //send email credentials
-        \Mail::to($request->email)->send(new SendCredentials($request->nickname, $password));
+        \Mail::to($request->email)->send(new SendCredentials($request->email, $request->login_id));
 
         return redirect()->back();
     }
@@ -102,22 +102,27 @@ class UsersController extends Controller
         //Find emloyee by id
         $user = User::find($request->user_id);
         //Validation start
+        if ($request->login_id != $user->login_id) {
+            $request->validate([
+                'login_id' => 'unique:users'
+            ]);
+        }
+        
         if ($request->email != $user->email) {
             $request->validate([
                 'email' => 'unique:users',
             ]);
-        } else if ($request->nickname != $user->nickname) {
-            $request->validate([
-                'nickname' => 'unique:users',
-            ]);
-        }//Validation end 
+        } 
+        //Validation end 
 
         //Edit user start
         $user->name = $request->name;
         $user->surname = $request->surname;
-        $user->nickname = $request->nickname;
+        $user->patronymic = $request->patronymic;
         $user->birth_date = $request->birth_date;
         $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->login_id = $request->login_id;
         $user->department_id = $request->department_id;
         $user->designation_id = $request->designation_id;
         $user->position_id = $request->position_id;

@@ -2,7 +2,6 @@
 @section('content')
 
 <section class="home-page">
-   
    {{-- Owl Carousel --}}
       <div class="owl-carousel-container">
          <div class="owl-carousel owl-theme">

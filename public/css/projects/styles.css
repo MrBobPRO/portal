@@ -11,8 +11,8 @@
 .projects-view {
    color: #fff;
    background-color: var(--color-scheme);
-   padding: 3px 8px;
-   border-radius: 2px;
+   padding: 6px 10px;
+   border-radius: 5px;
 }
 .wrapper {
    display: flex;

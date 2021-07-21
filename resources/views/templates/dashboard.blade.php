@@ -16,7 +16,7 @@
       <div id="dashOverlay" class="overlay {{$appUser->darkMode == '1' ? '' : 'hidden'}}"></div>
 
       <div class="profile-ava">
-         <a href="{{ route('dashboard.profile.index') }}"><img src="{{ asset('img/users/' . $appUser->avatar) }}">{{$appUser->name}}</a>
+         <a href="{{ route('dashboard.profile.index') }}"><img src="{{ asset('img/users/' . $appUser->avatar) }}"><span>{{$appUser->name}}</span></a>
       </div>
 
       {{-- Dashboard links start --}}
