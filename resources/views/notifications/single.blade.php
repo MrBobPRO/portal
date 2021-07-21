@@ -6,14 +6,14 @@
 <section class="single-ideas-page formed-page">
 
    <div class="input-container-inline">
-      <label>Заголовок</label>
+      <label>{{__('Заголовок')}}</label>
       <div class="value-replacer">
          {{ $notification->title }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Дата</label>
+      <label>{{__('Дата')}}</label>
       <div class="value-replacer">
          <?php 
             $date = \Carbon\Carbon::parse($notification->created_at)->locale('ru');
@@ -24,7 +24,7 @@
    </div>
 
    <div class="input-container-inline">
-      <label>Ответ администрации</label>
+      <label>{{__('Ответ администрации')}}</label>
       <div class="value-replacer">
          {{ $notification->text }}
       </div>

@@ -8,7 +8,7 @@
         @csrf
         <input name="lang" type="hidden" value="{{$lang}}">
         <textarea name="translations" class="visually-hidden" id="json-input" autocomplete="off">{{$file}}</textarea>
-        <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Сохранить изменения</button>
+        <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Сохранить изменения')}}</button>
     </form>
     
 </section>

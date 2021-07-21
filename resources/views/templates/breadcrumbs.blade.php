@@ -111,28 +111,28 @@
 
 
       @case('ideas.create')
-         <a href="{{ route('ideas.create') }}"><span>Подать идею</span></a>
+         <a href="{{ route('ideas.create') }}"><span>{{__('Подать идею')}}</span></a>
       @break
 
       @case('complaints.create')
-         <a href="{{ route('ideas.create') }}"><span>Написать жалобу</span></a>
+         <a href="{{ route('ideas.create') }}"><span>{{__('Написать жалобу')}}</span></a>
       @break
 
       @case('notifications.index')
-         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+         <a href="{{ route('notifications.index') }}"><span>{{__('Уведомления')}}</span></a>
       @break
 
       @case('notifications.single')
-         <a href="{{ route('notifications.index') }}"><span>Уведомления</span></a>
+         <a href="{{ route('notifications.index') }}"><span>{{__('Уведомления')}}</span></a>
          <a href="{{ route('notifications.single', $notification->id) }}"><span>{{$crumbsTitle}}</span></a>
       @break
 
       @case('questionnaire.index')
-         <a href="{{ route('questionnaire.index') }}"><span>Опросник</span></a>
+         <a href="{{ route('questionnaire.index') }}"><span>{{__('Опросник')}}</span></a>
       @break
 
       @case('questionnaire.single')
-         <a href="{{ route('questionnaire.index') }}"><span>Опросник</span></a>
+         <a href="{{ route('questionnaire.index') }}"><span>{{__('Опросник')}}</span></a>
          <a href="{{ route('questionnaire.single', $question->id) }}"><span>{{$crumbsTitle}}</span></a>
       @break
 

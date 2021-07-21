@@ -16,10 +16,10 @@
       {{-- Ideas seach end --}}
       
       <div class="primary-list-titles">
-         <div class="width-25">Заголовок</div>
-         <div class="width-25">Автор</div>
-         <div class="width-25">Дата добавления</div>
-         <div class="width-25">Статус</div>
+         <div class="width-25">{{__('Заголовок')}}</div>
+         <div class="width-25">{{__('Автор')}}</div>
+         <div class="width-25">{{__('Дата добавления')}}</div>
+         <div class="width-25">{{__('Статус')}}</div>
       </div>
 
       <div class="primary-list">

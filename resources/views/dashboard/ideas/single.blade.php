@@ -135,7 +135,7 @@
             @endforeach
          </div>
          <div class="modal-footer">
-            <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="main-btn" data-bs-dismiss="modal">{{__('Закрыть')}}</button>
          </div>
       </div>
    </div>

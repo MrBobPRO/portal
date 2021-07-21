@@ -6,9 +6,9 @@
    <section class="notifications-page">
       
       <div class="primary-list-titles">
-         <div class="width-33">Заголовок</div>
-         <div class="width-33">Дата</div>
-         <div class="width-33">Статус</div>
+         <div class="width-33">{{__('Заголовок')}}</div>
+         <div class="width-33">{{__('Дата')}}</div>
+         <div class="width-33">{{__('Статус')}}</div>
       </div>
 
       <div class="primary-list">

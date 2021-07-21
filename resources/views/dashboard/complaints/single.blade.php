@@ -64,7 +64,7 @@
       </form>
    @else
       <div class="input-container-inline">
-         <label>Ответ администрации</label>
+         <label>{{__('Ответ администрации')}}</label>
          <div class="value-replacer">
             {{ $complaint->response }}
          </div>

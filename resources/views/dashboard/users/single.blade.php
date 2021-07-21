@@ -5,17 +5,17 @@
 <section class="single-users-page formed-page">
 
    <img src="{{ asset('img/users/' . $user->avatar) }}">
-   <h2>Персональная информация</h2>
+   <h2>{{__('Персональная информация')}}</h2>
 
    <div class="input-container-inline">
-      <label>Имя</label>
+      <label>{{__('Имя')}}</label>
       <div class="value-replacer">
          {{ $user->name }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Фамилия</label>
+      <label>{{__('Фамилия')}}</label>
       <div class="value-replacer">
          {{ $user->surname }}
       </div>
@@ -27,7 +27,7 @@
    </div>
 
    <div class="input-container-inline">
-      <label>День рождения</label>
+      <label>{{__('День рождения')}}</label>
       <div class="value-replacer">
          <?php 
                $date = \Carbon\Carbon::parse($user->birth_date)->locale('ru');
@@ -50,28 +50,28 @@
    </div>
 
    <div class="input-container-inline">
-      <label>Отдел</label>
+      <label>{{__('Отдел')}}</label>
       <div class="value-replacer">
          {{ $user->department->name }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Позиция</label>
+      <label>{{__('Позиция')}}</label>
       <div class="value-replacer">
          {{ $user->designation->name }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Должность</label>
+      <label>{{__('Должность')}}</label>
       <div class="value-replacer">
          {{ $user->position->name }}
       </div>
    </div>
 
    <div class="input-container-inline">
-      <label>Знание языков</label>
+      <label>{{__('Знание языков')}}</label>
       <div class="value-replacer">
          <?php $langName = App::currentLocale() . 'Name'; ?>
          @foreach ($user->languages as $lang)
@@ -81,7 +81,7 @@
    </div>
 
    <div class="input-container-inline">
-      <label>Описание</label>
+      <label>{{__('Описание')}}</label>
       <div class="value-replacer">
          {{ $user->description }}
       </div>

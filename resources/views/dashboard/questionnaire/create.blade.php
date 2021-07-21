@@ -20,7 +20,7 @@
             </div>
          </div>
 
-         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> Добавить</button>
+         <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Добавить')}}</button>
      </form>
    </section>
 

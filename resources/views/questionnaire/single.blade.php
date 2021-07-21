@@ -68,7 +68,7 @@
 
                       <div class="modal-header">
                         <h5 class="modal-title" id="qsModal{{$counterrr}}Label">
-                           <span class="material-icons-outlined">favorite</span> Проголосовали {{$choicesCount}} / {{$total_choices_count}}
+                           <span class="material-icons-outlined">favorite</span> {{__('Проголосовали')}} {{$choicesCount}} / {{$total_choices_count}}
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
@@ -82,7 +82,7 @@
                       </div>
                       
                       <div class="modal-footer">
-                        <button type="button" class="main-btn" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="main-btn" data-bs-dismiss="modal">{{__('Закрыть')}}</button>
                       </div>
 
                     </div>

@@ -42,7 +42,7 @@
          </div>
 
          <div class="input-container-blocked">
-             <label>Заголовок на русском<span class="required">*</span></label>
+             <label>{{__('Заголовок на русском')}}<span class="required">*</span></label>
              <input type="text" name="ruTitle" required>
          </div>
 

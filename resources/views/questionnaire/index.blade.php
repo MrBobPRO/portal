@@ -6,10 +6,10 @@
    <section class="notifications-page">
       
       <div class="primary-list-titles">
-         <div class="width-25">Опрос</div>
-         <div class="width-25">Дата</div>
-         <div class="width-25">Ваш выбор</div>
-         <div class="width-25">Статус</div>
+         <div class="width-25">{{__('Опрос')}}</div>
+         <div class="width-25">{{__('Дата')}}</div>
+         <div class="width-25">{{__('Ваш выбор')}}</div>
+         <div class="width-25">{{__('Статус')}}</div>
       </div>
 
       <div class="primary-list">
