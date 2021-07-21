@@ -132,6 +132,11 @@ li {
    line-height: 1;
    color: var(--color-scheme);
 }
+.eye-icon {
+   color: var(--color-scheme);
+   cursor: pointer;
+   margin-right: 10px;
+}
 .books-list-item span {
    margin-left: 15px;
 }
