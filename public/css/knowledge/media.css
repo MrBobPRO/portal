@@ -37,7 +37,9 @@
     .books-list-item span {
         margin-left: 8px;
     }
-
+    .eye-link {
+        padding-right: 10px;
+    }
     .videos-list .single-video {
         width: 100%;
         margin-bottom: 15px;

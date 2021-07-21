@@ -162,7 +162,7 @@ class HomeController extends Controller
                     ->get();
             
         $result->users = User::where('name', 'like', '%' . $keyword . '%')
-                    ->orWhere('nickname', 'like', '%' . $keyword . '%')
+                    ->orWhere('patronymic', 'like', '%' . $keyword . '%')
                     ->orWhere('surname', 'like', '%' . $keyword . '%')
                     ->orWhere('description', 'like', '%' . $keyword . '%')
                     ->get();

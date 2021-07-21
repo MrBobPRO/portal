@@ -14,7 +14,7 @@
                <form action="/books/download" method="POST">
                   @csrf
                   <input type="hidden" value="{{$book->id}}" name="id">
-                  <a href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank">
+                  <a class="eye-link" href="{{ route( 'knowledge.books.single', $book->id ) }}" target="_blank">
                      <span class="material-icons-outlined eye-icon">visibility</span>
                   </a>
                   <button type="submit">
