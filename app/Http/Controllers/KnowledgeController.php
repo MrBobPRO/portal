@@ -289,7 +289,7 @@ class KnowledgeController extends Controller
             $file->move(public_path('videos/knowledge'), $filename);
         }
 
-        return route('dashboard.knowledge.videos');
+        return route('dashboard.knowledge.videos.single', $video->id);
     }
 
     public function videos_remove(Request $request)
