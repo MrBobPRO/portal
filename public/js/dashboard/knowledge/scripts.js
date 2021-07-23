@@ -53,7 +53,7 @@ function knowledge_videos_create() {
 
       success: function (url) {
          // show alert msg if user hasnt selected videfile
-         if (url = 'error')
+         if (url == 'error')
             alert('Пожалуйста, добавьте видеофайл или выберите видео из каталога!');
          else
             window.location.href = url;

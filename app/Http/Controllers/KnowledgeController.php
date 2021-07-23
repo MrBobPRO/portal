@@ -35,6 +35,7 @@ class KnowledgeController extends Controller
         $books = Book::where('material_id', $material->id)
                     ->where('category', $material->category)
                     ->select('books.id', 'books.' . $title . ' as title')
+                    ->latest()
                     ->paginate(30);
 
         //used in breadcrumbs       
