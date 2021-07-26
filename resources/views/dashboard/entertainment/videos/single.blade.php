@@ -111,9 +111,21 @@
          </div>
 
          <div class="modal-body">
-            <div class="catalog-list">
+            {{-- Search start --}}
+            <div class="catalog-search-container">
+               <input type="text" list="cat_list" placeholder="Поиск..." onkeydown="update_catalog()" oninput="update_catalog()"  onpaste="update_catalog()" id="catalog_search_input">
+               <span class="material-icons-outlined">search</span>
+            </div>
+            <datalist id="cat_list">
                @foreach ($files as $file)
-                  <div class="catalog-item">
+                  <option value="{{$file}}">
+               @endforeach
+            </datalist>
+            {{-- Search end --}}
+
+            <div class="catalog-list" id="catalog_list">
+               @foreach ($files as $file)
+                  <div class="catalog-item" data-catalog-filename="{{$file}}">
                      <video controls src="/catalog/videos/{{$file}}"></video>
                      <p onclick="catalog_video_selected('{{$file}}')">{{$file}}</p>
                   </div>

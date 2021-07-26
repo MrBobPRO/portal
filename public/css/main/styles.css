@@ -500,6 +500,7 @@ button:focus {
 }
 .sidebar .single-birthday img {
    max-width: 100%;
+   width: 100%;
 }
 .sidebar .single-birthday span {
    background: var(--color-scheme);

@@ -77,16 +77,21 @@
                </div>
 
                <div class="modal-body">
-                  {{-- <input type="text" list="catalog_list">
-                  <datalist id="catalog_list">
+                  {{-- Search start --}}
+                  <div class="catalog-search-container">
+                     <input type="text" list="cat_list" placeholder="Поиск..." onkeydown="update_catalog()" oninput="update_catalog()"  onpaste="update_catalog()" id="catalog_search_input">
+                     <span class="material-icons-outlined">search</span>
+                  </div>
+                  <datalist id="cat_list">
                      @foreach ($files as $file)
                         <option value="{{$file}}">
                      @endforeach
-                  </datalist> --}}
+                  </datalist>
+                  {{-- Search end --}}
 
-                  <div class="catalog-list">
+                  <div class="catalog-list" id="catalog_list">
                      @foreach ($files as $file)
-                        <div class="catalog-item">
+                        <div class="catalog-item" data-catalog-filename="{{$file}}">
                            <video controls src="/catalog/videos/{{$file}}"></video>
                            <p onclick="catalog_video_selected('{{$file}}')">{{$file}}</p>
                         </div>

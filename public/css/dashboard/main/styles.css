@@ -497,6 +497,9 @@ input:read-only {
   width: calc(16.6% - 10px);
   margin: 10px;
 }
+.catalog-modal .catalog-item.hidden {
+  display: none;
+}
 .catalog-modal .catalog-item video {
   width: 100%;
   height: 180px;
@@ -508,7 +511,24 @@ input:read-only {
   width: fit-content;
   cursor: pointer;
 }
+.catalog-search-container {
+  padding: 10px;
+  display: flex;
+}
+.catalog-search-container input {
+  width: 600px;
+  border-radius: 0;
+}
+.catalog-search-container span {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: var(--color-scheme);
+  color: white;
+}
 /* Catalog styles end */
+
 .admin-edit-btn {
     display: flex;
     justify-content: space-between;

@@ -165,7 +165,7 @@ class AdminController extends Controller
     public function structure_index() 
     {
         $departments = Department::orderBy('priority', 'asc')->get();
-        $allUsers = User::select('users.id', 'users.name', 'users.surname')
+        $allUsers = User::select('users.id', 'users.name', 'users.surname', 'users.patronymic')
                         ->orderBy('name', 'asc')
                         ->get();
         return view('dashboard.structure.index', compact('departments', 'allUsers'));

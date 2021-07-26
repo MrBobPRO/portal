@@ -10,7 +10,7 @@
          <select class="select2_single select2_single_linked" data-placeholder="Поиск пользователей..." data-dropdown-css-class="select2_single_dropdown select2_authors_dropdown">
             <option></option>
             @foreach($users as $u)
-               <option value="{{ route('dashboard.users.single', $u->id)}}">{{$u->name . ' ' . $u->surname}}</option>   
+               <option value="{{ route('dashboard.users.single', $u->id)}}">{{$u->name . ' ' . $u->surname . ' ' . $u->patronymic}}</option>   
             @endforeach
          </select>
       </div>

@@ -78,6 +78,7 @@ $('.select2_single_linked').on('select2:select', function (e) {
    window.location = e.params.data.id;
 });
 //----------------Linked Select2--------------------------
+
 // ---------------------Entertainment & Knowledge select video from catalog start-------------------------
 var catalog_input = document.getElementById('catalog');
 var file_input = document.getElementById('file');
@@ -95,8 +96,26 @@ function catalog_video_selected(filename) {
 }
 // ---------------------Entertainment $ Knowledge select video from catalog end-------------------------
 
-//clear catalog input value on file input change
+//---------------------Clear catalog input value on file input change start---------------------
 function clear_catalog_input() {
    if(file_input.value != null)
       catalog_input.value = null;
 }
+//---------------------Clear catalog input value on file input end---------------------
+
+// -------------------------Update catalog on search input change start--------------------------------
+var catalog_list = document.getElementById('catalog_list');
+var catalog_items = catalog_list.getElementsByTagName('div');
+var catalog_search_input = document.getElementById('catalog_search_input');
+
+function update_catalog() {
+   var search_keyword = catalog_search_input.value.toLowerCase();
+   for (i = 0; i < catalog_items.length; i++) {
+      var cat_filename = catalog_items[i].dataset.catalogFilename.toLowerCase();
+      if (cat_filename.includes(search_keyword))
+         catalog_items[i].classList.remove('hidden')
+      else
+         catalog_items[i].classList.add('hidden')
+   }
+}
+// -------------------------Update catalog on search input change end--------------------------------

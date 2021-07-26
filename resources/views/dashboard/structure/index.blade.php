@@ -11,7 +11,7 @@
             <select class="select2_single select2_single_linked" data-placeholder="{{__('Поиск сотрудников')}} ..." data-dropdown-css-class="select2_single_dropdown">
                <option></option>
                @foreach($allUsers as $user)
-                  <option value="{{ route('dashboard.structure.users.update', $user->id)}}">{{$user->name}} {{$user->surname}}</option>   
+                  <option value="{{ route('dashboard.structure.users.update', $user->id)}}">{{$user->name}} {{$user->surname}} {{$user->patronymic}}</option>   
                @endforeach
             </select>
          </div>

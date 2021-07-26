@@ -26,7 +26,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::orderBy('name', 'asc')->get();
-
+                    
         return view('dashboard.users.index', compact('users'));
     }
 

@@ -1,5 +1,4 @@
 
-
 // -------------------------Entertainment videos update start--------------------------------
 function videos_update() {
    event.preventDefault();
