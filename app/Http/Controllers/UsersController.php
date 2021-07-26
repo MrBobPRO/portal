@@ -123,6 +123,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->login_id = $request->login_id;
+        $user->role = $request->role;
         $user->department_id = $request->department_id;
         $user->designation_id = $request->designation_id;
         $user->position_id = $request->position_id;
