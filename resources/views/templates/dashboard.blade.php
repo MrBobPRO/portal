@@ -7,7 +7,7 @@
    {{-- Dashboard start --}}
    <div 
       id="dashboard" 
-      class="dashboard {{session('dashboard') == 'hidden' ? 'hidden' : ''}}" 
+      class="dashboard @if($appUser->dash_auto_hide) hidden @else {{session('dashboard') == 'hidden' ? 'hidden' : ''}} @endif" 
       @if ($appUser->dashBg != 'null')
          style="background-image: url({{asset('img/dashboards/' . $appUser->dashBg)}})"
       @endif

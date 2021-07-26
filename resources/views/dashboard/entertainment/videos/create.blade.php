@@ -77,6 +77,13 @@
                </div>
 
                <div class="modal-body">
+                  {{-- <input type="text" list="catalog_list">
+                  <datalist id="catalog_list">
+                     @foreach ($files as $file)
+                        <option value="{{$file}}">
+                     @endforeach
+                  </datalist> --}}
+
                   <div class="catalog-list">
                      @foreach ($files as $file)
                         <div class="catalog-item">

@@ -32,6 +32,20 @@ class SettingsController extends Controller
         return redirect()->back(); 
     }
 
+    public function update_dash_auto_hide(Request $request) 
+    {
+        $user = Auth::user();
+
+        if($request->hidden)
+            $user->dash_auto_hide = true;
+        else
+            $user->dash_auto_hide = false;
+
+        $user->save();
+        
+        return redirect()->back();
+    }
+
     public function update_background_temporarily(Request $request)
     {
         $user = Auth::user();

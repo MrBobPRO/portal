@@ -75,9 +75,31 @@
    {{-- Change color scheme end --}}
 
 
+   <section class="dash-auto-hide">
+      <form action="/update_dash_auto_hide" method="POST">
+         @csrf
+         <h2 class="title-seperator">{{__('Видимость левого бокового меню')}}</h2>
+         <p>
+            Если опция включена, то при обновлении или переходе на другую страницу, боковое меню будет скрыто.<br>
+            А если опция выключена, то при обновлении или переходе на другую страницу, видимость бокового меню не изменится.
+         </p>
+
+         <div class="switch-container">
+            {{__('Скрыть левое боковое меню по умолчанию')}}
+            <label class="switch">
+               <input type="checkbox" name="hidden" @if($user->dash_auto_hide) checked @endif>
+               <span class="slider round"></span>
+            </label>
+         </div>
+
+         <button class="main-btn" type="submit"><span class="material-icons">visibility</span> {{__('Изменить видимость')}}</button>
+      </form>
+   </section>
+
+
    {{-- background change preview start --}}
    <div class="dashbg-settings">
-      <h2 class="title-seperator">{{__('Фон админки')}}</h2>
+      <h2 class="title-seperator">{{__('Фон левого бокового меню')}}</h2>
       
       <ul class="theme-list">
          <li class="theme-items {{$user->dashBg == 'dash1.jpg' ? 'active' : ''}}" onclick="backgroundChangePreview('dash1.jpg', '0')">

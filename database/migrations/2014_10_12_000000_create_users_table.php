@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer('position_id')->default(1);
             $table->integer('designation_id')->default(1);
             $table->string('colorScheme')->default('#00bcd4');
+            $table->boolean('dash_auto_hide')->default(false);
             $table->string('dashBg')->default('dash1.jpg');
             $table->boolean('darkMode')->default(true);
             $table->timestamp('email_verified_at')->nullable();

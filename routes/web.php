@@ -110,6 +110,7 @@ Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard.s
 Route::post('/update_color', 'SettingsController@updateColor');
 Route::post('/update_background_temporarily', 'SettingsController@update_background_temporarily');
 Route::post('/update_background', 'SettingsController@update_background');
+Route::post('/update_dash_auto_hide', 'SettingsController@update_dash_auto_hide');
 //Users page`s routes
 Route::get('/dashboard/users', 'UsersController@index')->name('dashboard.users.index');
 Route::get('/dashboard/users/{id}', 'UsersController@single')->name('dashboard.users.single');
