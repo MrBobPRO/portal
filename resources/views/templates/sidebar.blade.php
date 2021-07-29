@@ -15,7 +15,7 @@
    {{-- Sidebar Ads end --}}
 
    {{-- Sidebar Birthdays start --}}
-   <?php $totalBDsCount = count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs); ?>
+   <?php $totalBDsCount = count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs) + count($soonBDs); ?>
 
    @if($totalBDsCount > 0)
       <div class="birthdays">

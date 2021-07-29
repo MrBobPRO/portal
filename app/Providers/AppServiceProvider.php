@@ -14,7 +14,6 @@ use App\Models\Viewed;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
-use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -125,11 +124,6 @@ class AppServiceProvider extends ServiceProvider
                                 ->orwhereMonth('birth_date', date('m', strtotime('+ 7 day')))
                                 ->orwhereDay('birth_date', date('d', strtotime('+ 7 day')))
                                 ->get();
-
-            // $from = Carbon::now()->addDays(2);
-            // $to = Carbon::now()->addDays(7);
-
-            // $soonBDs = User::whereBetween('birth_date', [$from, $to])->get();
 
             $view->with('soonBDs', $soonBDs);
         });

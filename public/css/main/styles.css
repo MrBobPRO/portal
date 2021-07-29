@@ -494,6 +494,7 @@ button:focus {
 }
 .sidebar .birthdays {
    background: white;
+   margin-bottom: 30px;
 }
 .sidebar .single-birthday {
    position: relative;
@@ -522,9 +523,12 @@ button:focus {
 .sidebar .single-birthday {
    border-top: 5px solid var(--color-scheme);
 }
-.sidebar-news, .sidebar-ads {
+.sidebar-ads {
    background: white;
    margin-bottom: 30px;
+}
+.sidebar-news {
+   background: white;
 }
 .sidebar-ads h1 {
    border-bottom: 3px solid var(--color-scheme);
