@@ -14,6 +14,50 @@
    @endif
    {{-- Sidebar Ads end --}}
 
+   {{-- Sidebar Birthdays start --}}
+   <?php $totalBDsCount = count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs); ?>
+
+   @if($totalBDsCount > 0)
+      <div class="birthdays">
+         <h1>{{__('День рождении')}}
+            <span class="material-icons-outlined">star</span>
+         </h1>
+         
+         @foreach ($todayBDs as $usser)
+            <div class="single-birthday">
+               <img src="{{asset('img/users/' . $usser->avatar)}}">
+               <span>{{__('Сегодня')}}</span>
+               <p>{{$usser->name . ' ' . $usser->surname}}</p>
+            </div>
+         @endforeach
+
+         @foreach ($tomorrowBDs as $usser)
+            <div class="single-birthday">
+               <img src="{{asset('img/users/' . $usser->avatar)}}">
+               <span>{{__('Завтра')}}</span>
+               <p>{{$usser->name . ' ' . $usser->surname}}</p>
+            </div>
+         @endforeach
+
+         @foreach ($afterTomorrowBDs as $usser)
+            <div class="single-birthday">
+               <img src="{{asset('img/users/' . $usser->avatar)}}">
+               <span>{{__('После завтра')}}</span>
+               <p>{{$usser->name . ' ' . $usser->surname}}</p>
+            </div>
+         @endforeach
+
+         @foreach ($soonBDs as $usser)
+            <div class="single-birthday">
+               <img src="{{asset('img/users/' . $usser->avatar)}}">
+               <span>{{__('Скоро')}}</span>
+               <p>{{$usser->name . ' ' . $usser->surname}}</p>
+            </div>
+         @endforeach
+      </div>
+   @endif
+   {{-- Birthdays end --}}
+
    {{-- Sidebar News start --}}
    <div class="sidebar-news">
       <h1>{{__('Последние новости')}}
@@ -59,43 +103,5 @@
       @endforeach
 
    </div>  {{-- Sidebar News end --}}
-
-   
-
-   {{-- Sidebar Birthdays start --}}
-   <?php $totalBDsCount = count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs); ?>
-
-   @if($totalBDsCount > 0)
-      <div class="birthdays">
-         <h1>{{__('День рождении')}}
-            <span class="material-icons-outlined">star</span>
-         </h1>
-         
-         @foreach ($todayBDs as $usser)
-            <div class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('Сегодня')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
-         @endforeach
-
-         @foreach ($tomorrowBDs as $usser)
-            <div class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('Завтра')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
-         @endforeach
-
-         @foreach ($afterTomorrowBDs as $usser)
-            <div class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('После завтра')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
-         @endforeach
-      </div>
-   @endif
-   {{-- Birthdays end --}}
 
 </div>

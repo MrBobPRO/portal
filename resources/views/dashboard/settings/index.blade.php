@@ -64,6 +64,7 @@
          <li class="colors-item {{$user->colorScheme == '#ff9800' ? 'active' : ''}} orange" onclick="changeColor('#ff9800','orange')"></li>
          <li class="colors-item {{$user->colorScheme == '#f44336' ? 'active' : ''}} red" onclick="changeColor('#f44336','red')"></li>
          <li class="colors-item {{$user->colorScheme == '#e91e63' ? 'active' : ''}} burgundy" onclick="changeColor('#e91e63','burgundy')"></li>
+         <li class="colors-item {{$user->colorScheme == '#231CC1' ? 'active' : ''}} darkblue" onclick="changeColor('#231CC1','darkblue')"></li>
       </ul>
    </div>
 

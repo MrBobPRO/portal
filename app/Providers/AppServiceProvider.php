@@ -14,6 +14,7 @@ use App\Models\Viewed;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -111,6 +112,26 @@ class AppServiceProvider extends ServiceProvider
                                 ->whereDay('birth_date', date('d', strtotime('+ 2 day')))
                                 ->get();
             $view->with('afterTomorrowBDs', $afterTomorrowBDs);
+        });
+        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
+            $soonBDs = User::whereMonth('birth_date', date('m', strtotime('+ 3 day')))
+                                ->whereDay('birth_date', date('d', strtotime('+ 3 day')))
+                                ->orwhereMonth('birth_date', date('m', strtotime('+ 4 day')))
+                                ->orwhereDay('birth_date', date('d', strtotime('+ 4 day')))
+                                ->orwhereMonth('birth_date', date('m', strtotime('+ 5 day')))
+                                ->orwhereDay('birth_date', date('d', strtotime('+ 5 day')))
+                                ->orwhereMonth('birth_date', date('m', strtotime('+ 6 day')))
+                                ->orwhereDay('birth_date', date('d', strtotime('+ 6 day')))
+                                ->orwhereMonth('birth_date', date('m', strtotime('+ 7 day')))
+                                ->orwhereDay('birth_date', date('d', strtotime('+ 7 day')))
+                                ->get();
+
+            // $from = Carbon::now()->addDays(2);
+            // $to = Carbon::now()->addDays(7);
+
+            // $soonBDs = User::whereBetween('birth_date', [$from, $to])->get();
+
+            $view->with('soonBDs', $soonBDs);
         });
     }
 }
