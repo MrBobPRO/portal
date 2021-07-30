@@ -53,7 +53,6 @@
     @break
 
     @case('dashboard.projects.index') @case('dashboard.projects.single') @case('dashboard.projects.create')  
-        <link href="{{ asset('css/dashboard/projects/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard/projects/media.css') }}" rel="stylesheet">
     @break
 

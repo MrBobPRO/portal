@@ -34,6 +34,22 @@
          </div>
 
          <div class="input-container-blocked">
+            <label>{{__('Менеджер проекта')}}<span class="required">*</span></label>
+            <div class="select2_single_container">
+               <select 
+                  name="manager_id" 
+                  class="select2_single" 
+                  data-dropdown-css-class="select2_single_dropdown"
+                  required
+               >
+                  @foreach($all_users as $us)
+                     <option value="{{ $us->id }}" @if($us->id == $project->manager_id) selected @endif>{{ __($us->name) }} {{ __($us->surname) }} {{ __($us->patronymic) }}</option>   
+                  @endforeach
+               </select>
+            </div>
+         </div>
+
+         <div class="input-container-blocked">
             <label>{{__('Картинка')}}</label>
             <input type="file" name="image" accept="image/*">
             <img class="form-image" src="{{asset('img/projects/' . $project->image)}}">

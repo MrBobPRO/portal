@@ -72,8 +72,11 @@
 
 
 /* Inner pages styles start */
-.structure-user-update h2, .structure-user-create h2 {
+.structure-user-update h2 {
    margin: 30px 0 35px;
+}
+.structure-user-create h2 {
+   margin-bottom: 30px;
 }
 .btns-edit-container {
    display: flex;

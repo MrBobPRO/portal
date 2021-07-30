@@ -49,11 +49,16 @@ class ProjectsController extends Controller
                                 'projects.created_at')
                                 ->first();
 
+        // Get project manager
+        $manager = Project::find($id)->manager;
+        $manager_name = $manager->name . ' ' . $manager->surname;
+        $manager_id = $manager->id;                 
+
         //comments
         $comments = $project->comments()->latest()->get();
         $commentsCount = count($comments);
 
-        return view('projects.single', compact('project', 'comments', 'commentsCount'));
+        return view('projects.single', compact('project', 'comments', 'commentsCount', 'manager_name', 'manager_id'));
     }
 
     public function store(Request $request)
@@ -62,6 +67,7 @@ class ProjectsController extends Controller
             'ruTitle' => $request->ruTitle,
             'tjTitle' => $request->tjTitle,
             'enTitle' => $request->enTitle,
+            'manager_id' => $request->manager_id,
             'ruText' => $request->ruText,
             'tjText' => $request->tjText,
             'enText' => $request->enText,
@@ -88,6 +94,7 @@ class ProjectsController extends Controller
         $project->ruTitle = $request->ruTitle;
         $project->tjTitle = $request->tjTitle;
         $project->enTitle = $request->enTitle;
+        $project->manager_id = $request->manager_id; 
         $project->ruText = $request->ruText;
         $project->tjText = $request->tjText;
         $project->enText = $request->enText;

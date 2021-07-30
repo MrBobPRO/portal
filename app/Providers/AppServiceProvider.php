@@ -113,6 +113,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('afterTomorrowBDs', $afterTomorrowBDs);
         });
         view()->composer(['templates.sidebar', 'home.index'], function ($view) {
+            $afterTomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 2 day')))
+                        ->whereDay('birth_date', date('d', strtotime('+ 2 day')))
+                        ->get();
+
             $soonBDs = User::whereMonth('birth_date', date('m', strtotime('+ 3 day')))
                                 ->whereDay('birth_date', date('d', strtotime('+ 3 day')))
                                 ->orwhereMonth('birth_date', date('m', strtotime('+ 4 day')))
@@ -124,6 +128,8 @@ class AppServiceProvider extends ServiceProvider
                                 ->orwhereMonth('birth_date', date('m', strtotime('+ 7 day')))
                                 ->orwhereDay('birth_date', date('d', strtotime('+ 7 day')))
                                 ->get();
+
+            $soonBDs = $soonBDs->diff($afterTomorrowBDs);
 
             $view->with('soonBDs', $soonBDs);
         });

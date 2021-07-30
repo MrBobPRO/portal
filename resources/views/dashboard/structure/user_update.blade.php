@@ -9,7 +9,7 @@
 
    <h2>{{__('Персональная информация')}}</h2>
    {{-- Personal data form start --}}
-   <form id="update_profile" action="/update_user" method="POST" enctype="multipart/form-data">
+   <form id="update_user" action="/update_user" method="POST" enctype="multipart/form-data">
       @csrf
       <input name="user_id" type="hidden" value="{{ $user->id }}">
       <div class="input-container-inline">
@@ -124,7 +124,24 @@
       </div>
 
       <div class="input-container-inline">
-         <label for="description">{{__('Описание')}}<span class="required">*</span></label>
+         <label for="projects">{{__('Участвовал в проектах')}}</label>
+         <div class="select2_multiple_container">
+             <select name="projects[]" id="projects" class="select2_multiple" data-dropdown-css-class="select2_multiple_dropdown" multiple>
+                 @foreach ($projects as $pr)
+                     <option value="{{$pr->id}}" 
+                         @foreach($user->projects as $user_pr)
+                             @if($user_pr->id == $pr->id) 
+                                 selected
+                             @endif
+                         @endforeach
+                     >{{$pr->title}}</option>
+                 @endforeach
+             </select>
+         </div>
+     </div>
+
+      <div class="input-container-inline">
+         <label for="description">{{__('О себе')}}<span class="required">*</span></label>
          <textarea id="description" name="description" rows="5" required>{{ $user->description }}</textarea>
       </div>
 

@@ -24,35 +24,35 @@
          </h1>
          
          @foreach ($todayBDs as $usser)
-            <div class="single-birthday">
+            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
                <span>{{__('Сегодня')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
+            </a>
          @endforeach
 
          @foreach ($tomorrowBDs as $usser)
-            <div class="single-birthday">
+            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
                <span>{{__('Завтра')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
+            </a>
          @endforeach
 
          @foreach ($afterTomorrowBDs as $usser)
-            <div class="single-birthday">
+            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
                <span>{{__('После завтра')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
+            </a>
          @endforeach
 
          @foreach ($soonBDs as $usser)
-            <div class="single-birthday">
+            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
                <img src="{{asset('img/users/' . $usser->avatar)}}">
                <span>{{__('Скоро')}}</span>
                <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </div>
+            </a>
          @endforeach
       </div>
    @endif

@@ -14,4 +14,15 @@ class Project extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function manager()
+    {
+        return $this->belongsTo(User::class, 'manager_id');
+    }
+
+    public function participants()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

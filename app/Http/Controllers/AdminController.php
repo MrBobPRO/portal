@@ -183,10 +183,19 @@ class AdminController extends Controller
         
         $languages = DB::table('languages')
                 ->select('languages.id', 'languages.' . $name . ' as name')
-                ->orderBy($name, 'asc')
+                ->orderBy('name', 'asc')
                 ->get();
 
-        return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages'));
+
+        // get needed column from app locale
+        $title = App::currentLocale() . 'Title';
+
+        $projects = DB::table('projects')
+                ->select('projects.id', 'projects.' . $title . ' as title')
+                ->orderBy('title', 'asc')
+                ->get();
+
+        return view('dashboard.structure.user_update', compact('user', 'departments', 'designations', 'positions', 'languages', 'projects'));
     }
 
     public function users_create() 
@@ -384,12 +393,19 @@ class AdminController extends Controller
 
     public function projects_create()
     {
-        return view('dashboard.projects.create');
+        $all_users = User::orderBy('name', 'asc')
+            ->select('users.id', 'users.name', 'users.surname', 'users.patronymic')
+            ->get();
+
+        return view('dashboard.projects.create', compact('all_users'));
     }
 
     public function projects_single($id)
     {
         $project = Project::find($id);
+        $all_users = User::orderBy('name', 'asc')
+            ->select('users.id', 'users.name', 'users.surname', 'users.patronymic')
+            ->get();
 
         //genereate title for breadcrumbs as ruTitle & tjTitle & enTitle
         $title = App::currentLocale() . 'Title';
@@ -398,7 +414,7 @@ class AdminController extends Controller
         if(mb_strlen($crumbsTitle) > 23)
             $crumbsTitle = mb_substr($crumbsTitle, 0, 20) . '...';
 
-        return view('dashboard.projects.single', compact('project', 'crumbsTitle'));
+        return view('dashboard.projects.single', compact('project', 'crumbsTitle', 'all_users'));
     }
     // -----------------------------------Projects end-------------------------------------------
 

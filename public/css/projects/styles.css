@@ -128,21 +128,52 @@
    max-width: 100%;
    height: auto;
 }
+.projects-content .project-manager-info {
+   padding: 0 25px 25px;
+   display: flex;
+   justify-content: space-between;
+}
+.projects-content .project-manager-info a {
+   color: var(--color-scheme);
+   font-weight: 500;
+}
 .projects-content .project-date {
    display: flex;
    align-items: center;
-   padding: 0 25px 25px;
-   justify-content: flex-end;
    font-size: 15px;
-   display: flex;
    color: black;
    font-style: italic;
 }
-.projects-content .project-date span {
-   font-size: 20px;
-   margin-right: 8px;
-   padding-bottom: 2px;
+
+/* Participants modals start */
+.participants-modal .modal-title {
+   display: flex;
+   align-items: center;
+   font-size: 18px;
+   font-weight: bold;
 }
+.participants-modal .modal-title span {
+   color: var(--color-scheme);
+   margin-right: 10px;
+}
+.participants-modal .modal-item {
+   margin-bottom: 10px;
+   display: flex;
+   align-items: center;
+}
+.participants-modal .modal-item:last-child {
+   margin-bottom: 0;
+}
+.participants-modal .modal-item img {
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+}
+.participants-modal .modal-dialog {
+   width: 450px;
+}
+/* Participants modals end */
 
 /* Comments start */
 .comments-container {

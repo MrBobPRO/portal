@@ -81,7 +81,17 @@
    </div>
 
    <div class="input-container-inline">
-      <label>{{__('Описание')}}</label>
+      <label>{{__('Участвовал в проектах')}}</label>
+      <div class="value-replacer">
+         <?php $projectTitle = App::currentLocale() . 'Title'; ?>
+         @foreach ($user->projects as $pr)
+            <a href="{{ route('projects.single', $pr->id) }}" target="_blank">{{$pr[$projectTitle]}}</a>
+         @endforeach
+      </div>
+   </div>
+
+   <div class="input-container-inline">
+      <label>{{__('О себе')}}</label>
       <div class="value-replacer">
          {{ $user->description }}
       </div>

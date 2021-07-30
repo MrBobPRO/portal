@@ -138,7 +138,12 @@ class DatabaseSeeder extends Seeder
             $user->position_id = $pos_id[$i];
             $user->description = 'Коротко о себе...';
             $user->save();
+            $user->projects()->attach(rand(1,8));
         }
+
+        $uu = User::find(1);
+        $uu->projects()->attach(9);
+        $uu->projects()->attach(10);
 
         //Create languages
         $ruName = ['Английский', 'Арабский', 'Испанский', 'Итальянский', 'Французский', 'Китайский', 'Индийский', 'Японский', 'Русский', 'Таджикский', 'Турецкий', 'Узбекский'];

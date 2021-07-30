@@ -5,8 +5,6 @@
 
     <section class="structure-user-create formed-page">
 
-      <img src="{{ asset('img/users/default.png') }}">
-
       <h2>{{__('Персональная информация')}}</h2>
       {{-- Personal data form start --}}
       <form id="update_profile" action="/store_user" method="POST" enctype="multipart/form-data">

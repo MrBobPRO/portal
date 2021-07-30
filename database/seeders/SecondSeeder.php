@@ -108,6 +108,7 @@ class SecondSeeder extends Seeder
         for ($i=0; $i < 11; $i++) {
             $projects = new Project;
             $projects->image = ($i+1) . '.jpg';
+            $projects->manager_id = $i+1;
             $projects->ruTitle = 'Заголовок проекта ' . $i;
             $projects->tjTitle = 'Номи проекти ' . $i;
             $projects->enTitle = 'Project title ' . $i;

@@ -140,6 +140,16 @@ class UsersController extends Controller
             }
         } 
 
+        //Detach projects and attach new ones
+        $user->projects()->detach();
+        if ($request->projects) 
+        {
+            foreach ($request->projects as $pr) 
+            {       
+                $user->projects()->attach($pr);
+            }
+        }
+
         return redirect()->back();
             
     }

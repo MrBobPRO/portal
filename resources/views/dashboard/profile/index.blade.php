@@ -96,7 +96,24 @@
             </div>
 
             <div class="input-container-inline">
-                <label>{{__('Описание')}}<span class="required">*</span></label>
+                <label>{{__('Участвовал в проектах')}}</label>
+                <div class="select2_multiple_container">
+                    <select name="projects[]" id="projects" class="select2_multiple" data-dropdown-css-class="select2_multiple_dropdown" multiple>
+                        @foreach ($projects as $pr)
+                            <option value="{{$pr->id}}" 
+                                @foreach($user->projects as $user_pr)
+                                    @if($user_pr->id == $pr->id) 
+                                        selected
+                                    @endif
+                                @endforeach
+                            >{{$pr->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-container-inline">
+                <label>{{__('О себе')}}<span class="required">*</span></label>
                 <textarea name="description" rows="5" required>{{ $user->description }}</textarea>
             </div>
 

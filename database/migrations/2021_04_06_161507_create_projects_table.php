@@ -23,6 +23,7 @@ class CreateProjectsTable extends Migration
             $table->text('enText');
             $table->string('image');
             $table->boolean('completed');
+            $table->integer('manager_id');
             $table->timestamps();
         });
     }

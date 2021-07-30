@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Language;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -27,10 +28,19 @@ class ProfileController extends Controller
         
         $languages = DB::table('languages')
                 ->select('languages.id', 'languages.' . $name . ' as name')
-                ->orderBy($name, 'asc')
+                ->orderBy('name', 'asc')
                 ->get();
 
-        return view('dashboard.profile.index', compact('user', 'languages'));
+
+        // get needed column from app locale
+        $title = App::currentLocale() . 'Title';
+
+        $projects = DB::table('projects')
+                ->select('projects.id', 'projects.' . $title . ' as title')
+                ->orderBy('title', 'asc')
+                ->get();
+
+        return view('dashboard.profile.index', compact('user', 'languages', 'projects'));
     }
 
     public function update_avatar(Request $request)
@@ -117,6 +127,16 @@ class ProfileController extends Controller
             foreach ($request->languages as $lang) 
             {       
                 $user->languages()->attach($lang);
+            }
+        }
+
+        //Detach projects and attach new ones
+        $user->projects()->detach();
+        if ($request->projects) 
+        {
+            foreach ($request->projects as $pr) 
+            {       
+                $user->projects()->attach($pr);
             }
         }
             

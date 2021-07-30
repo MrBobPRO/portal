@@ -498,8 +498,16 @@ button:focus {
 }
 .sidebar .single-birthday {
    position: relative;
+   text-decoration: none;
+   display: flex;
+   overflow: hidden;
+   color: #212529;
+}
+.sidebar .single-birthday:hover img {
+   transform: scale(1.2);
 }
 .sidebar .single-birthday img {
+   transition: 0.3s;
    max-width: 100%;
    width: 100%;
 }
