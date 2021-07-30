@@ -71,7 +71,7 @@
          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="participantsModal"><span class="material-icons">thumb_down</span> Участники</h5>
+                  <h5 class="modal-title" id="participantsModal"><span class="material-icons">group</span> Участники</h5>
                </div>
                <div class="modal-body" id="disliked_modal_body">
                   @foreach ($project->participants as $part)
