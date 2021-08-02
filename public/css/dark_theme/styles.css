@@ -62,7 +62,7 @@ h1 {
 .sidebar h1 {
    color: var(--dark-text);
 }
-.sidebar-ads, .sidebar-news {
+.sidebar-ads, .sidebar-news, .sidebar .birthdays, .sidebar .single-birthday p {
    background: var(--dark-background);
 }
 .sidebar-single-news h4, .sidebar-single-news p {
