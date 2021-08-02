@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->boolean('dash_auto_hide')->default(false);
             $table->string('dashBg')->default('dash1.jpg');
             $table->boolean('darkMode')->default(true);
+            $table->boolean('dark_theme')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

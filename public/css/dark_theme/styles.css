@@ -1,0 +1,335 @@
+/* Main styles start */
+:root {
+   --dark-text: #dadada;
+   --dark-background: #313131;
+}
+body {
+   background-color: #252525;
+   color: var(--dark-text);
+}
+body::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px #5e5e5e;
+   box-shadow: inset 0 0 6px #5e5e5e;
+ }
+ body::-webkit-scrollbar-thumb {
+ background-color: #5e5e5e;
+ outline: 1px solid #5e5e5e;
+ }
+p {
+   color: var(--dark-text);
+}
+h1 {
+   color: var(--dark-text);
+}
+.toolbar {
+   background-color: var(--dark-background);
+   box-shadow: 0 0 3px black;
+}
+.search-form input {
+   border: none;
+   border-bottom: 1px solid #5a5a5a;
+   background-color: transparent;
+   color: var(--dark-text);
+}
+.search-form input::placeholder {
+   color: var(--dark-text);
+}
+.lang-dropdown button, .lang-dropdown .dropdown-toggle:hover {
+   color: var(--dark-text);
+}
+.lang-dropdown ul {
+   background: var(--dark-background);
+   box-shadow: 0 0 3px black;
+}
+.navbar {
+   background-color: var(--dark-background);
+}
+.navbar li {
+   border-color: var(--dark-background);
+}
+.navbar li a {
+   color: var(--dark-text);
+}
+.dashboard .dash-links a {
+   color: var(--dark-text);
+}
+.dashboard .profile-ava a {
+   color: var(--dark-text);
+}
+.text-block {
+   background-color: var(--dark-background);
+}
+.sidebar h1 {
+   color: var(--dark-text);
+}
+.sidebar-ads, .sidebar-news {
+   background: var(--dark-background);
+}
+.sidebar-single-news h4, .sidebar-single-news p {
+   color: var(--dark-text);
+}
+.breadcrumbs {
+   box-shadow: 0 0 3px black;
+}
+.breadcrumbs a {
+   background: var(--dark-background);
+}
+.breadcrumbs a span {
+   color: var(--dark-text);
+}
+.breadcrumbs a span::after {
+   width: 34.5px;
+   height: 34.5px;
+   top: 5.5px;
+   border-color: var(--color-scheme);
+
+   background: var(--dark-background);
+}
+.breadcrumbs a:last-child span::after {
+   border-color: transparent;
+}
+.modal-content {
+   background: var(--dark-background);
+}
+.page-link {
+   background-color: var(--dark-background);
+   border: 1px solid #5a5a5a;
+   color: var(--dark-text);
+}
+.page-item.disabled .page-link {
+   background-color: var(--dark-background);
+   border: 1px solid #5a5a5a;
+   color: var(--dark-text);
+}
+.search-page {
+   background-color: var(--dark-background);
+}
+.search-page .items:hover {
+   color: var(--dark-text);
+}
+/* Main styles start */
+
+/* Structure page start */
+.structure-page .users-list .users-list-item {
+   background: var(--dark-background);
+}
+.structure-page .users-list-item p, .structure-page .users-list-item span {
+   color: var(--dark-text);
+}
+/* Structure page end */
+
+/* Knowledge page start */
+.knowledge-page .accordion-button, .knowledge-create-page .accordion-button {
+   background: var(--dark-background);
+   color: var(--dark-text);
+}
+.knowledge-page .accordion-button.collapsed:hover, .knowledge-create-page .accordion-button.collapsed:hover {
+   color: var(--dark-background);
+}
+.knowledge-page .mat-items a, .knowledge-create-page .mat-items a {
+   background: var(--dark-background);
+   color: var(--dark-text);
+}
+.knowledge-page .mat-items a:hover, .knowledge-create-page .mat-items a:hover {
+   background: var(--dark-text);
+   color: var(--dark-background);
+}
+.books-page .books-list-item {
+   background: var(--dark-background);
+}
+.books-page .books-list-item a {
+   color: var(--dark-text);
+}
+.videos-page .single-video .video-description {
+   background: var(--dark-background);
+}
+/* Knowledge page end */
+
+/* News page start */
+.news-page .wrapper a p {
+   background: var(--dark-background);
+}
+.news-page .latest-news, .news-page .single-news a {
+   background: var(--dark-background);
+}
+.news-page .single-news a {
+   box-shadow: 0 0 3px black;
+}
+.single-news-page .news-content {
+   background: var(--dark-background);
+}
+.grades-container .grades-count {
+   color: var(--dark-text);
+}
+.comments-container {
+   background: var(--dark-background);
+}
+.comments-container form input {
+   background: transparent;
+   color: var(--dark-text);
+}
+.comments-container form input::placeholder {
+   color: var(--dark-text);
+}
+/* News page end */
+
+/* Projects page sart */
+.projects-page .wrapper a p {
+   background: var(--dark-background);
+}
+.projects-page .category {
+   background: var(--dark-background);
+}
+.projects-page .single-project a {
+   background: var(--dark-background);
+}
+.projects-page .single-project a {
+   box-shadow: 0 0 3px black;
+}
+.single-projects-page .projects-content {
+   background: var(--dark-background);
+}
+.single-projects-page .projects-content .project-date {
+   color: var(--dark-text);
+}
+/* Projects page end */
+
+/* Entertainment page sart */
+.entertainment-page .wrapper a p {
+   background: var(--dark-background);
+}
+.entertainment-videos-page .video-description {
+   background: var(--dark-background);
+}
+.galleries-list a, .galleries-list a div {
+   background: var(--dark-background);
+}
+.galleries-list a div span {
+   color: var(--dark-text);
+}
+.entertainment-gallery-page .elem {
+   background: var(--dark-background);
+}
+/* Entertainment page end */
+
+/* Dashboard & Admin styles start */
+.cancel-btn {
+   background: #252525;
+   border-color: #252525;
+}
+.formed-page {
+   background: var(--dark-background);
+}
+.formed-page input, .formed-page textarea, .formed-page .value-replacer {
+   border: 1px solid #5a5a5a;
+   background: transparent;
+   color: var(--dark-text);
+}
+.formed-page .simditor {
+   border: 1px solid #5a5a5a;
+}
+.formed-page .simditor-wrapper {
+   background: transparent;
+   color: var(--dark-text);
+}
+.formed-page .simditor-toolbar {
+   background: transparent;
+   border: 1px solid #5a5a5a;
+}
+.formed-page .simditor-body * {
+   color: var(--dark-text) !important;
+}
+.formed-page .toolbar-item {
+   color: var(--dark-text) !important;
+}
+input[type=file]:after {
+   background: transparent;
+   border-left: 1px solid #5a5a5a;
+   color: var(--dark-text);
+}
+.edit-modals input, .edit-modals textarea {
+   background: transparent;
+   border: 1px solid #5a5a5a;
+   color: var(--dark-text);
+}
+.primary-list-titles {
+   background: var(--dark-background);
+}
+.primary-list-item {
+   background: var(--dark-background);
+   color: var(--dark-text);
+   transition: 0.3s;
+}
+.single-questionnaire-page .question-text {
+   background: var(--dark-background);
+}
+.single-questionnaire-page .single-option {
+   background: var(--dark-background);
+}
+.formed-page .select2-selection--multiple {
+   background: transparent;
+   border: 1px solid #5a5a5a !important;
+}
+.select2-search--dropdown .select2-search__field {
+   background: transparent;
+   border: 1px solid #5a5a5a !important;
+   color: var(--dark-text);
+}
+.select2_multiple_dropdown {
+   box-shadow: 0 0 3px black;
+   background: var(--dark-background);
+}
+.select2_multiple_dropdown .select2-results__option--selected {
+   color: var(--dark-background);
+}
+.select2_single_dropdown {
+   background-color: var(--dark-background);
+}
+.settings-page .own-theme {
+   border: 1px solid #5a5a5a;
+}
+.settings-page .inputBox .title {
+   color: var(--dark-text);
+}
+.select2_single_container .select2-selection--single {
+   background: var(--dark-background);
+}
+.select2_single_container .select2-selection__placeholder {
+   color: var(--dark-text) !important;
+}
+.select2_single_container .select2-container--default {
+   border: 1px solid #5a5a5a !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+   color: var(--dark-text);
+}
+.users-page .users-list .users-list-item {
+   background: var(--dark-background);
+}
+.users-page .users-list-item p, .users-page .users-list-item span {
+   color: var(--dark-text);
+}
+.single-ideas-page .ideas-content {
+   background: var(--dark-background);
+}
+.single-ideas-page .grades-container .ideas-content-date {
+   color: var(--dark-text);
+}
+.sp-preview {
+   background: var(--dark-background) !important;
+}
+.catalog-modal .modal-body {
+   background-color: #252525;
+}
+.catalog-search-container input {
+   background-color: var(--dark-background);
+   border: 1px solid #5a5a5a;
+   color: var(--dark-text);
+}
+.catalog-modal .catalog-item {
+   background-color: var(--dark-background);
+}
+#dropzone {
+   background: var(--dark-background);
+}
+/* Admin&Dashboard styles end */

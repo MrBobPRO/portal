@@ -3,7 +3,7 @@
 @section('content')
 @include('templates.breadcrumbs')
 
-<section class="single-ideas-page">
+<section class="single-questionnaire-page">
    <div class="question-container">
       {{-- Show private text if its private questionnaire --}}
       @if($question->private)

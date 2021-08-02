@@ -34,6 +34,9 @@
 
    @include('dashboard.templates.styles') 
 
+   {{-- Dark theme --}}
+   @if(\Auth::user()->dark_theme) <link href="{{ asset('css/dark_theme/styles.css') }}" rel="stylesheet"> @endif
+
       <style>
          :root {
             --color-scheme: {{\Auth::user()->colorScheme}};

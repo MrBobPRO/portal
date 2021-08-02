@@ -98,6 +98,27 @@
    </section>
 
 
+   <section class="dark-mode">
+      <form action="/switch_dark_theme" method="POST">
+         @csrf
+         <h2 class="title-seperator">{{__('Тёмный режим')}}</h2>
+         <p>
+            Тёмный режим левого бокового меню не зависит от текущей опции. Изменения вступят в силу только после применения изменений.
+         </p>
+
+         <div class="switch-container">
+            {{__('Тёмный режим')}}
+            <label class="switch">
+               <input type="checkbox" name="dark_theme" @if($user->dark_theme) checked @endif>
+               <span class="slider round"></span>
+            </label>
+         </div>
+
+         <button class="main-btn" type="submit"><span class="material-icons">dark_mode</span> {{__('Изменить режим')}}</button>
+      </form>
+   </section>
+
+
    {{-- background change preview start --}}
    <div class="dashbg-settings">
       <h2 class="title-seperator">{{__('Фон левого бокового меню')}}</h2>

@@ -27,8 +27,11 @@
 
    <link href="{{ asset('css/dashboard/main/styles.css') }}" rel="stylesheet">
    <link href="{{ asset('css/dashboard/main/media.css') }}" rel="stylesheet">
-
+   
    @include('dashboard.templates.styles') 
+
+   {{-- Dark theme --}}
+   @if(\Auth::user()->dark_theme) <link href="{{ asset('css/dark_theme/styles.css') }}" rel="stylesheet"> @endif
 
       <style>
          :root {

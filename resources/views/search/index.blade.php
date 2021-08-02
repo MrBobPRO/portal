@@ -161,7 +161,7 @@
          @foreach ($result->users as $user)  
             <a class="items" href="{{ route('dashboard.users.single', $user->id) }}">
                <div class="info">
-                  <span class="title">{{ $user->name }} {{ $user->surname }}</span>
+                  <span class="title">{{ $user->name }} {{ $user->surname }} {{ $user->patronymic }}</span>
                   <span class="date">
                      <?php
                         $date = \Carbon\Carbon::parse($user->birth_date)->locale('ru');

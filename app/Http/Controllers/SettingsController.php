@@ -46,6 +46,20 @@ class SettingsController extends Controller
         return redirect()->back();
     }
 
+    public function switch_dark_theme(Request $request)
+    {
+        $user = Auth::user();
+
+        if($request->dark_theme)
+            $user->dark_theme = true;
+        else
+            $user->dark_theme = false;
+
+        $user->save();
+        
+        return redirect()->back();
+    }
+
     public function update_background_temporarily(Request $request)
     {
         $user = Auth::user();

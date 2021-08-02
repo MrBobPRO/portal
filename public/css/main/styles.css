@@ -605,7 +605,7 @@ button:focus {
 }
 .breadcrumbs a {
    background: white;
-   border: 1px solid #dce0e0;
+   /* border: 1px solid #dce0e0; */
    border-right: 0;
    position: relative;
    text-decoration: none;
