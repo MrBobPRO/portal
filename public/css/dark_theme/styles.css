@@ -155,6 +155,9 @@ h1 {
 .news-page .single-news a {
    box-shadow: 0 0 3px black;
 }
+.single-news h3, .news-content-date {
+   color: var(--dark-text) !important;
+}
 .single-news-page .news-content {
    background: var(--dark-background);
 }
@@ -179,6 +182,9 @@ h1 {
 }
 .projects-page .category {
    background: var(--dark-background);
+}
+.projects-page .category h3 {
+   color: var(--dark-text);
 }
 .projects-page .single-project a {
    background: var(--dark-background);

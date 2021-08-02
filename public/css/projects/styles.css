@@ -75,7 +75,7 @@
    width: calc(55% + 100px);
 }
 .category h3 {
-   font-size: 20px;
+   font-size: 18px;
    line-height: 1;
    overflow: hidden;
    text-overflow: ellipsis;
