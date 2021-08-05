@@ -15,45 +15,59 @@
    {{-- Sidebar Ads end --}}
 
    {{-- Sidebar Birthdays start --}}
-   <?php $totalBDsCount = count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs) + count($soonBDs); ?>
 
-   @if($totalBDsCount > 0)
+   @php
+      $BDs = (count($todayBDs) + count($tomorrowBDs) + count($afterTomorrowBDs) + count($soonBDs[0]) + count($soonBDs[1]) + count($soonBDs[2]) + count($soonBDs[3]) + count($soonBDs[4]));
+   @endphp
+   @if ($BDs != 0)
       <div class="birthdays">
          <h1>{{__('День рождении')}}
             <span class="material-icons-outlined">star</span>
          </h1>
+
+         @if (count($todayBDs) != 0)
+            @foreach ($todayBDs as $usser)
+               <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
+                  <img src="{{asset('img/users/' . $usser->avatar)}}">
+                  <span>{{__('Сегодня')}}</span>
+                  <p>{{$usser->name . ' ' . $usser->surname}}</p>
+               </a>
+            @endforeach
+         @endif
          
-         @foreach ($todayBDs as $usser)
-            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('Сегодня')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </a>
-         @endforeach
+         @if (count($tomorrowBDs) != 0)
+            @foreach ($tomorrowBDs as $usser)
+               <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
+                  <img src="{{asset('img/users/' . $usser->avatar)}}">
+                  <span>{{__('Завтра')}}</span>
+                  <p>{{$usser->name . ' ' . $usser->surname}}</p>
+               </a>
+            @endforeach
+         @endif
 
-         @foreach ($tomorrowBDs as $usser)
-            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('Завтра')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </a>
-         @endforeach
+         @if (count($afterTomorrowBDs) != 0)
+            @foreach ($afterTomorrowBDs as $usser)
+               <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
+                  <img src="{{asset('img/users/' . $usser->avatar)}}">
+                  <span>{{__('После завтра')}}</span>
+                  <p>{{$usser->name . ' ' . $usser->surname}}</p>
+               </a>
+            @endforeach
+         @endif
 
-         @foreach ($afterTomorrowBDs as $usser)
-            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('После завтра')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </a>
-         @endforeach
-
-         @foreach ($soonBDs as $usser)
-            <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
-               <img src="{{asset('img/users/' . $usser->avatar)}}">
-               <span>{{__('Скоро')}}</span>
-               <p>{{$usser->name . ' ' . $usser->surname}}</p>
-            </a>
-         @endforeach
+         @if (count($soonBDs) != 0)
+            @foreach ($soonBDs as $soonBD)
+               @if (count($soonBD) != 0)
+                  @foreach ($soonBD as $usser)
+                     <a href="{{ route('dashboard.users.single', $usser->id) }}" class="single-birthday">
+                        <img src="{{asset('img/users/' . $usser->avatar)}}">
+                        <span>{{__('Скоро')}}</span>
+                        <p>{{$usser->name . ' ' . $usser->surname}}</p>
+                     </a>
+                  @endforeach
+               @endif
+            @endforeach
+         @endif
       </div>
    @endif
    {{-- Birthdays end --}}
