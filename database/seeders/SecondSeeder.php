@@ -126,46 +126,46 @@ class SecondSeeder extends Seeder
 
 
         //Create Videos
-        $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
-        $videoRuCategory = ['Уроки','Выступление','Интервью','Монолог','Надземная работа','Подземная работа','Верхолазная работа','Общестроительная работа'];
-        $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
-        for ($i=0; $i < count($materialIDs); $i++){
-            for ($j=0; $j < 13; $j++) {
-                for ($k=0; $k < count($videoCategory); $k++) {
-                    $videos = new Video;
-                    $videos->material_id = $materialIDs[$i];
-                    $videos->category = $videoCategory[$k];
-                    $videos->ruCategory = $videoRuCategory[$k];
-                    $videos->filename = 'video.mp4';
-                    $videos->ruTitle = 'Видеоурок ' . $k;
-                    $videos->tjTitle = 'Видео ' . $k;
-                    $videos->enTitle = 'Video ' . $k;
-                    $videos->from_catalog = 0;
-                    $videos->save();
-                }
-            } 
-        }
+        // $videoCategory = ['lessons','performance','interview','monolog','overheadWork','undergroundWork','climbingWork','generalWork'];
+        // $videoRuCategory = ['Уроки','Выступление','Интервью','Монолог','Надземная работа','Подземная работа','Верхолазная работа','Общестроительная работа'];
+        // $materialIDs = ['3','6','9','12','15','18','21','24','27','29','30','31','33','34','35','38','41','43','45','47','49','51'];
+        // for ($i=0; $i < count($materialIDs); $i++){
+        //     for ($j=0; $j < 13; $j++) {
+        //         for ($k=0; $k < count($videoCategory); $k++) {
+        //             $videos = new Video;
+        //             $videos->material_id = $materialIDs[$i];
+        //             $videos->category = $videoCategory[$k];
+        //             $videos->ruCategory = $videoRuCategory[$k];
+        //             $videos->filename = 'video.mp4';
+        //             $videos->ruTitle = 'Видеоурок ' . $k;
+        //             $videos->tjTitle = 'Видео ' . $k;
+        //             $videos->enTitle = 'Video ' . $k;
+        //             $videos->from_catalog = 0;
+        //             $videos->save();
+        //         }
+        //     } 
+        // }
 
         
         //Create Books
-        $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
-        $bookRuCategory = ['Классная книга','Рабочая книга','Отборные произведение','Отборная литература','Вопросник','Английские уроки','Литература'];
-        $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
-        for ($i=0; $i < count($matIDs); $i++){
-            for ($j=0; $j < 13; $j++) {
-                for ($k=0; $k < count($bookCategory); $k++) {
-                    $books = new Book;
-                    $books->ruTitle = 'Название книги ' . $k;
-                    $books->tjTitle = 'Номи китоб ' . $k;
-                    $books->enTitle = 'Book name ' . $k;
-                    $books->filename = '1.pdf';
-                    $books->material_id = $matIDs[$i];
-                    $books->category = $bookCategory[$k];
-                    $books->ruCategory = $bookRuCategory[$k];
-                    $books->save();
-                }
-            } 
-        }
+        // $bookCategory = ['coursebook','workbook','selectedComposition','selectedLiterature','questionnaire','englishLessons','literature'];
+        // $bookRuCategory = ['Классная книга','Рабочая книга','Отборные произведение','Отборная литература','Вопросник','Английские уроки','Литература'];
+        // $matIDs = ['1','2','4','5','7','8','10','11','13','14','15','16','17','19','20','22','23','25','26','28','32','36','37','39','40','42','44','46','48','50'];
+        // for ($i=0; $i < count($matIDs); $i++){
+        //     for ($j=0; $j < 13; $j++) {
+        //         for ($k=0; $k < count($bookCategory); $k++) {
+        //             $books = new Book;
+        //             $books->ruTitle = 'Название книги ' . $k;
+        //             $books->tjTitle = 'Номи китоб ' . $k;
+        //             $books->enTitle = 'Book name ' . $k;
+        //             $books->filename = '1.pdf';
+        //             $books->material_id = $matIDs[$i];
+        //             $books->category = $bookCategory[$k];
+        //             $books->ruCategory = $bookRuCategory[$k];
+        //             $books->save();
+        //         }
+        //     } 
+        // }
 
         //Create Subjects && Subjectcats && Materials
         $subjects = [
@@ -379,5 +379,24 @@ class SecondSeeder extends Seeder
                         }
                 }
         }
+
+        $ruTitle = ['Excel (базовый)', 'Сводная таблица в Excel', '20 приёмов MS Excel', 'Exсel урок 1', 'Exсel урок 3', 'Exсel урок 4', 'Exсel урок 5', 'Макросы. Урок 1', 'Макросы. Урок 2', 'Макросы. Урок 3', 'Макросы. Урок 4', 'Макросы. Урок 5', 'Макросы. Урок 6', 'Макросы. Урок 7'];
+        $tjTitle = ['Excel (базовый)', 'Ҷадвали ҷамъбастӣ дар Excel', '20 ҳиллаҳои MS Excel', 'Excel дарси якум', 'Excel дарси сеюм', 'Excel дарси чорум', 'Excel дарси панчум', 'Макросы. Дарси 1', 'Макросы. Дарси 2', 'Макросы. Дарси 3', 'Макросы. Дарси 4', 'Макросы. Дарси 5', 'Макросы. Дарси 6', 'Макросы. Дарси 7'];
+        $enTitle = ['Excel (basic)', 'PivotTable in Excel', '20 tricks MS Excel', 'Excel lesson 1', 'Excel lesson 3', 'Excel lesson 4', 'Excel lesson 5', 'Macros. lesson 1', 'Macros. lesson 2', 'Macros. lesson 3', 'Macros. lesson 4', 'Macros. lesson 5', 'Macros. lesson 6', 'Macros. lesson 7'];
+        $file = ['Excel (базовый).mp4', 'Сводная таблица в Excel.mp4', '20 приёмов MS Excel.mp4', 'Exсel урок 1.mp4', 'Exсel урок 3.mp4', 'Exсel урок 4.mp4', 'Exсel урок 5.mp4', 'Макросы. Урок 1.mp4', 'Макросы. Урок 2.mp4', 'Макросы. Урок 3.mp4', 'Макросы. Урок 4.mp4', 'Макросы. Урок 5.mp4', 'Макросы. Урок 6.mp4', 'Макросы. Урок 7.mp4'];
+
+        for($i=0; $i<count($ruTitle); $i++) {
+            $videos = new Video;
+            $videos->material_id = 41;
+            $videos->category = 'lessons';
+            $videos->ruCategory = 'Видео';
+            $videos->filename = $file[$i];
+            $videos->ruTitle = $ruTitle[$i];
+            $videos->tjTitle = $tjTitle[$i];
+            $videos->enTitle = $enTitle[$i];
+            $videos->from_catalog = 0;
+            $videos->save();
+        }
+
     }
 }

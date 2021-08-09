@@ -26,7 +26,7 @@
                   <p>{{$video->title}}</p>
                   <span>
                      <?php 
-                        $date = \Carbon\Carbon::parse($video->created_at)->locale('ru');
+                        $date = \Carbon\Carbon::parse($video->created_at);
                         $formatted = $date->isoFormat('DD.MM.YYYY');
                      ?>
                      {{$formatted}}

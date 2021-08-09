@@ -67,7 +67,8 @@ class KnowledgeController extends Controller
         $material = Material::find($id);
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)
-                        ->select('videos.poster', 'videos.from_catalog', 'videos.filename', 'videos.subtitles', 'videos.' . $title . ' as title')
+                        ->select('videos.poster', 'videos.from_catalog', 'videos.filename', 'videos.subtitles', 'videos.' . $title . ' as title', 'created_at')
+                        ->oldest()
                         ->paginate(16);
         
         //used in breadcrumbs       
