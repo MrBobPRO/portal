@@ -384,6 +384,7 @@ class SecondSeeder extends Seeder
         $tjTitle = ['Excel (базовый)', 'Ҷадвали ҷамъбастӣ дар Excel', '20 ҳиллаҳои MS Excel', 'Excel дарси якум', 'Excel дарси сеюм', 'Excel дарси чорум', 'Excel дарси панчум', 'Макросы. Дарси 1', 'Макросы. Дарси 2', 'Макросы. Дарси 3', 'Макросы. Дарси 4', 'Макросы. Дарси 5', 'Макросы. Дарси 6', 'Макросы. Дарси 7'];
         $enTitle = ['Excel (basic)', 'PivotTable in Excel', '20 tricks MS Excel', 'Excel lesson 1', 'Excel lesson 3', 'Excel lesson 4', 'Excel lesson 5', 'Macros. lesson 1', 'Macros. lesson 2', 'Macros. lesson 3', 'Macros. lesson 4', 'Macros. lesson 5', 'Macros. lesson 6', 'Macros. lesson 7'];
         $file = ['Excel (базовый).mp4', 'Сводная таблица в Excel.mp4', '20 приёмов MS Excel.mp4', 'Exсel урок 1.mp4', 'Exсel урок 3.mp4', 'Exсel урок 4.mp4', 'Exсel урок 5.mp4', 'Макросы. Урок 1.mp4', 'Макросы. Урок 2.mp4', 'Макросы. Урок 3.mp4', 'Макросы. Урок 4.mp4', 'Макросы. Урок 5.mp4', 'Макросы. Урок 6.mp4', 'Макросы. Урок 7.mp4'];
+        $d = [date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:44:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:45:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:46:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:47:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:48:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:49:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:50:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:51:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:52:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:53:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:54:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:55:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:56:00'), date_create_from_format('Y-m-d H:i:s', '2021-08-09 12:57:00')];
 
         for($i=0; $i<count($ruTitle); $i++) {
             $videos = new Video;
@@ -395,6 +396,7 @@ class SecondSeeder extends Seeder
             $videos->tjTitle = $tjTitle[$i];
             $videos->enTitle = $enTitle[$i];
             $videos->from_catalog = 0;
+            $videos->created_at = $d[$i];
             $videos->save();
         }
 
