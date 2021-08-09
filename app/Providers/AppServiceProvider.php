@@ -113,23 +113,27 @@ class AppServiceProvider extends ServiceProvider
             $view->with('afterTomorrowBDs', $afterTomorrowBDs);
         });
         view()->composer(['templates.sidebar', 'home.index'], function ($view) {
-            $afterTomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 2 day')))
-                        ->whereDay('birth_date', date('d', strtotime('+ 2 day')))
-                        ->get();
-
-            $soonBDs = User::whereMonth('birth_date', date('m', strtotime('+ 3 day')))
+            $soonBD3 = User::whereMonth('birth_date', date('m', strtotime('+ 3 day')))
                                 ->whereDay('birth_date', date('d', strtotime('+ 3 day')))
-                                ->orwhereMonth('birth_date', date('m', strtotime('+ 4 day')))
-                                ->orwhereDay('birth_date', date('d', strtotime('+ 4 day')))
-                                ->orwhereMonth('birth_date', date('m', strtotime('+ 5 day')))
-                                ->orwhereDay('birth_date', date('d', strtotime('+ 5 day')))
-                                ->orwhereMonth('birth_date', date('m', strtotime('+ 6 day')))
-                                ->orwhereDay('birth_date', date('d', strtotime('+ 6 day')))
-                                ->orwhereMonth('birth_date', date('m', strtotime('+ 7 day')))
-                                ->orwhereDay('birth_date', date('d', strtotime('+ 7 day')))
                                 ->get();
 
-            $soonBDs = $soonBDs->diff($afterTomorrowBDs);
+            $soonBD4 = User::whereMonth('birth_date', date('m', strtotime('+ 4 day')))
+                                ->whereDay('birth_date', date('d', strtotime('+ 4 day')))
+                                ->get();
+
+            $soonBD5 = User::whereMonth('birth_date', date('m', strtotime('+ 5 day')))
+                                ->whereDay('birth_date', date('d', strtotime('+ 5 day')))
+                                ->get();
+
+            $soonBD6 = User::whereMonth('birth_date', date('m', strtotime('+ 6 day')))
+                                ->whereDay('birth_date', date('d', strtotime('+ 6 day')))
+                                ->get();
+
+            $soonBD7 = User::whereMonth('birth_date', date('m', strtotime('+ 7 day')))
+                                ->whereDay('birth_date', date('d', strtotime('+ 7 day')))
+                                ->get();
+
+            $soonBDs = [$soonBD3, $soonBD4, $soonBD5, $soonBD6, $soonBD7];
 
             $view->with('soonBDs', $soonBDs);
         });
