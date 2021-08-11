@@ -15,16 +15,43 @@ yarn-error.log
 /.well-known
 /cgi-bin
 /.vscode
-#Public files
+
+#-----Public videos start-----
 /public/videos/entertainment/*
+!/public/videos/entertainment/posters
+!/public/videos/entertainment/subtitles
+/public/videos/entertainment/posters/*
+!/public/videos/entertainment/posters/default.jpg
+/public/videos/entertainment/subtitles/*
+
 /public/videos/knowledge/*
+!/public/videos/knowledge/posters
+!/public/videos/knowledge/subtitles
+/public/videos/knowledge/posters/*
+!/public/videos/knowledge/posters/default.jpg
+/public/videos/knowledge/subtitles/*
+
 /public/videos/news/*
+#-----Public videos end-----
+
+
+#-----Public books start-----
 /public/books/*
+#-----Public books end-----
+
+
+#-----Public catalog start-----
 /public/catalog/videos/*
-/public/catalog/videos/*
+#-----Public catalog end-----
+
+
+#-----Public files start-----
 /public/files/complaints/*
 /public/files/ideas/*
-#Public images
+#-----Public files end-----
+
+
+#-----Public images start-----
 /public/img/dashboards/*
 !/public/img/dashboards/temp
 /public/img/dashboards/temp/*
@@ -40,9 +67,10 @@ yarn-error.log
 !/public/img/projects/simditor
 /public/img/projects/simditor/*
 !/public/img/projects/simditor/default
-/public/img/slider
+/public/img/slider/*
 /public/img/users/*
 !/public/img/users/original
 /public/img/users/original/*
 !/public/img/users/admin.jpg
 !/public/img/users/default.png
+#-----Public images end-----
