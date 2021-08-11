@@ -15,3 +15,34 @@ yarn-error.log
 /.well-known
 /cgi-bin
 /.vscode
+#Public files
+/public/videos/entertainment/*
+/public/videos/knowledge/*
+/public/videos/news/*
+/public/books/*
+/public/catalog/videos/*
+/public/catalog/videos/*
+/public/files/complaints/*
+/public/files/ideas/*
+#Public images
+/public/img/dashboards/*
+!/public/img/dashboards/temp
+/public/img/dashboards/temp/*
+/public/img/entertainment/galleries/*
+/public/img/entertainment/images/*
+/public/img/ideas/simditor/*
+!/public/img/ideas/simditor/default
+/public/img/news/*
+!/public/img/news/simditor
+/public/img/news/simditor/*
+!/public/img/news/simditor/default
+/public/img/projects/*
+!/public/img/projects/simditor
+/public/img/projects/simditor/*
+!/public/img/projects/simditor/default
+/public/img/slider
+/public/img/users/*
+!/public/img/users/original
+/public/img/users/original/*
+!/public/img/users/admin.jpg
+!/public/img/users/default.png
