@@ -3,8 +3,6 @@
 @section('content')
 
    <section class="knowledge-page">
-      
-      <a class="add-button" href="{{route('dashboard.knowledge.create')}}"><span class="material-icons-outlined">add</span></a>
 
       <div class="dash-search-container">
          {{-- Books search start --}}
