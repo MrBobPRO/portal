@@ -105,9 +105,11 @@ class KnowledgeController extends Controller
         $file->move(public_path('books'), $fileName);
         //Edit books filename
         $book->filename = $fileName;
-        $book->save(); 
+        $book->save();
 
-        return redirect()->route('dashboard.knowledge.books');
+        $material = Material::find($book->material_id);
+
+        return redirect(route('dashboard.knowledge.books.category') . '?material=' . $material->id . '&category=' . $material->category);
     }
 
     public function books_update(Request $request)
@@ -145,9 +147,11 @@ class KnowledgeController extends Controller
         if (file_exists($path)) {
             unlink($path);
         }
+
+        $material = Material::find($book->material_id);
         $book->delete();
 
-        return redirect()->route('dashboard.knowledge.books');
+        return redirect(route('dashboard.knowledge.books.category') . '?material=' . $material->id . '&category=' . $material->category);
     } 
 
 
@@ -176,6 +180,7 @@ class KnowledgeController extends Controller
             'ruTitle' => $request->ruTitle,
             'tjTitle' => $request->tjTitle,
             'enTitle' => $request->enTitle,
+            'priority' => 0,
             'from_catalog' => $from_catalog
         ]);
 
@@ -211,9 +216,13 @@ class KnowledgeController extends Controller
 
             $file->move(public_path('videos/knowledge'), $filename);
         }
-        
 
-        return route('dashboard.knowledge.videos');
+        $video->priority = $video->id;
+        $video->save();
+
+        $material = Material::find($video->material_id);
+
+        return route('dashboard.knowledge.videos.category') . '?material=' . $material->id . '&category=' . $material->category;
 
     }
 
@@ -318,10 +327,12 @@ class KnowledgeController extends Controller
                 unlink($path);
             }
         }
+
+        $material = Material::find($video->material_id);
         // delete video table from db
         $video->delete();
 
-        return redirect()->route('dashboard.knowledge.videos');
+        return redirect(route('dashboard.knowledge.videos.category') . '?material=' . $material->id . '&category=' . $material->category);
     }
     // ----------------------------------Admin routes end----------------------------------
 

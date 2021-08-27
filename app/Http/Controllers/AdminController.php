@@ -239,7 +239,11 @@ class AdminController extends Controller
         $booksCount = Book::count();
         $videosCount = Video::count();
 
-        return view('dashboard.knowledge.index', compact('booksCount', 'videosCount'));
+        $subjects = Subject::get();
+        $subjectcats = Subjectcat::get();
+        $materials = Material::get();
+
+        return view('dashboard.knowledge.index', compact('booksCount', 'videosCount', 'subjects', 'subjectcats', 'materials'));
     }
 
     public function knowledge_create()
@@ -271,10 +275,14 @@ class AdminController extends Controller
         $title = App::currentLocale() . 'Title';
 
         $book = Book::where('id', $id)
-                    ->select('books.id', 'books.' . $title . ' as title', 'books.ruTitle', 'books.tjTitle', 'books.enTitle')
+                    ->select('books.id', 'books.material_id', 'books.' . $title . ' as title', 'books.ruTitle', 'books.tjTitle', 'books.enTitle')
                     ->first();
 
-        return view('dashboard.knowledge.books.single', compact('book'));
+        $material = Material::find($book->material_id);
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.books.single', compact('book', 'material', 'subjectcat', 'subject'));
     }
 
     public function knowledge_books_create(Material $material) 
@@ -283,6 +291,26 @@ class AdminController extends Controller
         $subject = Subject::find($subjectcat->subject_id);
 
         return view('dashboard.knowledge.books.create', compact('material', 'subjectcat', 'subject'));
+    }
+
+    public function knowledge_books_category(Request $request)
+    {
+        $material = Material::find($request->material);
+
+        $title = App::currentLocale() . 'Title';
+
+        $books = Book::select('books.id', 'books.material_id', 'books.category', 'books.' . $title . ' as title', 'books.ruCategory')
+                        ->where('material_id', $request->material)
+                        ->where('category', $request->category)
+                        ->orderBy($title)
+                        ->paginate(30);
+
+        $rank = $books->firstItem();
+
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.books.category', compact('material', 'subjectcat', 'subject', 'books', 'rank'));
     }
 
     public function knowledge_videos() 
@@ -316,7 +344,11 @@ class AdminController extends Controller
         //sort by name
         sort($files);
 
-        return view('dashboard.knowledge.videos.single', compact('video', 'files'));
+        $material = Material::find($video->material_id);
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.videos.single', compact('video', 'files', 'material', 'subjectcat', 'subject'));
     }
 
     public function knowledge_videos_create(Material $material) 
@@ -334,6 +366,26 @@ class AdminController extends Controller
         sort($files);
 
         return view('dashboard.knowledge.videos.create', compact('material', 'subjectcat', 'subject', 'files'));
+    }
+
+    public function knowledge_videos_category(Request $request)
+    {
+        $material = Material::find($request->material);
+
+        $title = App::currentLocale() . 'Title';
+
+        $videos = Video::select('videos.id', 'videos.material_id', 'videos.category', 'videos.' . $title . ' as title', 'videos.priority', 'videos.ruCategory')
+                            ->where('material_id', $request->material)
+                            ->where('category', $request->category)
+                            ->orderBy('priority', 'asc')
+                            ->paginate(30);
+        
+        $rank = $videos->firstItem();
+
+        $subjectcat = Subjectcat::find($material->subjectcat_id);
+        $subject = Subject::find($subjectcat->subject_id);
+
+        return view('dashboard.knowledge.videos.category', compact('material', 'subjectcat', 'subject', 'videos', 'rank'));
     }
     // -----------------------------------Knowledge end-------------------------------------------
 

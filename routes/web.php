@@ -181,6 +181,8 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::get('/dashboard/knowledge/books', 'AdminController@knowledge_books')->name('dashboard.knowledge.books');
       Route::get('/dashboard/knowledge/books/{id}', 'AdminController@knowledge_books_single')->name('dashboard.knowledge.books.single');
       Route::get('/dashboard/knowledge/books_create/{material}', 'AdminController@knowledge_books_create')->name('dashboard.knowledge.books.create');
+      Route::get('/dashboard/knowledge/books_category', 'AdminController@knowledge_books_category')->name('dashboard.knowledge.books.category');
+
       Route::post('/store_books', 'KnowledgeController@books_store');
       Route::post('/update_books', 'KnowledgeController@books_update');
       Route::post('/remove_books', 'KnowledgeController@books_remove');
@@ -188,6 +190,8 @@ Route::post('/ideas/download_file', 'IdeaController@download_file');
       Route::get('/dashboard/knowledge/videos', 'AdminController@knowledge_videos')->name('dashboard.knowledge.videos');
       Route::get('/dashboard/knowledge/videos/{id}', 'AdminController@knowledge_videos_single')->name('dashboard.knowledge.videos.single');
       Route::get('/dashboard/knowledge/videos_create/{material}', 'AdminController@knowledge_videos_create')->name('dashboard.knowledge.videos.create');
+      Route::get('/dashboard/knowledge/videos_category', 'AdminController@knowledge_videos_category')->name('dashboard.knowledge.videos.category');
+
       Route::post('/store_knowledge_videos', 'KnowledgeController@videos_store');
       Route::post('/update_knowledge_videos', 'KnowledgeController@videos_update');
       Route::post('/remove_knowledge_videos', 'KnowledgeController@videos_remove');

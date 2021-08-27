@@ -162,14 +162,19 @@
 
             @case('dashboard.knowledge.books.single') 
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
                <a href="{{ route('dashboard.knowledge.books.single', $book->id) }}"><span>{{ $book->title }}</span></a>
             @break
 
             @case('dashboard.knowledge.books.create') 
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.books') }}"><span>{{ __('Книги') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.books.create', $material->id) }}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.create', $material->id) }}"><span>{{__('Добавить')}}</span></a>
+            @break
+
+            @case('dashboard.knowledge.books.category') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.books.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
             @break
 
             @case('dashboard.knowledge.videos')
@@ -179,14 +184,19 @@
 
             @case('dashboard.knowledge.videos.single') 
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
                <a href="{{ route('dashboard.knowledge.videos.single', $video->id) }}"><span>{{ __($video->ruTitle) }}</span></a>
             @break
 
             @case('dashboard.knowledge.videos.create') 
                <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.videos') }}"><span>{{ __('Видео') }}</span></a>
-               <a href="{{ route('dashboard.knowledge.videos.create', $material->id) }}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.create', $material->id) }}"><span>{{__('Добавить')}}</span></a>
+            @break
+
+            @case('dashboard.knowledge.videos.category') 
+               <a href="{{ route('dashboard.knowledge.index') }}"><span>{{ __('Центр знаний') }}</span></a>
+               <a href="{{ route('dashboard.knowledge.videos.category')}}?material={{$material->id}}&category={{$material->category}}"><span>{{__($subject->name)}}/{{__($subjectcat->name)}}/{{__($material->name)}}</span></a>
             @break
          
             @case('dashboard.structure.index')

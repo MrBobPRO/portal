@@ -52,8 +52,8 @@
          </div>
 
          <div class="input-container-blocked">
-               <label>{{__('Заголовок на английском')}}<span class="required">*</span></label>
-               <input type="text" name="enTitle" required>
+            <label>{{__('Заголовок на английском')}}<span class="required">*</span></label>
+            <input type="text" name="enTitle" required>
          </div>
 
          <div class="input-container-blocked">
