@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Ads;
-use App\Models\Complaint;
 use App\Models\Idea;
 use Illuminate\Support\ServiceProvider;
 use App\Models\News;
@@ -40,18 +39,14 @@ class AppServiceProvider extends ServiceProvider
 
         // share route name
         view()->composer(['templates.master', 'templates.no_sidebar_master', 'dashboard.templates.master', 'dashboard.templates.no_sidebar_master', 'templates.breadcrumbs'], function ($view) {
+
             $view->with('route', \Route::currentRouteName());
+
         });
 
-        //share notifications count with toolbar
+        //share notifications count & new questionnaires count with toolbar
         view()->composer('templates.toolbar', function ($view) {
-            $view->with('notificationsCount', Notification::where('new', true)
-                 ->where('user_id', Auth::user()->id)
-                 ->count());
-        });
 
-        //share new questionnaires count with toolbar
-        view()->composer('templates.toolbar', function ($view) {
             $user = Auth::user();
             $userCreatedAt = \Carbon\Carbon::parse($user->created_at);
             $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
@@ -61,11 +56,18 @@ class AppServiceProvider extends ServiceProvider
             $viewedCount = Viewed::whereDate('created_at', '>=', $formatted)->where('source', 'questionnaire')->where('user_id', $user->id)->count();
             $newQuestionnairesCount = $questionnairesCount - $viewedCount;
 
-            $view->with('newQuestionnairesCount', $newQuestionnairesCount);
+            $nootificationsCount = Notification::where('new', true)
+                                    ->where('user_id', Auth::user()->id)
+                                    ->count();
+
+            $view->with('notificationsCount', $nootificationsCount)
+                 ->with('newQuestionnairesCount', $newQuestionnairesCount);
+
         });
 
         //share new ideas count with dashboard
         view()->composer('templates.dashboard', function ($view) {
+
             $user = Auth::user();
             $userCreatedAt = \Carbon\Carbon::parse($user->created_at);
             $formatted = $userCreatedAt->isoFormat('YYYY-MM-DD');
@@ -76,43 +78,27 @@ class AppServiceProvider extends ServiceProvider
             $newIdeasCount = $ideasCount - $viewedCount;
 
             $view->with('newIdeasCount', $newIdeasCount);
+
         });
 
-        //sidebar ads
+        //sidebar ads & news & birthdays
         view()->composer(['templates.sidebar', 'home.index'], function ($view) {
+
             $ads = Ads::latest()->get();
-            $view->with('ads', $ads);
-        });
-
-        //sidebar news
-        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
             $latest_news = News::latest()->take(2)->get();
-            $view->with('latest_news', $latest_news);
-        });
 
-        //sidebar birthdays
-        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
             $todayBDs = User::whereMonth('birth_date', date('m'))
-            ->whereDay('birth_date', date('d'))
-            ->get();
+                                ->whereDay('birth_date', date('d'))
+                                ->get();
 
-            $view->with('todayBDs', $todayBDs);
-        });
-
-        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
             $tomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 1 day')))
-                            ->whereDay('birth_date', date('d', strtotime('+ 1 day')))
-                            ->get();
-            $view->with('tomorrowBDs', $tomorrowBDs);
-        });
+                                ->whereDay('birth_date', date('d', strtotime('+ 1 day')))
+                                ->get();
 
-        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
             $afterTomorrowBDs = User::whereMonth('birth_date', date('m', strtotime('+ 2 day')))
                                 ->whereDay('birth_date', date('d', strtotime('+ 2 day')))
                                 ->get();
-            $view->with('afterTomorrowBDs', $afterTomorrowBDs);
-        });
-        view()->composer(['templates.sidebar', 'home.index'], function ($view) {
+            
             $soonBD3 = User::whereMonth('birth_date', date('m', strtotime('+ 3 day')))
                                 ->whereDay('birth_date', date('d', strtotime('+ 3 day')))
                                 ->get();
@@ -135,7 +121,14 @@ class AppServiceProvider extends ServiceProvider
 
             $soonBDs = [$soonBD3, $soonBD4, $soonBD5, $soonBD6, $soonBD7];
 
-            $view->with('soonBDs', $soonBDs);
+            $view->with('ads', $ads)
+                ->with('latest_news', $latest_news)
+                ->with('todayBDs', $todayBDs)
+                ->with('tomorrowBDs', $tomorrowBDs)
+                ->with('afterTomorrowBDs', $afterTomorrowBDs)
+                ->with('soonBDs', $soonBDs);
+                
         });
+
     }
 }
