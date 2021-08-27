@@ -294,11 +294,13 @@ class AdminController extends Controller
                         ->orderBy($title, 'asc')
                         ->get();
 
-        $videos = Video::select('videos.id', 'videos.' . $title . ' as title', 'videos.ruCategory', 'videos.created_at')
-                        ->latest() 
+        $videos = Video::select('videos.id', 'videos.' . $title . ' as title', 'videos.priority', 'videos.ruCategory', 'videos.created_at')
+                        ->orderBy('priority', 'asc') 
                         ->paginate(30);
 
-        return view('dashboard.knowledge.videos.index', compact('videos', 'allVideos'));
+        $rank = $videos->firstItem();
+
+        return view('dashboard.knowledge.videos.index', compact('videos', 'allVideos', 'rank'));
     }
 
     public function knowledge_videos_single($id) 

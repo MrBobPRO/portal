@@ -60,6 +60,11 @@
             <img class="form-image" src="{{asset('videos/knowledge/posters/' . $video->poster)}}">
          </div>
 
+         <div class="input-container-blocked">
+            <label>{{__('Приоритет')}}</label>
+            <input type="number" step="0.01" name="priority" value="{{$video->priority}}">
+         </div>
+
          <div class="spaced-btw-btns">
             <button class="main-btn" type="submit"><span class="material-icons-outlined">edit</span> {{__('Сохранить изменения')}}</button>
             <button class="main-btn delete-btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><span class="material-icons-outlined">delete</span> {{__('Удалить')}}</button>

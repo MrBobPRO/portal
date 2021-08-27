@@ -68,7 +68,7 @@ class KnowledgeController extends Controller
         $videos = Video::where('material_id', $material->id)
                         ->where('category', $material->category)
                         ->select('videos.poster', 'videos.from_catalog', 'videos.filename', 'videos.subtitles', 'videos.' . $title . ' as title', 'created_at')
-                        ->oldest()
+                        ->orderBy('priority', 'asc')
                         ->paginate(16);
         
         //used in breadcrumbs       
@@ -232,6 +232,7 @@ class KnowledgeController extends Controller
             $video->filename = $request->catalog;
         }
 
+        $video->priority = $request->priority;
         $video->save();
 
         // Change subtitles

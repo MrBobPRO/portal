@@ -81,7 +81,7 @@ class SecondSeeder extends Seeder
         $c->created_at = date_create_from_format('Y-m-d H:i:s', '2021-05-24 13:12:27');
         $c->save();
 
-        //Intertainment
+        //Entertainment
         $enter = ['Властелин колец','Храброе сердцем','Один дома','Форсаж 9','Митохондриа','Бегущий в лабиринте'];
         for ($i=0; $i < count($enter); $i++) {
             $ent = new Entertainment;
@@ -222,7 +222,7 @@ class SecondSeeder extends Seeder
                                                     'category' => 'lessons']]]]
             ],
             [   'name' => 'Русский',
-                'categories' => [[  'name'=> 'ТРКИ-1',
+                'categories' => [[  'name'=> 'Грамматика',
                                     'materials'=> [['name' => 'Классная книга',
                                                     'type' => 'book',
                                                     'category' => 'coursebook'],
@@ -232,7 +232,7 @@ class SecondSeeder extends Seeder
                                                    ['name' => 'Видео уроки',
                                                     'type' => 'video',
                                                     'category' => 'lessons']]],
-                                 [  'name'=> 'ТРКИ-2',
+                                 [  'name'=> 'Фонетика',
                                     'materials'=> [['name' => 'Классная книга',
                                                     'type' => 'book',
                                                     'category' => 'coursebook'],
@@ -242,7 +242,7 @@ class SecondSeeder extends Seeder
                                                    ['name' => 'Видео уроки',
                                                     'type' => 'video',
                                                     'category' => 'lessons']]],
-                                 [  'name'=> 'ТРКИ-3',
+                                 [  'name'=> 'Синтаксис',
                                     'materials'=> [['name' => 'Классная книга',
                                                     'type' => 'book',
                                                     'category' => 'coursebook'],
@@ -252,7 +252,7 @@ class SecondSeeder extends Seeder
                                                    ['name' => 'Видео уроки',
                                                     'type' => 'video',
                                                     'category' => 'lessons']]],
-                                 [  'name'=> 'ТРКИ-4',
+                                 [  'name'=> 'Пунктуация',
                                     'materials'=> [['name' => 'Классная книга',
                                                     'type' => 'book',
                                                     'category' => 'coursebook'],
@@ -261,7 +261,27 @@ class SecondSeeder extends Seeder
                                                     'category' => 'workbook'],
                                                    ['name' => 'Видео уроки',
                                                     'type' => 'video',
-                                                    'category' => 'lessons']]]]
+                                                    'category' => 'lessons']]],
+                                 [  'name' => 'Морфология',
+                                    'materials' => [['name' => 'Классная книга',
+                                                     'type' => 'book',
+                                                     'category' => 'coursebook'],
+                                                    ['name' => 'Рабочая книга',
+                                                     'type' => 'book',
+                                                     'category' => 'workbook'],
+                                                    ['name' => 'Видео уроки',
+                                                     'type' => 'video',
+                                                     'category' => 'lessons']]],
+                                 [  'name' => 'Словарь',
+                                    'materials' => [['name' => 'Классная книга',
+                                                     'type' => 'book',
+                                                     'category' => 'coursebook'],
+                                                    ['name' => 'Рабочая книга',
+                                                     'type' => 'book',
+                                                     'category' => 'workbook'],
+                                                    ['name' => 'Видео уроки',
+                                                     'type' => 'video',
+                                                     'category' => 'lessons']]]]
             ],
             [   'name' => 'Бизнес',
                 'categories' => [[  'name'=> 'Книги',
@@ -285,15 +305,27 @@ class SecondSeeder extends Seeder
                                                     'type' => 'book',
                                                     'category' => 'selectedLiterature']]],
                                  [  'name'=> 'Видео',
-                                    'materials'=> [['name' => 'Надземная работа',
+                                    'materials'=> [['name' => 'Генерация',
                                                     'type' => 'video',
-                                                    'category' => 'overheadWork'],
-                                                   ['name' => 'Подземная работа',
+                                                    'category' => 'generation'],
+                                                   ['name' => 'Блочные Тр-ры',
                                                     'type' => 'video',
-                                                    'category' => 'undergroundWork'],
-                                                   ['name' => 'Верхолазная работа',
+                                                    'category' => 'block'],
+                                                    ['name' => 'ПС',
                                                     'type' => 'video',
-                                                    'category' => 'climbingWork']]],
+                                                    'category' => 'ps'],
+                                                   ['name' => 'ВЛ',
+                                                    'type' => 'video',
+                                                    'category' => 'vl'],
+                                                   ['name' => 'РЗиА',
+                                                    'type' => 'video',
+                                                    'category' => 'rz'],
+                                                   ['name' => 'Учёт электроэнергии',
+                                                    'type' => 'video',
+                                                    'category' => 'electrometer'],
+                                                   ['name' => 'АСУТП',
+                                                    'type' => 'video',
+                                                    'category' => 'asut']]],
                                  [  'name'=> 'Для разряда',
                                     'materials'=> [['name' => 'Вопросник для разрядов (2,6).',
                                                     'type' => 'book',
@@ -328,7 +360,7 @@ class SecondSeeder extends Seeder
                                                    ['name' => 'Видео',
                                                     'type' => 'video',
                                                     'category' => 'lessons']]],
-                                 [  'name'=> 'AutoCAD',
+                                 [  'name'=> 'AutoCAD 2020',
                                     'materials'=> [['name' => 'Литература AutoCAD',
                                                     'type' => 'book',
                                                     'category' => 'literature'],
@@ -342,7 +374,7 @@ class SecondSeeder extends Seeder
                                                    ['name' => 'Видео',
                                                     'type' => 'video',
                                                     'category' => 'lessons']]],
-                                 [  'name'=> 'ArchiCAD',
+                                 [  'name'=> 'ArchiCAD 2018',
                                     'materials'=> [['name' => 'Литература ArchiCAD',
                                                     'type' => 'book',
                                                     'category' => 'literature'],
@@ -388,7 +420,7 @@ class SecondSeeder extends Seeder
 
         for($i=0; $i<count($ruTitle); $i++) {
             $videos = new Video;
-            $videos->material_id = 41;
+            $videos->material_id = 51;
             $videos->category = 'lessons';
             $videos->ruCategory = 'Видео';
             $videos->filename = $file[$i];
@@ -397,6 +429,7 @@ class SecondSeeder extends Seeder
             $videos->enTitle = $enTitle[$i];
             $videos->from_catalog = 0;
             $videos->created_at = $d[$i];
+            $videos->priority = $i + 1;
             $videos->save();
         }
 

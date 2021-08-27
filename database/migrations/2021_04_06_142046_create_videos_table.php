@@ -25,6 +25,7 @@ class CreateVideosTable extends Migration
             $table->boolean('from_catalog');
             $table->string('subtitles')->nullable();
             $table->string('poster')->default('default.jpg');
+            $table->float('priority');
             $table->timestamps();
         });
     }
