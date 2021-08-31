@@ -302,7 +302,7 @@ class AdminController extends Controller
         $books = Book::select('books.id', 'books.material_id', 'books.category', 'books.' . $title . ' as title', 'books.ruCategory')
                         ->where('material_id', $request->material)
                         ->where('category', $request->category)
-                        ->orderBy($title)
+                        ->orderBy('created_at', 'asc')
                         ->paginate(30);
 
         $rank = $books->firstItem();
